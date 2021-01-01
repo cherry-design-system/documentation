@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import { Page } from "../components/Pages";
-import { Container, Row, Col, Space, H1 } from "../components/Layout";
+import { Container, Row, Col, Space, H1, Button } from "../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -19,6 +19,72 @@ function Index({ posts = [] }) {
 							Customizable and scalable, ready to be used out of
 							the box.
 						</p>
+						<Button>Hello</Button>
+						<br />
+						<br />
+						<Button variant="secondary">Hello</Button>
+						<br />
+						<br />
+						<Button variant="tertiary">Hello</Button>
+						<br />
+						<br />
+						<Button disabled>Hello</Button>
+						<br />
+						<br />
+						<Button frame>Hello</Button>
+						<br />
+						<br />
+						<Button frame variant="secondary">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button frame variant="tertiary">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button frame disabled>
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button size="big">Hello</Button>
+						<br />
+						<br />
+						<Button variant="secondary" size="big">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button variant="tertiary" size="big">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button disabled size="big">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button frame size="big">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button frame variant="secondary" size="big">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button frame variant="tertiary" size="big">
+							Hello
+						</Button>
+						<br />
+						<br />
+						<Button frame disabled size="big">
+							Hello
+						</Button>
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
 						<Image

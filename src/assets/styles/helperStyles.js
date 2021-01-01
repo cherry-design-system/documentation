@@ -6,9 +6,11 @@ export const resetButtonStyles = css`
 	border: none;
 	border-radius: 0;
 	cursor: pointer;
+	padding: 0;
+	margin: 0;
 `;
 
-export const noListStyles = css`
+export const resetListStyles = css`
 	list-style: none;
 	margin: 0;
 	padding: 0;

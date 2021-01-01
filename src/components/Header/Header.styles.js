@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { resetListStyles } from "../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../assets/styles/mq";
 
 export const headerStyles = (theme) => css`
@@ -19,7 +20,7 @@ export const headerStyles = (theme) => css`
 		}
 
 		& ul {
-			list-style: none;
+			${resetListStyles};
 			margin: auto -10px auto 0;
 			padding: 0;
 			display: flex;
