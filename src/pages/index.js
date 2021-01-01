@@ -2,7 +2,15 @@ import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import { Page } from "../components/Pages";
-import { Container, Row, Col, Space, H1, Button } from "../components/Layout";
+import {
+	Container,
+	Row,
+	Col,
+	Space,
+	H1,
+	Button,
+	Input,
+} from "../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -85,6 +93,9 @@ function Index({ posts = [] }) {
 						<Button frame disabled size="big">
 							Hello
 						</Button>
+						<br />
+						<br />
+						<Input />
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
 						<Image
