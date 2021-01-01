@@ -8,6 +8,7 @@ export const headerStyles = (theme) => css`
 	left: 0;
 	background: ${theme.colors.light};
 	width: 100%;
+	z-index: 9999;
 
 	& [data-inner-wrapper] {
 		padding: 20px 0;
