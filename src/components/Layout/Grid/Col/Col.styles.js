@@ -117,7 +117,8 @@ const colStyles = (
 	lastXxxl,
 	display,
 ) => css`
-	${display && css`
+	${display &&
+	css`
 		display: ${display};
 	`}
 

@@ -144,7 +144,7 @@ const globalStyles = (
 				width: auto;
 				height: auto;
 				border-style: none;
-				object-fit: contain
+				object-fit: contain;
 			}
 
 			strong,

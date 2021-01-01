@@ -24,7 +24,11 @@ function Header() {
 								</a>
 							</Link>
 						</li>
-						<li><a href="#"><GitHub /></a></li>
+						<li>
+							<a href="#">
+								<GitHub />
+							</a>
+						</li>
 					</ul>
 				</div>
 			</Container>

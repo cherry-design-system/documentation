@@ -12,7 +12,8 @@ export const favIcon =
 	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/favicon.ico";
 export const safariPinnedTab =
 	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/512.svg";
-export const preview = "https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/preview.png";
+export const preview =
+	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/preview.png";
 
 const Page = ({
 	title = "Cherry",
