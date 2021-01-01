@@ -7,26 +7,26 @@ function Row({
 	children,
 	alignItems,
 	justifyContent,
-	gapsXs = "default",
-	gapsSm,
-	gapsMd,
-	gapsLg,
-	gapsXl,
-	gapsXxl,
-	gapsXxxl,
+	gutterXs = "default",
+	gutterSm,
+	gutterMd,
+	gutterLg,
+	gutterXl,
+	gutterXxl,
+	gutterXxxl,
 }) {
 	return (
 		<div
 			css={rowStyles(
 				alignItems,
 				justifyContent,
-				gapsXs,
-				gapsSm,
-				gapsMd,
-				gapsLg,
-				gapsXl,
-				gapsXxl,
-				gapsXxxl,
+				gutterXs,
+				gutterSm,
+				gutterMd,
+				gutterLg,
+				gutterXl,
+				gutterXxl,
+				gutterXxxl,
 			)}
 			id={id}
 			className={className}

@@ -10,13 +10,13 @@ const row = css`
 const rowStyles = (
 	alignItems,
 	justifyContent,
-	gapsXs,
-	gapsSm,
-	gapsMd,
-	gapsLg,
-	gapsXl,
-	gapsXxl,
-	gapsXxxl,
+	gutterXs,
+	gutterSm,
+	gutterMd,
+	gutterLg,
+	gutterXl,
+	gutterXxl,
+	gutterXxxl,
 ) => (theme) => css`
 	${row}
 	${alignItems === "stretch" &&
@@ -80,7 +80,7 @@ const rowStyles = (
 	`}
 
 	${mq(Breakpoints.xs)} {
-		${gapsXs === "default" &&
+		${gutterXs === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -92,7 +92,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXs === "medium" &&
+		${gutterXs === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -104,7 +104,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXs === "big" &&
+		${gutterXs === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
@@ -118,7 +118,7 @@ const rowStyles = (
 	}
 
 	${mq(Breakpoints.sm)} {
-		${gapsSm === "default" &&
+		${gutterSm === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -130,7 +130,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsSm === "medium" &&
+		${gutterSm === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -142,7 +142,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsSm === "big" &&
+		${gutterSm === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
@@ -156,7 +156,7 @@ const rowStyles = (
 	}
 
 	${mq(Breakpoints.md)} {
-		${gapsMd === "default" &&
+		${gutterMd === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -168,7 +168,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsMd === "medium" &&
+		${gutterMd === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -180,7 +180,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsMd === "big" &&
+		${gutterMd === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
@@ -194,7 +194,7 @@ const rowStyles = (
 	}
 
 	${mq(Breakpoints.lg)} {
-		${gapsLg === "default" &&
+		${gutterLg === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -206,7 +206,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsLg === "medium" &&
+		${gutterLg === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -218,7 +218,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsLg === "big" &&
+		${gutterLg === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
@@ -232,7 +232,7 @@ const rowStyles = (
 	}
 
 	${mq(Breakpoints.xl)} {
-		${gapsXl === "default" &&
+		${gutterXl === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -244,7 +244,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXl === "medium" &&
+		${gutterXl === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -256,7 +256,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXl === "big" &&
+		${gutterXl === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
@@ -270,7 +270,7 @@ const rowStyles = (
 	}
 
 	${mq(Breakpoints.xxl)} {
-		${gapsXxl === "default" &&
+		${gutterXxl === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -282,7 +282,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXxl === "medium" &&
+		${gutterXxl === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -294,7 +294,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXxl === "big" &&
+		${gutterXxl === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
@@ -308,7 +308,7 @@ const rowStyles = (
 	}
 
 	${mq(Breakpoints.xxxl)} {
-		${gapsXxxl === "default" &&
+		${gutterXxxl === "default" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.default};
 			margin-left: ${theme.spacing.marginRow.default};
@@ -320,7 +320,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXxxl === "medium" &&
+		${gutterXxxl === "medium" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.medium};
 			margin-left: ${theme.spacing.marginRow.medium};
@@ -332,7 +332,7 @@ const rowStyles = (
 			}
 		`}
 
-		${gapsXxxl === "big" &&
+		${gutterXxxl === "big" &&
 		css`
 			margin-right: ${theme.spacing.marginRow.big};
 			margin-left: ${theme.spacing.marginRow.big};
