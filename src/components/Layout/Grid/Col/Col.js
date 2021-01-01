@@ -29,6 +29,7 @@ function Col({
 	lastXl,
 	lastXxl,
 	lastXxxl,
+	display,
 }) {
 	return (
 		<div
@@ -57,6 +58,7 @@ function Col({
 				lastXl,
 				lastXxl,
 				lastXxxl,
+				display,
 			)}
 			className={className}
 			id={id}

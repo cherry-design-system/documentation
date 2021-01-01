@@ -115,7 +115,12 @@ const colStyles = (
 	lastXl,
 	lastXxl,
 	lastXxxl,
+	display,
 ) => css`
+	${display && css`
+		display: ${display};
+	`}
+
 	${textAlign === "left" &&
 	css`
 		text-align: left;

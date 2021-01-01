@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { Breakpoints, mq } from "../../../assets/styles/mq";
 
-const headerStyles = (theme, size, h) => css`
+const makeHeadingStyles = (theme, size, h) => css`
 	font-family: ${theme.fonts.head};
 	font-weight: 800;
 	margin: 0;
@@ -173,4 +173,4 @@ const headerStyles = (theme, size, h) => css`
 	`}
 `;
 
-export { headerStyles };
+export { makeHeadingStyles };
