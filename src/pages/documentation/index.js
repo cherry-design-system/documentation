@@ -35,6 +35,7 @@ function Index({ posts = [] }) {
 							width={94.6}
 							height={127}
 						/>
+						<strong data-secondary>Design</strong>
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
@@ -46,6 +47,7 @@ function Index({ posts = [] }) {
 							width={113.89}
 							height={127}
 						/>
+						<strong data-tertiary>Code</strong>
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
@@ -57,6 +59,7 @@ function Index({ posts = [] }) {
 							width={138.37}
 							height={127}
 						/>
+						<strong data-primary>Scale</strong>
 					</Box>
 				</Col>
 			</Row>
