@@ -4,6 +4,7 @@ import { Breakpoints, mq } from "../../../assets/styles/mq";
 
 export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${resetButtonStyles};
+	display: inline-block;
 	line-height: 1;
 	vertical-align: middle;
 
@@ -36,6 +37,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
+				color: ${theme.colors.light};
 				background: ${theme.colors.primaryDark};
 				border-color: ${theme.colors.primaryDark};
 			}
@@ -89,6 +91,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
+				color: ${theme.colors.light};
 				background: ${theme.colors.secondaryDark};
 				border-color: ${theme.colors.secondaryDark};
 			}
@@ -142,6 +145,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
+				color: ${theme.colors.light};
 				background: ${theme.colors.tertiaryDark};
 				border-color: ${theme.colors.tertiaryDark};
 			}

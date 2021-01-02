@@ -7,14 +7,12 @@ import {
 	Row,
 	Col,
 	Space,
-	H1,
 	Button,
-	Input,
-	Select,
-	Textarea,
+	H1,
 	H2,
 	H3,
 	H4,
+	Link,
 } from "../components/Layout";
 
 function Index({ posts = [] }) {
@@ -34,7 +32,9 @@ function Index({ posts = [] }) {
 							the box.
 						</p>
 						<Space xsSize={10} lgSize={20} />
-						<Button>Get Started</Button>
+						<Link href="/documentation" as="/documentation">
+							Get Started
+						</Link>
 						<Space xsSize={10} lgSize="none" />
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
@@ -126,7 +126,9 @@ function Index({ posts = [] }) {
 				<Row>
 					<Col xs={12} textAlign="center">
 						<Space xsSize={20} lgSize={80} />
-						<Button>Get Started</Button>
+						<Link href="/documentation" as="/documentation">
+							Get Started
+						</Link>
 						<Space xsSize={30} lgSize={80} />
 					</Col>
 				</Row>

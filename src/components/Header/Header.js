@@ -17,7 +17,7 @@ function Header() {
 					</Link>
 					<ul>
 						<li>
-							<Link href="/" as="/">
+							<Link href="/documentation" as="/documentation">
 								<a>
 									<span data-desktop>Documentation</span>
 									<span data-mobile>Docs</span>
