@@ -41,6 +41,18 @@ export const headerStyles = (theme) => css`
 						line-height: ${theme.sizes.button.lineheight.desktop};
 					}
 
+					&[data-github] {
+						& svg {
+							opacity: 0.5;
+
+							@media (hover: hover) {
+								&:hover {
+									opacity: 1;
+								}
+							}
+						}
+					}
+
 					& [data-mobile] {
 						${mq(Breakpoints.lg)} {
 							display: none;

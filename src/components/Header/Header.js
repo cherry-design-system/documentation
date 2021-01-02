@@ -30,7 +30,7 @@ function Header() {
 							</Link>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" data-github>
 								<GitHub />
 							</a>
 						</li>

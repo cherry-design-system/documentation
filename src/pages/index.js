@@ -126,7 +126,11 @@ function Index({ posts = [] }) {
 				<Row>
 					<Col xs={12} textAlign="center">
 						<Space xsSize={20} lgSize={80} />
-						<Link href="/documentation" as="/documentation" size="big">
+						<Link
+							href="/documentation"
+							as="/documentation"
+							size="big"
+						>
 							Get Started
 						</Link>
 						<Space xsSize={30} lgSize={80} />
