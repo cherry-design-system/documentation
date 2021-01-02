@@ -17,7 +17,7 @@ import {
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Home" description="Hello world">
+		<Page title="Design System">
 			<Container>
 				<Space xsSize={20} lgSize={150} />
 				<Row gutterLg="medium">
@@ -54,8 +54,8 @@ function Index({ posts = [] }) {
 						<H2 size="h1">Start with design</H2>
 						<p>
 							You start by designing your website. Cherry provides
-							a design template that defines all standard web
-							patterns and typographys.
+							a template that defines all standard web patterns
+							and typographys for your design system.
 						</p>
 						<Space xsSize={10} lgSize={20} />
 						<Button variant="secondary" frame>
@@ -78,9 +78,9 @@ function Index({ posts = [] }) {
 					<Col xs={12} lg={8}>
 						<H3 size="h1">Code your design</H3>
 						<p>
-							All the design patterns are implemented in various
-							modern front-end technologies or can be used as
-							components.
+							Each design element comes with a code implemented in
+							various modern front-end technologies or can be used
+							as components.
 						</p>
 						<Space xsSize={10} lgSize={20} />
 						<Button variant="tertiary" frame>
