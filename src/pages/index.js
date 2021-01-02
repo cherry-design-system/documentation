@@ -1,6 +1,10 @@
 import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import ReactMarkdown from "react-markdown";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
 import { Page } from "../components/Pages";
 import {
 	Container,
@@ -13,6 +17,32 @@ import {
 	Select,
 	Textarea,
 } from "../components/Layout";
+
+const markdown = `Here is some JavaScript code:
+ 
+~~~jsx
+console.log('It works!')
+const CodeBlock = ({ language, value }) => {
+	return (
+		<SyntaxHighlighter showLineNumbers={true} language={language}>
+			{value}
+		</SyntaxHighlighter>
+	);
+};
+~~~
+`;
+
+const CodeBlock = ({ language, value }) => {
+	return (
+		<SyntaxHighlighter
+			showLineNumbers={true}
+			language={language}
+			style={materialDark}
+		>
+			{value}
+		</SyntaxHighlighter>
+	);
+};
 
 function Index({ posts = [] }) {
 	return (
@@ -194,7 +224,7 @@ function Index({ posts = [] }) {
 						</Select>
 						<br />
 						<br />
-						<Textarea size="big">Hello world</Textarea>
+						<Textarea size="big" value="Hello world" />
 						<br />
 						<br />
 					</Col>
@@ -207,6 +237,12 @@ function Index({ posts = [] }) {
 						/>
 					</Col>
 				</Row>
+				<Space xsSize={20} lgSize={150} />
+				<ReactMarkdown
+					escapeHtml={true}
+					source={markdown}
+					renderers={{ code: CodeBlock }}
+				/>
 				<Space xsSize={20} lgSize={150} />
 			</Container>
 		</Page>

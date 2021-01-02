@@ -71,6 +71,10 @@ const globalStyles = (
 				font-family: monospace, monospace;
 			}
 
+			pre {
+				border-radius: 6px;
+			}
+
 			small {
 				font-size: ${theme.sizes.small.size.mobile};
 				line-height: ${theme.sizes.small.lineheight.mobile};
