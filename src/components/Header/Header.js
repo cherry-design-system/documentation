@@ -1,14 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Logo } from "../../assets/svg/Logo";
 import { GitHub } from "../../assets/svg/GitHub";
 import { Container } from "../Layout";
 import { headerStyles } from "./Header.styles";
 
 function Header() {
+	const router = useRouter();
+
 	return (
 		<header css={(theme) => headerStyles(theme)}>
-			<Container>
+			<Container
+				fluid={router.pathname === "/documentation" ? true : false}
+			>
 				<div data-inner-wrapper>
 					<Link href="/" as="/">
 						<a>
