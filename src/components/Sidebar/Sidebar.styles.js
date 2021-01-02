@@ -64,6 +64,12 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 					border-radius: 6px;
 					font-weight: 500;
 					color: ${theme.colors.dark};
+
+					@media (hover: hover) {
+						&:hover {
+							color: ${theme.colors.primary};
+						}
+					}
 				}
 			}
 

@@ -58,9 +58,14 @@ function Index({ posts = [] }) {
 							and typographys for your design system.
 						</p>
 						<Space xsSize={10} lgSize={20} />
-						<Button variant="secondary" frame>
+						<Link
+							variant="secondary"
+							frame
+							href="/documentation/design"
+							as="/documentation/design"
+						>
 							Design
-						</Button>
+						</Link>
 					</Col>
 					<Col xs={12} lg={4} textAlign="right">
 						<Image
@@ -83,9 +88,14 @@ function Index({ posts = [] }) {
 							as components.
 						</p>
 						<Space xsSize={10} lgSize={20} />
-						<Button variant="tertiary" frame>
+						<Link
+							variant="tertiary"
+							frame
+							href="/documentation/code"
+							as="/documentation/code"
+						>
 							Code
-						</Button>
+						</Link>
 					</Col>
 					<Col xs={12} lg={4} textAlign="right">
 						<Image
@@ -108,9 +118,14 @@ function Index({ posts = [] }) {
 							design system has never been easier.
 						</p>
 						<Space xsSize={10} lgSize={20} />
-						<Button variant="primary" frame>
+						<Link
+							variant="primary"
+							frame
+							href="/documentation/scale"
+							as="/documentation/scale"
+						>
 							Scale
-						</Button>
+						</Link>
 					</Col>
 					<Col xs={12} lg={4} textAlign="right">
 						<Image

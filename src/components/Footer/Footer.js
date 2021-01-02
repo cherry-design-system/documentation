@@ -11,7 +11,7 @@ function Footer({ className }) {
 		<footer className={className} css={(theme) => footerStyles(theme)}>
 			<Container
 				textAlign="right"
-				fluid={router.pathname === "/documentation" ? true : false}
+				fluid={router.pathname.includes("/documentation")}
 			>
 				<Space xsSize={40} lgSize={80} />
 				<Logo />

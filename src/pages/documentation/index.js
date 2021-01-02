@@ -1,7 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import { css } from "@emotion/react";
 import { Page } from "../../components/Pages";
-import { Container, Space, H1, Row, Col } from "../../components/Layout";
+import { Container, Space, H1, Row, Col, Box } from "../../components/Layout";
 import { Sidebar } from "../../components/Sidebar";
 
 function Index({ posts = [] }) {
@@ -30,6 +31,41 @@ function Index({ posts = [] }) {
 							are not a designer you can still use Cherry
 							components to build your layouts out of the box.
 						</p>
+						<Space size={20} />
+						<Row>
+							<Col xs={12} lg={4} textAlign="center">
+								<Box href="/" as="/">
+									<Image
+										src="/img/design.png"
+										alt="Design illustration"
+										width={94.6}
+										height={127}
+									/>
+								</Box>
+							</Col>
+							<Col xs={12} lg={4} textAlign="center">
+								<Space xsSize={20} lgSize="none" />
+								<Box href="/" as="/">
+									<Image
+										src="/img/code.png"
+										alt="Code illustration"
+										width={113.89}
+										height={127}
+									/>
+								</Box>
+							</Col>
+							<Col xs={12} lg={4} textAlign="center">
+								<Space xsSize={20} lgSize="none" />
+								<Box href="/" as="/">
+									<Image
+										src="/img/scale.png"
+										alt="Scale illustration"
+										width={138.37}
+										height={127}
+									/>
+								</Box>
+							</Col>
+						</Row>
 					</Col>
 				</Row>
 			</Container>

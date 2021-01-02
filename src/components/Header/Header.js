@@ -11,9 +11,7 @@ function Header() {
 
 	return (
 		<header css={(theme) => headerStyles(theme)}>
-			<Container
-				fluid={router.pathname === "/documentation" ? true : false}
-			>
+			<Container fluid={router.pathname.includes("/documentation")}>
 				<div data-inner-wrapper>
 					<Link href="/" as="/">
 						<a>

@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Burger } from "../Layout/Burger";
 import { sidebarStyles } from "./Sidebar.styles";
 
 function Sidebar({ className }) {
 	const [isMenuOpen, setMenuOpen] = useState(false);
+	const router = useRouter();
+
+	const localRef = React.createRef();
 
 	return (
 		<>
@@ -21,9 +25,13 @@ function Sidebar({ className }) {
 						<strong>Getting started</strong>
 						<ul>
 							<li>
-								<Link href="/" as="/">
+								<Link href="/documentation" as="/documentation">
 									<a
-										className="active"
+										className={
+											router.pathname === "/documentation"
+												? "active"
+												: ""
+										}
 										onClick={() => setMenuOpen(false)}
 									>
 										Introduction
@@ -37,8 +45,19 @@ function Sidebar({ className }) {
 						<strong>Design</strong>
 						<ul>
 							<li>
-								<Link href="/" as="/">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/design"
+									as="/documentation/design"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/design"
+												? "active"
+												: ""
+										}
+									>
 										Introduction
 									</a>
 								</Link>
@@ -99,9 +118,20 @@ function Sidebar({ className }) {
 						<strong>Code</strong>
 						<ul>
 							<li>
-								<Link href="/" as="/">
-									<a onClick={() => setMenuOpen(false)}>
-										Linting & Code Styles
+								<Link
+									href="/documentation/code"
+									as="/documentation/code"
+								>
+									<a
+										className={
+											router.pathname ===
+											"/documentation/code"
+												? "active"
+												: ""
+										}
+										onClick={() => setMenuOpen(false)}
+									>
+										Introduction
 									</a>
 								</Link>
 							</li>
@@ -398,8 +428,19 @@ function Sidebar({ className }) {
 						<strong>Scale</strong>
 						<ul>
 							<li>
-								<Link href="/" as="/">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/scale"
+									as="/documentation/scale"
+								>
+									<a
+										className={
+											router.pathname ===
+											"/documentation/scale"
+												? "active"
+												: ""
+										}
+										onClick={() => setMenuOpen(false)}
+									>
 										Introduction
 									</a>
 								</Link>
