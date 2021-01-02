@@ -11,6 +11,7 @@ import {
 	Button,
 	Input,
 	Select,
+	Textarea,
 } from "../components/Layout";
 
 function Index({ posts = [] }) {
@@ -191,6 +192,9 @@ function Index({ posts = [] }) {
 							<option value="2">2</option>
 							<option value="3">3</option>
 						</Select>
+						<br />
+						<br />
+						<Textarea size="big">Hello world</Textarea>
 						<br />
 						<br />
 					</Col>

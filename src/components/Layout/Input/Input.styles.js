@@ -9,6 +9,7 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 	line-height: 1;
 	vertical-align: middle;
 	margin: 0;
+	font-family: ${theme.fonts.text};
 
 	${size === "default"
 		? css`
@@ -34,7 +35,7 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 		display: block;
 		width: 100%;
 		border-radius: 6px;
-		padding: 15px 25px;
+		padding: 15px 15px;
 		background: ${theme.colors.light};
 		border: solid 2px ${theme.colors.grayLight};
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
