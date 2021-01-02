@@ -91,6 +91,7 @@ const col12 = css`
 `;
 
 const colStyles = (
+	theme,
 	textAlign,
 	xs,
 	sm,
@@ -116,6 +117,7 @@ const colStyles = (
 	lastXxl,
 	lastXxxl,
 	display,
+	fullScreen,
 ) => css`
 	${display &&
 	css`
@@ -145,6 +147,15 @@ const colStyles = (
 	${last &&
 	css`
 		order: -1;
+	`}
+
+	${fullScreen &&
+	css`
+		${mq(Breakpoints.lg)} {
+			height: calc(100vh - ${theme.spacing.paddingTopBody.desktop});
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
 	`}
 
 	${mq(Breakpoints.xs)} {

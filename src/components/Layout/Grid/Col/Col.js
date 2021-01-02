@@ -30,36 +30,41 @@ function Col({
 	lastXxl,
 	lastXxxl,
 	display,
+	fullScreen,
 }) {
 	return (
 		<div
-			css={colStyles(
-				textAlign,
-				xs,
-				sm,
-				md,
-				lg,
-				xl,
-				xxl,
-				xxxl,
-				first,
-				firstXs,
-				firstSm,
-				firstMd,
-				firstLg,
-				firstXl,
-				firstXxl,
-				firstXxxl,
-				last,
-				lastXs,
-				lastSm,
-				lastMd,
-				lastLg,
-				lastXl,
-				lastXxl,
-				lastXxxl,
-				display,
-			)}
+			css={(theme) =>
+				colStyles(
+					theme,
+					textAlign,
+					xs,
+					sm,
+					md,
+					lg,
+					xl,
+					xxl,
+					xxxl,
+					first,
+					firstXs,
+					firstSm,
+					firstMd,
+					firstLg,
+					firstXl,
+					firstXxl,
+					firstXxxl,
+					last,
+					lastXs,
+					lastSm,
+					lastMd,
+					lastLg,
+					lastXl,
+					lastXxl,
+					lastXxxl,
+					display,
+					fullScreen,
+				)
+			}
 			className={className}
 			id={id}
 			data-col
