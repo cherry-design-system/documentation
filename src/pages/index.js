@@ -1,10 +1,6 @@
 import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import ReactMarkdown from "react-markdown";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-
 import { Page } from "../components/Pages";
 import {
 	Container,
@@ -16,33 +12,10 @@ import {
 	Input,
 	Select,
 	Textarea,
+	H2,
+	H3,
+	H4,
 } from "../components/Layout";
-
-const markdown = `Here is some JavaScript code:
- 
-~~~jsx
-console.log('It works!')
-const CodeBlock = ({ language, value }) => {
-	return (
-		<SyntaxHighlighter showLineNumbers={true} language={language}>
-			{value}
-		</SyntaxHighlighter>
-	);
-};
-~~~
-`;
-
-const CodeBlock = ({ language, value }) => {
-	return (
-		<SyntaxHighlighter
-			showLineNumbers={true}
-			language={language}
-			style={materialDark}
-		>
-			{value}
-		</SyntaxHighlighter>
-	);
-};
 
 function Index({ posts = [] }) {
 	return (
@@ -52,6 +25,7 @@ function Index({ posts = [] }) {
 				<Row gutterLg="medium">
 					<Col xs={12} lg={8}>
 						<H1 size="hero1">A design system to build the web.</H1>
+						<Space xsSize="none" lgSize={10} />
 						<p>
 							Cherry is the foundation for your design system,
 							from design to code. With examples of
@@ -59,174 +33,8 @@ function Index({ posts = [] }) {
 							Customizable and scalable, ready to be used out of
 							the box.
 						</p>
-						<Button>Hello</Button>
-						<br />
-						<br />
-						<Button variant="secondary">Hello</Button>
-						<br />
-						<br />
-						<Button variant="tertiary">Hello</Button>
-						<br />
-						<br />
-						<Button disabled>Hello</Button>
-						<br />
-						<br />
-						<Button frame>Hello</Button>
-						<br />
-						<br />
-						<Button frame variant="secondary">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button frame variant="tertiary">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button frame disabled>
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button size="big">Hello</Button>
-						<br />
-						<br />
-						<Button variant="secondary" size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button variant="tertiary" size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button disabled size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button frame size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button frame variant="secondary" size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button frame variant="tertiary" size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Button frame disabled size="big">
-							Hello
-						</Button>
-						<br />
-						<br />
-						<Input />
-						<br />
-						<br />
-						<Input disabled />
-						<br />
-						<br />
-						<Input error />
-						<br />
-						<br />
-						<Input placeholder="Error" success />
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="checkbox"
-							label="Test"
-							id="test"
-						/>
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="checkbox"
-							label="Big"
-							id="testbig"
-							size="big"
-						/>
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="checkbox"
-							label="Test"
-							id="test3c"
-							disabled
-						/>
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="radio"
-							label="Test"
-							id="test2a"
-							name="testa"
-						/>
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="radio"
-							label="Test"
-							id="test3b"
-							name="test2"
-						/>
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="radio"
-							label="Test"
-							id="test3bc"
-							name="test2"
-							size="big"
-						/>
-						<br />
-						<br />
-						<Input
-							placeholder="Error"
-							type="radio"
-							label="Test"
-							id="test323"
-							name="test2"
-							size="big"
-						/>
-						<br />
-						<br />
-						<Select>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</Select>
-						<br />
-						<br />
-						<Select disabled>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</Select>
-						<br />
-						<br />
-						<Select size="big">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</Select>
-						<br />
-						<br />
-						<Textarea size="big" value="Hello world" />
-						<br />
-						<br />
+						<Space xsSize="none" lgSize={20} />
+						<Button>Get Started</Button>
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
 						<Image
@@ -238,12 +46,89 @@ function Index({ posts = [] }) {
 					</Col>
 				</Row>
 				<Space xsSize={20} lgSize={150} />
-				<ReactMarkdown
-					escapeHtml={true}
-					source={markdown}
-					renderers={{ code: CodeBlock }}
-				/>
-				<Space xsSize={20} lgSize={150} />
+				<hr />
+				<Space xsSize={20} lgSize={80} />
+				<Row>
+					<Col xs={12} lg={8}>
+						<H2 size="h1">Start with design</H2>
+						<p>
+							You start by designing your website. Cherry provides
+							a design template that defines all standard web
+							patterns and typographys.
+						</p>
+						<Space xsSize="none" lgSize={20} />
+						<Button variant="secondary" frame>
+							Design
+						</Button>
+					</Col>
+					<Col xs={12} lg={4} textAlign="center">
+						<Image
+							src="/img/design.png"
+							alt="Design illustration"
+							width={109.5}
+							height={147}
+						/>
+					</Col>
+				</Row>
+				<Space xsSize={20} lgSize={80} />
+				<hr />
+				<Space xsSize={20} lgSize={80} />
+				<Row>
+					<Col xs={12} lg={8}>
+						<H3 size="h1">Code your design</H3>
+						<p>
+							All the design patterns are implemented in various
+							modern front-end technologies or can be used as
+							components.
+						</p>
+						<Space xsSize="none" lgSize={20} />
+						<Button variant="tertiary" frame>
+							Code
+						</Button>
+					</Col>
+					<Col xs={12} lg={4} textAlign="center">
+						<Image
+							src="/img/code.png"
+							alt="Code illustration"
+							width={114}
+							height={127.12}
+						/>
+					</Col>
+				</Row>
+				<Space xsSize={20} lgSize={80} />
+				<hr />
+				<Space xsSize={20} lgSize={80} />
+				<Row>
+					<Col xs={12} lg={8}>
+						<H4 size="h1">Scale your design system</H4>
+						<p>
+							Cherry follows it’s own naming convention from
+							design to code. Expanding and customizing your
+							design system has never been easier.
+						</p>
+						<Space xsSize="none" lgSize={20} />
+						<Button variant="primary" frame>
+							Scale
+						</Button>
+					</Col>
+					<Col xs={12} lg={4} textAlign="center">
+						<Image
+							src="/img/scale.png"
+							alt="Scale illustration"
+							width={114}
+							height={104.63}
+						/>
+					</Col>
+				</Row>
+				<Space xsSize={20} lgSize={80} />
+				<hr />
+				<Row>
+					<Col xs={12} textAlign="center">
+						<Space xsSize={20} lgSize={80} />
+						<Button>Get Started</Button>
+						<Space xsSize={20} lgSize={80} />
+					</Col>
+				</Row>
 			</Container>
 		</Page>
 	);
