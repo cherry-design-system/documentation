@@ -1,11 +1,11 @@
 import React from "react";
-import { inputStyles, labelStyles, checkboxStyles } from "./Input.styles";
+import { inputStyles, checkboxWrapperStyles } from "./Input.styles";
 import { Check } from "../../../assets/svg/Check";
+import { Label } from "../Label";
 
 function Input({
 	className,
 	children,
-	variant = "primary",
 	size = "default",
 	type = "text",
 	success,
@@ -15,7 +15,7 @@ function Input({
 }) {
 	if ((type === "checkbox") | (type === "radio")) {
 		return (
-			<div css={(theme) => checkboxStyles(theme, type)}>
+			<div css={(theme) => checkboxWrapperStyles(theme, type, size)}>
 				<input
 					type={type}
 					className={className}
@@ -23,7 +23,6 @@ function Input({
 						inputStyles(
 							theme,
 							type,
-							variant,
 							size,
 							props.disabled,
 							success,
@@ -33,27 +32,14 @@ function Input({
 					{...props}
 				/>
 				{type === "checkbox" ? <Check /> : <em />}
-				{label && (
-					<label
-						css={(theme) => labelStyles(theme, error, success)}
-						htmlFor={props.id}
-					>
-						{label}
-					</label>
-				)}
+				{label && <Label htmlFor={props.id}>{label}</Label>}
 			</div>
 		);
 	}
+
 	return (
 		<>
-			{label && (
-				<label
-					css={(theme) => labelStyles(theme, error, success)}
-					htmlFor={props.id}
-				>
-					{label}
-				</label>
-			)}
+			{label && <Label htmlFor={props.id}>{label}</Label>}
 			<input
 				type={type}
 				className={className}
@@ -61,7 +47,6 @@ function Input({
 					inputStyles(
 						theme,
 						type,
-						variant,
 						size,
 						props.disabled,
 						success,

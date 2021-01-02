@@ -2,15 +2,7 @@ import { css } from "@emotion/react";
 import { resetButtonStyles } from "../../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../../assets/styles/mq";
 
-export const inputStyles = (
-	theme,
-	type,
-	variant,
-	size,
-	disabled,
-	success,
-	error,
-) => css`
+export const inputStyles = (theme, type, size, disabled, success, error) => css`
 	appearance: none;
 	border: none;
 	transition: all 0.3s ease;
@@ -39,6 +31,8 @@ export const inputStyles = (
 		(type === "phone") |
 		(type === "email") &&
 	css`
+		display: block;
+		width: 100%;
 		border-radius: 6px;
 		padding: 15px 25px;
 		background: ${theme.colors.light};
@@ -75,10 +69,18 @@ export const inputStyles = (
 	${(type === "checkbox") | (type === "radio") &&
 	css`
 		padding: 0;
-		width: 22px;
-		height: 22px;
 		border-radius: 6px;
 		border: solid 2px ${theme.colors.grayLight};
+
+		${size === "big"
+			? css`
+					width: 32px;
+					height: 32px;
+			  `
+			: css`
+					width: 22px;
+					height: 22px;
+			  `};
 
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
@@ -101,16 +103,9 @@ export const inputStyles = (
 	`}
 `;
 
-export const labelStyles = (theme, error, success) => css`
-	color: ${theme.colors.gray};
-	display: inline-block;
-	vertical-align: middle;
-	padding-left: 7px;
-`;
-
-export const checkboxStyles = (theme, type) => css`
+export const checkboxWrapperStyles = (theme, type, size) => css`
 	position: relative;
-	display: inline-block;
+	display: block;
 	line-height: 1;
 
 	${type === "checkbox" &&
@@ -126,11 +121,21 @@ export const checkboxStyles = (theme, type) => css`
 
 		& svg {
 			position: absolute;
-			top: 6px;
-			left: 5px;
 			opacity: 0;
 			pointer-events: none;
 			transform: translate3d(0, 0, 0) scale(0.7);
+
+			${size === "big"
+				? css`
+						top: 11px;
+						left: 10px;
+				  `
+				: css`
+						top: 7px;
+						left: 6px;
+						width: 10px;
+						height: auto;
+				  `};
 		}
 	`}
 
@@ -144,16 +149,56 @@ export const checkboxStyles = (theme, type) => css`
 		& em {
 			display: block;
 			position: absolute;
-			left: 6px;
-			top: 6px;
-			width: 10px;
-			height: 10px;
 			border-radius: 50%;
 			background: ${theme.colors.secondary};
 			transition: all 0.3s ease;
 			opacity: 0;
 			pointer-events: none;
 			transform: translate3d(0, 0, 0) scale(0.7);
+
+			${size === "big"
+				? css`
+						left: 9px;
+						top: 9px;
+						width: 14px;
+						height: 14px;
+				  `
+				: css`
+						left: 6px;
+						top: 6px;
+						width: 10px;
+						height: 10px;
+				  `};
 		}
 	`}
+`;
+
+export const selectWrapperStyles = (theme, size) => css`
+	position: relative;
+	display: block;
+	line-height: 1;
+
+	& select {
+		width: 100%;
+
+		&:disabled ~ svg {
+			& path {
+				stroke: ${theme.colors.gray};
+			}
+		}
+	}
+
+	& select:focus:hover ~ svg {
+		opacity: 1;
+		transform: translate3d(0, 0, 0) rotate(180deg);
+	}
+
+	& svg {
+		position: absolute;
+		top: ${size === "big" ? "20px" : "18px"};
+		right: 15px;
+		opacity: 1;
+		pointer-events: none;
+		transform: translate3d(0, 0, 0) rotate(0deg);
+	}
 `;

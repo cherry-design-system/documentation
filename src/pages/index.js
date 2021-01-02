@@ -10,6 +10,7 @@ import {
 	H1,
 	Button,
 	Input,
+	Select,
 } from "../components/Layout";
 
 function Index({ posts = [] }) {
@@ -110,7 +111,7 @@ function Index({ posts = [] }) {
 						<Input
 							placeholder="Error"
 							type="checkbox"
-							label="test"
+							label="Test"
 							id="test"
 						/>
 						<br />
@@ -118,8 +119,17 @@ function Index({ posts = [] }) {
 						<Input
 							placeholder="Error"
 							type="checkbox"
-							label="test"
-							id="test3"
+							label="Big"
+							id="testbig"
+							size="big"
+						/>
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="checkbox"
+							label="Test"
+							id="test3c"
 							disabled
 						/>
 						<br />
@@ -127,19 +137,60 @@ function Index({ posts = [] }) {
 						<Input
 							placeholder="Error"
 							type="radio"
-							label="test"
-							id="test2"
-							name="test"
+							label="Test"
+							id="test2a"
+							name="testa"
 						/>
 						<br />
 						<br />
 						<Input
 							placeholder="Error"
 							type="radio"
-							label="test"
-							id="test3"
-							name="test"
+							label="Test"
+							id="test3b"
+							name="test2"
 						/>
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="radio"
+							label="Test"
+							id="test3bc"
+							name="test2"
+							size="big"
+						/>
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="radio"
+							label="Test"
+							id="test323"
+							name="test2"
+							size="big"
+						/>
+						<br />
+						<br />
+						<Select>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</Select>
+						<br />
+						<br />
+						<Select disabled>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</Select>
+						<br />
+						<br />
+						<Select size="big">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</Select>
 						<br />
 						<br />
 					</Col>
