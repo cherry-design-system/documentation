@@ -33,8 +33,9 @@ function Index({ posts = [] }) {
 							Customizable and scalable, ready to be used out of
 							the box.
 						</p>
-						<Space xsSize="none" lgSize={20} />
+						<Space xsSize={10} lgSize={20} />
 						<Button>Get Started</Button>
+						<Space xsSize={10} lgSize="none" />
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
 						<Image
@@ -56,12 +57,12 @@ function Index({ posts = [] }) {
 							a design template that defines all standard web
 							patterns and typographys.
 						</p>
-						<Space xsSize="none" lgSize={20} />
+						<Space xsSize={10} lgSize={20} />
 						<Button variant="secondary" frame>
 							Design
 						</Button>
 					</Col>
-					<Col xs={12} lg={4} textAlign="center">
+					<Col xs={12} lg={4} textAlign="right">
 						<Image
 							src="/img/design.png"
 							alt="Design illustration"
@@ -81,12 +82,12 @@ function Index({ posts = [] }) {
 							modern front-end technologies or can be used as
 							components.
 						</p>
-						<Space xsSize="none" lgSize={20} />
+						<Space xsSize={10} lgSize={20} />
 						<Button variant="tertiary" frame>
 							Code
 						</Button>
 					</Col>
-					<Col xs={12} lg={4} textAlign="center">
+					<Col xs={12} lg={4} textAlign="right">
 						<Image
 							src="/img/code.png"
 							alt="Code illustration"
@@ -106,12 +107,12 @@ function Index({ posts = [] }) {
 							design to code. Expanding and customizing your
 							design system has never been easier.
 						</p>
-						<Space xsSize="none" lgSize={20} />
+						<Space xsSize={10} lgSize={20} />
 						<Button variant="primary" frame>
 							Scale
 						</Button>
 					</Col>
-					<Col xs={12} lg={4} textAlign="center">
+					<Col xs={12} lg={4} textAlign="right">
 						<Image
 							src="/img/scale.png"
 							alt="Scale illustration"
@@ -126,7 +127,7 @@ function Index({ posts = [] }) {
 					<Col xs={12} textAlign="center">
 						<Space xsSize={20} lgSize={80} />
 						<Button>Get Started</Button>
-						<Space xsSize={20} lgSize={80} />
+						<Space xsSize={30} lgSize={80} />
 					</Col>
 				</Row>
 			</Container>

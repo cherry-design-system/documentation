@@ -122,6 +122,7 @@ const globalStyles = (
 
 			p {
 				color: ${theme.colors.gray};
+				margin: 10px 0;
 			}
 
 			figure {
