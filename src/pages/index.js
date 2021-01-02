@@ -98,10 +98,48 @@ function Index({ posts = [] }) {
 						<Input />
 						<br />
 						<br />
+						<Input disabled />
+						<br />
+						<br />
 						<Input error />
 						<br />
 						<br />
-						<Input success />
+						<Input placeholder="Error" success />
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="checkbox"
+							label="test"
+							id="test"
+						/>
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="checkbox"
+							label="test"
+							id="test3"
+							disabled
+						/>
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="radio"
+							label="test"
+							id="test2"
+							name="test"
+						/>
+						<br />
+						<br />
+						<Input
+							placeholder="Error"
+							type="radio"
+							label="test"
+							id="test3"
+							name="test"
+						/>
 						<br />
 						<br />
 					</Col>

@@ -4,11 +4,12 @@ import { Breakpoints, mq } from "../../../assets/styles/mq";
 
 export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${resetButtonStyles};
+	line-height: 1;
+	vertical-align: middle;
 
 	${size === "default"
 		? css`
 				font-size: ${theme.sizes.button.size.mobile};
-				line-height: 1;
 
 				${mq(Breakpoints.lg)} {
 					font-size: ${theme.sizes.button.size.desktop};
