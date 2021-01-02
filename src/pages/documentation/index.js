@@ -8,11 +8,11 @@ function Index({ posts = [] }) {
 	return (
 		<Page title="Documentation" description="Hello world">
 			<Container fluid>
-				<Row>
-					<Col xs={12} lg={2} fullScreen>
+				<Row gutterLg="medium">
+					<Col xs={12} lg={3} fullScreen>
 						<Sidebar />
 					</Col>
-					<Col xs={12} lg={10} fullScreen>
+					<Col xs={12} lg={9} fullScreen>
 						<Space xsSize={20} />
 						<H1 size="hero1">Getting started with Cherry Design</H1>
 						<Space xsSize="none" lgSize={10} />

@@ -1,7 +1,79 @@
 import { css } from "@emotion/react";
+import { rgba } from "polished";
+import { resetListStyles } from "../../assets/styles/helperStyles";
+import { Breakpoints, mq } from "../../assets/styles/mq";
 
-export const sidebarStyles = (theme) => css`
+export const sidebarStyles = (theme, isMenuOpen) => css`
 	left: 0;
 	top: 0;
 	width: 100%;
+	transition: all 0.3s ease;
+
+	position: fixed;
+	top: ${theme.spacing.paddingTopBody.mobile};
+	height: calc(100vh - ${theme.spacing.paddingTopBody.mobile});
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	background: ${theme.colors.light};
+	z-index: 999;
+	opacity: 0;
+	transform: translate3d(0, 0, 0) translateX(60px);
+	pointer-events: none;
+	padding-right: 20px;
+
+	${isMenuOpen &&
+	css`
+		opacity: 1;
+		transform: translate3d(0, 0, 0) translateX(0);
+		pointer-events: all;
+	`}
+
+	${mq(Breakpoints.lg)} {
+		position: initial;
+		top: initial;
+		height: initial;
+		overflow-y: hidden;
+		background: ${theme.colors.light};
+		transform: translate3d(0, 0, 0) translateX(0);
+		opacity: 1;
+		pointer-events: all;
+		padding-right: 0;
+	}
+
+	& ul {
+		${resetListStyles};
+		padding: 0 0 20px 20px;
+
+		& li {
+			& strong,
+			& a {
+				display: inline-block;
+			}
+
+			& strong {
+				font-weight: 600;
+				padding: 20px 0 5px;
+			}
+
+			& a {
+				padding: 5px;
+				width: 100%;
+
+				&.active {
+					background: ${rgba(theme.colors.grayLight, 0.5)};
+					border-radius: 6px;
+					font-weight: 500;
+					color: ${theme.colors.dark};
+				}
+			}
+
+			& ul {
+				padding: 0 0 0 20px;
+
+				& strong {
+					padding: 5px;
+				}
+			}
+		}
+	}
 `;
