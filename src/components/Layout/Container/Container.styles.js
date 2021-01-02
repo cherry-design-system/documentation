@@ -3,6 +3,7 @@ import { mq, Breakpoints } from "../../../assets/styles/mq";
 
 const containerStyles = (theme, fluid, textAlign) => css`
 	margin: auto;
+	width: 100%;
 	padding: 0 ${theme.spacing.marginContainer.mobile};
 
 	${mq(Breakpoints.lg)} {
@@ -11,8 +12,7 @@ const containerStyles = (theme, fluid, textAlign) => css`
 
 	${fluid
 		? css`
-				max-width: 100%;
-				width: 100%;
+				max-width: ${theme.spacing.maxWidthLimit};
 		  `
 		: css`
 				max-width: ${theme.spacing.maxWidth};
