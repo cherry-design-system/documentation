@@ -1,8 +1,8 @@
 import React from "react";
-import NextLink from "next/link";
+import Link from "next/link";
 import { buttonStyles } from "../Button/Button.styles";
 
-function Link({
+function CustomLink({
 	className,
 	children,
 	variant = "primary",
@@ -15,7 +15,7 @@ function Link({
 }) {
 	if (as) {
 		return (
-			<NextLink href={href} as={as}>
+			<Link href={href} as={as}>
 				<a
 					className={className}
 					css={(theme) =>
@@ -28,10 +28,11 @@ function Link({
 						)
 					}
 					{...props}
+					href={href}
 				>
 					{children}
 				</a>
-			</NextLink>
+			</Link>
 		);
 	}
 
@@ -51,4 +52,4 @@ function Link({
 	);
 }
 
-export { Link };
+export { CustomLink as Link };
