@@ -96,6 +96,14 @@ function Index({ posts = [] }) {
 						<br />
 						<br />
 						<Input />
+						<br />
+						<br />
+						<Input error />
+						<br />
+						<br />
+						<Input success />
+						<br />
+						<br />
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
 						<Image

@@ -7,6 +7,8 @@ function Input({
 	variant = "primary",
 	size = "default",
 	type = "text",
+	success,
+	error,
 	...props
 }) {
 	return (
@@ -14,7 +16,15 @@ function Input({
 			type={type}
 			className={className}
 			css={(theme) =>
-				inputStyles(theme, type, variant, size, props.disabled)
+				inputStyles(
+					theme,
+					type,
+					variant,
+					size,
+					props.disabled,
+					success,
+					error,
+				)
 			}
 			{...props}
 		/>

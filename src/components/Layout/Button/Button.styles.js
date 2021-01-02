@@ -28,6 +28,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 		padding: 15px 25px;
 		border-radius: 100px;
 		background: ${theme.colors.primary};
+		border: solid 2px ${theme.colors.primary};
 		color: ${theme.colors.light};
 		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
@@ -35,6 +36,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
 				background: ${theme.colors.primaryDark};
+				border-color: ${theme.colors.primaryDark};
 			}
 		}
 
@@ -79,6 +81,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 		padding: 15px 25px;
 		border-radius: 100px;
 		background: ${theme.colors.secondary};
+		border: solid 2px ${theme.colors.secondary};
 		color: ${theme.colors.light};
 		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
@@ -86,6 +89,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
 				background: ${theme.colors.secondaryDark};
+				border-color: ${theme.colors.secondaryDark};
 			}
 		}
 
@@ -130,6 +134,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 		padding: 15px 25px;
 		border-radius: 100px;
 		background: ${theme.colors.tertiary};
+		border: solid 2px ${theme.colors.tertiary};
 		color: ${theme.colors.light};
 		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
@@ -137,6 +142,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 		@media (hover: hover) {
 			&:hover:not([disabled]) {
 				background: ${theme.colors.tertiaryDark};
+				border-color: ${theme.colors.tertiaryDark};
 			}
 		}
 
@@ -179,6 +185,7 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	!frame &&
 	css`
 		background: ${theme.colors.grayLight};
+		border-color: ${theme.colors.grayLight};
 		color: ${theme.colors.gray};
 		cursor: not-allowed;
 	`}
