@@ -16,28 +16,26 @@ function App({ Component, pageProps }) {
 		<>
 			{globalStyles}
 			<ThemeProvider theme={theme}>
-				<Header />
-				<MinHeight>
-					{router.pathname.includes("/documentation") ? (
-						<Container fluid>
-							<Row gutterLg="medium">
-								<Col xs={12} lg={3} fullScreen>
-									<Sidebar />
-								</Col>
-								<Col xs={12} lg={9} fullScreen>
-									<ScrollToTop>
+				<ScrollToTop>
+					<Header />
+					<MinHeight>
+						{router.pathname.includes("/documentation") ? (
+							<Container fluid>
+								<Row gutterLg="medium">
+									<Col xs={12} lg={3} fullScreen>
+										<Sidebar />
+									</Col>
+									<Col xs={12} lg={9} fullScreen>
 										<Component {...pageProps} />
-									</ScrollToTop>
-								</Col>
-							</Row>
-						</Container>
-					) : (
-						<ScrollToTop>
+									</Col>
+								</Row>
+							</Container>
+						) : (
 							<Component {...pageProps} />
-						</ScrollToTop>
-					)}
-				</MinHeight>
-				<Footer />
+						)}
+					</MinHeight>
+					<Footer />
+				</ScrollToTop>
 			</ThemeProvider>
 		</>
 	);
