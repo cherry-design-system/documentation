@@ -78,7 +78,15 @@ function Index({ posts = [] }) {
 				<ColorBox name="Warning" value="#FFC107" />
 				<ColorBox name="Info" value="#17A2B8" />
 			</ColorBoxContainer>
-			<Space xsSize="none" lgSize={10} />
+			<hr />
+			<Space size={10} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=0%3A1"
+			>
+				Colors in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }

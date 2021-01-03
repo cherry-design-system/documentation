@@ -151,21 +151,30 @@ function Index({ posts = [] }) {
 					<Button variant="primary" frame disabled big>
 						Primary Frame
 					</Button>
-					<Space size={20} />
+					<Space xsSize={20} lgSize={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="secondary" frame disabled big>
 						Secondary Frame
 					</Button>
-					<Space size={20} />
+					<Space xsSize={20} lgSize={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="tertiary" frame disabled big>
 						Tertiary Frame
 					</Button>
-					<Space size={20} />
+					<Space size={10} />
 				</Col>
 			</Row>
+			<hr />
+			<Space size={10} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=17%3A0"
+			>
+				Buttons in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }

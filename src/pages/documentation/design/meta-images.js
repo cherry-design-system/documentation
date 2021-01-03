@@ -8,6 +8,7 @@ import {
 	Col,
 	Box,
 	TableOverflow,
+	Link,
 } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
@@ -97,6 +98,14 @@ function Index({ posts = [] }) {
 					</tr>
 				</table>
 			</TableOverflow>
+			<Space size={20} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=154%3A510"
+			>
+				Meta Images in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }

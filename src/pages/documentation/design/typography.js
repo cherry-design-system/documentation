@@ -286,6 +286,15 @@ function Index({ posts = [] }) {
 				</blockquote>
 			</p>
 			<Space size={10} />
+			<hr />
+			<Space size={10} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=0%3A1"
+			>
+				Typography in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }

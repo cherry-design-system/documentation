@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Page } from "../../../components/Pages";
-import { Space, H1, Row, Col, Box } from "../../../components/Layout";
+import { Space, H1, Row, Col, Box, Link } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -198,9 +198,18 @@ function Index({ posts = [] }) {
 							<small>12</small>
 						</p>
 					</Box>
-					<Space size={20} />
+					<Space size={10} />
 				</Col>
 			</Row>
+			<hr />
+			<Space size={10} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=152%3A137"
+			>
+				Grid in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }

@@ -50,7 +50,9 @@ function Index({ posts = [] }) {
 					height={1051}
 				/>
 			</Box>
-			<Space size={20} />
+			<Space size={10} />
+			<hr />
+			<Space size={10} />
 			<Link
 				external
 				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=0%3A1"

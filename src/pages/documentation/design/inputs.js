@@ -250,9 +250,18 @@ function Index({ posts = [] }) {
 						size="big"
 						disabled
 					/>
-					<Space size={20} />
+					<Space size={10} />
 				</Col>
 			</Row>
+			<hr />
+			<Space size={10} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=17%3A0"
+			>
+				Inputs in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }

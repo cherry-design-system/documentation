@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Page } from "../../../components/Pages";
-import { Space, H1, TableOverflow } from "../../../components/Layout";
+import { Space, H1, TableOverflow, Link } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -77,6 +77,14 @@ function Index({ posts = [] }) {
 					</tr>
 				</table>
 			</TableOverflow>
+			<Space size={20} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=153%3A7"
+			>
+				Spacing in Figma
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }
