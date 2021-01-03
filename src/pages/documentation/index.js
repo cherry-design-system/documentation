@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { css } from "@emotion/react";
 import { Page } from "../../components/Pages";
-import { Container, Space, H1, Row, Col, Box } from "../../components/Layout";
-import { Sidebar } from "../../components/Sidebar";
+import { Space, H1, Row, Col, Box } from "../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -61,6 +60,7 @@ function Index({ posts = [] }) {
 						/>
 						<strong data-primary>Scale</strong>
 					</Box>
+					<Space size={20} />
 				</Col>
 			</Row>
 		</Page>
