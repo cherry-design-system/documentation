@@ -46,7 +46,7 @@ export const boxStyles = (theme, isLink, noPadding) => css`
 	& [data-secondary],
 	& [data-tertiary] {
 		display: block;
-		padding: 30px 20px 20px;
+		padding: 30px 20px 10px;
 		transition: all 0.3s ease;
 		font-size: ${theme.sizes.buttonBig.size.mobile};
 
