@@ -251,7 +251,7 @@ function Index({ posts = [] }) {
 			<span css={(theme) => inputFontStyles(theme)}>Input</span>
 			<Space horizontal size={20} />
 			<span css={(theme) => inputBigFontStyles(theme)}>Input Big</span>
-			<Space size={20} />
+			<Space size={10} />
 			<p>
 				<strong>
 					Strong - Fusce dapibus, tellus ac cursus commodo, tortor
