@@ -26,7 +26,10 @@ import {
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Design Typography">
+		<Page
+			title="Design Typography"
+			description="Cherry covers a wide range of typography variations, covering the most common web patterns like headings, subtitles, paragraphs and so on. There are 2 types of typography definitions, one for mobile and one for desktop."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Design Typography</H1>
 			<Space xsSize={10} lgSize={30} />

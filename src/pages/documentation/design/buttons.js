@@ -12,7 +12,10 @@ import {
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Design Buttons">
+		<Page
+			title="Design Buttons"
+			description="Cherry includes different button styles with all the various states. It has a variation of 3 colors: Primary, Secondary and Tertiary. A default and a big size, as well as the framed buttons."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Design Buttons</H1>
 			<Space xsSize={10} lgSize={30} />

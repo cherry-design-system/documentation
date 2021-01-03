@@ -5,7 +5,10 @@ import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Design Colors">
+		<Page
+			title="Design Colors"
+			description="Cherry includes a default color palette, that is a great starting point if you don't have your own specific branding in mind."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Design Colors</H1>
 			<Space xsSize={10} lgSize={30} />

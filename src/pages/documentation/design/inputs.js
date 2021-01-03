@@ -14,7 +14,10 @@ import {
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Design Inputs">
+		<Page
+			title="Design Inputs"
+			description="Cherry includes form styles for all the default HTML inputs. Input text, phone, number, email, password, checkbox, radio, select and textarea. The input texts, textareas and selects include 2 different statuses: error and success."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Design Inputs</H1>
 			<Space xsSize={10} lgSize={30} />

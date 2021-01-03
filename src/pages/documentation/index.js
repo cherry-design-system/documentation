@@ -6,7 +6,10 @@ import { Space, H1, Row, Col, Box } from "../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Documentation">
+		<Page
+			title="Documentation"
+			description="Cherry is the starting point for your design system. It comes with a minimal set of pre-defined styles for the most common web patterns."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Getting started with Cherry Design System</H1>
 			<Space xsSize={10} lgSize={30} />

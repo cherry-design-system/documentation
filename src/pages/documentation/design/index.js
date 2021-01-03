@@ -5,7 +5,10 @@ import { Space, H1, Link, Box } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Design Documentation">
+		<Page
+			title="Design Documentation"
+			description="Cherry provides a UI Kit template in Figma with all the standard web elements. The document template is divided in a few pages to keep everything organized."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Design</H1>
 			<Space xsSize={10} lgSize={30} />

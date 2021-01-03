@@ -5,7 +5,10 @@ import { Space, H1, TableOverflow } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Design Spacing">
+		<Page
+			title="Design Spacing"
+			description="In order to keep consistency between elements, Cherry provides a set of pre-defined values for the spacings."
+		>
 			<Space xsSize={20} lgSize={40} />
 			<H1 size="hero1">Design Spacing</H1>
 			<Space xsSize={10} lgSize={30} />
