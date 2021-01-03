@@ -22,15 +22,20 @@ function Index({ posts = [] }) {
 			<H1 size="hero1">Sample</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
-				Cherry is the starting point for your design system. It comes
-				with a minimal set of pre-defined styles for the most common web
-				patterns. It covers the design aspects of your website by
-				providing a Figma template with the original designs. Each
-				element of the design system is implemented in code using
-				various modern fron-end technologies. This facilitates
-				co-creation from design to code. If you are not a designer you
-				can still use Cherry components to build your layouts out of the
-				box.
+				Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+				auctor. Duis mollis, est non commodo luctus, nisi erat porttitor
+				ligula, eget lacinia odio sem nec elit. Sed posuere consectetur
+				est at lobortis. Donec ullamcorper nulla non metus auctor
+				fringilla. Maecenas sed diam eget risus varius blandit sit amet
+				non magna. Duis mollis, est non commodo luctus, nisi erat
+				porttitor ligula, eget lacinia odio sem nec elit. Maecenas
+				faucibus mollis interdum. Fusce dapibus, tellus ac cursus
+				commodo, tortor mauris condimentum nibh, ut fermentum massa
+				justo sit amet risus. Nulla vitae elit libero, a pharetra augue.
+				Donec sed odio dui. Cras mattis consectetur purus sit amet
+				fermentum. Cum sociis natoque penatibus et magnis dis parturient
+				montes, nascetur ridiculus mus. Nulla vitae elit libero, a
+				pharetra augue.
 			</p>
 			<Space size={10} />
 			<CodeBlock language="css" value={markdown} />

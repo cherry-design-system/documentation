@@ -45,7 +45,7 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 		padding: 0 0 20px 20px;
 
 		${mq(Breakpoints.lg)} {
-			padding: 40px 0 40px 20px;
+			padding: 30px 0 40px 20px;
 		}
 
 		& li {
