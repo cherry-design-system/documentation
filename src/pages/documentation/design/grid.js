@@ -20,34 +20,16 @@ function Index({ posts = [] }) {
 				<Col xs={12}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>12</small>
 						</p>
 					</Box>
 					<Space size={20} />
 				</Col>
-				<Col xs={11}>
-					<Box noPadding>
-						<p>
-							<Space horizontal size={15} />
-							<small>11</small>
-						</p>
-					</Box>
-					<Space size={20} />
-				</Col>
-				<Col xs={1}>
-					<Box noPadding>
-						<p>
-							<Space horizontal size={15} />
-							<small>1</small>
-						</p>
-					</Box>
-					<Space size={20} />
-				</Col>
 				<Col xs={10}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>10</small>
 						</p>
 					</Box>
@@ -56,7 +38,7 @@ function Index({ posts = [] }) {
 				<Col xs={2}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>2</small>
 						</p>
 					</Box>
@@ -65,7 +47,7 @@ function Index({ posts = [] }) {
 				<Col xs={9}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>9</small>
 						</p>
 					</Box>
@@ -74,7 +56,7 @@ function Index({ posts = [] }) {
 				<Col xs={3}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>3</small>
 						</p>
 					</Box>
@@ -83,7 +65,7 @@ function Index({ posts = [] }) {
 				<Col xs={8}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>8</small>
 						</p>
 					</Box>
@@ -92,7 +74,7 @@ function Index({ posts = [] }) {
 				<Col xs={4}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>4</small>
 						</p>
 					</Box>
@@ -101,7 +83,7 @@ function Index({ posts = [] }) {
 				<Col xs={7}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>7</small>
 						</p>
 					</Box>
@@ -110,7 +92,7 @@ function Index({ posts = [] }) {
 				<Col xs={5}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>5</small>
 						</p>
 					</Box>
@@ -119,7 +101,7 @@ function Index({ posts = [] }) {
 				<Col xs={6}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>6</small>
 						</p>
 					</Box>
@@ -128,7 +110,7 @@ function Index({ posts = [] }) {
 				<Col xs={6}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>6</small>
 						</p>
 					</Box>
@@ -137,7 +119,7 @@ function Index({ posts = [] }) {
 				<Col xs={5}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>5</small>
 						</p>
 					</Box>
@@ -146,7 +128,7 @@ function Index({ posts = [] }) {
 				<Col xs={7}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>7</small>
 						</p>
 					</Box>
@@ -155,7 +137,7 @@ function Index({ posts = [] }) {
 				<Col xs={4}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>4</small>
 						</p>
 					</Box>
@@ -164,7 +146,7 @@ function Index({ posts = [] }) {
 				<Col xs={8}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>8</small>
 						</p>
 					</Box>
@@ -173,7 +155,7 @@ function Index({ posts = [] }) {
 				<Col xs={3}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>3</small>
 						</p>
 					</Box>
@@ -182,7 +164,7 @@ function Index({ posts = [] }) {
 				<Col xs={9}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>9</small>
 						</p>
 					</Box>
@@ -191,7 +173,7 @@ function Index({ posts = [] }) {
 				<Col xs={2}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>2</small>
 						</p>
 					</Box>
@@ -200,26 +182,17 @@ function Index({ posts = [] }) {
 				<Col xs={10}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
+							<Space horizontal size={10} />
 							<small>10</small>
 						</p>
 					</Box>
 					<Space size={20} />
 				</Col>
-				<Col xs={1}>
+				<Col xs={12}>
 					<Box noPadding>
 						<p>
-							<Space horizontal size={15} />
-							<small>1</small>
-						</p>
-					</Box>
-					<Space size={20} />
-				</Col>
-				<Col xs={11}>
-					<Box noPadding>
-						<p>
-							<Space horizontal size={15} />
-							<small>11</small>
+							<Space horizontal size={10} />
+							<small>12</small>
 						</p>
 					</Box>
 					<Space size={20} />
