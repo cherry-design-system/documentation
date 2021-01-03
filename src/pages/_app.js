@@ -6,6 +6,7 @@ import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { Col, Container, MinHeight, Row } from "../components/Layout";
 import { Sidebar } from "../components/Sidebar";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 function App({ Component, pageProps }) {
 	const { query } = useRouter();
@@ -24,12 +25,16 @@ function App({ Component, pageProps }) {
 									<Sidebar />
 								</Col>
 								<Col xs={12} lg={9} fullScreen>
-									<Component {...pageProps} />
+									<ScrollToTop>
+										<Component {...pageProps} />
+									</ScrollToTop>
 								</Col>
 							</Row>
 						</Container>
 					) : (
-						<Component {...pageProps} />
+						<ScrollToTop>
+							<Component {...pageProps} />
+						</ScrollToTop>
 					)}
 				</MinHeight>
 				<Footer />
