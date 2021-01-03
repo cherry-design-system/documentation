@@ -1,4 +1,5 @@
 import { Global, css } from "@emotion/react";
+import { rgba } from "polished";
 import { Breakpoints, mq } from "./mq";
 import { theme } from "./theme";
 
@@ -156,6 +157,42 @@ const globalStyles = (
 			b {
 				font-weight: 700;
 				color: ${theme.colors.dark};
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+
+				& th,
+				& td {
+					text-align: left;
+					border-bottom: solid 1px ${theme.colors.grayLight};
+					padding: 5px 20px 5px 0;
+					white-space: nowrap;
+				}
+
+				& th {
+					color: 
+					font-size: ${theme.sizes.button.mobile};
+
+					${mq(Breakpoints.lg)} {
+						font-size: ${theme.sizes.button.desktop};
+					}
+				}
+
+				& td {
+					font-size: ${theme.sizes.text.mobile};
+					color: ${theme.colors.gray};
+
+					${mq(Breakpoints.lg)} {
+						font-size: ${theme.sizes.text.desktop};
+					}
+
+					&:first-of-type {
+						font-weight: 600;
+						color: ${theme.colors.dark};
+					}
+				}
 			}
 		`}
 	/>

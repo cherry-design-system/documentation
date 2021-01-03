@@ -7,3 +7,4 @@ export { Select, Textarea, Input } from "./Input";
 export { Link } from "./Link";
 export { MinHeight } from "./MinHeight";
 export { Space } from "./Space";
+export { TableOverflow } from "./TableOverflow";

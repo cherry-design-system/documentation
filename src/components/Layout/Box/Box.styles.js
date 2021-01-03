@@ -7,7 +7,7 @@ import { Breakpoints, mq } from "../../../assets/styles/mq";
 
 export const boxStyles = (theme, isLink, noPadding) => css`
 	line-height: 0;
-	border-radius: 6px;
+	border-radius: 12px;
 	${shadowStyles};
 	overflow: hidden;
 

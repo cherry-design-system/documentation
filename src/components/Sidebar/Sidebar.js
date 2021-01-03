@@ -81,8 +81,19 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/design/typography"
+									as="/documentation/design/typography"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/design/typography"
+												? "active"
+												: ""
+										}
+									>
 										Typography
 									</a>
 								</Link>
