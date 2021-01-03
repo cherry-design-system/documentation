@@ -3,12 +3,26 @@ import { Page } from "../../../components/Pages";
 import {
 	Space,
 	H1,
+	H2,
+	H3,
+	H4,
+	H5,
+	H6,
 	Link,
 	Col,
 	Row,
 	TableOverflow,
 } from "../../../components/Layout";
 import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
+import {
+	buttonBigFontStyles,
+	buttonFontStyles,
+	eyebrowFontStyles,
+	subTitleFontStyles,
+	leadFontStyles,
+	inputFontStyles,
+	inputBigFontStyles,
+} from "../../../assets/styles/helperStyles";
 
 function Index({ posts = [] }) {
 	return (
@@ -36,7 +50,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Hero1</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -45,7 +59,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Hero2</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -54,7 +68,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Hero3</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -63,7 +77,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Heading1</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -72,7 +86,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Heading2</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -81,7 +95,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Heading3</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -90,7 +104,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Heading4</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -99,7 +113,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Heading5</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -108,7 +122,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Heading6</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -117,7 +131,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Eyebrow</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -126,7 +140,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Subtitle</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -135,7 +149,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Button</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -144,7 +158,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Button Big</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -153,7 +167,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Lead</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -162,7 +176,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Input</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -171,7 +185,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Input Big</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -180,7 +194,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Strong</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -189,7 +203,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Text</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -198,7 +212,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Small</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -207,7 +221,7 @@ function Index({ posts = [] }) {
 					</tr>
 					<tr>
 						<td>Blockquote</td>
-						<td>Inter</td>
+						<td>Inter, sans-serif</td>
 						<td>00</td>
 						<td>00</td>
 						<td>00</td>
@@ -217,6 +231,79 @@ function Index({ posts = [] }) {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
+			<H2>Demo</H2>
+			<Space size={10} />
+			<hr />
+			<Space size={10} />
+			<Row>
+				<Col xs={12} lg={6}>
+					<H1 size="hero1">Hero1</H1>
+					<Space size={10} />
+					<H1 size="hero2">Hero2</H1>
+					<Space size={10} />
+					<H1 size="hero3">Hero3</H1>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={6}>
+					<H1>Heading1</H1>
+					<Space size={10} />
+					<H2>Heading2</H2>
+					<Space size={10} />
+					<H3>Heading3</H3>
+					<Space size={10} />
+					<H4>Heading4</H4>
+					<Space size={10} />
+					<H5>Heading5</H5>
+					<Space size={10} />
+					<H6>Heading6</H6>
+					<Space size={20} />
+				</Col>
+			</Row>
+			<span css={(theme) => eyebrowFontStyles(theme)}>Eyebrow</span>
+			<Space horizontal size={20} />
+			<span css={(theme) => subTitleFontStyles(theme)}>Subtitle</span>
+			<Space horizontal size={20} />
+			<span css={(theme) => buttonFontStyles(theme)}>Button</span>
+			<Space horizontal size={20} />
+			<span css={(theme) => buttonBigFontStyles(theme)}>Button Big</span>
+			<Space size={20} />
+			<span css={(theme) => leadFontStyles(theme)}>Lead</span>
+			<Space horizontal size={20} />
+			<span css={(theme) => inputFontStyles(theme)}>Input</span>
+			<Space horizontal size={20} />
+			<span css={(theme) => inputBigFontStyles(theme)}>Input Big</span>
+			<Space size={20} />
+			<p>
+				<strong>
+					Strong - Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh, ut fermentum massa justo sit amet
+					risus. Duis mollis, est non commodo luctus, nisi erat
+					porttitor ligula, eget lacinia odio sem nec elit. Donec id
+					elit non mi porta gravida at eget metus.
+				</strong>
+				<p>
+					Text - Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh, ut fermentum massa justo sit amet
+					risus. Duis mollis, est non commodo luctus, nisi erat
+					porttitor ligula, eget lacinia odio sem nec elit. Donec id
+					elit non mi porta gravida at eget metus.
+				</p>
+				<small>
+					Small - Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh, ut fermentum massa justo sit amet
+					risus. Duis mollis, est non commodo luctus, nisi erat
+					porttitor ligula, eget lacinia odio sem nec elit. Donec id
+					elit non mi porta gravida at eget metus.
+				</small>
+				<blockquote>
+					Blockquote - Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh, ut fermentum massa justo sit amet
+					risus. Duis mollis, est non commodo luctus, nisi erat
+					porttitor ligula, eget lacinia odio sem nec elit. Donec id
+					elit non mi porta gravida at eget metus.
+				</blockquote>
+			</p>
+			<Space size={10} />
 		</Page>
 	);
 }

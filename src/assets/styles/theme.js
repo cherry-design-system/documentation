@@ -225,8 +225,8 @@ const theme = {
 				desktop: "14px",
 			},
 			lineheight: {
-				mobile: "1.4",
-				desktop: "1.4",
+				mobile: "1.3",
+				desktop: "1.3",
 			},
 		},
 		blockquote: {
@@ -235,8 +235,8 @@ const theme = {
 				desktop: "18px",
 			},
 			lineheight: {
-				mobile: "1.35",
-				desktop: "1.35",
+				mobile: "1.5",
+				desktop: "1.5",
 			},
 		},
 	},

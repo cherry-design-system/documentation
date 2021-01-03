@@ -1,5 +1,9 @@
 import { css } from "@emotion/react";
-import { resetButtonStyles } from "../../../assets/styles/helperStyles";
+import {
+	inputBigFontStyles,
+	inputFontStyles,
+	resetButtonStyles,
+} from "../../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../../assets/styles/mq";
 
 export const inputStyles = (theme, type, size, disabled, success, error) => css`
@@ -13,18 +17,10 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 
 	${size === "default"
 		? css`
-				font-size: ${theme.sizes.input.size.mobile};
-
-				${mq(Breakpoints.lg)} {
-					font-size: ${theme.sizes.input.size.desktop};
-				}
+				${inputFontStyles(theme)};
 		  `
 		: css`
-				font-size: ${theme.sizes.inputBig.size.mobile};
-
-				${mq(Breakpoints.lg)} {
-					font-size: ${theme.sizes.inputBig.size.desktop};
-				}
+				${inputBigFontStyles(theme)};
 		  `}
 
 	${(type === "text") |

@@ -86,6 +86,18 @@ const globalStyles = (
 				}
 			}
 
+			blockquote {
+				margin: 10px 0;
+				padding: 0;
+				font-size: ${theme.sizes.blockquote.size.mobile};
+				line-height: ${theme.sizes.blockquote.lineheight.mobile};
+
+				${mq(Breakpoints.lg)} {
+					font-size: ${theme.sizes.blockquote.size.desktop};
+					line-height: ${theme.sizes.blockquote.lineheight.desktop};
+				}
+			}
+
 			sub,
 			sup {
 				font-size: 75%;

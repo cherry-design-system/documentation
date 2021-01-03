@@ -1,27 +1,22 @@
 import { css } from "@emotion/react";
-import { resetButtonStyles } from "../../../assets/styles/helperStyles";
+import {
+	buttonBigFontStyles,
+	buttonFontStyles,
+	resetButtonStyles,
+} from "../../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../../assets/styles/mq";
 
 export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${resetButtonStyles};
 	display: inline-block;
-	line-height: 1;
 	vertical-align: middle;
 
 	${size === "default"
 		? css`
-				font-size: ${theme.sizes.button.size.mobile};
-
-				${mq(Breakpoints.lg)} {
-					font-size: ${theme.sizes.button.size.desktop};
-				}
+				${buttonFontStyles(theme)};
 		  `
 		: css`
-				font-size: ${theme.sizes.buttonBig.size.mobile};
-
-				${mq(Breakpoints.lg)} {
-					font-size: ${theme.sizes.buttonBig.size.desktop};
-				}
+				${buttonBigFontStyles(theme)};
 		  `}
 
 	${variant === "primary" &&
