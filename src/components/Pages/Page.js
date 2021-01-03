@@ -3,17 +3,17 @@ import Head from "next/head";
 import { withRouter } from "next/router";
 
 export const appleTouchIcon =
-	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/180-apple-touch-icon.png";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/180.png";
 export const favIcon32 =
-	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/32.png";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/32.png";
 export const favIcon16 =
-	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/16.png";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/16.png";
 export const favIcon =
-	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/favicon.ico";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/favicon.ico";
 export const safariPinnedTab =
-	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/512.svg";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/512.svg";
 export const preview =
-	"https://cherry-website.s3-eu-west-1.amazonaws.com/img/meta/preview.png";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/preview.png";
 
 const Page = ({
 	title = "Cherry",
