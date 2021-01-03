@@ -10,7 +10,7 @@ export const headerStyles = (theme) => css`
 	width: 100%;
 	z-index: 9999;
 
-	& [data-inner-wrapper] {
+	& .inner-wrapper {
 		padding: 20px 0;
 		display: flex;
 		justify-content: space-between;
@@ -41,7 +41,7 @@ export const headerStyles = (theme) => css`
 						line-height: ${theme.sizes.button.lineheight.desktop};
 					}
 
-					&[data-github] {
+					&.github {
 						& svg {
 							opacity: 0.5;
 
@@ -53,13 +53,13 @@ export const headerStyles = (theme) => css`
 						}
 					}
 
-					& [data-mobile] {
+					& .mobile {
 						${mq(Breakpoints.lg)} {
 							display: none;
 						}
 					}
 
-					& [data-desktop] {
+					& .desktop {
 						display: none;
 
 						${mq(Breakpoints.lg)} {

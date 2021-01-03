@@ -18,8 +18,8 @@ function Index({ posts = [] }) {
 				element of the design system is implemented in code using
 				various modern fron-end technologies. This facilitates
 				co-creation from design to code. If you are not a designer you
-				can still use Cherry components to build your layouts out of the
-				box.
+				can still use Cherry components to build your layouts
+				out-of-the-box.
 			</p>
 			<Space size={20} />
 			<Row>

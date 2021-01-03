@@ -56,6 +56,7 @@ const globalStyles = (
 				box-sizing: content-box;
 				height: 0;
 				overflow: visible;
+				margin: 10px 0;
 			}
 
 			b,

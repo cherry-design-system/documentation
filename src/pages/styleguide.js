@@ -56,8 +56,8 @@ function Index({ posts = [] }) {
 							Cherry is the foundation for your design system,
 							from design to code. With examples of
 							implementations in modern front-end technologies.
-							Customizable and scalable, ready to be used out of
-							the box.
+							Customizable and scalable, ready to be used
+							out-of-the-box.
 						</p>
 						<Button>Hello</Button>
 						<br />
