@@ -7,7 +7,7 @@ function Box({ className, children, href, as, noPadding }) {
 		return (
 			<Link href={href} as={as}>
 				<a css={(theme) => boxStyles(theme, as, noPadding)}>
-					{children}
+					{children && children}
 				</a>
 			</Link>
 		);
@@ -17,7 +17,7 @@ function Box({ className, children, href, as, noPadding }) {
 			className={className}
 			css={(theme) => boxStyles(theme, as, noPadding)}
 		>
-			{children}
+			{children && children}
 		</div>
 	);
 }

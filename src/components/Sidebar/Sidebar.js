@@ -135,15 +135,37 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/design/spacing"
+									as="/documentation/design/spacing"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/design/spacing"
+												? "active"
+												: ""
+										}
+									>
 										Spacing
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/design/grid"
+									as="/documentation/design/grid"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/design/grid"
+												? "active"
+												: ""
+										}
+									>
 										Grid
 									</a>
 								</Link>
