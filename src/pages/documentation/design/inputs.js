@@ -224,11 +224,11 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" big disabled />
+					<Input type="text" placeholder="Placeholder" size="big" disabled />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select big disabled>
+					<Select size="big" disabled>
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -239,7 +239,7 @@ function Index({ posts = [] }) {
 					<Textarea
 						type="text"
 						placeholder="Placeholder"
-						big
+						size="big"
 						disabled
 					/>
 					<Space size={20} />
