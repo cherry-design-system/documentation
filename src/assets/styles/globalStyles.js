@@ -71,7 +71,7 @@ const globalStyles = (
 			}
 
 			pre {
-				border-radius: 6px;
+				border-radius: 12px;
 			}
 
 			small {

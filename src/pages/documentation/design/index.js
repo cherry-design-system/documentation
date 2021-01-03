@@ -10,9 +10,9 @@ function Index({ posts = [] }) {
 			<H1 size="hero1">Design</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
-				Cherry provides a teamplate UI Kit in Figma with all the
-				standard web elements. The document template is divided in a few
-				pages to keep everything organized.
+				Cherry provides a UI Kit template in Figma with all the standard
+				web elements. The document template is divided in a few pages to
+				keep everything organized.
 				<ol>
 					<li>
 						<strong>Branding</strong> - Contains the colors
