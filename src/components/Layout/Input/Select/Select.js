@@ -11,7 +11,7 @@ function Select({
 	...props
 }) {
 	return (
-		<div css={(theme) => selectWrapperStyles(theme, size)}>
+		<div css={(theme) => selectWrapperStyles(theme, size, success, error)}>
 			<select
 				className={className}
 				css={(theme) =>

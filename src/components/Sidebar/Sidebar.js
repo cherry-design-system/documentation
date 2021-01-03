@@ -99,15 +99,37 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
-									<a onClick={() => setMenuOpen(false)}>
-										Button
+								<Link
+									href="/documentation/design/buttons"
+									as="/documentation/design/buttons"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/design/buttons"
+												? "active"
+												: ""
+										}
+									>
+										Buttons
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/design/inputs"
+									as="/documentation/design/inputs"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/design/inputs"
+												? "active"
+												: ""
+										}
+									>
 										Inputs
 									</a>
 								</Link>
@@ -219,7 +241,7 @@ function Sidebar({ className }) {
 													setMenuOpen(false)
 												}
 											>
-												Button
+												Buttons
 											</a>
 										</Link>
 									</li>
@@ -336,7 +358,7 @@ function Sidebar({ className }) {
 													setMenuOpen(false)
 												}
 											>
-												Button
+												Buttons
 											</a>
 										</Link>
 									</li>
@@ -453,7 +475,7 @@ function Sidebar({ className }) {
 													setMenuOpen(false)
 												}
 											>
-												Button
+												Buttons
 											</a>
 										</Link>
 									</li>

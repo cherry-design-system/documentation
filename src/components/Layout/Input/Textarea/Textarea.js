@@ -9,6 +9,7 @@ function Textarea({ className, size = "default", error, success, ...props }) {
 			css={(theme) =>
 				inputStyles(theme, "text", size, props.disabled, success, error)
 			}
+			{...props}
 		/>
 	);
 }

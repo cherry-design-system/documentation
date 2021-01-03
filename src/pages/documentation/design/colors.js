@@ -5,9 +5,9 @@ import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Colors">
+		<Page title="Design Colors">
 			<Space xsSize={20} lgSize={40} />
-			<H1 size="hero1">Colors</H1>
+			<H1 size="hero1">Design Colors</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
 				Cherry includes a default color palette, that is a great

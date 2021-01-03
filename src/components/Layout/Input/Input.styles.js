@@ -26,7 +26,8 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 	${(type === "text") |
 		(type === "number") |
 		(type === "phone") |
-		(type === "email") &&
+		(type === "email") |
+		(type === "password") &&
 	css`
 		display: block;
 		width: 100%;
@@ -92,6 +93,7 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 		border-color: ${theme.colors.gray};
 		color: ${theme.colors.gray};
 		cursor: not-allowed;
+		opacity: 0.9;
 	`}
 
 	${type === "radio" &&
@@ -170,13 +172,14 @@ export const checkboxWrapperStyles = (theme, type, size) => css`
 	`}
 `;
 
-export const selectWrapperStyles = (theme, size) => css`
+export const selectWrapperStyles = (theme, size, success, error) => css`
 	position: relative;
 	display: block;
 	line-height: 1;
 
 	& select {
 		width: 100%;
+		min-height: ${size === "big" ? "55px" : "51px"};
 
 		&:disabled ~ svg {
 			& path {
@@ -188,14 +191,32 @@ export const selectWrapperStyles = (theme, size) => css`
 	& select:focus:hover ~ svg {
 		opacity: 1;
 		transform: translate3d(0, 0, 0) rotate(180deg);
+
+		& path {
+			stroke: ${theme.colors.secondary};
+		}
 	}
 
 	& svg {
 		position: absolute;
-		top: ${size === "big" ? "20px" : "18px"};
+		top: ${size === "big" ? "22px" : "21px"};
 		right: 15px;
 		opacity: 1;
 		pointer-events: none;
 		transform: translate3d(0, 0, 0) rotate(0deg);
+
+		& path {
+			stroke: ${theme.colors.secondary};
+
+			${success &&
+			css`
+				stroke: ${theme.colors.success};
+			`}
+
+			${error &&
+			css`
+				stroke: ${theme.colors.error};
+			`}
+		}
 	}
 `;

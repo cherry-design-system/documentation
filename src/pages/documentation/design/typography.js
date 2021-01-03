@@ -26,9 +26,9 @@ import {
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Typography">
+		<Page title="Design Typography">
 			<Space xsSize={20} lgSize={40} />
-			<H1 size="hero1">Typography</H1>
+			<H1 size="hero1">Design Typography</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
 				Cherry covers a wide range of typography variations, covering
