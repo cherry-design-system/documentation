@@ -1,7 +1,16 @@
 import React from "react";
-import { css } from "@emotion/react";
 import { Page } from "../../../components/Pages";
 import { Space, H1 } from "../../../components/Layout";
+import { CodeBlock } from "../../../components/CodeBlock";
+
+const markdown = `.parent {
+	color: var(--color-dark);
+
+		& .child {
+				color: var(--color-light);
+			}
+		}
+}`;
 
 function Index({ posts = [] }) {
 	return (
@@ -17,6 +26,9 @@ function Index({ posts = [] }) {
 				venenatis vestibulum. Vestibulum id ligula porta felis euismod
 				semper. Sed posuere consectetur est at lobortis.
 			</p>
+			<Space size={10} />
+			<CodeBlock language="css" value={markdown} />
+			<Space size={20} />
 		</Page>
 	);
 }
