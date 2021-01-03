@@ -1,7 +1,7 @@
 import React from "react";
-import { css } from "@emotion/react";
+import Image from "next/image";
 import { Page } from "../../../components/Pages";
-import { Space, H1 } from "../../../components/Layout";
+import { Space, H1, Link, Box } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -10,13 +10,51 @@ function Index({ posts = [] }) {
 			<H1 size="hero1">Design introduction</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
-				Donec ullamcorper nulla non metus auctor fringilla. Maecenas
-				faucibus mollis interdum. Duis mollis, est non commodo luctus,
-				nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-				Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-				venenatis vestibulum. Vestibulum id ligula porta felis euismod
-				semper. Sed posuere consectetur est at lobortis.
+				Cherry provides a teamplate UI Kit in Figma with all the
+				standard web elements. The document template is divided in a few
+				pages to keep everything organized.
+				<ol>
+					<li>
+						<strong>Branding</strong> - Contains the colors
+						definition and all the typography styles, both for
+						desktop and mobile.
+					</li>
+					<li>
+						<strong>Interface</strong> - You can find all the form
+						elements, buttons, inputs, checkboxes, radio buttons and
+						drop-down selects.
+					</li>
+					<li>
+						<strong>Icons</strong> - Cherry uses open source icons
+						from Ionicons.
+					</li>
+					<li>
+						<strong>Spacing & Grid</strong> - Spacing definitions
+						and Cherry Grid, the 12 column layout system.
+					</li>
+					<li>
+						<strong>Meta Images</strong> - Favicon and all the rest
+						of icons required for metadata.
+					</li>
+				</ol>
 			</p>
+			<Space size={10} />
+			<Box noPadding>
+				<Image
+					src="/img/documentation/design/figma.png"
+					alt="Scale illustration"
+					width={2070}
+					height={1138.4}
+				/>
+			</Box>
+			<Space size={20} />
+			<Link
+				external
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-DSM?node-id=0%3A1"
+			>
+				Figma UI Kit
+			</Link>
+			<Space size={20} />
 		</Page>
 	);
 }
