@@ -1,10 +1,10 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function CodeBlock({ language, value }) {
 	return (
-		<SyntaxHighlighter language={language} style={materialDark}>
+		<SyntaxHighlighter language={language} style={materialOceanic}>
 			{value}
 		</SyntaxHighlighter>
 	);

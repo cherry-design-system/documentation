@@ -32,7 +32,7 @@ function Index({ posts = [] }) {
 				can still use Cherry components to build your layouts out of the
 				box.
 			</p>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock language="jsx" value={markdown} />
 			<Space size={20} />
 		</Page>
