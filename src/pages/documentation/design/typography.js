@@ -46,187 +46,166 @@ function Index({ posts = [] }) {
 						<th>🖥&nbsp;&nbsp; Line-Height</th>
 						<th>📱&nbsp; Font-Size</th>
 						<th>📱&nbsp; Line-Height</th>
-						<th>Letter-Spacing</th>
 					</tr>
 					<tr>
 						<td>Hero1</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>62px</td>
+						<td>1.15</td>
+						<td>52px</td>
+						<td>1.15</td>
 					</tr>
 					<tr>
 						<td>Hero2</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>52px</td>
+						<td>1.15</td>
+						<td>42px</td>
+						<td>1.15</td>
 					</tr>
 					<tr>
 						<td>Hero3</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>42px</td>
+						<td>1.15</td>
+						<td>32px</td>
+						<td>1.15</td>
 					</tr>
 					<tr>
 						<td>Heading1</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>40px</td>
+						<td>1.2</td>
+						<td>38px</td>
+						<td>1.2</td>
 					</tr>
 					<tr>
 						<td>Heading2</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>32px</td>
+						<td>1.2</td>
+						<td>28px</td>
+						<td>1.2</td>
 					</tr>
 					<tr>
 						<td>Heading3</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>28px</td>
+						<td>1.2</td>
+						<td>24px</td>
+						<td>1.2</td>
 					</tr>
 					<tr>
 						<td>Heading4</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>24px</td>
+						<td>1.3</td>
+						<td>22px</td>
+						<td>1.3</td>
 					</tr>
 					<tr>
 						<td>Heading5</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>20px</td>
+						<td>1.4</td>
+						<td>18px</td>
+						<td>1.4</td>
 					</tr>
 					<tr>
 						<td>Heading6</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>18px</td>
+						<td>1.4</td>
+						<td>16px</td>
+						<td>1.4</td>
 					</tr>
 					<tr>
 						<td>Eyebrow</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>18px</td>
+						<td>1.15</td>
+						<td>16px</td>
+						<td>1.35</td>
 					</tr>
 					<tr>
 						<td>Subtitle</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>20px</td>
+						<td>1.35</td>
+						<td>18px</td>
+						<td>1.35</td>
 					</tr>
 					<tr>
 						<td>Button</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>14px</td>
+						<td>1</td>
+						<td>12px</td>
+						<td>1</td>
 					</tr>
 					<tr>
 						<td>Button Big</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>18px</td>
+						<td>1</td>
+						<td>16px</td>
+						<td>1</td>
 					</tr>
 					<tr>
 						<td>Lead</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>18px</td>
+						<td>1.35</td>
+						<td>16px</td>
+						<td>1.35</td>
 					</tr>
 					<tr>
 						<td>Input</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>14px</td>
+						<td>1</td>
+						<td>12px</td>
+						<td>1</td>
 					</tr>
 					<tr>
 						<td>Input Big</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>18px</td>
+						<td>1</td>
+						<td>16px</td>
+						<td>1</td>
 					</tr>
 					<tr>
 						<td>Strong</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>16px</td>
+						<td>1.5</td>
+						<td>14px</td>
+						<td>1.5</td>
 					</tr>
 					<tr>
 						<td>Text</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>16px</td>
+						<td>1.5</td>
+						<td>14px</td>
+						<td>1.5</td>
 					</tr>
 					<tr>
 						<td>Small</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>14px</td>
+						<td>1.3</td>
+						<td>12px</td>
+						<td>1.3</td>
 					</tr>
 					<tr>
 						<td>Blockquote</td>
 						<td>Inter, sans-serif</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
-						<td>00</td>
+						<td>18px</td>
+						<td>1.5</td>
+						<td>16px</td>
+						<td>1.5</td>
 					</tr>
 				</table>
 			</TableOverflow>
