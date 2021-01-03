@@ -81,7 +81,7 @@ function Index({ posts = [] }) {
 				<Space xsSize={20} lgSize={80} />
 				<Row>
 					<Col xs={12} lg={8}>
-						<H3 size="h1">Code your design</H3>
+						<H3 size="h1">Continue in code</H3>
 						<p>
 							Each design element comes with a code implemented in
 							various modern front-end technologies or can be used
