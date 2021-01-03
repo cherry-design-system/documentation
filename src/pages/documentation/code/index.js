@@ -16,7 +16,7 @@ function Index({ posts = [] }) {
 	return (
 		<Page title="Code Documentation">
 			<Space xsSize={20} lgSize={40} />
-			<H1 size="hero1">Code introduction</H1>
+			<H1 size="hero1">Code</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
 				Donec ullamcorper nulla non metus auctor fringilla. Maecenas

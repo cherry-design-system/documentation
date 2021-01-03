@@ -7,7 +7,7 @@ function Index({ posts = [] }) {
 	return (
 		<Page title="Design Documentation">
 			<Space xsSize={20} lgSize={40} />
-			<H1 size="hero1">Design introduction</H1>
+			<H1 size="hero1">Design</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
 				Cherry provides a teamplate UI Kit in Figma with all the
