@@ -224,7 +224,12 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" size="big" disabled />
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						size="big"
+						disabled
+					/>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
