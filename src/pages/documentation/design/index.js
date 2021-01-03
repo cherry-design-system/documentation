@@ -50,7 +50,7 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<Link
 				external
-				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-DSM?node-id=0%3A1"
+				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=0%3A1"
 			>
 				Figma UI Kit
 			</Link>
