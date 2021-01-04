@@ -29,7 +29,7 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 	`}
 
 	${mq(Breakpoints.lg)} {
-		position: initial;
+		position: static;
 		top: initial;
 		height: initial;
 		overflow-y: hidden;
