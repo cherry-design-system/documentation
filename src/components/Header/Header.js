@@ -30,7 +30,12 @@ function Header() {
 							</Link>
 						</li>
 						<li>
-							<a href="#" className="github">
+							<a
+								href="https://github.com/cherry-deisgn/?ref=cherry.design"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="github"
+							>
 								<GitHub />
 							</a>
 						</li>
