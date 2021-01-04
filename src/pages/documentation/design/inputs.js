@@ -174,6 +174,7 @@ function Index({ posts = [] }) {
 						type="checkbox"
 						placeholder="Placeholder"
 						label="Checkbox"
+						id="check-3"
 						disabled
 					/>
 					<Space size={20} />
@@ -202,10 +203,77 @@ function Index({ posts = [] }) {
 				<Col xs={12} lg={4}>
 					<Input
 						type="radio"
-						name="test1"
+						name="test2"
+						placeholder="Placeholder"
+						label="Radio"
+						id="radio-3"
+						disabled
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="checkbox"
+						placeholder="Placeholder"
+						label="Checkbox"
+						id="check-4"
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="checkbox"
+						placeholder="Placeholder"
+						label="Checkbox"
+						id="check-5"
+						checked
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="checkbox"
+						placeholder="Placeholder"
+						label="Checkbox"
+						id="check-6"
+						disabled
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="radio"
+						name="test2"
+						placeholder="Placeholder"
+						label="Radio"
+						id="radio-4"
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="radio"
+						name="test2"
+						placeholder="Placeholder"
+						label="Radio"
+						id="radio-5"
+						checked
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="radio"
+						name="radio-6"
 						placeholder="Placeholder"
 						label="Radio"
 						disabled
+						size="big"
 					/>
 					<Space size={20} />
 				</Col>

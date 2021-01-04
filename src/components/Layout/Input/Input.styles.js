@@ -14,45 +14,53 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 	vertical-align: middle;
 	margin: 0;
 	font-family: ${theme.fonts.text};
+	border-radius: 6px;
+	border: solid 2px ${theme.colors.grayLight};
+	padding: 15px 15px;
+	background: ${theme.colors.light};
 
-	${size === "default"
-		? css`
-				${inputFontStyles(theme)};
-		  `
-		: css`
-				${inputBigFontStyles(theme)};
-		  `}
+	@media (hover: hover) {
+		&:hover:not([disabled]) {
+			border-color: ${theme.colors.secondary};
+		}
 
-	${(type === "text") |
-		(type === "number") |
-		(type === "phone") |
-		(type === "email") |
-		(type === "password") &&
-	css`
+	${
+		size === "default"
+			? css`
+					${inputFontStyles(theme)};
+			  `
+			: css`
+					${inputBigFontStyles(theme)};
+			  `
+	}
+
+	${
+		(type === "text") |
+			(type === "number") |
+			(type === "phone") |
+			(type === "email") |
+			(type === "password") &&
+		css`
 		display: block;
 		width: 100%;
-		border-radius: 6px;
-		padding: 15px 15px;
-		background: ${theme.colors.light};
-		border: solid 2px ${theme.colors.grayLight};
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 
-		${error &&
-		css`
-			border-color: ${theme.colors.error};
-		`}
-
-		${success &&
-		css`
-			border-color: ${theme.colors.success};
-		`}
-
-			@media (hover: hover) {
-			&:hover:not([disabled]) {
-				border-color: ${theme.colors.secondary};
-			}
+		${
+			error &&
+			css`
+				border-color: ${theme.colors.error};
+			`
 		}
-	`};
+
+		${
+			success &&
+			css`
+				border-color: ${theme.colors.success};
+			`
+		}
+		}
+	`
+	};
 
 	&:focus:not([disabled]) {
 		border-color: ${theme.colors.secondary};
@@ -64,42 +72,40 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 		box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
 	}
 
-	${(type === "checkbox") | (type === "radio") &&
-	css`
-		padding: 0;
-		border-radius: 6px;
-		border: solid 2px ${theme.colors.grayLight};
+	${
+		(type === "checkbox") | (type === "radio") &&
+		css`
+			padding: 0;
 
-		${size === "big"
-			? css`
-					width: 32px;
-					height: 32px;
-			  `
-			: css`
-					width: 22px;
-					height: 22px;
-			  `};
+			${size === "big"
+				? css`
+						width: 32px;
+						height: 32px;
+				  `
+				: css`
+						width: 22px;
+						height: 22px;
+				  `};
+		`
+	};
 
-		@media (hover: hover) {
-			&:hover:not([disabled]) {
-				border-color: ${theme.colors.secondary};
-			}
-		}
-	`};
+	${
+		type === "radio" &&
+		css`
+			border-radius: 50%;
+		`
+	}
 
-	${disabled &&
-	css`
-		background: ${theme.colors.grayLight};
-		border-color: ${theme.colors.gray};
-		color: ${theme.colors.gray};
-		cursor: not-allowed;
-		opacity: 0.9;
-	`}
-
-	${type === "radio" &&
-	css`
-		border-radius: 50%;
-	`}
+	${
+		disabled &&
+		css`
+			background: ${theme.colors.grayLight};
+			border-color: ${theme.colors.gray};
+			color: ${theme.colors.gray};
+			cursor: not-allowed;
+			opacity: 0.9;
+		`
+	}
 `;
 
 export const checkboxWrapperStyles = (theme, type, size) => css`
@@ -126,8 +132,10 @@ export const checkboxWrapperStyles = (theme, type, size) => css`
 
 			${size === "big"
 				? css`
-						top: 11px;
-						left: 10px;
+						top: 10px;
+						left: 9px;
+						width: 14px;
+						height: auto;
 				  `
 				: css`
 						top: 7px;
