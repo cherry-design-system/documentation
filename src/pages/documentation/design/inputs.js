@@ -165,7 +165,7 @@ function Index({ posts = [] }) {
 						placeholder="Placeholder"
 						label="Checkbox"
 						id="check-2"
-						checked
+						defaultChecked
 					/>
 					<Space size={20} />
 				</Col>
@@ -196,7 +196,7 @@ function Index({ posts = [] }) {
 						placeholder="Placeholder"
 						label="Radio"
 						id="radio-2"
-						checked
+						defaultChecked
 					/>
 					<Space size={20} />
 				</Col>
@@ -227,7 +227,7 @@ function Index({ posts = [] }) {
 						placeholder="Placeholder"
 						label="Checkbox"
 						id="check-5"
-						checked
+						defaultChecked
 						size="big"
 					/>
 					<Space size={20} />
@@ -261,7 +261,7 @@ function Index({ posts = [] }) {
 						placeholder="Placeholder"
 						label="Radio"
 						id="radio-5"
-						checked
+						defaultChecked
 						size="big"
 					/>
 					<Space size={20} />
