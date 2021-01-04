@@ -1,16 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import { Page } from "../../../components/Pages";
-import { Space, H1 } from "../../../components/Layout";
-import { CodeBlock } from "../../../components/CodeBlock";
-
-const markdown = `.parent {
-	color: var(--color-dark);
-
-		& .child {
-				color: var(--color-light);
-			}
-		}
-}`;
+import { Space, H1, Row, Col, Box } from "../../../components/Layout";
 
 function Index({ posts = [] }) {
 	return (
@@ -19,16 +10,60 @@ function Index({ posts = [] }) {
 			<H1 size="hero1">Code</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
-				Donec ullamcorper nulla non metus auctor fringilla. Maecenas
-				faucibus mollis interdum. Duis mollis, est non commodo luctus,
-				nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-				Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-				venenatis vestibulum. Vestibulum id ligula porta felis euismod
-				semper. Sed posuere consectetur est at lobortis.
+				Every element of the design system comes with a implementation
+				in code. Cherry can be used in Sass, PostCSS or as React
+				Components. You have access to the source code in our GitHub{" "}
+				<a
+					href="https://github.com/cherry-design-system/?ref=cherry.design"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					repositories
+				</a>
+				.
 			</p>
-			<Space size={10} />
-			<CodeBlock language="css" value={markdown} />
 			<Space size={20} />
+			<Row>
+				<Col xs={12} lg={4} textAlign="center">
+					<Box
+						href="/documentation/code/sass"
+						as="/documentation/code/sass"
+					>
+						<Image
+							src="/img/documentation/code/sass.png"
+							alt="Sass Logo"
+							width={120}
+							height={90}
+						/>
+						<strong data-tertiary>Sass</strong>
+					</Box>
+				</Col>
+				<Col xs={12} lg={4} textAlign="center">
+					<Space xsSize={20} lgSize="none" />
+					<Box href="/documentation/code" as="/documentation/code">
+						<Image
+							src="/img/documentation/code/postcss.png"
+							alt="PostCSS Logo"
+							width={90}
+							height={90}
+						/>
+						<strong data-tertiary>PostCSS</strong>
+					</Box>
+				</Col>
+				<Col xs={12} lg={4} textAlign="center">
+					<Space xsSize={20} lgSize="none" />
+					<Box href="/documentation/code" as="/documentation/code">
+						<Image
+							src="/img/documentation/code/react.png"
+							alt="React Logo"
+							width={100.58}
+							height={90}
+						/>
+						<strong data-tertiary>React Components</strong>
+					</Box>
+					<Space size={20} />
+				</Col>
+			</Row>
 		</Page>
 	);
 }

@@ -224,12 +224,18 @@ function Sidebar({ className }) {
 								<ul>
 									<li>
 										<Link
-											href="/documentation"
-											as="/documentation"
+											href="/documentation/code/sass"
+											as="/documentation/code/sass"
 										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/documentation/code/sass"
+														? "active"
+														: ""
 												}
 											>
 												Introduction
@@ -341,12 +347,18 @@ function Sidebar({ className }) {
 								<ul>
 									<li>
 										<Link
-											href="/documentation"
-											as="/documentation"
+											href="/documentation/code/postcss"
+											as="/documentation/code/postcss"
 										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/documentation/code/postcss"
+														? "active"
+														: ""
 												}
 											>
 												Introduction

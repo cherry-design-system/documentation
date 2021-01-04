@@ -136,6 +136,16 @@ const globalStyles = (
 			p {
 				color: ${theme.colors.gray};
 				margin: 10px 0;
+
+				& a {
+					color: ${theme.colors.primary};
+
+					@media (hover: hover) {
+						&:hover {
+							color: ${theme.colors.primaryDark};
+						}
+					}
+				}
 			}
 
 			figure {
