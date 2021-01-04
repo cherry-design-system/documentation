@@ -10,6 +10,9 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${resetButtonStyles};
 	display: inline-block;
 	vertical-align: middle;
+	font-weight: 600;
+	padding: 15px 25px;
+	border-radius: 100px;
 
 	${size === "default"
 		? css`
@@ -22,12 +25,9 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${variant === "primary" &&
 	!frame &&
 	css`
-		padding: 15px 25px;
-		border-radius: 100px;
 		background: ${theme.colors.primary};
 		border: solid 2px ${theme.colors.primary};
 		color: ${theme.colors.light};
-		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
 
 		@media (hover: hover) {
@@ -50,11 +50,8 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${variant === "primary" &&
 	frame &&
 	css`
-		padding: 15px 25px;
-		border-radius: 100px;
 		border: solid 2px ${theme.colors.primary};
 		color: ${theme.colors.primary};
-		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
 
 		@media (hover: hover) {
@@ -76,12 +73,9 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${variant === "secondary" &&
 	!frame &&
 	css`
-		padding: 15px 25px;
-		border-radius: 100px;
 		background: ${theme.colors.secondary};
 		border: solid 2px ${theme.colors.secondary};
 		color: ${theme.colors.light};
-		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 
 		@media (hover: hover) {
@@ -104,11 +98,8 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${variant === "secondary" &&
 	frame &&
 	css`
-		padding: 15px 25px;
-		border-radius: 100px;
 		border: solid 2px ${theme.colors.secondary};
 		color: ${theme.colors.secondary};
-		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 
 		@media (hover: hover) {
@@ -130,12 +121,9 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${variant === "tertiary" &&
 	!frame &&
 	css`
-		padding: 15px 25px;
-		border-radius: 100px;
 		background: ${theme.colors.tertiary};
 		border: solid 2px ${theme.colors.tertiary};
 		color: ${theme.colors.light};
-		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
 
 		@media (hover: hover) {
@@ -158,11 +146,8 @@ export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${variant === "tertiary" &&
 	frame &&
 	css`
-		padding: 15px 25px;
-		border-radius: 100px;
 		border: solid 2px ${theme.colors.tertiary};
 		color: ${theme.colors.tertiary};
-		font-weight: 600;
 		box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
 
 		@media (hover: hover) {
