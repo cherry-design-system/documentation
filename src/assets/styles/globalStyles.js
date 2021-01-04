@@ -184,7 +184,6 @@ const globalStyles = (
 				}
 
 				& th {
-					color: 
 					font-size: ${theme.sizes.button.mobile};
 
 					${mq(Breakpoints.lg)} {
