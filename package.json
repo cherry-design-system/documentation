@@ -3,8 +3,21 @@
 	"version": "0.0.1",
 	"description": "Cherry documentation website.",
 	"main": "index.js",
-	"author": "Luan Gjokaj",
+	"author": "Luan Gjokaj <luan@riangle.com>",
+	"homepage": "https://cherry.design",
+	"repository": "https://github.com/cherry-design-system/documentation",
 	"license": "MIT",
+	"keywords": [
+		"cherry",
+		"css",
+		"sass",
+		"postcss",
+		"react",
+		"components",
+		"framework",
+		"design",
+		"design system"
+	],
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -17,8 +30,6 @@
 		"analyze:server": "BUNDLE_ANALYZE=server next build",
 		"analyze:browser": "BUNDLE_ANALYZE=browser next build"
 	},
-	"homepage": "https://cherry.design",
-	"repository": "https://github.com/cherry-design-system/documentation",
 	"dependencies": {
 		"@emotion/babel-plugin": "^11.1.2",
 		"@emotion/eslint-plugin": "^11.0.0",
