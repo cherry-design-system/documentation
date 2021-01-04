@@ -130,37 +130,37 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Button variant="primary" disabled big>
+					<Button variant="primary" disabled size="big">
 						Disabled
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Button variant="secondary" disabled big>
+					<Button variant="secondary" disabled size="big">
 						Disabled
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Button variant="tertiary" disabled big>
+					<Button variant="tertiary" disabled size="big">
 						Disabled
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Button variant="primary" frame disabled big>
+					<Button variant="primary" frame disabled size="big">
 						Primary Frame
 					</Button>
 					<Space xsSize={20} lgSize={10} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Button variant="secondary" frame disabled big>
+					<Button variant="secondary" frame disabled size="big">
 						Secondary Frame
 					</Button>
 					<Space xsSize={20} lgSize={10} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Button variant="tertiary" frame disabled big>
+					<Button variant="tertiary" frame disabled size="big">
 						Tertiary Frame
 					</Button>
 					<Space size={10} />
