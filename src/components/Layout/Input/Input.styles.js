@@ -23,24 +23,22 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 		&:hover:not([disabled]) {
 			border-color: ${theme.colors.secondary};
 		}
-
-	${
-		size === "default"
-			? css`
-					${inputFontStyles(theme)};
-			  `
-			: css`
-					${inputBigFontStyles(theme)};
-			  `
 	}
 
-	${
-		(type === "text") |
-			(type === "number") |
-			(type === "phone") |
-			(type === "email") |
-			(type === "password") &&
-		css`
+	${size === "default"
+		? css`
+				${inputFontStyles(theme)};
+		  `
+		: css`
+				${inputBigFontStyles(theme)};
+		  `}
+
+	${(type === "text") |
+		(type === "number") |
+		(type === "phone") |
+		(type === "email") |
+		(type === "password") &&
+	css`
 		display: block;
 		width: 100%;
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
@@ -59,8 +57,7 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 			`
 		}
 		}
-	`
-	};
+	`};
 
 	&:focus:not([disabled]) {
 		border-color: ${theme.colors.secondary};
@@ -72,40 +69,34 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 		box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
 	}
 
-	${
-		(type === "checkbox") | (type === "radio") &&
-		css`
-			padding: 0;
+	${(type === "checkbox") | (type === "radio") &&
+	css`
+		padding: 0;
 
-			${size === "big"
-				? css`
-						width: 32px;
-						height: 32px;
-				  `
-				: css`
-						width: 22px;
-						height: 22px;
-				  `};
-		`
-	};
+		${size === "big"
+			? css`
+					width: 32px;
+					height: 32px;
+			  `
+			: css`
+					width: 22px;
+					height: 22px;
+			  `};
+	`};
 
-	${
-		type === "radio" &&
-		css`
-			border-radius: 50%;
-		`
-	}
+	${type === "radio" &&
+	css`
+		border-radius: 50%;
+	`}
 
-	${
-		disabled &&
-		css`
-			background: ${theme.colors.grayLight};
-			border-color: ${theme.colors.gray};
-			color: ${theme.colors.gray};
-			cursor: not-allowed;
-			opacity: 0.9;
-		`
-	}
+	${disabled &&
+	css`
+		background: ${theme.colors.grayLight};
+		border-color: ${theme.colors.gray};
+		color: ${theme.colors.gray};
+		cursor: not-allowed;
+		opacity: 0.9;
+	`}
 `;
 
 export const checkboxWrapperStyles = (theme, type, size) => css`
