@@ -31,7 +31,7 @@ function Header() {
 						</li>
 						<li>
 							<a
-								href="https://github.com/cherry-deisgn/?ref=cherry.design"
+								href="https://github.com/cherry-design-system/?ref=cherry.design"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="github"
