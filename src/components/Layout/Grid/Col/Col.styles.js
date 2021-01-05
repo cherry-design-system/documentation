@@ -163,12 +163,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastXs &&
 		css`
 			order: -1;
 		`}
-
 		${xs === "auto" &&
 		css`
 			${colAuto}
@@ -228,12 +226,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastSm &&
 		css`
 			order: -1;
 		`}
-
 		${sm === "auto" &&
 		css`
 			${colAuto}
@@ -293,12 +289,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastMd &&
 		css`
 			order: -1;
 		`}
-
 		${md === "auto" &&
 		css`
 			${colAuto}
@@ -358,12 +352,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastLg &&
 		css`
 			order: -1;
 		`}
-
 		${lg === "auto" &&
 		css`
 			${colAuto}
@@ -423,12 +415,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastXl &&
 		css`
 			order: -1;
 		`}
-
 		${xl === "auto" &&
 		css`
 			${colAuto}
@@ -488,12 +478,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastXxl &&
 		css`
 			order: -1;
 		`}
-
 		${xxl === "auto" &&
 		css`
 			${colAuto}
@@ -553,12 +541,10 @@ const colStyles = (
 		css`
 			order: -1;
 		`}
-
 		${lastXxxl &&
 		css`
 			order: -1;
 		`}
-
 		${xxxl === "auto" &&
 		css`
 			${colAuto}
