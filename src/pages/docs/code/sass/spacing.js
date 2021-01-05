@@ -30,7 +30,7 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<CodeBlock language="html" value={spaceCode} description={""} />
 			<Space size={20} />
-			<H2 size="h3">Class Names</H2>
+			<H2 size="h3">Classes</H2>
 			<p>
 				Below you can find the class names for all sizes. Make sure your
 				element includes both classes as specified.
@@ -106,6 +106,10 @@ function Index({ posts = [] }) {
 					<tr>
 						<th>Description</th>
 						<th>Class Name</th>
+					</tr>
+					<tr>
+						<td>Horizontal space (in-line)</td>
+						<td>.space.horizontal</td>
 					</tr>
 					<tr>
 						<td>Hide on XS media query</td>

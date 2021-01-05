@@ -32,7 +32,7 @@ function Index({ posts = [] }) {
 			<p>
 				The button styles are defined in <strong>buttons.scss</strong>.
 				All form buttons take the default style of the Cherry button.
-				You can change the variants of the buttons by using class names.
+				You can change the variants of the buttons by using classes.
 			</p>
 			<Space size={10} />
 			<CodeBlock
