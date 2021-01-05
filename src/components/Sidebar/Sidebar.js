@@ -213,8 +213,19 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/documentation/code/meta-tags"
+									as="/documentation/code/meta-tags"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"/documentation/code/meta-tags"
+												? "active"
+												: ""
+										}
+									>
 										Meta Tags
 									</a>
 								</Link>
