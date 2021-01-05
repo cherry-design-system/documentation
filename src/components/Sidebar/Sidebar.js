@@ -324,10 +324,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/sass/spacing"
+											as="/docs/code/sass/spacing"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/sass/spacing"
+														? "active"
+														: ""
 												}
 											>
 												Spacing
