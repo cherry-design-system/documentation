@@ -270,6 +270,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="radio"
 						name="radio-6"
+						id="radio-6"
 						placeholder="Placeholder"
 						label="Radio"
 						disabled

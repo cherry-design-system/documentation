@@ -313,12 +313,18 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation"
-											as="/documentation"
+											href="/documentation/code/sass/inputs"
+											as="/documentation/code/sass/inputs"
 										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/documentation/code/sass/inputs"
+														? "active"
+														: ""
 												}
 											>
 												Inputs

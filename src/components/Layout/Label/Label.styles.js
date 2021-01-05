@@ -4,7 +4,12 @@ export const labelStyles = (theme, error, success) => css`
 	color: ${theme.colors.gray};
 	display: inline-block;
 	vertical-align: middle;
-	padding-left: 7px;
+	padding: 0;
+	margin: 0;
+
+	&[for] {
+		padding: 0 0 0 7px;
+	}
 
 	${error &&
 	css`

@@ -43,20 +43,15 @@ export const inputStyles = (theme, type, size, disabled, success, error) => css`
 		width: 100%;
 		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 
-		${
-			error &&
-			css`
-				border-color: ${theme.colors.error};
-			`
-		}
+		${error &&
+		css`
+			border-color: ${theme.colors.error};
+		`}
 
-		${
-			success &&
-			css`
-				border-color: ${theme.colors.success};
-			`
-		}
-		}
+		${success &&
+		css`
+			border-color: ${theme.colors.success};
+		`}
 	`};
 
 	&:focus:not([disabled]) {
