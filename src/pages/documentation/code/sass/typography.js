@@ -4,7 +4,7 @@ import { Space, H1, H2, H3 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 
 const hero1 = `<h1 class="hero1">Hero1</h1>`;
-const hero2 = `<h1 class="hero2">Hero1</h1>`;
+const hero2 = `<h1 class="hero2">Hero2</h1>`;
 const hero3 = `<h1 class="hero3">Hero3</h1>`;
 const h1 = `<h1>Heading1</h1>`;
 const h2 = `<h2>Heading2</h2>`;
