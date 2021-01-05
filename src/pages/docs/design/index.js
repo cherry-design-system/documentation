@@ -44,7 +44,7 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<Box noPadding>
 				<Image
-					src="/img/documentation/design/figma.jpg"
+					src="/img/docs/design/figma.jpg"
 					alt="Scale illustration"
 					width={1916}
 					height={1051}

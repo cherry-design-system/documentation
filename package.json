@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"author": "Luan Gjokaj <luan@riangle.com>",
 	"homepage": "https://cherry.design",
-	"repository": "https://github.com/cherry-design-system/documentation",
+	"repository": "https://github.com/cherry-design-system/docs",
 	"license": "MIT",
 	"keywords": [
 		"cherry",

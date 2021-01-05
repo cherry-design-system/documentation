@@ -11,7 +11,7 @@ function Header() {
 
 	return (
 		<header css={(theme) => headerStyles(theme)}>
-			<Container fluid={router.pathname.includes("/documentation")}>
+			<Container fluid={router.pathname.includes("/docs")}>
 				<div className="inner-wrapper">
 					<Link href="/" as="/">
 						<a>
@@ -20,7 +20,7 @@ function Header() {
 					</Link>
 					<ul>
 						<li>
-							<Link href="/documentation" as="/documentation">
+							<Link href="/docs" as="/docs">
 								<a>
 									<span className="desktop">
 										Documentation

@@ -25,12 +25,9 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<Row>
 				<Col xs={12} lg={4} textAlign="center">
-					<Box
-						href="/documentation/code/sass"
-						as="/documentation/code/sass"
-					>
+					<Box href="/docs/code/sass" as="/docs/code/sass">
 						<Image
-							src="/img/documentation/code/sass.png"
+							src="/img/docs/code/sass.png"
 							alt="Sass Logo"
 							width={120}
 							height={90}
@@ -40,9 +37,9 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
 					<Space xsSize={20} lgSize="none" />
-					<Box href="/documentation/code" as="/documentation/code">
+					<Box href="/docs/code" as="/docs/code">
 						<Image
-							src="/img/documentation/code/postcss.png"
+							src="/img/docs/code/postcss.png"
 							alt="PostCSS Logo"
 							width={90}
 							height={90}
@@ -52,9 +49,9 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
 					<Space xsSize={20} lgSize="none" />
-					<Box href="/documentation/code" as="/documentation/code">
+					<Box href="/docs/code" as="/docs/code">
 						<Image
-							src="/img/documentation/code/react.png"
+							src="/img/docs/code/react.png"
 							alt="React Logo"
 							width={100.58}
 							height={90}

@@ -9,7 +9,7 @@ function Footer({ className }) {
 
 	return (
 		<footer className={className} css={(theme) => footerStyles(theme)}>
-			<Container fluid={router.pathname.includes("/documentation")}>
+			<Container fluid={router.pathname.includes("/docs")}>
 				<Space xsSize={40} lgSize={80} />
 				<Logo />
 				<p>© Copyright 2021 - All rights reserved. </p>

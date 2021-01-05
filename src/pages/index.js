@@ -32,7 +32,7 @@ function Index({ posts = [] }) {
 							out-of-the-box.
 						</p>
 						<Space xsSize={10} lgSize={20} />
-						<Link href="/documentation" as="/documentation">
+						<Link href="/docs" as="/docs">
 							Get Started
 						</Link>
 						<Space xsSize={10} lgSize="none" />
@@ -61,8 +61,8 @@ function Index({ posts = [] }) {
 						<Link
 							variant="secondary"
 							frame
-							href="/documentation/design"
-							as="/documentation/design"
+							href="/docs/design"
+							as="/docs/design"
 						>
 							Design
 						</Link>
@@ -91,8 +91,8 @@ function Index({ posts = [] }) {
 						<Link
 							variant="tertiary"
 							frame
-							href="/documentation/code"
-							as="/documentation/code"
+							href="/docs/code"
+							as="/docs/code"
 						>
 							Code
 						</Link>
@@ -121,8 +121,8 @@ function Index({ posts = [] }) {
 						<Link
 							variant="primary"
 							frame
-							href="/documentation/scale"
-							as="/documentation/scale"
+							href="/docs/scale"
+							as="/docs/scale"
 						>
 							Scale
 						</Link>
@@ -141,11 +141,7 @@ function Index({ posts = [] }) {
 				<Row>
 					<Col xs={12} textAlign="center">
 						<Space xsSize={20} lgSize={80} />
-						<Link
-							href="/documentation"
-							as="/documentation"
-							size="big"
-						>
+						<Link href="/docs" as="/docs" size="big">
 							Get Started
 						</Link>
 						<Space xsSize={30} lgSize={80} />

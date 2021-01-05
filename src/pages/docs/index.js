@@ -27,10 +27,7 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<Row>
 				<Col xs={12} lg={4} textAlign="center">
-					<Box
-						href="/documentation/design"
-						as="/documentation/design"
-					>
+					<Box href="/docs/design" as="/docs/design">
 						<Image
 							src="/img/design.png"
 							alt="Design illustration"
@@ -42,7 +39,7 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
 					<Space xsSize={20} lgSize="none" />
-					<Box href="/documentation/code" as="/documentation/code">
+					<Box href="/docs/code" as="/docs/code">
 						<Image
 							src="/img/code.png"
 							alt="Code illustration"
@@ -54,7 +51,7 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
 					<Space xsSize={20} lgSize="none" />
-					<Box href="/documentation/scale" as="/documentation/scale">
+					<Box href="/docs/scale" as="/docs/scale">
 						<Image
 							src="/img/scale.png"
 							alt="Scale illustration"

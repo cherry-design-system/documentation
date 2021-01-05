@@ -19,7 +19,7 @@ function App({ Component, pageProps }) {
 				<ScrollToTop>
 					<Header />
 					<MinHeight>
-						{router.pathname.includes("/documentation") ? (
+						{router.pathname.includes("/docs") ? (
 							<Container fluid>
 								<Row gutterLg="medium">
 									<Col xs={12} lg={3} fullScreen>

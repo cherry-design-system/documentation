@@ -23,10 +23,10 @@ function Sidebar({ className }) {
 						<strong>Getting started</strong>
 						<ul>
 							<li>
-								<Link href="/documentation" as="/documentation">
+								<Link href="/docs" as="/docs">
 									<a
 										className={
-											router.pathname === "/documentation"
+											router.pathname === "/docs"
 												? "active"
 												: ""
 										}
@@ -43,15 +43,11 @@ function Sidebar({ className }) {
 						<strong>Design</strong>
 						<ul>
 							<li>
-								<Link
-									href="/documentation/design"
-									as="/documentation/design"
-								>
+								<Link href="/docs/design" as="/docs/design">
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
-											router.pathname ===
-											"/documentation/design"
+											router.pathname === "/docs/design"
 												? "active"
 												: ""
 										}
@@ -62,14 +58,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/colors"
-									as="/documentation/design/colors"
+									href="/docs/design/colors"
+									as="/docs/design/colors"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/colors"
+											"/docs/design/colors"
 												? "active"
 												: ""
 										}
@@ -80,14 +76,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/typography"
-									as="/documentation/design/typography"
+									href="/docs/design/typography"
+									as="/docs/design/typography"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/typography"
+											"/docs/design/typography"
 												? "active"
 												: ""
 										}
@@ -98,14 +94,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/buttons"
-									as="/documentation/design/buttons"
+									href="/docs/design/buttons"
+									as="/docs/design/buttons"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/buttons"
+											"/docs/design/buttons"
 												? "active"
 												: ""
 										}
@@ -116,14 +112,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/inputs"
-									as="/documentation/design/inputs"
+									href="/docs/design/inputs"
+									as="/docs/design/inputs"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/inputs"
+											"/docs/design/inputs"
 												? "active"
 												: ""
 										}
@@ -134,14 +130,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/spacing"
-									as="/documentation/design/spacing"
+									href="/docs/design/spacing"
+									as="/docs/design/spacing"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/spacing"
+											"/docs/design/spacing"
 												? "active"
 												: ""
 										}
@@ -152,14 +148,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/grid"
-									as="/documentation/design/grid"
+									href="/docs/design/grid"
+									as="/docs/design/grid"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/grid"
+											"/docs/design/grid"
 												? "active"
 												: ""
 										}
@@ -170,14 +166,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/design/meta-images"
-									as="/documentation/design/meta-images"
+									href="/docs/design/meta-images"
+									as="/docs/design/meta-images"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/design/meta-images"
+											"/docs/design/meta-images"
 												? "active"
 												: ""
 										}
@@ -193,14 +189,10 @@ function Sidebar({ className }) {
 						<strong>Code</strong>
 						<ul>
 							<li>
-								<Link
-									href="/documentation/code"
-									as="/documentation/code"
-								>
+								<Link href="/docs/code" as="/docs/code">
 									<a
 										className={
-											router.pathname ===
-											"/documentation/code"
+											router.pathname === "/docs/code"
 												? "active"
 												: ""
 										}
@@ -212,14 +204,14 @@ function Sidebar({ className }) {
 							</li>
 							<li>
 								<Link
-									href="/documentation/code/meta-tags"
-									as="/documentation/code/meta-tags"
+									href="/docs/code/meta-tags"
+									as="/docs/code/meta-tags"
 								>
 									<a
 										onClick={() => setMenuOpen(false)}
 										className={
 											router.pathname ===
-											"/documentation/code/meta-tags"
+											"/docs/code/meta-tags"
 												? "active"
 												: ""
 										}
@@ -233,8 +225,8 @@ function Sidebar({ className }) {
 								<ul>
 									<li>
 										<Link
-											href="/documentation/code/sass"
-											as="/documentation/code/sass"
+											href="/docs/code/sass"
+											as="/docs/code/sass"
 										>
 											<a
 												onClick={() =>
@@ -242,7 +234,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"/documentation/code/sass"
+													"/docs/code/sass"
 														? "active"
 														: ""
 												}
@@ -253,8 +245,8 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation/code/sass/colors"
-											as="/documentation/code/sass/colors"
+											href="/docs/code/sass/colors"
+											as="/docs/code/sass/colors"
 										>
 											<a
 												onClick={() =>
@@ -262,7 +254,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"/documentation/code/sass/colors"
+													"/docs/code/sass/colors"
 														? "active"
 														: ""
 												}
@@ -273,8 +265,8 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation/code/sass/typography"
-											as="/documentation/code/sass/typography"
+											href="/docs/code/sass/typography"
+											as="/docs/code/sass/typography"
 										>
 											<a
 												onClick={() =>
@@ -282,7 +274,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"/documentation/code/sass/typography"
+													"/docs/code/sass/typography"
 														? "active"
 														: ""
 												}
@@ -293,8 +285,8 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation/code/sass/buttons"
-											as="/documentation/code/sass/buttons"
+											href="/docs/code/sass/buttons"
+											as="/docs/code/sass/buttons"
 										>
 											<a
 												onClick={() =>
@@ -302,7 +294,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"/documentation/code/sass/buttons"
+													"/docs/code/sass/buttons"
 														? "active"
 														: ""
 												}
@@ -313,8 +305,8 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation/code/sass/inputs"
-											as="/documentation/code/sass/inputs"
+											href="/docs/code/sass/inputs"
+											as="/docs/code/sass/inputs"
 										>
 											<a
 												onClick={() =>
@@ -322,7 +314,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"/documentation/code/sass/inputs"
+													"/docs/code/sass/inputs"
 														? "active"
 														: ""
 												}
@@ -332,10 +324,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -346,10 +335,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -360,10 +346,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -380,8 +363,8 @@ function Sidebar({ className }) {
 								<ul>
 									<li>
 										<Link
-											href="/documentation/code/postcss"
-											as="/documentation/code/postcss"
+											href="/docs/code/postcss"
+											as="/docs/code/postcss"
 										>
 											<a
 												onClick={() =>
@@ -389,7 +372,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"/documentation/code/postcss"
+													"/docs/code/postcss"
 														? "active"
 														: ""
 												}
@@ -399,10 +382,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -413,10 +393,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -427,10 +404,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -441,10 +415,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -455,10 +426,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -469,10 +437,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -483,10 +448,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -502,10 +464,7 @@ function Sidebar({ className }) {
 								<strong>React Components</strong>
 								<ul>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -516,10 +475,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -530,10 +486,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -544,10 +497,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -558,10 +508,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -572,10 +519,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -586,10 +530,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -600,10 +541,7 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link
-											href="/documentation"
-											as="/documentation"
-										>
+										<Link href="/docs" as="/docs">
 											<a
 												onClick={() =>
 													setMenuOpen(false)
@@ -622,14 +560,10 @@ function Sidebar({ className }) {
 						<strong>Scale</strong>
 						<ul>
 							<li>
-								<Link
-									href="/documentation/scale"
-									as="/documentation/scale"
-								>
+								<Link href="/docs/scale" as="/docs/scale">
 									<a
 										className={
-											router.pathname ===
-											"/documentation/scale"
+											router.pathname === "/docs/scale"
 												? "active"
 												: ""
 										}
@@ -640,28 +574,28 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
+								<Link href="/docs" as="/docs">
 									<a onClick={() => setMenuOpen(false)}>
 										Design System
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
+								<Link href="/docs" as="/docs">
 									<a onClick={() => setMenuOpen(false)}>
 										Sass
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
+								<Link href="/docs" as="/docs">
 									<a onClick={() => setMenuOpen(false)}>
 										PostCSS
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/documentation" as="/documentation">
+								<Link href="/docs" as="/docs">
 									<a onClick={() => setMenuOpen(false)}>
 										React Components
 									</a>
