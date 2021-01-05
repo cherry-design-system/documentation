@@ -7,4 +7,14 @@ export const boxDescriptionStyles = (theme) => css`
 	overflow: hidden;
 	margin-top: -16px;
 	padding: 30px 20px 20px 20px;
+
+	& p:only-of-type {
+		padding: 0;
+		margin: 0;
+
+		& blockquote {
+			padding: 0;
+			margin: 0;
+		}
+	}
 `;
