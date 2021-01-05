@@ -80,14 +80,14 @@ function Index({ posts = [] }) {
 							<Col xs={6}>
 								<Box>
 									<p>
-										<small>12</small>
+										<small>Child 1</small>
 									</p>
 								</Box>
 							</Col>
 							<Col xs={6}>
 								<Box>
 									<p>
-										<small>12</small>
+										<small>Child 2</small>
 									</p>
 								</Box>
 								<Space size={20} />
@@ -95,7 +95,7 @@ function Index({ posts = [] }) {
 							<Col xs={12}>
 								<Box>
 									<p>
-										<small>12</small>
+										<small>Child 3</small>
 									</p>
 								</Box>
 							</Col>
