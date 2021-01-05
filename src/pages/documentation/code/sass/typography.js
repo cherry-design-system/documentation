@@ -69,6 +69,24 @@ function Index({ posts = [] }) {
 				description={<H3>Heading3</H3>}
 			/>
 			<Space size={20} />
+			<CodeBlock
+				language="html"
+				value={h4}
+				description={<H1>Heading4</H1>}
+			/>
+			<Space size={20} />
+			<CodeBlock
+				language="html"
+				value={h5}
+				description={<H2>Heading5</H2>}
+			/>
+			<Space size={20} />
+			<CodeBlock
+				language="html"
+				value={h6}
+				description={<H3>Heading6</H3>}
+			/>
+			<Space size={20} />
 		</Page>
 	);
 }
