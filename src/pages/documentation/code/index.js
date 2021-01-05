@@ -10,7 +10,7 @@ function Index({ posts = [] }) {
 			<H1 size="hero1">Code</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
-				Every element of the design system comes with a implementation
+				Every element of the design system comes with an implementation
 				in code. Cherry can be used in Sass, PostCSS or as React
 				Components. You have access to the source code in our GitHub{" "}
 				<a
