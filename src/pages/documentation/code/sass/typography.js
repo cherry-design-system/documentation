@@ -6,12 +6,12 @@ import { CodeBlock } from "../../../../components/CodeBlock";
 const hero1 = `<h1 class="hero1">Hero1</h1>`;
 const hero2 = `<h1 class="hero2">Hero1</h1>`;
 const hero3 = `<h1 class="hero3">Hero3</h1>`;
-const h1 = `<h1>Hero3</h1>`;
-const h2 = `<h2>Hero3</h2>`;
-const h3 = `<h3>Hero3</h3>`;
-const h4 = `<h4>Hero3</h4>`;
-const h5 = `<h5>Hero3</h5>`;
-const h6 = `<h6>Hero3</h6>`;
+const h1 = `<h1>Heading1</h1>`;
+const h2 = `<h2>Heading2</h2>`;
+const h3 = `<h3>Heading3</h3>`;
+const h4 = `<h4>Heading4</h4>`;
+const h5 = `<h5>Heading5</h5>`;
+const h6 = `<h6>Heading6</h6>`;
 
 function Index({ posts = [] }) {
 	return (
