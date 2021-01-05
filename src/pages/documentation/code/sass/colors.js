@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../../../../components/Pages";
-import { Space, H1, H2, H3 } from "../../../../components/Layout";
+import { Space, H1 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { ColorBox, ColorBoxContainer } from "../../../../components/ColorBox";
 
