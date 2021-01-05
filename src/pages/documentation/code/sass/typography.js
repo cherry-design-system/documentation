@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../../../../components/Pages";
-import { Space, H1, H2, H3 } from "../../../../components/Layout";
+import { Space, H1, H2, H3, H4, H5, H6 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 
 const hero1 = `<h1 class="hero1">Hero1</h1>`;
@@ -72,19 +72,19 @@ function Index({ posts = [] }) {
 			<CodeBlock
 				language="html"
 				value={h4}
-				description={<H1>Heading4</H1>}
+				description={<H4>Heading4</H4>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={h5}
-				description={<H2>Heading5</H2>}
+				description={<H5>Heading5</H5>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={h6}
-				description={<H3>Heading6</H3>}
+				description={<H6>Heading6</H6>}
 			/>
 			<Space size={20} />
 		</Page>
