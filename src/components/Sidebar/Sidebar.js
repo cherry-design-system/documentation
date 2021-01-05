@@ -255,12 +255,18 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation"
-											as="/documentation"
+											href="/documentation/code/sass/colors"
+											as="/documentation/code/sass/colors"
 										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/documentation/code/sass/colors"
+														? "active"
+														: ""
 												}
 											>
 												Colors

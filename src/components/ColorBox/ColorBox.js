@@ -16,9 +16,11 @@ function ColorBox({ name, value, border }) {
 	);
 }
 
-function ColorBoxContainer({ children }) {
+function ColorBoxContainer({ children, isPushing = true }) {
 	return (
-		<div css={(theme) => colorBoxContainerStyles(theme)}>{children}</div>
+		<div css={(theme) => colorBoxContainerStyles(theme, isPushing)}>
+			{children}
+		</div>
 	);
 }
 

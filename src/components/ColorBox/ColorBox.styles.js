@@ -30,6 +30,9 @@ export const colorBoxStyles = (theme, value, border) => css`
 		flex: 1;
 		font-size: ${theme.sizes.buttonBig.size.mobile};
 		color: ${theme.colors.gray};
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 
 		${mq(Breakpoints.lg)} {
 			font-size: ${theme.sizes.buttonBig.size.desktop};
@@ -51,8 +54,18 @@ export const colorBoxStyles = (theme, value, border) => css`
 	}
 `;
 
-export const colorBoxContainerStyles = (theme) => css`
-	margin: 0 -10px;
+export const colorBoxContainerStyles = (theme, isPushing) => css`
+	${isPushing
+		? css`
+				margin: 0 -10px;
+		  `
+		: css`
+				margin: -20px -10px;
+
+				${mq(Breakpoints.lg)} {
+					margin: -10px;
+				}
+		  `}
 
 	& .color-box {
 		margin: 20px 10px;
