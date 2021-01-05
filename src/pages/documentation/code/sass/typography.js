@@ -12,9 +12,9 @@ import {
 	subTitleFontStyles,
 } from "../../../../assets/styles/helperStyles";
 
-const hero1 = `<h1 class="hero1">Hero1</h1>`;
-const hero2 = `<h1 class="hero2">Hero2</h1>`;
-const hero3 = `<h1 class="hero3">Hero3</h1>`;
+const hero1Code = `<h1 class="hero1">Hero1</h1>`;
+const hero2Code = `<h1 class="hero2">Hero2</h1>`;
+const hero3Code = `<h1 class="hero3">Hero3</h1>`;
 const h1Code = `<h1>Heading1</h1>`;
 const h2Code = `<h2>Heading2</h2>`;
 const h3Code = `<h3>Heading3</h3>`;
@@ -63,19 +63,19 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<CodeBlock
 				language="html"
-				value={hero1}
+				value={hero1Code}
 				description={<H1 size="hero1">Hero1</H1>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
-				value={hero2}
+				value={hero2Code}
 				description={<H1 size="hero2">Hero2</H1>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
-				value={hero2}
+				value={hero3Code}
 				description={<H1 size="hero3">Hero3</H1>}
 			/>
 			<Space size={20} />

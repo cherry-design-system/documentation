@@ -59,37 +59,37 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="primary" size="big">
-						Primary
+						Primary Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="secondary" size="big">
-						Secondary
+						Secondary Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="tertiary" size="big">
-						Tertiary
+						Tertiary Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="primary" frame size="big">
-						Primary Frame
+						Primary Frame Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="secondary" frame size="big">
-						Secondary Frame
+						Secondary Frame Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="tertiary" frame size="big">
-						Tertiary Frame
+						Tertiary Frame Big
 					</Button>
 					<Space size={20} />
 				</Col>
@@ -131,37 +131,37 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="primary" disabled size="big">
-						Disabled
+						Disabled Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="secondary" disabled size="big">
-						Disabled
+						Disabled Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="tertiary" disabled size="big">
-						Disabled
+						Disabled Big
 					</Button>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="primary" frame disabled size="big">
-						Primary Frame
+						Primary Frame Big
 					</Button>
 					<Space xsSize={20} lgSize={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="secondary" frame disabled size="big">
-						Secondary Frame
+						Secondary Frame Big
 					</Button>
 					<Space xsSize={20} lgSize={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="tertiary" frame disabled size="big">
-						Tertiary Frame
+						Tertiary Frame Big
 					</Button>
 					<Space size={10} />
 				</Col>

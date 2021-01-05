@@ -8,8 +8,6 @@ function Sidebar({ className }) {
 	const [isMenuOpen, setMenuOpen] = useState(false);
 	const router = useRouter();
 
-	const localRef = React.createRef();
-
 	return (
 		<>
 			<Burger
@@ -295,12 +293,18 @@ function Sidebar({ className }) {
 									</li>
 									<li>
 										<Link
-											href="/documentation"
-											as="/documentation"
+											href="/documentation/code/sass/buttons"
+											as="/documentation/code/sass/buttons"
 										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/documentation/code/sass/buttons"
+														? "active"
+														: ""
 												}
 											>
 												Buttons
