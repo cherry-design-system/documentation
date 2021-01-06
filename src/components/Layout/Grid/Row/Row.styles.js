@@ -8,6 +8,7 @@ const row = css`
 `;
 
 export const rowStyles = (
+	theme,
 	alignItems,
 	justifyContent,
 	gutterXs,
@@ -17,7 +18,7 @@ export const rowStyles = (
 	gutterXl,
 	gutterXxl,
 	gutterXxxl,
-) => (theme) => css`
+) => css`
 	${row}
 	${alignItems === "stretch" &&
 	css`

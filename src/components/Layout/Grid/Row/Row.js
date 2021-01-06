@@ -17,17 +17,20 @@ function Row({
 }) {
 	return (
 		<div
-			css={rowStyles(
-				alignItems,
-				justifyContent,
-				gutterXs,
-				gutterSm,
-				gutterMd,
-				gutterLg,
-				gutterXl,
-				gutterXxl,
-				gutterXxxl,
-			)}
+			css={(theme) =>
+				rowStyles(
+					theme,
+					alignItems,
+					justifyContent,
+					gutterXs,
+					gutterSm,
+					gutterMd,
+					gutterLg,
+					gutterXl,
+					gutterXxl,
+					gutterXxxl,
+				)
+			}
 			id={id}
 			className={className}
 			data-row
