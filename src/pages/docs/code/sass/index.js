@@ -6,15 +6,15 @@ import { CodeBlock } from "../../../../components/CodeBlock";
 const installCode = `npm install cherry-sass`;
 const importCode = `@import "cherry-sass/src/cherry.scss";`;
 const cherryScssCode = `@import "./theme";
-@import "./globals";
 @import "./helpers";
+@import "./globals";
 @import "./typography";
 @import "./buttons";
 @import "./inputs";
 @import "./grid";
 @import "./spacing";`;
 const importDistCode = `@import "cherry-sass/dist/cherry.css";`;
-const importHtmlCode = `<link rel="stylesheet" href="cherry-postcss/dist/cherry.css">`;
+const importHtmlCode = `<link rel="stylesheet" href="cherry-sass/dist/cherry.css">`;
 
 function Index({ posts = [] }) {
 	return (
@@ -47,7 +47,8 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={10} />
 			<p>
-				If you don't need all the elements, import only what you need.
+				If you don't need all the elements, import only what you need,
+				and make sure you have <strong>autoprefixer</strong> installed.
 			</p>
 			<Space size={10} />
 			<H3 size="h2">Import Minified CSS</H3>
@@ -62,7 +63,7 @@ function Index({ posts = [] }) {
 			<p>or</p>
 			<CodeBlock language="css" value={importHtmlCode} />
 			<Space size={10} />
-			<p>That's it 🥳 you are ready to use Cherry.</p>
+			<p>That's it 🎉 you are ready to use Cherry.</p>
 			<Space size={10} />
 		</Page>
 	);

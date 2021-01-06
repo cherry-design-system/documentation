@@ -43,19 +43,19 @@ const blockquoteCode = `<blockquote>
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Sass Typography">
+		<Page title="PostCSS Typography">
 			<Space xsSize={20} lgSize={40} />
-			<H1 size="hero1">Sass Typography</H1>
+			<H1 size="hero1">PostCSS Typography</H1>
 			<Space xsSize={10} lgSize={30} />
 			<p>
-				In this page you can find the Sass typography definitions. All
-				variations have two sizes, one for mobile and one for desktop.
-				The definitions of the classes can be found in the file{" "}
-				<strong>typography.scss</strong>.
+				In this page you can find the PostCSS typography definitions.
+				All variations have two sizes, one for mobile and one for
+				desktop. The definitions of the classes can be found in the file{" "}
+				<strong>typography.css</strong>.
 			</p>
 			<p>
-				If you haven't imported the entire Cherry files (cherry.scss),
-				please make sure <strong>globals.scss</strong> is imported in
+				If you haven't imported the entire Cherry files (cherry.css),
+				please make sure <strong>globals.css</strong> is imported in
 				order to apply the typography styles for the HTML tags like
 				paragraphs, lists, blockquotes and others global typography
 				definitions.

@@ -409,10 +409,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/colors"
+											as="/docs/code/postcss/colors"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/colors"
+														? "active"
+														: ""
 												}
 											>
 												Colors
@@ -420,10 +429,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/typography"
+											as="/docs/code/postcss/typography"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/typography"
+														? "active"
+														: ""
 												}
 											>
 												Typography
@@ -431,10 +449,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/buttons"
+											as="/docs/code/postcss/buttons"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/buttons"
+														? "active"
+														: ""
 												}
 											>
 												Buttons
@@ -442,10 +469,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/inputs"
+											as="/docs/code/postcss/inputs"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/inputs"
+														? "active"
+														: ""
 												}
 											>
 												Inputs
@@ -453,10 +489,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/spacing"
+											as="/docs/code/postcss/spacing"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/spacing"
+														? "active"
+														: ""
 												}
 											>
 												Spacing
@@ -464,10 +509,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/grid"
+											as="/docs/code/postcss/grid"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/grid"
+														? "active"
+														: ""
 												}
 											>
 												Grid
@@ -475,10 +529,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/postcss/breakpoints"
+											as="/docs/code/postcss/breakpoints"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/breakpoints"
+														? "active"
+														: ""
 												}
 											>
 												Breakpoints
@@ -491,10 +554,19 @@ function Sidebar({ className }) {
 								<strong>React Components</strong>
 								<ul>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components"
+											as="/docs/code/react-components"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/react-components"
+														? "active"
+														: ""
 												}
 											>
 												Introduction
@@ -502,10 +574,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/colors"
+											as="/docs/code/react-components/colors"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/colors"
+														? "active"
+														: ""
 												}
 											>
 												Colors
@@ -513,10 +594,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/typography"
+											as="/docs/code/react-components/typography"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/typography"
+														? "active"
+														: ""
 												}
 											>
 												Typography
@@ -524,10 +614,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/buttons"
+											as="/docs/code/react-components/buttons"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/buttons"
+														? "active"
+														: ""
 												}
 											>
 												Buttons
@@ -535,10 +634,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/inputs"
+											as="/docs/code/react-components/inputs"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/inputs"
+														? "active"
+														: ""
 												}
 											>
 												Inputs
@@ -546,10 +654,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/spacing"
+											as="/docs/code/react-components/spacing"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/spacing"
+														? "active"
+														: ""
 												}
 											>
 												Spacing
@@ -557,10 +674,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/grid"
+											as="/docs/code/react-components/grid"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/grid"
+														? "active"
+														: ""
 												}
 											>
 												Grid
@@ -568,10 +694,19 @@ function Sidebar({ className }) {
 										</Link>
 									</li>
 									<li>
-										<Link href="/docs" as="/docs">
+										<Link
+											href="/docs/code/react-components/breakpoints"
+											as="/docs/code/react-components/breakpoints"
+										>
 											<a
 												onClick={() =>
 													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"docs/code/react-components/breakpoints"
+														? "active"
+														: ""
 												}
 											>
 												Breakpoints
@@ -601,29 +736,73 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link href="/docs" as="/docs">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/docs/scale/design-system"
+									as="/docs/scale/design-system"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"docs/scale/design-system"
+												? "active"
+												: ""
+										}
+									>
 										Design System
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/docs" as="/docs">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/docs/scale/sass"
+									as="/docs/scale/sass"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"docs/scale/sass"
+												? "active"
+												: ""
+										}
+									>
 										Sass
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/docs" as="/docs">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/docs/scale/postcss"
+									as="/docs/scale/postcss"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"docs/scale/postcss"
+												? "active"
+												: ""
+										}
+									>
 										PostCSS
 									</a>
 								</Link>
 							</li>
 							<li>
-								<Link href="/docs" as="/docs">
-									<a onClick={() => setMenuOpen(false)}>
+								<Link
+									href="/docs/scale/react-components"
+									as="/docs/scale/react-components"
+								>
+									<a
+										onClick={() => setMenuOpen(false)}
+										className={
+											router.pathname ===
+											"docs/scale/react-components"
+												? "active"
+												: ""
+										}
+									>
 										React Components
 									</a>
 								</Link>
