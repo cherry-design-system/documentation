@@ -120,6 +120,10 @@ function Index({ posts = [] }) {
 						<td>.container</td>
 					</tr>
 					<tr>
+						<td>Extend container width to max allowed</td>
+						<td>.container.fluid</td>
+					</tr>
+					<tr>
 						<td>Align text to right</td>
 						<td>.text-align-right</td>
 					</tr>
