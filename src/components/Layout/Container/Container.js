@@ -1,12 +1,13 @@
 import React from "react";
-import * as styles from "./Container.styles";
+import { containerStyles } from "./Container.styles";
 
-function Container({ children, fluid, className, textAlign }) {
+function Container({ children, fluid, className, textAlign, id }) {
 	return (
 		<div
-			css={(theme) => styles.containerStyles(theme, fluid, textAlign)}
+			css={(theme) => containerStyles(theme, fluid, textAlign)}
 			className={className}
 			data-container
+			id={id}
 		>
 			{children}
 		</div>

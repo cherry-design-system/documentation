@@ -7,7 +7,7 @@ const row = css`
 	justify-content: space-between;
 `;
 
-const rowStyles = (
+export const rowStyles = (
 	alignItems,
 	justifyContent,
 	gutterXs,
@@ -345,5 +345,3 @@ const rowStyles = (
 		`}
 	}
 `;
-
-export { rowStyles };

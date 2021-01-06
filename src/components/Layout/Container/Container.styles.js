@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { mq, Breakpoints } from "../../../assets/styles/mq";
 
-const containerStyles = (theme, fluid, textAlign) => css`
+export const containerStyles = (theme, fluid, textAlign) => css`
 	margin: auto;
 	width: 100%;
 	padding: 0 ${theme.spacing.marginContainer.mobile};
@@ -33,5 +33,3 @@ const containerStyles = (theme, fluid, textAlign) => css`
 		text-align: center;
 	`}
 `;
-
-export { containerStyles };

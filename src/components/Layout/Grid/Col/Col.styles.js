@@ -90,7 +90,7 @@ const col12 = css`
 	max-width: 100%;
 `;
 
-const colStyles = (
+export const colStyles = (
 	theme,
 	textAlign,
 	xs,
@@ -599,5 +599,3 @@ const colStyles = (
 		`}
 	}
 `;
-
-export { colStyles };
