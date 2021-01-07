@@ -9,9 +9,9 @@ function Index({ posts = [] }) {
 			title="Design Grid"
 			description="Cherry's grid system allows up to 12 columns across the page. If you do not want to use all 12 column individually, you can group the columns together to create wider columns. There are 3 different variations for the gutter size: default, medium, big."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Grid</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry's grid system allows up to 12 columns across the page. If
 				you do not want to use all 12 column individually, you can group

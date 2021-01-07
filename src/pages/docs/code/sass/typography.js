@@ -44,9 +44,9 @@ const blockquoteCode = `<blockquote>
 function Index({ posts = [] }) {
 	return (
 		<Page title="Sass Typography">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Sass Typography</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				In this page you can find the Sass typography definitions. All
 				variations have two sizes, one for mobile and one for desktop.

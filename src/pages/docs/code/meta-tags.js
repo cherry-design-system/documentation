@@ -22,9 +22,9 @@ const favIconCode = `<link rel="icon" type="image/png" sizes="32x32" href="https
 function Index({ posts = [] }) {
 	return (
 		<Page title="Meta Tags">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Meta Tags</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Meta tags have been one of the most basic elements of SEO.
 				Please ensure you have a minimum set of tags in the head of your

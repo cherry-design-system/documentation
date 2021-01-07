@@ -9,9 +9,9 @@ function Index({ posts = [] }) {
 			title="Design Documentation"
 			description="Cherry provides a UI Kit template in Figma with all the standard web elements. The document template is divided in a few pages to keep everything organized."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry provides a UI Kit template in Figma with all the standard
 				web elements. The document template is divided in a few pages to

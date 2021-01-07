@@ -584,7 +584,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/colors"
+													"/docs/code/react-components/colors"
 														? "active"
 														: ""
 												}
@@ -604,7 +604,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/typography"
+													"/docs/code/react-components/typography"
 														? "active"
 														: ""
 												}
@@ -624,7 +624,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/buttons"
+													"/docs/code/react-components/buttons"
 														? "active"
 														: ""
 												}
@@ -644,7 +644,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/inputs"
+													"/docs/code/react-components/inputs"
 														? "active"
 														: ""
 												}
@@ -664,7 +664,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/spacing"
+													"/docs/code/react-components/spacing"
 														? "active"
 														: ""
 												}
@@ -684,7 +684,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/grid"
+													"/docs/code/react-components/grid"
 														? "active"
 														: ""
 												}
@@ -704,7 +704,7 @@ function Sidebar({ className }) {
 												}
 												className={
 													router.pathname ===
-													"docs/code/react-components/breakpoints"
+													"/docs/code/react-components/breakpoints"
 														? "active"
 														: ""
 												}

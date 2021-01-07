@@ -30,9 +30,9 @@ function Index({ posts = [] }) {
 			title="Design Typography"
 			description="Cherry covers a wide range of typography variations, covering the most common web patterns like headings, subtitles, paragraphs and so on. There are 2 types of typography definitions, one for mobile and one for desktop."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Typography</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry covers a wide range of typography variations, covering
 				the most common web patterns like headings, subtitles,

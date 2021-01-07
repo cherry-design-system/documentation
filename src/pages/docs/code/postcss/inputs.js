@@ -102,9 +102,9 @@ const radioBigDisabledCode = `<input type="radio" id="sample-radio" class="big" 
 function Index({ posts = [] }) {
 	return (
 		<Page title="PostCSS Inputs">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">PostCSS Inputs</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				The input styles are defined in <strong>inputs.css</strong>. All
 				form inputs take the default style of the Cherry design system.

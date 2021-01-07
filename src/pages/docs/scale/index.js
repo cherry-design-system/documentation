@@ -5,9 +5,9 @@ import { Space, H1 } from "../../../components/Layout";
 function Index({ posts = [] }) {
 	return (
 		<Page title="Scale Documentation">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Scale</H1>
-			<Space xsSize={20} lgSize={30} />
+			<Space xs={20} lg={30} />
 			<p>
 				Donec ullamcorper nulla non metus auctor fringilla. Maecenas
 				faucibus mollis interdum. Duis mollis, est non commodo luctus,

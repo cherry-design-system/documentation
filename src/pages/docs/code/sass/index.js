@@ -19,9 +19,9 @@ const importHtmlCode = `<link rel="stylesheet" href="cherry-sass/dist/cherry.css
 function Index({ posts = [] }) {
 	return (
 		<Page title="Install Cherry for Sass">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Install Cherry for Sass</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry is compiled in Sass, each element of the design system
 				can be imported independently. You can import .scss files to
@@ -47,8 +47,12 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={10} />
 			<p>
-				If you don't need all the elements, import only what you need,
+				If you don't need all the elements, import only what you use,
 				and make sure you have <strong>autoprefixer</strong> installed.
+			</p>
+			<p>
+				To change the default theme configuration, check out{" "}
+				<strong>theme.scss</strong>
 			</p>
 			<Space size={10} />
 			<H3 size="h2">Import Minified CSS</H3>

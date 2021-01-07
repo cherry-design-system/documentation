@@ -34,9 +34,9 @@ const xxxlCode = `@media (min-width: $screen-xxxl) {
 function Index({ posts = [] }) {
 	return (
 		<Page title="Sass Breakpoints">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Sass Breakpoints</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Responsive web design is a web design method that enables the
 				website to fit the screens of different devices automatically.

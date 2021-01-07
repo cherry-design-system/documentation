@@ -9,9 +9,9 @@ function Index({ posts = [] }) {
 			title="Design Colors"
 			description="Cherry includes a default color palette, that is a great starting point if you don't have your own specific branding in mind."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Colors</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry includes a default color palette, that is a great
 				starting point if you don't have your own specific branding in
@@ -51,15 +51,15 @@ function Index({ posts = [] }) {
 			<Row>
 				<Col xs={12} lg={4}>
 					<ColorBox name="Primary Dark" value="#9F1239" />
-					<Space xsSize={20} lgSize={10} />
+					<Space xs={20} lg={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<ColorBox name="Secondary Dark" value="#075985" />
-					<Space xsSize={20} lgSize={10} />
+					<Space xs={20} lg={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<ColorBox name="Tertiary Dark" value="#6B21A8" />
-					<Space xsSize={10} lgSize={10} />
+					<Space xs={10} lg={10} />
 				</Col>
 			</Row>
 			<hr />

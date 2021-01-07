@@ -26,12 +26,12 @@ $color-info: #17A2B8;`;
 function Index({ posts = [] }) {
 	return (
 		<Page title="Sass Colors">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Sass Colors</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				In this page you can find the Sass variables for the Cherry
-				color palette. All colors variables contain a suffix{" "}
+				color palette. All color variables contain a suffix{" "}
 				<strong>$color</strong>. The definitions of the variables can be
 				found in the file <strong>theme.scss</strong>.
 			</p>

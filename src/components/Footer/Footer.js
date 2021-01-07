@@ -10,10 +10,10 @@ function Footer({ className }) {
 	return (
 		<footer className={className} css={(theme) => footerStyles(theme)}>
 			<Container fluid={router.pathname.includes("/docs")}>
-				<Space xsSize={40} lgSize={80} />
+				<Space xs={40} lg={80} />
 				<Logo />
 				<p>© Copyright 2021 - All rights reserved. </p>
-				<Space xsSize={30} lgSize={70} />
+				<Space xs={30} lg={70} />
 			</Container>
 		</footer>
 	);

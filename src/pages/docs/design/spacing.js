@@ -9,9 +9,9 @@ function Index({ posts = [] }) {
 			title="Design Spacing"
 			description="In order to keep consistency between elements, Cherry provides a set of pre-defined values for the spacings."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Spacing</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				In order to keep consistency between elements, Cherry provides a
 				set of pre-defined values for the spacings.

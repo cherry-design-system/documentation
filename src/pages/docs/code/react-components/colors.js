@@ -4,40 +4,40 @@ import { Space, H1 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { ColorBox, ColorBoxContainer } from "../../../../components/ColorBox";
 
-const primaryCode = `--color-primary-light: #FDA4AF;
---color-primary: #F43F5E;
---color-primary-dark: #9F1239;`;
-const secondaryCode = `--color-secondary-light: #7DD3FC;
---color-secondary: #0EA5E9;
---color-secondary-dark: #075985;`;
-const tertiaryCode = `--color-tertiary-light: #D8B4FE;
---color-tertiary: #A855F7;
---color-tertiary-dark: #6B21A8;`;
-const bwCode = `--color-dark: #000;
---color-light: #FFF;`;
-const grayCode = `--color-gray-light: #E5E7EB;
---color-gray: #9CA3AF;
---color-gray-dark: #4B5563;`;
-const uiCodes = `--color-success: #28A745;
---color-error: #DC3545;
---color-warning: #FFC107;
---color-info: #17A2B8;`;
+const primaryCode = `primaryLight: "#FDA4AF",
+primary: "#F43F5E",
+primaryDark: "#9F1239",`;
+const secondaryCode = `secondaryLight: "#7DD3FC",
+secondary: "#0EA5E9",
+secondaryDark: "#075985",`;
+const tertiaryCode = `tertiaryLight: "#D8B4FE",
+tertiary: "#A855F7",
+tertiaryDark: "#6B21A8",`;
+const bwCode = `dark: "#000",
+light: "#fff",`;
+const grayCode = `grayLight: "#E5E7EB",
+gray: "#9CA3AF",
+grayDark: "#4B5563",`;
+const uiCodes = `success: "#28A745",
+error: "#DC3545",
+warning: "#FFC107",
+info: "#17A2B8",`;
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="PostCSS Colors">
+		<Page title="Emotion Colors">
 			<Space xs={20} lg={40} />
-			<H1 size="hero1">PostCSS Colors</H1>
+			<H1 size="hero1">Emotion Colors</H1>
 			<Space xs={10} lg={30} />
 			<p>
-				In this page you can find the PostCSS variables for the Cherry
-				color palette. All color variables contain a suffix{" "}
-				<strong>$color</strong>. The definitions of the variables can be
-				found in the file <strong>theme.css</strong>.
+				In this page you can find the Emotion theme for the Cherry color
+				palette. All color variables contain a suffix{" "}
+				<strong>{"${color}"}</strong>. The definitions of the variables
+				can be found in the file <strong>theme.js</strong>.
 			</p>
 			<Space size={10} />
 			<CodeBlock
-				language="scss"
+				language="jsx"
 				value={primaryCode}
 				description={
 					<ColorBoxContainer isPushing={false}>

@@ -3,36 +3,36 @@ import { Page } from "../../../../components/Pages";
 import { Space, H1, Button } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 
-const buttonPrimaryCode = `<a class="button">Primary</a>`;
-const buttonPrimaryFrameCode = `<a class="button frame">Primary Frame</a>`;
-const buttonPrimaryBigCode = `<a class="button big">Primary Big</a>`;
-const buttonPrimaryFrameBigCode = `<a class="button frame big">Primary Frame Big</a>`;
+const buttonPrimaryCode = `<Button>Primary</Button>`;
+const buttonPrimaryFrameCode = `<Button frame>Primary Frame</Button>`;
+const buttonPrimaryBigCode = `<Button size="big">Primary Big</Button>`;
+const buttonPrimaryFrameBigCode = `<Button frame size="big">Primary Frame Big</Button>`;
 
-const buttonSecondaryCode = `<a class="button secondary">Secondary</a>`;
-const buttonSecondaryFrameCode = `<a class="button frame secondary">Secondary Frame</a>`;
-const buttonSecondaryBigCode = `<a class="button secondary big">Secondary Big</a>`;
-const buttonSecondaryFrameBigCode = `<a class="button frame secondary big">Secondary Frame Big</a>`;
+const buttonSecondaryCode = `<Button variant="secondary">Secondary</Button>`;
+const buttonSecondaryFrameCode = `<Button variant="secondary" frame>Secondary Frame</Button>`;
+const buttonSecondaryBigCode = `<Button variant="secondary" size="big">Secondary Big</Button>`;
+const buttonSecondaryFrameBigCode = `<Button variant="secondary" frame size="big">Secondary Frame Big</Button>`;
 
-const buttonTertiaryCode = `<a class="button tertiary">Tertiary</a>`;
-const buttonTertiaryFrameCode = `<a class="button frame tertiary">Tertiary Frame</a>`;
-const buttonTertiaryBigCode = `<a class="button tertiary big">Tertiary Big</a>`;
-const buttonTertiaryFrameBigCode = `<a class="button frame tertiary big">Tertiary Frame Big</a>`;
+const buttonTertiaryCode = `<Button variant="tertiary">Tertiary</Button>`;
+const buttonTertiaryFrameCode = `<Button variant="tertiary" frame>Tertiary Frame</Button>`;
+const buttonTertiaryBigCode = `<Button variant="tertiary" size="big">Tertiary Big</Button>`;
+const buttonTertiaryFrameBigCode = `<Button variant="tertiary" frame size="big">Tertiary Frame Big</Button>`;
 
-const buttonPrimaryDisabledCode = `<a class="button" disabled>Primary</a>`;
-const buttonPrimaryFrameDisabledCode = `<a class="button frame" disabled>Disabled Frame</a>`;
-const buttonPrimaryBigDisabledCode = `<a class="button big" disabled>Disabled Big</a>`;
-const buttonPrimaryFrameBigDisabledCode = `<a class="button frame big" disabled>Disabled Frame Big</a>`;
+const buttonPrimaryDisabledCode = `<Button disabled>Disabled</Button>`;
+const buttonPrimaryFrameDisabledCode = `<Button frame disabled>Disabled Frame</Button>`;
+const buttonPrimaryBigDisabledCode = `<Button size="big" disabled>Disabled Big</Button>`;
+const buttonPrimaryFrameBigDisabledCode = `<Button frame size="big" disabled>Disabled Frame Big</Button>`;
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Sass Buttons">
+		<Page title="Button Components">
 			<Space xs={20} lg={40} />
-			<H1 size="hero1">Sass Buttons</H1>
+			<H1 size="hero1">Button Components</H1>
 			<Space xs={10} lg={30} />
 			<p>
-				The button styles are defined in <strong>buttons.scss</strong>.
-				All form buttons take the default style of the Cherry button.
-				You can change the variants of the buttons by using classes.
+				The button styles are defined in{" "}
+				<strong>Button.styles.js</strong>. You can change the variants
+				of the buttons by using different props.
 			</p>
 			<Space size={10} />
 			<CodeBlock

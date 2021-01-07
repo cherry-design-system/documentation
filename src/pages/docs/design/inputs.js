@@ -18,9 +18,9 @@ function Index({ posts = [] }) {
 			title="Design Inputs"
 			description="Cherry includes form styles for all the default HTML inputs. Input text, phone, number, email, password, checkbox, radio, select and textarea. The input texts, textareas and selects include 2 different statuses: error and success."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Inputs</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry includes form styles for all the default HTML inputs.
 				Input text, phone, number, email, password, checkbox, radio,

@@ -17,9 +17,9 @@ function Index({ posts = [] }) {
 			title="Design Meta Images"
 			description="In the Cherry template you can find all the various sizes for your website favicon, manifest icons and other metadata requirements."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Meta Images</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				In the Cherry template you can find all the various sizes for
 				your website favicon, manifest icons and other metadata

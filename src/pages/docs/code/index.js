@@ -6,9 +6,9 @@ import { Space, H1, Row, Col, Box } from "../../../components/Layout";
 function Index({ posts = [] }) {
 	return (
 		<Page title="Code Documentation">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Code</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Every element of the design system comes with an implementation
 				in code. Cherry can be used in Sass, PostCSS or as React
@@ -36,8 +36,8 @@ function Index({ posts = [] }) {
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
-					<Space xsSize={20} lgSize="none" />
-					<Box href="/docs/code" as="/docs/code">
+					<Space xs={20} lg="none" />
+					<Box href="/docs/code/postcss" as="/docs/code/postcss">
 						<Image
 							src="/img/docs/code/postcss.png"
 							alt="PostCSS Logo"
@@ -48,8 +48,11 @@ function Index({ posts = [] }) {
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
-					<Space xsSize={20} lgSize="none" />
-					<Box href="/docs/code" as="/docs/code">
+					<Space xs={20} lg="none" />
+					<Box
+						href="/docs/code/react-components"
+						as="/docs/code/react-components"
+					>
 						<Image
 							src="/img/docs/code/react.png"
 							alt="React Logo"

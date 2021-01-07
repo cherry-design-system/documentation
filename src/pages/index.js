@@ -19,11 +19,11 @@ function Index({ posts = [] }) {
 	return (
 		<Page title="Design System">
 			<Container>
-				<Space xsSize={20} lgSize={150} />
+				<Space xs={20} lg={150} />
 				<Row gutterLg="medium">
 					<Col xs={12} lg={8}>
 						<H1 size="hero1">A design system to build the web.</H1>
-						<Space xsSize="none" lgSize={10} />
+						<Space xs="none" lg={10} />
 						<p>
 							Cherry is the foundation for your design system,
 							from design to code. With examples of
@@ -31,11 +31,11 @@ function Index({ posts = [] }) {
 							Customizable and scalable, ready to be used
 							out-of-the-box.
 						</p>
-						<Space xsSize={10} lgSize={20} />
+						<Space xs={10} lg={20} />
 						<Link href="/docs" as="/docs">
 							Get Started
 						</Link>
-						<Space xsSize={10} lgSize="none" />
+						<Space xs={10} lg="none" />
 					</Col>
 					<Col xs={12} lg={4} textAlign="center">
 						<Image
@@ -46,9 +46,9 @@ function Index({ posts = [] }) {
 						/>
 					</Col>
 				</Row>
-				<Space xsSize={20} lgSize={150} />
+				<Space xs={20} lg={150} />
 				<hr />
-				<Space xsSize={20} lgSize={80} />
+				<Space xs={20} lg={80} />
 				<Row>
 					<Col xs={12} lg={8}>
 						<H2 size="h1">Start with design</H2>
@@ -57,7 +57,7 @@ function Index({ posts = [] }) {
 							a template that defines all standard web patterns
 							and typographys for your design system.
 						</p>
-						<Space xsSize={10} lgSize={20} />
+						<Space xs={10} lg={20} />
 						<Link
 							variant="secondary"
 							frame
@@ -76,9 +76,9 @@ function Index({ posts = [] }) {
 						/>
 					</Col>
 				</Row>
-				<Space xsSize={20} lgSize={80} />
+				<Space xs={20} lg={80} />
 				<hr />
-				<Space xsSize={20} lgSize={80} />
+				<Space xs={20} lg={80} />
 				<Row>
 					<Col xs={12} lg={8}>
 						<H3 size="h1">Continue in code</H3>
@@ -87,7 +87,7 @@ function Index({ posts = [] }) {
 							various modern front-end technologies or can be used
 							as components.
 						</p>
-						<Space xsSize={10} lgSize={20} />
+						<Space xs={10} lg={20} />
 						<Link
 							variant="tertiary"
 							frame
@@ -106,9 +106,9 @@ function Index({ posts = [] }) {
 						/>
 					</Col>
 				</Row>
-				<Space xsSize={20} lgSize={80} />
+				<Space xs={20} lg={80} />
 				<hr />
-				<Space xsSize={20} lgSize={80} />
+				<Space xs={20} lg={80} />
 				<Row>
 					<Col xs={12} lg={8}>
 						<H4 size="h1">Scale your design system</H4>
@@ -117,7 +117,7 @@ function Index({ posts = [] }) {
 							design to code. Expanding and customizing your
 							design system has never been easier.
 						</p>
-						<Space xsSize={10} lgSize={20} />
+						<Space xs={10} lg={20} />
 						<Link
 							variant="primary"
 							frame
@@ -136,15 +136,15 @@ function Index({ posts = [] }) {
 						/>
 					</Col>
 				</Row>
-				<Space xsSize={20} lgSize={80} />
+				<Space xs={20} lg={80} />
 				<hr />
 				<Row>
 					<Col xs={12} textAlign="center">
-						<Space xsSize={20} lgSize={80} />
+						<Space xs={20} lg={80} />
 						<Link href="/docs" as="/docs" size="big">
 							Get Started
 						</Link>
-						<Space xsSize={30} lgSize={80} />
+						<Space xs={30} lg={80} />
 					</Col>
 				</Row>
 			</Container>

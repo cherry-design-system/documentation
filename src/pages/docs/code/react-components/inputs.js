@@ -9,117 +9,104 @@ import {
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 
-const inputTextCode = `<input type="text" placeholder="Placeholder" />`;
-const inputTextErrorCode = `<input type="text" class="error" placeholder="Placeholder" />`;
-const inputTextSuccessCode = `<input type="text" class="success" placeholder="Placeholder"/>`;
-const inputTextDisabledCode = `<input type="text" placeholder="Placeholder" disabled />`;
+const inputTextCode = `<Input type="text" placeholder="Placeholder" />`;
+const inputTextErrorCode = `<Input type="text" placeholder="Placeholder" error />`;
+const inputTextSuccessCode = `<Input type="text" placeholder="Placeholder" success />`;
+const inputTextDisabledCode = `<Input type="text" placeholder="Placeholder" disabled />`;
 
-const inputTextBigCode = `<input type="text" class="big" placeholder="Placeholder" />`;
-const inputTextErrorBigCode = `<input type="text" class="big error" placeholder="Placeholder" />`;
-const inputTextSuccessBigCode = `<input type="text" class="big success" placeholder="Placeholder" />`;
-const inputTextBigDisabledCode = `<input type="text" class="big" placeholder="Placeholder" disabled />`;
+const inputTextBigCode = `<Input type="text" placeholder="Placeholder" size="big" />`;
+const inputTextErrorBigCode = `<Input type="text" placeholder="Placeholder" size="big" error />`;
+const inputTextSuccessBigCode = `<Input type="text" placeholder="Placeholder" size="big" success />`;
+const inputTextBigDisabledCode = `<Input type="text" placeholder="Placeholder" size="big" disabled />`;
 
-const selectCode = `<select>
+const selectCode = `<Select>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
-const selectErrorCode = `<select class="error">
+</Select>`;
+const selectErrorCode = `<Select error>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
-const selectSuccessCode = `<select class="success">
+</Select>`;
+const selectSuccessCode = `<Select success>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
-const selectDisabledCode = `<select disabled>
+</Select>`;
+const selectDisabledCode = `<Select disabled>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
+</Select>`;
 
-const selectBigCode = `<select class="big">
+const selectBigCode = `<Select size="big">
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
-const selectErrorBigCode = `<select class="error big">
+</Select>`;
+const selectErrorBigCode = `<Select size="big" error>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
-const selectSuccessBigCode = `<select class="success big">
+</Select>`;
+const selectSuccessBigCode = `<Select size="big" success>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
-const selectBigDisabledCode = `<select class="big" disabled>
+</Select>`;
+const selectBigDisabledCode = `<Select size="big" disabled>
 	<option value="1">Sample 1</option>
 	<option value="2">Sample 2</option>
 	<option value="3">Sample 3</option>
-</select>`;
+</Select>`;
 
-const textareaCode = `<textarea>Placeholder</textarea>`;
-const textareaErrorCode = `<textarea class="error">Placeholder</textarea>`;
-const textareaSuccessCode = `<textarea class="success">Placeholder</textarea>`;
-const textareaDisabledCode = `<textarea disabled>Placeholder</textarea>`;
+const textareaCode = `<Textarea>Placeholder</Textarea>`;
+const textareaErrorCode = `<Textarea error>Placeholder</Textarea>`;
+const textareaSuccessCode = `<Textarea success>Placeholder</Textarea>`;
+const textareaDisabledCode = `<Textarea disabled>Placeholder</Textarea>`;
 
-const textareaBigCode = `<textarea class="big">Placeholder</textarea>`;
-const textareaErrorBigCode = `<textarea class="error big">Placeholder</textarea>`;
-const textareaSuccessBigCode = `<textarea class="success big">Placeholder</textarea>`;
-const textareaBigDisabledCode = `<textarea class="big">Placeholder</textarea>`;
+const textareaBigCode = `<Textarea size="big">Placeholder</Textarea>`;
+const textareaErrorBigCode = `<Textarea size="big" error>Placeholder</Textarea>`;
+const textareaSuccessBigCode = `<Textarea size="big" success>Placeholder</Textarea>`;
+const textareaBigDisabledCode = `<Textarea size="big">Placeholder</Textarea>`;
 
-const checkboxCode = `<input type="checkbox" id="sample-check">
-<label for="sample-check">Checkbox</label>`;
-const checkboxCheckedCode = `<input type="checkbox" id="sample-check" checked>
-<label for="sample-check">Checkbox</label>`;
-const checkboxDisabledCode = `<input type="checkbox" id="sample-check" disabled>
-<label for="sample-check">Checkbox</label>`;
+const checkboxCode = `<Input type="checkbox" id="sample-check" label="Checkbox" />`;
+const checkboxCheckedCode = `<Input type="checkbox" id="sample-check" label="Checkbox" checked />`;
+const checkboxDisabledCode = `<Input type="checkbox" id="sample-check" label="Checkbox" disabled />`;
 
-const checkboxBigCode = `<input type="checkbox" id="sample-check" class="big">
-<label for="sample-check">Checkbox</label>`;
-const checkboxCheckedBigCode = `<input type="checkbox" id="sample-check" class="big" checked>
-<label for="sample-check">Checkbox</label>`;
-const checkboxBigDisabledCode = `<input type="checkbox" id="sample-check" class="big" disabled>
-<label for="sample-check">Checkbox</label>`;
+const checkboxBigCode = `<Input type="checkbox" id="sample-check" label="Checkbox" size="big">`;
+const checkboxCheckedBigCode = `<Input type="checkbox" id="sample-check" label="Checkbox" size="big" checked>`;
+const checkboxBigDisabledCode = `<Input type="checkbox" id="sample-check" label="Checkbox" size="big" disabled>`;
 
-const radioCode = `<input type="radio" id="sample-radio">
-<label for="sample-radio">Radio</label>`;
-const radioCheckedCode = `<input type="radio" id="sample-radio" checked>
-<label for="sample-radio">Radio</label>`;
-const radioDisabledCode = `<input type="radio" id="sample-radio" disabled>
-<label for="sample-radio">Radio</label>`;
+const radioCode = `<Input type="radio" id="sample-radio" label="Radio" />;`;
+const radioCheckedCode = `<Input type="radio" id="sample-radio" label="Radio" checked />;`;
+const radioDisabledCode = `<Input type="radio" id="sample-radio" label="Radio" disabled />`;
 
-const radioBigCode = `<input type="radio" id="sample-radio" class="big">
-<label for="sample-radio">Radio</label>`;
-const radioCheckedBigCode = `<input type="radio" id="sample-radio" class="big" checked>
-<label for="sample-radio">Radio</label>`;
-const radioBigDisabledCode = `<input type="radio" id="sample-radio" class="big" disabled>
-<label for="sample-radio">Radio</label>`;
+const radioBigCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" />`;
+const radioCheckedBigCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" checked />`;
+const radioBigDisabledCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" disabled />`;
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Sass Inputs">
+		<Page title="Input Components">
 			<Space xs={20} lg={40} />
-			<H1 size="hero1">Sass Inputs</H1>
+			<H1 size="hero1">Input Components</H1>
 			<Space xs={10} lg={30} />
 			<p>
-				The input styles are defined in <strong>inputs.scss</strong>.
-				All form inputs take the default style of the Cherry design
-				system. You can change the variants of the inputs by using class
-				names.
+				The input styles are defined in <strong>Input.styles.js</strong>
+				. You can change the variants of the inputs by using different
+				props.
 			</p>
 			<Space size={10} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextCode}
 				description={<Input type="text" placeholder="Placeholder" />}
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextErrorCode}
 				description={
 					<Input type="text" placeholder="Placeholder" error />
@@ -127,7 +114,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextSuccessCode}
 				description={
 					<Input type="text" placeholder="Placeholder" success />
@@ -135,7 +122,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextBigCode}
 				description={
 					<Input type="text" placeholder="Placeholder" size="big" />
@@ -143,7 +130,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextErrorBigCode}
 				description={
 					<Input
@@ -156,7 +143,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextSuccessBigCode}
 				description={
 					<Input
@@ -169,7 +156,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectCode}
 				description={
 					<Select>
@@ -181,7 +168,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectErrorCode}
 				description={
 					<Select error>
@@ -193,7 +180,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectSuccessCode}
 				description={
 					<Select success>
@@ -205,7 +192,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectBigCode}
 				description={
 					<Select size="big">
@@ -217,7 +204,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectErrorBigCode}
 				description={
 					<Select error size="big">
@@ -229,7 +216,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectSuccessBigCode}
 				description={
 					<Select success size="big">
@@ -241,31 +228,31 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaCode}
 				description={<Textarea placeholder="Placeholder" />}
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaErrorCode}
 				description={<Textarea placeholder="Placeholder" error />}
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaSuccessCode}
 				description={<Textarea placeholder="Placeholder" success />}
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaBigCode}
 				description={<Textarea placeholder="Placeholder" size="big" />}
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaErrorBigCode}
 				description={
 					<Textarea placeholder="Placeholder" error size="big" />
@@ -273,7 +260,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaSuccessBigCode}
 				description={
 					<Textarea placeholder="Placeholder" success size="big" />
@@ -281,7 +268,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={checkboxCode}
 				description={
 					<Input type="checkbox" label="Checkbox" id="sample-2" />
@@ -289,7 +276,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={checkboxCheckedCode}
 				description={
 					<Input
@@ -302,7 +289,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={checkboxBigCode}
 				description={
 					<Input
@@ -315,7 +302,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={checkboxCheckedBigCode}
 				description={
 					<Input
@@ -329,7 +316,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={radioCode}
 				description={
 					<Input type="radio" label="Checkbox" id="sample-5" />
@@ -337,7 +324,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={radioCheckedCode}
 				description={
 					<Input
@@ -350,7 +337,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={radioBigCode}
 				description={
 					<Input
@@ -363,7 +350,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={radioCheckedBigCode}
 				description={
 					<Input
@@ -377,7 +364,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextDisabledCode}
 				description={
 					<Input type="text" placeholder="Placeholder" disabled />
@@ -385,7 +372,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={inputTextBigDisabledCode}
 				description={
 					<Input
@@ -398,7 +385,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectDisabledCode}
 				description={
 					<Select disabled>
@@ -410,7 +397,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={selectBigDisabledCode}
 				description={
 					<Select disabled size="big">
@@ -422,13 +409,13 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaDisabledCode}
 				description={<Textarea placeholder="Placeholder" disabled />}
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={textareaBigDisabledCode}
 				description={
 					<Textarea placeholder="Placeholder" disabled size="big" />
@@ -436,7 +423,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={checkboxDisabledCode}
 				description={
 					<Input
@@ -449,7 +436,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={checkboxBigDisabledCode}
 				description={
 					<Input
@@ -463,7 +450,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={radioDisabledCode}
 				description={
 					<Input type="radio" label="Radio" id="sample-xx" disabled />
@@ -471,7 +458,7 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={20} />
 			<CodeBlock
-				language="html"
+				language="jsx"
 				value={radioBigDisabledCode}
 				description={
 					<Input

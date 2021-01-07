@@ -10,9 +10,9 @@ function Index({ posts = [] }) {
 			title="Documentation"
 			description="Cherry is the starting point for your design system. It comes with a minimal set of pre-defined styles for the most common web patterns."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Getting started with Cherry Design System</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry is the starting point for your design system. It comes
 				with a minimal set of pre-defined styles for the most common web
@@ -38,7 +38,7 @@ function Index({ posts = [] }) {
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
-					<Space xsSize={20} lgSize="none" />
+					<Space xs={20} lg="none" />
 					<Box href="/docs/code" as="/docs/code">
 						<Image
 							src="/img/code.png"
@@ -50,7 +50,7 @@ function Index({ posts = [] }) {
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
-					<Space xsSize={20} lgSize="none" />
+					<Space xs={20} lg="none" />
 					<Box href="/docs/scale" as="/docs/scale">
 						<Image
 							src="/img/scale.png"

@@ -10,25 +10,25 @@ const buttonPrimaryFrameBigCode = `<a class="button frame big">Primary Frame</a>
 
 const buttonSecondaryCode = `<a class="button secondary">Secondary</a>`;
 const buttonSecondaryFrameCode = `<a class="button frame secondary">Secondary Frame</a>`;
-const buttonSecondaryBigCode = `<a class="button secondary big">Secondary</a>`;
-const buttonSecondaryFrameBigCode = `<a class="button frame secondary big">Secondary Frame</a>`;
+const buttonSecondaryBigCode = `<a class="button secondary big">Secondary Big</a>`;
+const buttonSecondaryFrameBigCode = `<a class="button frame secondary big">Secondary Frame Big</a>`;
 
 const buttonTertiaryCode = `<a class="button tertiary">Tertiary</a>`;
 const buttonTertiaryFrameCode = `<a class="button frame tertiary">Tertiary Frame</a>`;
-const buttonTertiaryBigCode = `<a class="button tertiary big">Tertiary</a>`;
-const buttonTertiaryFrameBigCode = `<a class="button frame tertiary big">Tertiary Frame</a>`;
+const buttonTertiaryBigCode = `<a class="button tertiary big">Tertiary Big</a>`;
+const buttonTertiaryFrameBigCode = `<a class="button frame tertiary big">Tertiary Frame Big</a>`;
 
-const buttonPrimaryDisabledCode = `<a class="button" disabled>Primary</a>`;
-const buttonPrimaryFrameDisabledCode = `<a class="button frame" disabled>Primary Frame</a>`;
-const buttonPrimaryBigDisabledCode = `<a class="button big" disabled>Primary</a>`;
-const buttonPrimaryFrameBigDisabledCode = `<a class="button frame big" disabled>Primary Frame</a>`;
+const buttonPrimaryDisabledCode = `<a class="button" disabled>Disabled</a>`;
+const buttonPrimaryFrameDisabledCode = `<a class="button frame" disabled>Disabled Frame</a>`;
+const buttonPrimaryBigDisabledCode = `<a class="button big" disabled>Disabled Big</a>`;
+const buttonPrimaryFrameBigDisabledCode = `<a class="button frame big" disabled>Disabled Frame Big</a>`;
 
 function Index({ posts = [] }) {
 	return (
 		<Page title="PostCSS Buttons">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">PostCSS Buttons</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				The button styles are defined in <strong>buttons.css</strong>.
 				All form buttons take the default style of the Cherry button.

@@ -16,9 +16,9 @@ function Index({ posts = [] }) {
 			title="Design Buttons"
 			description="Cherry includes different button styles with all the various states. It has a variation of 3 colors: Primary, Secondary and Tertiary. A default and a big size, as well as the framed buttons."
 		>
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Buttons</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry includes different button styles with all the various
 				states. It has a variation of 3 colors: Primary, Secondary and
@@ -151,13 +151,13 @@ function Index({ posts = [] }) {
 					<Button variant="primary" frame disabled size="big">
 						Primary Frame Big
 					</Button>
-					<Space xsSize={20} lgSize={10} />
+					<Space xs={20} lg={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="secondary" frame disabled size="big">
 						Secondary Frame Big
 					</Button>
-					<Space xsSize={20} lgSize={10} />
+					<Space xs={20} lg={10} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Button variant="tertiary" frame disabled size="big">

@@ -35,9 +35,9 @@ const importHtmlCode = `<link rel="stylesheet" href="cherry-postcss/dist/cherry.
 function Index({ posts = [] }) {
 	return (
 		<Page title="Install Cherry for PostCSS">
-			<Space xsSize={20} lgSize={40} />
+			<Space xs={20} lg={40} />
 			<H1 size="hero1">Install Cherry for PostCSS</H1>
-			<Space xsSize={10} lgSize={30} />
+			<Space xs={10} lg={30} />
 			<p>
 				Cherry is compiled in PostCSS, each element of the design system
 				can be imported independently. You can import .css files to your
@@ -62,10 +62,12 @@ function Index({ posts = [] }) {
 				description="Cherry.css includes all the elements from the design system."
 			/>
 			<Space size={10} />
+			<p>If you don't need all the elements, import only what you use.</p>
 			<p>
-				If you don't need all the elements, import only what you need.
+				To change the default theme configuration, check out{" "}
+				<strong>theme.css</strong>
 			</p>
-			<Space size={20} />
+			<Space size={10} />
 			<H3 size="h3">PostCSS Plugins</H3>
 			<Space size={20} />
 			<CodeBlock
