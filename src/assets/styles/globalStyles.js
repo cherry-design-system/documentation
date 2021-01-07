@@ -1,5 +1,4 @@
 import { Global, css } from "@emotion/react";
-import { rgba } from "polished";
 import { Breakpoints, mq } from "./mq";
 import { theme } from "./theme";
 
