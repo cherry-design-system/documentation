@@ -283,7 +283,7 @@ function Index({ posts = [] }) {
 						type="checkbox"
 						label="Checkbox"
 						id="sample-3"
-						checked
+						defaultChecked
 					/>
 				}
 			/>
@@ -310,7 +310,7 @@ function Index({ posts = [] }) {
 						label="Checkbox"
 						id="sample-4"
 						size="big"
-						checked
+						defaultChecked
 					/>
 				}
 			/>
@@ -331,7 +331,7 @@ function Index({ posts = [] }) {
 						type="radio"
 						label="Checkbox"
 						id="sample-6"
-						checked
+						defaultChecked
 					/>
 				}
 			/>
@@ -358,7 +358,7 @@ function Index({ posts = [] }) {
 						label="Checkbox"
 						id="sample-8"
 						size="big"
-						checked
+						defaultChecked
 					/>
 				}
 			/>

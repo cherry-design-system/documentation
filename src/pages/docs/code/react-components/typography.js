@@ -9,6 +9,7 @@ import {
 	H5,
 	H6,
 	FontStyle,
+	TableOverflow,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 
@@ -115,6 +116,43 @@ function Index({ posts = [] }) {
 				description={<H6>Heading6</H6>}
 			/>
 			<Space size={20} />
+			<H2 size="h3">Headings Props</H2>
+			<Space size={20} />
+			<TableOverflow>
+				<table>
+					<tr>
+						<th>Property</th>
+						<th>Description</th>
+						<th>Type</th>
+					</tr>
+					<tr>
+						<td>children</td>
+						<td>Children elements</td>
+						<td>ReactNode</td>
+					</tr>
+					<tr>
+						<td>id</td>
+						<td>Defines element id</td>
+						<td>String</td>
+					</tr>
+					<tr>
+						<td>className</td>
+						<td>Defines element class name</td>
+						<td>String</td>
+					</tr>
+					<tr>
+						<td>size</td>
+						<td>Change font styles</td>
+						<td>"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "hero1" | "hero2" | "hero3"</td>
+					</tr>
+					<tr>
+						<td>theme</td>
+						<td>Emotion theme configuration</td>
+						<td>Object</td>
+					</tr>
+				</table>
+			</TableOverflow>
+			<Space size={20} />
 			<CodeBlock
 				language="jsx"
 				value={eyebrowCode}
@@ -160,6 +198,43 @@ function Index({ posts = [] }) {
 					<FontStyle variant="inputBig">Input Big</FontStyle>
 				}
 			/>
+			<Space size={20} />
+			<H2 size="h3">FontStyle Props</H2>
+			<Space size={20} />
+			<TableOverflow>
+				<table>
+					<tr>
+						<th>Property</th>
+						<th>Description</th>
+						<th>Type</th>
+					</tr>
+					<tr>
+						<td>children</td>
+						<td>Children elements</td>
+						<td>ReactNode</td>
+					</tr>
+					<tr>
+						<td>id</td>
+						<td>Defines element id</td>
+						<td>String</td>
+					</tr>
+					<tr>
+						<td>className</td>
+						<td>Defines element class name</td>
+						<td>String</td>
+					</tr>
+					<tr>
+						<td>variant</td>
+						<td>Change font styles</td>
+						<td>"eyebrow" | "subtitle" | "button" | "buttonBig" | "lead" | "input" | "inputBig"</td>
+					</tr>
+					<tr>
+						<td>theme</td>
+						<td>Emotion theme configuration</td>
+						<td>Object</td>
+					</tr>
+				</table>
+			</TableOverflow>
 			<Space size={20} />
 			<CodeBlock
 				language="jsx"

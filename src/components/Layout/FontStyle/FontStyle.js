@@ -1,9 +1,10 @@
 import React from "react";
 import { fontStyles } from "./FontStyle.styles";
 
-function FontStyle({ className, children, variant, ...props }) {
+function FontStyle({ id, className, children, variant, ...props }) {
 	return (
 		<span
+			id={id}
 			className={className}
 			css={(theme) => fontStyles(theme, variant)}
 			{...props}
