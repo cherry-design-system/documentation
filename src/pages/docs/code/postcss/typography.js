@@ -1,16 +1,16 @@
 import React from "react";
 import { Page } from "../../../../components/Pages";
-import { Space, H1, H2, H3, H4, H5, H6 } from "../../../../components/Layout";
-import { CodeBlock } from "../../../../components/CodeBlock";
 import {
-	buttonBigFontStyles,
-	buttonFontStyles,
-	eyebrowFontStyles,
-	inputBigFontStyles,
-	inputFontStyles,
-	leadFontStyles,
-	subTitleFontStyles,
-} from "../../../../assets/styles/helperStyles";
+	Space,
+	H1,
+	H2,
+	H3,
+	H4,
+	H5,
+	H6,
+	FontStyle,
+} from "../../../../components/Layout";
+import { CodeBlock } from "../../../../components/CodeBlock";
 
 const hero1Code = `<h1 class="hero1">Hero1</h1>`;
 const hero2Code = `<h1 class="hero2">Hero2</h1>`;
@@ -118,64 +118,46 @@ function Index({ posts = [] }) {
 			<CodeBlock
 				language="html"
 				value={eyebrowCode}
-				description={
-					<span css={(theme) => eyebrowFontStyles(theme)}>
-						Eyebrow
-					</span>
-				}
+				description={<FontStyle variant="eyebrow">Eyebrow</FontStyle>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={subtitleCode}
-				description={
-					<span css={(theme) => subTitleFontStyles(theme)}>
-						Subtitle
-					</span>
-				}
+				description={<FontStyle variant="subtitle">Subtitle</FontStyle>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={buttonCode}
-				description={
-					<span css={(theme) => buttonFontStyles(theme)}>Button</span>
-				}
+				description={<FontStyle variant="button">Button</FontStyle>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={buttonBigCode}
 				description={
-					<span css={(theme) => buttonBigFontStyles(theme)}>
-						Button Big
-					</span>
+					<FontStyle variant="buttonBig">Button Big</FontStyle>
 				}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={leadCode}
-				description={
-					<span css={(theme) => leadFontStyles(theme)}>Lead</span>
-				}
+				description={<FontStyle variant="lead">Lead</FontStyle>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={inputCode}
-				description={
-					<span css={(theme) => inputFontStyles(theme)}>Input</span>
-				}
+				description={<FontStyle variant="input">Input</FontStyle>}
 			/>
 			<Space size={20} />
 			<CodeBlock
 				language="html"
 				value={inputBigCode}
 				description={
-					<span css={(theme) => inputBigFontStyles(theme)}>
-						Input Big
-					</span>
+					<FontStyle variant="inputBig">Input Big</FontStyle>
 				}
 			/>
 			<Space size={20} />
