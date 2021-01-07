@@ -15,8 +15,8 @@ const globalStyles = (
 			}
 
 			body {
-				-webkit-text-size-adjust: 100%;
 				-moz-osx-font-smoothing: grayscale;
+				-webkit-text-size-adjust: 100%;
 				-webkit-font-smoothing: antialiased;
 				font-family: ${theme.fonts.text};
 				font-size: ${theme.sizes.text.size.mobile};
