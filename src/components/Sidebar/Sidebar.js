@@ -383,6 +383,26 @@ function Sidebar({ className }) {
 											</a>
 										</Link>
 									</li>
+									<li>
+										<Link
+											href="/docs/code/sass/theme"
+											as="/docs/code/sass/theme"
+										>
+											<a
+												onClick={() =>
+													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/sass/theme"
+														? "active"
+														: ""
+												}
+											>
+												Theme
+											</a>
+										</Link>
+									</li>
 								</ul>
 							</li>
 							<li>
@@ -548,6 +568,26 @@ function Sidebar({ className }) {
 											</a>
 										</Link>
 									</li>
+									<li>
+										<Link
+											href="/docs/code/postcss/theme"
+											as="/docs/code/postcss/theme"
+										>
+											<a
+												onClick={() =>
+													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/postcss/theme"
+														? "active"
+														: ""
+												}
+											>
+												Theme
+											</a>
+										</Link>
+									</li>
 								</ul>
 							</li>
 							<li>
@@ -710,6 +750,26 @@ function Sidebar({ className }) {
 												}
 											>
 												Breakpoints
+											</a>
+										</Link>
+									</li>
+									<li>
+										<Link
+											href="/docs/code/react-components/theme"
+											as="/docs/code/react-components/theme"
+										>
+											<a
+												onClick={() =>
+													setMenuOpen(false)
+												}
+												className={
+													router.pathname ===
+													"/docs/code/react-components/theme"
+														? "active"
+														: ""
+												}
+											>
+												Theme
 											</a>
 										</Link>
 									</li>
