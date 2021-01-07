@@ -60,6 +60,10 @@ function Index({ posts = [] }) {
 				paragraphs, lists, blockquotes and others global typography
 				definitions.
 			</p>
+			<p>
+				The definitions of the variables can be found in the file{" "}
+				<strong>theme.css</strong>.
+			</p>
 			<Space size={10} />
 			<CodeBlock
 				language="html"

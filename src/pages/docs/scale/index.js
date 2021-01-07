@@ -9,12 +9,17 @@ function Index({ posts = [] }) {
 			<H1 size="hero1">Scale</H1>
 			<Space xs={20} lg={30} />
 			<p>
-				Donec ullamcorper nulla non metus auctor fringilla. Maecenas
-				faucibus mollis interdum. Duis mollis, est non commodo luctus,
-				nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-				Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-				venenatis vestibulum. Vestibulum id ligula porta felis euismod
-				semper. Sed posuere consectetur est at lobortis.
+				Cherry comes as a template for your design system. It contains
+				only the essential elements and patterns for a modern website.
+				Cherry it is meant to be extended and used as a starting point
+				for your own design system. It follows the same naming
+				convention from Design to Code and carries the same patterns
+				across different technologies.
+			</p>
+			<p>
+				All Cherry repositories are free and open-source. You can
+				implement the source code directly in your development
+				environment.
 			</p>
 		</Page>
 	);
