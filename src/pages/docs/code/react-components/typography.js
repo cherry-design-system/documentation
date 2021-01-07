@@ -143,7 +143,10 @@ function Index({ posts = [] }) {
 					<tr>
 						<td>size</td>
 						<td>Change font styles</td>
-						<td>"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "hero1" | "hero2" | "hero3"</td>
+						<td>
+							"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "hero1" |
+							"hero2" | "hero3"
+						</td>
 					</tr>
 					<tr>
 						<td>theme</td>
@@ -226,7 +229,10 @@ function Index({ posts = [] }) {
 					<tr>
 						<td>variant</td>
 						<td>Change font styles</td>
-						<td>"eyebrow" | "subtitle" | "button" | "buttonBig" | "lead" | "input" | "inputBig"</td>
+						<td>
+							"eyebrow" | "subtitle" | "button" | "buttonBig" |
+							"lead" | "input" | "inputBig"
+						</td>
 					</tr>
 					<tr>
 						<td>theme</td>
