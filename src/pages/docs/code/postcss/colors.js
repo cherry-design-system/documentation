@@ -3,6 +3,7 @@ import { Page } from "../../../../components/Pages";
 import { Space, H1 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { ColorBox, ColorBoxContainer } from "../../../../components/ColorBox";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const primaryCode = `--color-primary-light: #FDA4AF;
 --color-primary: #F43F5E;
@@ -108,6 +109,18 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav href="/docs/code/postcss" as="/docs/code/postcss" prev>
+					PostCSS Introduction
+				</DocNav>
+				<DocNav
+					href="/docs/code/postcss/typography"
+					as="/docs/code/postcss/typography"
+					next
+				>
+					PostCSS Typography
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

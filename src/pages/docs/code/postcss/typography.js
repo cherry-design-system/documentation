@@ -11,6 +11,7 @@ import {
 	FontStyle,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const hero1Code = `<h1 class="hero1">Hero1</h1>`;
 const hero2Code = `<h1 class="hero2">Hero2</h1>`;
@@ -227,6 +228,22 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/postcss/colors"
+					as="/docs/code/postcss/colors"
+					prev
+				>
+					PostCSS Colors
+				</DocNav>
+				<DocNav
+					href="/docs/code/postcss/buttons"
+					as="/docs/code/postcss/buttons"
+					next
+				>
+					PostCSS Buttons
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

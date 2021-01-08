@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1, H2 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const mqCode = `const breakpoints = [0, 576, 768, 992, 1200, 1440, 1920];
 
@@ -88,6 +89,22 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<CodeBlock language="jsx" value={xxxlCode} />
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/react-components/grid"
+					as="/docs/code/react-components/grid"
+					prev
+				>
+					Grid Components
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/theme"
+					as="/docs/code/react-components/theme"
+					next
+				>
+					Emotion Theme
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

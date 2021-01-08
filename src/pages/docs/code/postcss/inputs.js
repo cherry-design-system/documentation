@@ -8,6 +8,7 @@ import {
 	Textarea,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const inputTextCode = `<input type="text" placeholder="Placeholder" />`;
 const inputTextErrorCode = `<input type="text" class="error" placeholder="Placeholder" />`;
@@ -483,6 +484,22 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/postcss/buttons"
+					as="/docs/code/postcss/buttons"
+					prev
+				>
+					PostCSS Buttons
+				</DocNav>
+				<DocNav
+					href="/docs/code/postcss/spacing"
+					as="/docs/code/postcss/spacing"
+					next
+				>
+					PostCSS Spacing
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

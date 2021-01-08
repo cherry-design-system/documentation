@@ -12,6 +12,7 @@ import {
 	H4,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const gridCode = `<!--- Grid Container -->
 <div class="container">
@@ -750,6 +751,22 @@ function Index({ posts = [] }) {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
+			<DocNavWrapper noTop>
+				<DocNav
+					href="/docs/code/sass/spacing"
+					as="/docs/code/sass/spacing"
+					prev
+				>
+					Sass Spacing
+				</DocNav>
+				<DocNav
+					href="/docs/code/sass/breakpoints"
+					as="/docs/code/sass/breakpoints"
+					next
+				>
+					Sass Breakpoints
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

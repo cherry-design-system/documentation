@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1, H2, H3, H4 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const installCode = `npm install cherry-postcss`;
 const importCode = `@import "cherry-postcss/src/cherry.css";`;
@@ -90,6 +91,22 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<p>That's it 🎉 you are ready to use Cherry.</p>
 			<Space size={10} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/sass/theme"
+					as="/docs/code/sass/theme"
+					prev
+				>
+					Sass Theme
+				</DocNav>
+				<DocNav
+					href="/docs/code/postcss/colors"
+					as="/docs/code/postcss/colors"
+					next
+				>
+					PostCSS Colors
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

@@ -23,6 +23,7 @@ import {
 	inputFontStyles,
 	inputBigFontStyles,
 } from "../../../assets/styles/helperStyles";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -295,6 +296,22 @@ function Index({ posts = [] }) {
 				Typography in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/design/colors"
+					as="/docs/design/colors"
+					prev
+				>
+					Design Colors
+				</DocNav>
+				<DocNav
+					href="/docs/design/buttons"
+					as="/docs/design/buttons"
+					next
+				>
+					Design Buttons
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

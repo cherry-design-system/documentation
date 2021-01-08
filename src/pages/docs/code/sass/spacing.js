@@ -8,6 +8,7 @@ import {
 	H3,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const spaceCode = `<div class="space size-160 xs-hide lg-show"></div>
 <div class="space size-24 horizontal xs-show lg-hide"></div>`;
@@ -170,6 +171,22 @@ function Index({ posts = [] }) {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
+			<DocNavWrapper noTop>
+				<DocNav
+					href="/docs/code/sass/inputs"
+					as="/docs/code/sass/inputs"
+					prev
+				>
+					Sass Inputs
+				</DocNav>
+				<DocNav
+					href="/docs/code/sass/grid"
+					as="/docs/code/sass/grid"
+					next
+				>
+					Sass Grid
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

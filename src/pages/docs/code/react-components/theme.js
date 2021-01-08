@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const themeCode = `const theme = {
 	spacing: {
@@ -263,6 +264,18 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<CodeBlock language="jsx" value={themeCode} />
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/react-components/breakpoints"
+					as="/docs/code/react-components/breakpoints"
+					prev
+				>
+					Emotion Breakpoints
+				</DocNav>
+				<DocNav href="/docs/scale" as="/docs/scale" next>
+					Scale Introduction
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

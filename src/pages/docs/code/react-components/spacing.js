@@ -8,6 +8,7 @@ import {
 	H3,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const spaceCode = `<Space xs="none" lg={160} />
 <Space xs={24} lg="none" horizontal />`;
@@ -87,6 +88,22 @@ function Index({ posts = [] }) {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
+			<DocNavWrapper noTop>
+				<DocNav
+					href="/docs/code/react-components/inputs"
+					as="/docs/code/react-components/inputs"
+					prev
+				>
+					Input Components
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/grid"
+					as="/docs/code/react-components/grid"
+					next
+				>
+					Grid Components
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

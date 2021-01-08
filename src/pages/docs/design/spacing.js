@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Page } from "../../../components/Pages";
 import { Space, H1, TableOverflow, Link } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -85,6 +86,18 @@ function Index({ posts = [] }) {
 				Spacing in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/design/inputs"
+					as="/docs/design/inputs"
+					prev
+				>
+					Design Inputs
+				</DocNav>
+				<DocNav href="/docs/design/grid" as="/docs/design/grid" next>
+					Design Grid
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

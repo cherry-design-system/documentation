@@ -8,6 +8,7 @@ import {
 	Textarea,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const inputTextCode = `<input type="text" placeholder="Placeholder" />`;
 const inputTextErrorCode = `<input type="text" class="error" placeholder="Placeholder" />`;
@@ -484,6 +485,22 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/sass/buttons"
+					as="/docs/code/sass/buttons"
+					prev
+				>
+					Sass Buttons
+				</DocNav>
+				<DocNav
+					href="/docs/code/sass/spacing"
+					as="/docs/code/sass/spacing"
+					next
+				>
+					Sass Spacing
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

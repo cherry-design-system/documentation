@@ -11,6 +11,7 @@ import {
 	Select,
 	Textarea,
 } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -331,6 +332,22 @@ function Index({ posts = [] }) {
 				Inputs in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/design/buttons"
+					as="/docs/design/buttons"
+					prev
+				>
+					Design Buttons
+				</DocNav>
+				<DocNav
+					href="/docs/design/spacing"
+					as="/docs/design/spacing"
+					next
+				>
+					Design Spacing
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

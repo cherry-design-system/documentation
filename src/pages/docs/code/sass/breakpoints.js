@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1, H2 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const xsCode = `@media (min-width: $screen-xs) {
 	// Media query for the Extra Small size = 0px
@@ -62,6 +63,22 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<CodeBlock language="scss" value={xxxlCode} />
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/sass/grid"
+					as="/docs/code/sass/grid"
+					prev
+				>
+					Sass Grid
+				</DocNav>
+				<DocNav
+					href="/docs/code/sass/theme"
+					as="/docs/code/sass/theme"
+					next
+				>
+					Sass Theme
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

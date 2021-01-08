@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1, H2, H3 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const installCode = `npm install cherry-sass`;
 const importCode = `@import "cherry-sass/src/cherry.scss";`;
@@ -69,6 +70,22 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<p>That's it 🎉 you are ready to use Cherry.</p>
 			<Space size={10} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/meta-tags"
+					as="/docs/code/meta-tags"
+					prev
+				>
+					Meta Tags
+				</DocNav>
+				<DocNav
+					href="/docs/code/sass/colors"
+					as="/docs/code/sass/colors"
+					next
+				>
+					Sass Colors
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

@@ -12,6 +12,7 @@ import {
 	TableOverflow,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const hero1Code = `<H1 size="hero1">Hero1</H1>`;
 const hero2Code = `<H1 size="hero2">Hero2</H1>`;
@@ -304,6 +305,22 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/react-components/colors"
+					as="/docs/code/react-components/colors"
+					prev
+				>
+					Emotion Colors
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/buttons"
+					as="/docs/code/react-components/buttons"
+					next
+				>
+					Button Components
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

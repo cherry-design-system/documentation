@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../components/Pages";
 import { Space, H1 } from "../../../components/Layout";
 import { CodeBlock } from "../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 const viewportCode = `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />`;
 const descriptionCode = `<meta name="description" content="Cherry is the foundation for your design system, from design to code. With examples of implementations in modern front-end technologies. Customizable and scalable, ready to be used out-of-the-box." />`;
@@ -75,6 +76,14 @@ function Index({ posts = [] }) {
 				description="Define the favicons for your website."
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav href="/docs/code" as="/docs/code" prev>
+					Code Introduction
+				</DocNav>
+				<DocNav href="/docs/code/sass" as="/docs/code/sass" next>
+					Sass Introduction
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

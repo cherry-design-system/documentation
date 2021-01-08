@@ -3,6 +3,7 @@ import Image from "next/image";
 import { css } from "@emotion/react";
 import { Page } from "../../components/Pages";
 import { Space, H1, Row, Col, Box } from "../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -63,6 +64,14 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 			</Row>
+			<DocNavWrapper>
+				<DocNav href="/" as="/" prev>
+					Home
+				</DocNav>
+				<DocNav href="/docs/design" as="/docs/design" next>
+					Design Introduction
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

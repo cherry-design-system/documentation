@@ -1,6 +1,7 @@
 import React from "react";
 import { Page } from "../../../components/Pages";
 import { Space, H1 } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -21,6 +22,19 @@ function Index({ posts = [] }) {
 				implement the source code directly in your development
 				environment.
 			</p>
+			<Space size={10} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/react-components/theme"
+					as="/docs/code/react-components/theme"
+					prev
+				>
+					Emotion Theme
+				</DocNav>
+				<DocNav href="/docs" as="/docs" next>
+					Docs Introduction
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

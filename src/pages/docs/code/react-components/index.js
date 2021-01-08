@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1, H2 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const installCode = `npm install cherry-components`;
 const componentsCode = `import {
@@ -58,6 +59,22 @@ function Index({ posts = [] }) {
 			</p>
 			<p>That's it 🎉 you are ready to use Cherry.</p>
 			<Space size={10} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/postcss/theme"
+					as="/docs/code/postcss/theme"
+					prev
+				>
+					PostCSS Theme
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/colors"
+					as="/docs/code/react-components/colors"
+					next
+				>
+					Emotion Colors
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

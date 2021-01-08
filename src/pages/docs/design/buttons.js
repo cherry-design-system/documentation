@@ -9,6 +9,7 @@ import {
 	Col,
 	Button,
 } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -175,6 +176,22 @@ function Index({ posts = [] }) {
 				Buttons in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/design/typography"
+					as="/docs/design/typography"
+					prev
+				>
+					Design Typography
+				</DocNav>
+				<DocNav
+					href="/docs/design/inputs"
+					as="/docs/design/inputs"
+					next
+				>
+					Design Inputs
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

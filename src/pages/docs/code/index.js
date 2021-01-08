@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Page } from "../../../components/Pages";
 import { Space, H1, Row, Col, Box } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -64,6 +65,22 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 			</Row>
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/design/meta-images"
+					as="/docs/design/meta-images"
+					prev
+				>
+					Design Meta Images
+				</DocNav>
+				<DocNav
+					href="/docs/code/meta-tags"
+					as="/docs/code/meta-tags"
+					next
+				>
+					Meta Tags
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

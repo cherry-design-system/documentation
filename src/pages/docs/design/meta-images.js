@@ -10,6 +10,7 @@ import {
 	TableOverflow,
 	Link,
 } from "../../../components/Layout";
+import { DocNavWrapper, DocNav } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -106,6 +107,14 @@ function Index({ posts = [] }) {
 				Meta Images in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav href="/docs/design/grid" as="/docs/design/grid" prev>
+					Design Grid
+				</DocNav>
+				<DocNav href="/docs/code" as="/docs/code" next>
+					Code Introduction
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

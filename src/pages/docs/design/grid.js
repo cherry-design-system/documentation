@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Page } from "../../../components/Pages";
 import { Space, H1, Row, Col, Box, Link } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -210,6 +211,22 @@ function Index({ posts = [] }) {
 				Grid in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/design/spacing"
+					as="/docs/design/spacing"
+					prev
+				>
+					Design Spacing
+				</DocNav>
+				<DocNav
+					href="/docs/design/meta-images"
+					as="/docs/design/meta-images"
+					next
+				>
+					Design Meta Images
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

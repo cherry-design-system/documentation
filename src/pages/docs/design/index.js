@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Page } from "../../../components/Pages";
 import { Space, H1, Link, Box } from "../../../components/Layout";
+import { DocNavWrapper, DocNav } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -60,6 +61,18 @@ function Index({ posts = [] }) {
 				Figma UI Kit
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav href="/docs" as="/docs" prev>
+					Docs Introduction
+				</DocNav>
+				<DocNav
+					href="/docs/design/colors"
+					as="/docs/design/colors"
+					next
+				>
+					Design Colors
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

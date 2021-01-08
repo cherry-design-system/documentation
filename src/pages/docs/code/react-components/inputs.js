@@ -8,6 +8,7 @@ import {
 	Textarea,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const inputTextCode = `<Input type="text" placeholder="Placeholder" />`;
 const inputTextErrorCode = `<Input type="text" placeholder="Placeholder" error />`;
@@ -471,6 +472,22 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/react-components/buttons"
+					as="/docs/code/react-components/buttons"
+					prev
+				>
+					Button Components
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/spacing"
+					as="/docs/code/react-components/spacing"
+					next
+				>
+					Spacing Component
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

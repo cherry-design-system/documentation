@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1, Button } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const buttonPrimaryCode = `<a class="button">Primary</a>`;
 const buttonPrimaryFrameCode = `<a class="button frame">Primary Frame</a>`;
@@ -171,6 +172,22 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/sass/typography"
+					as="/docs/code/sass/typography"
+					prev
+				>
+					Sass Typography
+				</DocNav>
+				<DocNav
+					href="/docs/code/sass/inputs"
+					as="/docs/code/sass/inputs"
+					next
+				>
+					Sass Inputs
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

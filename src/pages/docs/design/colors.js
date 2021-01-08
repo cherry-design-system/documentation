@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../components/Pages";
 import { Space, H1, Link, Col, Row } from "../../../components/Layout";
 import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index({ posts = [] }) {
 	return (
@@ -87,6 +88,18 @@ function Index({ posts = [] }) {
 				Colors in Figma
 			</Link>
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav href="/docs/design" as="/docs/design" prev>
+					Design Introduction
+				</DocNav>
+				<DocNav
+					href="/docs/design/typography"
+					as="/docs/design/typography"
+					next
+				>
+					Design Typography
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

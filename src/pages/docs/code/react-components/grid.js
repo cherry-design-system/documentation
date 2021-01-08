@@ -12,6 +12,7 @@ import {
 	H4,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const gridCode = `<Container>
 	<Row>
@@ -29,9 +30,9 @@ const gridCode = `<Container>
 
 function Index({ posts = [] }) {
 	return (
-		<Page title="Grid Component">
+		<Page title="Grid Components">
 			<Space xs={20} lg={40} />
-			<H1 size="hero1">Grid Component</H1>
+			<H1 size="hero1">Grid Components</H1>
 			<Space xs={10} lg={30} />
 			<p>
 				Cherry grid system uses a series of containers, rows, and
@@ -390,6 +391,22 @@ function Index({ posts = [] }) {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
+			<DocNavWrapper noTop>
+				<DocNav
+					href="/docs/code/react-components/spacing"
+					as="/docs/code/react-components/spacing"
+					prev
+				>
+					Spacing Component
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/breakpoints"
+					as="/docs/code/react-components/breakpoints"
+					next
+				>
+					Emotion Breakpoints
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }

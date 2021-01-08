@@ -2,6 +2,7 @@ import React from "react";
 import { Page } from "../../../../components/Pages";
 import { Space, H1 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const themeCode = `@custom-media --screen-xs (min-width: 0);
 @custom-media --screen-sm (min-width: 576px);
@@ -169,6 +170,22 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<CodeBlock language="css" value={themeCode} />
 			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/postcss/breakpoints"
+					as="/docs/code/postcss/breakpoints"
+					prev
+				>
+					PostCSS Breakpoints
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components"
+					as="/docs/code/react-components"
+					next
+				>
+					Components Introduction
+				</DocNav>
+			</DocNavWrapper>
 		</Page>
 	);
 }
