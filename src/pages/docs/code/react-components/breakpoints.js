@@ -20,8 +20,7 @@ function mq(minWidth) {
 	return \`@media screen and (min-width: \${breakpoints[minWidth]}px)\`;
 }
 
-export { mq, Breakpoints };
-`;
+export { mq, Breakpoints };`;
 
 const xsCode = `\${mq(Breakpoints.xs)} {
 	// Media query for the Extra Small size = 0px
