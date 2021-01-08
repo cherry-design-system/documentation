@@ -133,8 +133,14 @@ const globalStyles = (
 				}
 			}
 
-			p {
+			blockquote,
+			p,
+			ol,
+			ul {
 				color: ${theme.colors.gray};
+			}
+
+			p {
 				margin: 10px 0;
 
 				& a {

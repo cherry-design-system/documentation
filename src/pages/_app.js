@@ -1,4 +1,5 @@
-import { withRouter, useRouter } from "next/router";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { ThemeProvider, css } from "@emotion/react";
 import { globalStyles } from "../assets/styles/globalStyles";
 import { theme } from "../assets/styles/theme";
@@ -11,6 +12,13 @@ import { ScrollToTop } from "../components/ScrollToTop";
 function App({ Component, pageProps }) {
 	const { query } = useRouter();
 	const router = useRouter();
+
+	useEffect(() => {
+		if (document.getElementById("doc-content")) {
+			document.getElementById("doc-content").scroll(0, 0);
+			window.scrollTo(0, 0);
+		}
+	}, [router]);
 
 	return (
 		<>
@@ -25,7 +33,12 @@ function App({ Component, pageProps }) {
 									<Col xs={12} lg={3} fullScreen>
 										<Sidebar />
 									</Col>
-									<Col xs={12} lg={9} fullScreen>
+									<Col
+										xs={12}
+										lg={9}
+										fullScreen
+										id="doc-content"
+									>
 										<Component {...pageProps} />
 									</Col>
 								</Row>
@@ -41,4 +54,4 @@ function App({ Component, pageProps }) {
 	);
 }
 
-export default withRouter(App);
+export default App;

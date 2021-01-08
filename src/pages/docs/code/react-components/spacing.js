@@ -35,56 +35,60 @@ function Index({ posts = [] }) {
 			</p>
 			<TableOverflow>
 				<table>
-					<tr>
-						<th>Property</th>
-						<th>Description</th>
-						<th>Type</th>
-					</tr>
-					<tr>
-						<td>horizontal</td>
-						<td>Switch to horizontal (in-line) spaces</td>
-						<td>Boolean</td>
-					</tr>
-					<tr>
-						<td>size</td>
-						<td>Defines the space for all media queries</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>xs</td>
-						<td>Defines the space for XS media query</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>sm</td>
-						<td>Defines the space for SM media query</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>md</td>
-						<td>Defines the space for MD media query</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>lg</td>
-						<td>Defines the space for LG media query</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>xl</td>
-						<td>Defines the space for XL media query</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>xxl</td>
-						<td>Defines the space for XXL media query</td>
-						<td>Number | "none"</td>
-					</tr>
-					<tr>
-						<td>xxxl</td>
-						<td>Defines the space for XXXL media query</td>
-						<td>Number | "none"</td>
-					</tr>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>horizontal</td>
+							<td>Switch to horizontal (in-line) spaces</td>
+							<td>Boolean</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>Defines the space for all media queries</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>xs</td>
+							<td>Defines the space for XS media query</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>sm</td>
+							<td>Defines the space for SM media query</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>md</td>
+							<td>Defines the space for MD media query</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>lg</td>
+							<td>Defines the space for LG media query</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>xl</td>
+							<td>Defines the space for XL media query</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>xxl</td>
+							<td>Defines the space for XXL media query</td>
+							<td>Number | "none"</td>
+						</tr>
+						<tr>
+							<td>xxxl</td>
+							<td>Defines the space for XXXL media query</td>
+							<td>Number | "none"</td>
+						</tr>
+					</tbody>
 				</table>
 			</TableOverflow>
 			<Space size={20} />

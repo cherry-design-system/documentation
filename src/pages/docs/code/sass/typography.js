@@ -215,16 +215,13 @@ function Index({ posts = [] }) {
 				language="html"
 				value={blockquoteCode}
 				description={
-					<p>
-						<blockquote>
-							Small - Fusce dapibus, tellus ac cursus commodo,
-							tortor mauris condimentum nibh, ut fermentum massa
-							justo sit amet risus. Duis mollis, est non commodo
-							luctus, nisi erat porttitor ligula, eget lacinia
-							odio sem nec elit. Donec id elit non mi porta
-							gravida at eget metus.
-						</blockquote>
-					</p>
+					<blockquote>
+						Small - Fusce dapibus, tellus ac cursus commodo, tortor
+						mauris condimentum nibh, ut fermentum massa justo sit
+						amet risus. Duis mollis, est non commodo luctus, nisi
+						erat porttitor ligula, eget lacinia odio sem nec elit.
+						Donec id elit non mi porta gravida at eget metus.
+					</blockquote>
 				}
 			/>
 			<Space size={20} />

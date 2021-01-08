@@ -17,31 +17,30 @@ function Index({ posts = [] }) {
 				Cherry provides a UI Kit template in Figma with all the standard
 				web elements. The document template is divided in a few pages to
 				keep everything organized.
-				<ol>
-					<li>
-						<strong>Branding</strong> - Contains the colors
-						definition and all the typography styles, both for
-						desktop and mobile.
-					</li>
-					<li>
-						<strong>Interface</strong> - You can find all the form
-						elements, buttons, inputs, checkboxes, radio buttons and
-						drop-down selects.
-					</li>
-					<li>
-						<strong>Icons</strong> - Cherry uses open source icons
-						from Ionicons.
-					</li>
-					<li>
-						<strong>Spacing & Grid</strong> - Spacing definitions
-						and Cherry Grid, the 12 column layout system.
-					</li>
-					<li>
-						<strong>Meta Images</strong> - Favicon and all the rest
-						of icons required for metadata.
-					</li>
-				</ol>
 			</p>
+			<ol>
+				<li>
+					<strong>Branding</strong> - Contains the colors definition
+					and all the typography styles, both for desktop and mobile.
+				</li>
+				<li>
+					<strong>Interface</strong> - You can find all the form
+					elements, buttons, inputs, checkboxes, radio buttons and
+					drop-down selects.
+				</li>
+				<li>
+					<strong>Icons</strong> - Cherry uses open source icons from
+					Ionicons.
+				</li>
+				<li>
+					<strong>Spacing & Grid</strong> - Spacing definitions and
+					Cherry Grid, the 12 column layout system.
+				</li>
+				<li>
+					<strong>Meta Images</strong> - Favicon and all the rest of
+					icons required for metadata.
+				</li>
+			</ol>
 			<Space size={10} />
 			<Box noPadding>
 				<Image

@@ -308,7 +308,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						label="Checkbox"
-						id="sample-3"
+						id="sample-4"
 						size="big"
 					/>
 				}
@@ -321,7 +321,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						label="Checkbox"
-						id="sample-4"
+						id="sample-5"
 						size="big"
 						defaultChecked
 					/>
@@ -332,7 +332,7 @@ function Index({ posts = [] }) {
 				language="html"
 				value={radioCode}
 				description={
-					<Input type="radio" label="Checkbox" id="sample-5" />
+					<Input type="radio" label="Checkbox" id="sample-6" />
 				}
 			/>
 			<Space size={20} />
@@ -343,7 +343,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="radio"
 						label="Checkbox"
-						id="sample-6"
+						id="sample-7"
 						defaultChecked
 					/>
 				}
@@ -356,7 +356,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="radio"
 						label="Checkbox"
-						id="sample-7"
+						id="sample-8"
 						size="big"
 					/>
 				}
@@ -369,7 +369,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="radio"
 						label="Checkbox"
-						id="sample-8"
+						id="sample-9"
 						size="big"
 						defaultChecked
 					/>
@@ -455,7 +455,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						label="Checkbox"
-						id="sample-x"
+						id="sample-xx"
 						disabled
 						size="big"
 					/>

@@ -121,39 +121,43 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<TableOverflow>
 				<table>
-					<tr>
-						<th>Property</th>
-						<th>Description</th>
-						<th>Type</th>
-					</tr>
-					<tr>
-						<td>children</td>
-						<td>Children elements</td>
-						<td>ReactNode</td>
-					</tr>
-					<tr>
-						<td>id</td>
-						<td>Defines element id</td>
-						<td>String</td>
-					</tr>
-					<tr>
-						<td>className</td>
-						<td>Defines element class name</td>
-						<td>String</td>
-					</tr>
-					<tr>
-						<td>size</td>
-						<td>Change font styles</td>
-						<td>
-							"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "hero1" |
-							"hero2" | "hero3"
-						</td>
-					</tr>
-					<tr>
-						<td>theme</td>
-						<td>Emotion theme configuration</td>
-						<td>Object</td>
-					</tr>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>children</td>
+							<td>Children elements</td>
+							<td>ReactNode</td>
+						</tr>
+						<tr>
+							<td>id</td>
+							<td>Defines element id</td>
+							<td>String</td>
+						</tr>
+						<tr>
+							<td>className</td>
+							<td>Defines element class name</td>
+							<td>String</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>Change font styles</td>
+							<td>
+								"h1" | "h2" | "h3" | "h4" | "h5" | "h6" |
+								"hero1" | "hero2" | "hero3"
+							</td>
+						</tr>
+						<tr>
+							<td>theme</td>
+							<td>Emotion theme configuration</td>
+							<td>Object</td>
+						</tr>
+					</tbody>
 				</table>
 			</TableOverflow>
 			<Space size={20} />
@@ -207,39 +211,43 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<TableOverflow>
 				<table>
-					<tr>
-						<th>Property</th>
-						<th>Description</th>
-						<th>Type</th>
-					</tr>
-					<tr>
-						<td>children</td>
-						<td>Children elements</td>
-						<td>ReactNode</td>
-					</tr>
-					<tr>
-						<td>id</td>
-						<td>Defines element id</td>
-						<td>String</td>
-					</tr>
-					<tr>
-						<td>className</td>
-						<td>Defines element class name</td>
-						<td>String</td>
-					</tr>
-					<tr>
-						<td>variant</td>
-						<td>Change font styles</td>
-						<td>
-							"eyebrow" | "subtitle" | "button" | "buttonBig" |
-							"lead" | "input" | "inputBig"
-						</td>
-					</tr>
-					<tr>
-						<td>theme</td>
-						<td>Emotion theme configuration</td>
-						<td>Object</td>
-					</tr>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>children</td>
+							<td>Children elements</td>
+							<td>ReactNode</td>
+						</tr>
+						<tr>
+							<td>id</td>
+							<td>Defines element id</td>
+							<td>String</td>
+						</tr>
+						<tr>
+							<td>className</td>
+							<td>Defines element class name</td>
+							<td>String</td>
+						</tr>
+						<tr>
+							<td>variant</td>
+							<td>Change font styles</td>
+							<td>
+								"eyebrow" | "subtitle" | "button" | "buttonBig"
+								| "lead" | "input" | "inputBig"
+							</td>
+						</tr>
+						<tr>
+							<td>theme</td>
+							<td>Emotion theme configuration</td>
+							<td>Object</td>
+						</tr>
+					</tbody>
 				</table>
 			</TableOverflow>
 			<Space size={20} />
@@ -292,16 +300,13 @@ function Index({ posts = [] }) {
 				language="jsx"
 				value={blockquoteCode}
 				description={
-					<p>
-						<blockquote>
-							Small - Fusce dapibus, tellus ac cursus commodo,
-							tortor mauris condimentum nibh, ut fermentum massa
-							justo sit amet risus. Duis mollis, est non commodo
-							luctus, nisi erat porttitor ligula, eget lacinia
-							odio sem nec elit. Donec id elit non mi porta
-							gravida at eget metus.
-						</blockquote>
-					</p>
+					<blockquote>
+						Small - Fusce dapibus, tellus ac cursus commodo, tortor
+						mauris condimentum nibh, ut fermentum massa justo sit
+						amet risus. Duis mollis, est non commodo luctus, nisi
+						erat porttitor ligula, eget lacinia odio sem nec elit.
+						Donec id elit non mi porta gravida at eget metus.
+					</blockquote>
 				}
 			/>
 			<Space size={20} />

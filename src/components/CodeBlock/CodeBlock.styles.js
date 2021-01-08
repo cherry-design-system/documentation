@@ -11,10 +11,10 @@ export const boxDescriptionStyles = (theme) => css`
 	& p:only-of-type {
 		padding: 0;
 		margin: 0;
+	}
 
-		& blockquote {
-			padding: 0;
-			margin: 0;
-		}
+	& blockquote {
+		padding: 0;
+		margin: 0;
 	}
 `;
