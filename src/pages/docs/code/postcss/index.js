@@ -6,14 +6,14 @@ import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const installCode = `npm install cherry-postcss`;
 const importCode = `@import "cherry-postcss/src/cherry.css";`;
-const cherryCssCode = `@import "./theme";
-@import "./helpers";
-@import "./globals";
-@import "./typography";
-@import "./buttons";
-@import "./inputs";
-@import "./grid";
-@import "./spacing";`;
+const cherryCssCode = `@import "cherry-postcss/src/theme";
+@import "cherry-postcss/src/helpers";
+@import "cherry-postcss/src/globals";
+@import "cherry-postcss/src/typography";
+@import "cherry-postcss/src/buttons";
+@import "cherry-postcss/src/inputs";
+@import "cherry-postcss/src/grid";
+@import "cherry-postcss/src/spacing";`;
 const postcssPluginsCode = `module.exports = {
 	plugins: [
 		require("postcss-import"),

@@ -6,14 +6,14 @@ import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const installCode = `npm install cherry-sass`;
 const importCode = `@import "cherry-sass/src/cherry.scss";`;
-const cherryScssCode = `@import "./theme";
-@import "./helpers";
-@import "./globals";
-@import "./typography";
-@import "./buttons";
-@import "./inputs";
-@import "./grid";
-@import "./spacing";`;
+const cherryScssCode = `@import "cherry-sass/src/theme";
+@import "cherry-sass/src/helpers";
+@import "cherry-sass/src/globals";
+@import "cherry-sass/src/typography";
+@import "cherry-sass/src/buttons";
+@import "cherry-sass/src/inputs";
+@import "cherry-sass/src/grid";
+@import "cherry-sass/src/spacing";`;
 const importDistCode = `@import "cherry-sass/dist/cherry.css";`;
 const importHtmlCode = `<link rel="stylesheet" href="cherry-sass/dist/cherry.css">`;
 
