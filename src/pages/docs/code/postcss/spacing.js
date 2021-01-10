@@ -10,8 +10,8 @@ import {
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
-const spaceCode = `<div class="space size-160 xs-hide lg-show"></div>
-<div class="space size-24 horizontal xs-show lg-hide"></div>`;
+const spaceCode = `<span class="space size-160 xs-hide lg-show"></span>
+<span class="space size-24 horizontal xs-show lg-hide"></span>`;
 
 function Index({ posts = [] }) {
 	return (
