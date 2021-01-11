@@ -24,7 +24,7 @@ function Footer({ className }) {
 					>
 						<Space xs={40} lg={100} />
 						<a
-							href="https://www.riangle.com/"
+							href="https://www.riangle.com/?ref=cherry.design"
 							target="_blank"
 							rel="noopener noreferrer"
 							data-icon-link
@@ -32,7 +32,7 @@ function Footer({ className }) {
 							<Riangle />
 						</a>
 						<a
-							href="https://www.deep-impact.ch"
+							href="https://www.deep-impact.ch/?ref=cherry.design"
 							target="_blank"
 							rel="noopener noreferrer"
 							data-icon-link
@@ -42,7 +42,7 @@ function Footer({ className }) {
 						<p>
 							Powered by{" "}
 							<a
-								href="https://www.riangle.com/"
+								href="https://www.riangle.com/?ref=cherry.design"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
@@ -50,7 +50,7 @@ function Footer({ className }) {
 							</a>{" "}
 							and{" "}
 							<a
-								href="https://www.deep-impact.ch"
+								href="https://www.deep-impact.ch/?ref=cherry.design"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
