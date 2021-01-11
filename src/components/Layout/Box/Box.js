@@ -6,7 +6,7 @@ function Box({ className, children, href, as, noPadding }) {
 	if (as) {
 		return (
 			<Link href={href} as={as}>
-				<a css={(theme) => boxStyles(theme, as, noPadding)}>
+				<a css={(theme) => boxStyles(theme, as, noPadding)} href={href}>
 					{children && children}
 				</a>
 			</Link>
