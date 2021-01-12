@@ -9,7 +9,7 @@ function Riangle() {
 			viewBox="0 0 19 16"
 		>
 			<polygon
-				fill-rule="evenodd"
+				fillRule="evenodd"
 				points="4.536 7.832 0 15.66 18.152 15.66 9.076 0 4.536 7.832 13.609 7.832 9.073 15.66"
 			></polygon>
 		</svg>

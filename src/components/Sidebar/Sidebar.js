@@ -796,58 +796,69 @@ function Sidebar({ className }) {
 								</Link>
 							</li>
 							<li>
-								<Link
-									href="/docs/scale/static-site"
-									as="/docs/scale/static-site"
-								>
-									<a
-										className={
-											router.pathname ===
-											"/docs/scale/static-site"
-												? "active"
-												: ""
-										}
-										onClick={() => setMenuOpen(false)}
-									>
-										Static Site
-									</a>
-								</Link>
-							</li>
-							<li>
-								<Link
-									href="/docs/scale/wordpress"
-									as="/docs/scale/wordpress"
-								>
-									<a
-										className={
-											router.pathname ===
-											"/docs/scale/wordpress"
-												? "active"
-												: ""
-										}
-										onClick={() => setMenuOpen(false)}
-									>
-										WordPress
-									</a>
-								</Link>
-							</li>
-							<li>
-								<Link
-									href="/docs/scale/react"
-									as="/docs/scale/react"
-								>
-									<a
-										className={
-											router.pathname ===
-											"/docs/scale/react"
-												? "active"
-												: ""
-										}
-										onClick={() => setMenuOpen(false)}
-									>
-										React
-									</a>
-								</Link>
+								<strong>Boilerplates</strong>
+								<ul>
+									<li>
+										<Link
+											href="/docs/scale/static-site"
+											as="/docs/scale/static-site"
+										>
+											<a
+												className={
+													router.pathname ===
+													"/docs/scale/static-site"
+														? "active"
+														: ""
+												}
+												onClick={() =>
+													setMenuOpen(false)
+												}
+											>
+												Static Site
+											</a>
+										</Link>
+									</li>
+									<li>
+										<Link
+											href="/docs/scale/wordpress"
+											as="/docs/scale/wordpress"
+										>
+											<a
+												className={
+													router.pathname ===
+													"/docs/scale/wordpress"
+														? "active"
+														: ""
+												}
+												onClick={() =>
+													setMenuOpen(false)
+												}
+											>
+												WordPress
+											</a>
+										</Link>
+									</li>
+									<li>
+										<Link
+											href="/docs/scale/react"
+											as="/docs/scale/react"
+										>
+											<a
+												className={
+													router.pathname ===
+													"/docs/scale/react"
+														? "active"
+														: ""
+												}
+												onClick={() =>
+													setMenuOpen(false)
+												}
+											>
+												React
+											</a>
+										</Link>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
