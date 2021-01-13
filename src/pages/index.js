@@ -14,6 +14,7 @@ import {
 	H4,
 	Link,
 } from "../components/Layout";
+import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 
 function Index({ posts = [] }) {
 	return (
@@ -46,7 +47,46 @@ function Index({ posts = [] }) {
 						/>
 					</Col>
 				</Row>
-				<Space xs={20} lg={150} />
+				<Space xs={20} lg="none" />
+				<LogoWrapper>
+					<Image
+						src="/img/docs/design/figma-logo.png"
+						alt="Figma Logo"
+						width={29.34}
+						height={44}
+					/>
+					<Image
+						src="/img/docs/code/sass.png"
+						alt="Sass Logo"
+						width={58.71}
+						height={44}
+					/>
+					<Image
+						src="/img/docs/code/postcss.png"
+						alt="PostCSS Logo"
+						width={44}
+						height={44}
+					/>
+					<Image
+						src="/img/docs/code/react.png"
+						alt="React Logo"
+						width={44}
+						height={44}
+					/>
+					<Image
+						src="/img/docs/scale/wordpress.png"
+						alt="WordPress Logo"
+						width={44}
+						height={44}
+					/>
+					<Image
+						src="/img/docs/scale/html5.png"
+						alt="HTML5 Logo"
+						width={31.18}
+						height={44}
+					/>
+				</LogoWrapper>
+				<Space xs={10} lg={150} />
 				<hr />
 				<Space xs={20} lg={80} />
 				<Row>
