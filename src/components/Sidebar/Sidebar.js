@@ -5,7 +5,6 @@ import { Burger } from "../Layout/Burger";
 import { DropDown } from "../../assets/svg/DropDown";
 import { navigationData } from "./navigation-data";
 import { sidebarStyles } from "./Sidebar.styles";
-import clsx from "clsx";
 
 function Sidebar({ className }) {
 	const [isMenuOpen, setMenuOpen] = useState(false);
