@@ -1,6 +1,7 @@
 export const navigationData = [
 	{
 		label: "Getting Started",
+		state: "start",
 		children: [
 			{
 				href: "/docs",
@@ -10,6 +11,7 @@ export const navigationData = [
 	},
 	{
 		label: "Design",
+		state: "design",
 		children: [
 			{
 				href: "/docs/design",
@@ -47,6 +49,7 @@ export const navigationData = [
 	},
 	{
 		label: "Code",
+		state: "code",
 		children: [
 			{
 				href: "/docs/code",
@@ -58,6 +61,7 @@ export const navigationData = [
 			},
 			{
 				label: "Sass",
+				state: "sass",
 				children: [
 					{
 						href: "/docs/code/sass",
@@ -99,6 +103,7 @@ export const navigationData = [
 			},
 			{
 				label: "PostCSS",
+				state: "postcss",
 				children: [
 					{
 						href: "/docs/code/postcss",
@@ -140,6 +145,7 @@ export const navigationData = [
 			},
 			{
 				label: "React Components",
+				state: "react",
 				children: [
 					{
 						href: "/docs/code/react-components",
@@ -183,6 +189,7 @@ export const navigationData = [
 	},
 	{
 		label: "Scale",
+		state: "scale",
 		children: [
 			{
 				href: "/docs/scale",
@@ -190,6 +197,7 @@ export const navigationData = [
 			},
 			{
 				label: "Boilerplates",
+				state: "boilerplates",
 				children: [
 					{
 						href: "/docs/scale/static-site",

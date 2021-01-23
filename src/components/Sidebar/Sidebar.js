@@ -2,12 +2,23 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Burger } from "../Layout/Burger";
+import { DropDown } from "../../assets/svg/DropDown";
 import { navigationData } from "./navigation-data";
 import { sidebarStyles } from "./Sidebar.styles";
 import clsx from "clsx";
 
 function Sidebar({ className }) {
 	const [isMenuOpen, setMenuOpen] = useState(false);
+	const [activeMenus, setActiveMenus] = useState([
+		"start",
+		"design",
+		"code",
+		"sass",
+		"postcss",
+		"react",
+		"scale",
+		"boilerplates",
+	]);
 	const router = useRouter();
 
 	return (
@@ -23,9 +34,37 @@ function Sidebar({ className }) {
 				<ul>
 					{navigationData.map((item) => (
 						<li key={item.label}>
-							<strong>{item.label}</strong>
+							<button
+								className={
+									activeMenus.includes(item.state)
+										? "active"
+										: ""
+								}
+								onClick={() => {
+									if (activeMenus.includes(item.state)) {
+										const newState = activeMenus.filter(
+											(localItem) =>
+												localItem !== item.state,
+										);
+										setActiveMenus(newState);
+									} else {
+										setActiveMenus((oldState) => [
+											...oldState,
+											item.state,
+										]);
+									}
+								}}
+							>
+								<strong>{item.label}</strong> <DropDown />
+							</button>
 							{item.children && (
-								<ul>
+								<ul
+									className={
+										activeMenus.includes(item.state)
+											? "active"
+											: ""
+									}
+								>
 									{item.children.map(
 										(childItem) =>
 											childItem.href && (
@@ -55,11 +94,57 @@ function Sidebar({ className }) {
 										(childItem) =>
 											!childItem.href && (
 												<li key={childItem.label}>
-													<strong>
-														{childItem.label}
-													</strong>
+													<button
+														className={
+															activeMenus.includes(
+																childItem.state,
+															)
+																? "active"
+																: ""
+														}
+														onClick={() => {
+															if (
+																activeMenus.includes(
+																	childItem.state,
+																)
+															) {
+																const newState = activeMenus.filter(
+																	(
+																		localItem,
+																	) =>
+																		localItem !==
+																		childItem.state,
+																);
+																setActiveMenus(
+																	newState,
+																);
+															} else {
+																setActiveMenus(
+																	(
+																		oldState,
+																	) => [
+																		...oldState,
+																		childItem.state,
+																	],
+																);
+															}
+														}}
+													>
+														<strong>
+															{childItem.label}
+														</strong>{" "}
+														<DropDown />
+													</button>
 													{childItem.children && (
-														<ul>
+														<ul
+															className={
+																activeMenus.includes(
+																	childItem.state,
+																)
+																	? "active"
+																	: ""
+															}
+														>
 															{childItem.children.map(
 																(subItem) => (
 																	<li

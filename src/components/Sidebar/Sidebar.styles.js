@@ -1,6 +1,9 @@
 import { css } from "@emotion/react";
 import { rgba } from "polished";
-import { resetListStyles } from "../../assets/styles/helperStyles";
+import {
+	resetButtonStyles,
+	resetListStyles,
+} from "../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../assets/styles/mq";
 
 export const sidebarStyles = (theme, isMenuOpen) => css`
@@ -54,6 +57,23 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 				display: inline-block;
 			}
 
+			& button {
+				${resetButtonStyles};
+
+				& svg {
+					margin-left: 3px;
+					transform: translate3d(0, 0, 0) translateX(-1px)
+						rotate(0deg);
+				}
+
+				&.active {
+					& svg {
+						transform: translate3d(0, 0, 0) translateX(-1px)
+							rotate(180deg);
+					}
+				}
+			}
+
 			& strong {
 				font-weight: 600;
 				padding: 20px 0 5px;
@@ -79,6 +99,17 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 
 			& ul {
 				padding: 0 0 0 20px;
+				transition: all 0.3s ease;
+				max-height: 0;
+				overflow: hidden;
+				pointer-events: none;
+				opacity: 0;
+
+				&.active {
+					max-height: 1000px;
+					pointer-events: all;
+					opacity: 1;
+				}
 
 				& strong {
 					padding: 5px;
