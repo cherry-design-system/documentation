@@ -4,7 +4,6 @@ import {
 	buttonFontStyles,
 	resetButtonStyles,
 } from "../../../assets/styles/helperStyles";
-import { Breakpoints, mq } from "../../../assets/styles/mq";
 
 export const buttonStyles = (theme, variant, size, frame, disabled) => css`
 	${resetButtonStyles};
