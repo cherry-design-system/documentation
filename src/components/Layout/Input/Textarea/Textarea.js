@@ -1,16 +1,33 @@
 import React from "react";
-import { Arrow } from "../../../../assets/svg/Arrow";
+import { Label } from "../../Label/Label";
 import { inputStyles } from "../Input.styles";
 
-function Textarea({ className, size = "default", error, success, ...props }) {
+function Textarea({
+	className,
+	size = "default",
+	error,
+	success,
+	label,
+	...props
+}) {
 	return (
-		<textarea
-			className={className}
-			css={(theme) =>
-				inputStyles(theme, "text", size, props.disabled, success, error)
-			}
-			{...props}
-		/>
+		<>
+			{label && <Label htmlFor={props.id}>{label}</Label>}
+			<textarea
+				className={className}
+				css={(theme) =>
+					inputStyles(
+						theme,
+						"text",
+						size,
+						props.disabled,
+						success,
+						error,
+					)
+				}
+				{...props}
+			/>
+		</>
 	);
 }
 
