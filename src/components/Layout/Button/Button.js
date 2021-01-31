@@ -7,13 +7,21 @@ function Button({
 	variant = "primary",
 	size = "default",
 	frame,
+	fullWidth,
 	...props
 }) {
 	return (
 		<button
 			className={className}
 			css={(theme) =>
-				buttonStyles(theme, variant, size, frame, props.disabled)
+				buttonStyles(
+					theme,
+					variant,
+					size,
+					frame,
+					props.disabled,
+					fullWidth,
+				)
 			}
 			{...props}
 		>

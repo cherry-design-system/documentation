@@ -5,13 +5,27 @@ import {
 	resetButtonStyles,
 } from "../../../assets/styles/helperStyles";
 
-export const buttonStyles = (theme, variant, size, frame, disabled) => css`
+export const buttonStyles = (
+	theme,
+	variant,
+	size,
+	frame,
+	disabled,
+	fullWidth,
+) => css`
 	${resetButtonStyles};
 	display: inline-block;
 	vertical-align: middle;
 	font-weight: 600;
 	padding: 15px 25px;
 	border-radius: 100px;
+	white-space: nowrap;
+	hyphens: auto;
+
+	${fullWidth &&
+	css`
+		width: 100%;
+	`}
 
 	${size === "default"
 		? css`
