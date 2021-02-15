@@ -106,7 +106,7 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 				opacity: 0;
 
 				&.active {
-					max-height: 1000px;
+					max-height: 2000px;
 					pointer-events: all;
 					opacity: 1;
 				}
