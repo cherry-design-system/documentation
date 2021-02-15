@@ -162,7 +162,7 @@ function Index({ posts = [] }) {
 			<Space xs={10} lg={30} />
 			<p>
 				The theme is where all the main values of the design system are
-				designed. You can find your Sass Theme in{" "}
+				defined. You can find your Sass Theme in{" "}
 				<strong>theme.scss</strong>.
 			</p>
 			<Space size={10} />
