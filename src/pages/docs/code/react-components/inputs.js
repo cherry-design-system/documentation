@@ -14,11 +14,13 @@ const inputTextCode = `<Input type="text" placeholder="Placeholder" />`;
 const inputTextErrorCode = `<Input type="text" placeholder="Placeholder" error />`;
 const inputTextSuccessCode = `<Input type="text" placeholder="Placeholder" success />`;
 const inputTextDisabledCode = `<Input type="text" placeholder="Placeholder" disabled />`;
+const inputTextLabelCode = `<Input type="text" placeholder="Placeholder" label="Label" id="sample" disabled />`;
 
 const inputTextBigCode = `<Input type="text" placeholder="Placeholder" size="big" />`;
 const inputTextErrorBigCode = `<Input type="text" placeholder="Placeholder" size="big" error />`;
 const inputTextSuccessBigCode = `<Input type="text" placeholder="Placeholder" size="big" success />`;
-const inputTextBigDisabledCode = `<Input type="text" placeholder="Placeholder" size="big" disabled />`;
+const inputTextDisabledBigCode = `<Input type="text" placeholder="Placeholder" size="big" disabled />`;
+const inputTextLabelBigCode = `<Input type="text" placeholder="Placeholder" label="Label" size="big" id="sample" disabled />`;
 
 const selectCode = `<Select>
 	<option value="1">Sample 1</option>
@@ -124,6 +126,19 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<CodeBlock
 				language="jsx"
+				value={inputTextLabelCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						id="label1"
+					/>
+				}
+			/>
+			<Space size={20} />
+			<CodeBlock
+				language="jsx"
 				value={inputTextBigCode}
 				description={
 					<Input type="text" placeholder="Placeholder" size="big" />
@@ -151,6 +166,20 @@ function Index({ posts = [] }) {
 						type="text"
 						placeholder="Placeholder"
 						success
+						size="big"
+					/>
+				}
+			/>
+			<Space size={20} />
+			<CodeBlock
+				language="jsx"
+				value={inputTextLabelBigCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						id="label2"
 						size="big"
 					/>
 				}
@@ -374,7 +403,7 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<CodeBlock
 				language="jsx"
-				value={inputTextBigDisabledCode}
+				value={inputTextDisabledBigCode}
 				description={
 					<Input
 						type="text"
