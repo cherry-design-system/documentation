@@ -15,6 +15,7 @@ import {
 	Link,
 } from "../components/Layout";
 import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
+import { BigNumber } from "../components/BigNumber";
 
 function Index({ posts = [] }) {
 	return (
@@ -91,7 +92,10 @@ function Index({ posts = [] }) {
 				<Space xs={20} lg={80} />
 				<Row>
 					<Col xs={12} lg={8}>
-						<H2 size="h1">Start with design</H2>
+						<H2 size="h1">
+							<BigNumber number="1" color="secondary" />
+							Start with design
+						</H2>
 						<p>
 							You start by designing your website. Cherry provides
 							a template that defines all standard web patterns
@@ -121,7 +125,10 @@ function Index({ posts = [] }) {
 				<Space xs={20} lg={80} />
 				<Row>
 					<Col xs={12} lg={8}>
-						<H3 size="h1">Continue in code</H3>
+						<H3 size="h1">
+							<BigNumber number="2" color="tertiary" />
+							Continue in code
+						</H3>
 						<p>
 							Each design element comes with a code implemented in
 							various modern front-end technologies or can be used
@@ -151,7 +158,10 @@ function Index({ posts = [] }) {
 				<Space xs={20} lg={80} />
 				<Row>
 					<Col xs={12} lg={8}>
-						<H4 size="h1">Scale your design system</H4>
+						<H4 size="h1">
+							<BigNumber number="3" color="primary" />
+							Scale your design system
+						</H4>
 						<p>
 							Cherry follows it’s own naming convention from
 							design to code. Expanding and customizing your
