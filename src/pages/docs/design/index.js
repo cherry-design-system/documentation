@@ -55,7 +55,7 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<Link
 				external
-				href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?node-id=0%3A1"
+				href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System"
 			>
 				Figma UI Kit
 			</Link>
