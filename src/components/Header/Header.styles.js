@@ -90,7 +90,7 @@ export const headerStyles = (theme, isLoaded) => css`
 			& li {
 				display: flex;
 				transition: all 0.3s ease;
-				transform: translate3d(0, 0, 0) translateY(-20px);
+				transform: translate3d(0, 0, 0) translateY(-40px);
 				opacity: 0;
 
 				${isLoaded &&
@@ -99,11 +99,11 @@ export const headerStyles = (theme, isLoaded) => css`
 					opacity: 1;
 				`}
 
-				&:nth-child(1) {
+				&:nth-of-type(1) {
 					transition-delay: 1s;
 				}
 
-				&:nth-child(2) {
+				&:nth-of-type(2) {
 					transition-delay: 1.1s;
 				}
 
