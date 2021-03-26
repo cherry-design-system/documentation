@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter, Router } from "next/router";
+import NProgress from "nprogress";
 import { ThemeProvider, css } from "@emotion/react";
 import { globalStyles } from "../assets/styles/globalStyles";
 import { theme } from "../assets/styles/theme";
@@ -8,6 +9,10 @@ import { Footer } from "../components/Footer/Footer";
 import { Col, Container, MinHeight, Row } from "../components/Layout";
 import { Sidebar } from "../components/Sidebar";
 import { ScrollToTop } from "../components/ScrollToTop";
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 function App({ Component, pageProps }) {
 	const { query } = useRouter();

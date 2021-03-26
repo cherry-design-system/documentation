@@ -222,6 +222,26 @@ const globalStyles = (
 					}
 				}
 			}
+
+			#nprogress {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: ${theme.colors.light};
+				z-index: 9999;
+				height: 5px;
+				line-height: 1;
+
+				& .bar {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 5px;
+					background: ${theme.colors.primary};
+				}
+			}
 		`}
 	/>
 );
