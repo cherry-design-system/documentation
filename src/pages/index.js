@@ -17,6 +17,7 @@ import {
 import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
 import { Projects } from "../components/Projects";
+import { Socials } from "../components/Socials/Socials";
 
 function Index({ posts = [] }) {
 	return (
@@ -200,6 +201,17 @@ function Index({ posts = [] }) {
 				</Row>
 			</Container>
 			<Projects />
+			<Space xs={20} lg={80} />
+			<Container>
+				<Row>
+					<Col xs={12} textAlign="center">
+						<Link href="/docs" as="/docs" size="big">
+							Get Started
+						</Link>
+						<Space xs={20} lg={70} />
+					</Col>
+				</Row>
+			</Container>
 		</Page>
 	);
 }

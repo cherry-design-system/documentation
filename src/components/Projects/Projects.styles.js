@@ -5,6 +5,7 @@ import { Breakpoints, mq } from "../../assets/styles/mq";
 export const projectStyles = (theme) => css`
 	display: flex;
 	flex-wrap: wrap;
+	overflow: 100%;
 
 	& a {
 		min-height: 350px;

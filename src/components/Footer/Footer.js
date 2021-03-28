@@ -9,70 +9,74 @@ import {
 	footerLeftColStyles,
 	footerRightColStyles,
 } from "./Footer.styles";
+import { Socials } from "../Socials/Socials";
 
 function Footer({ className }) {
 	const router = useRouter();
 
 	return (
-		<footer className={className} css={(theme) => footerStyles(theme)}>
-			<Container fluid={router.pathname.includes("/docs")}>
-				<Row>
-					<Col
-						xs={12}
-						lg={6}
-						css={(theme) => footerLeftColStyles(theme)}
-					>
-						<Space xs={40} lg={100} />
-						<a
-							href="https://www.riangle.com/?ref=cherry.design"
-							target="_blank"
-							rel="noopener noreferrer"
-							data-icon-link
+		<>
+			<Socials />
+			<footer className={className} css={(theme) => footerStyles(theme)}>
+				<Container fluid={router.pathname.includes("/docs")}>
+					<Row>
+						<Col
+							xs={12}
+							lg={6}
+							css={(theme) => footerLeftColStyles(theme)}
 						>
-							<Riangle />
-						</a>
-						<a
-							href="https://www.deep-impact.ch/?ref=cherry.design"
-							target="_blank"
-							rel="noopener noreferrer"
-							data-icon-link
-						>
-							<DI />
-						</a>
-						<p>
-							Powered by{" "}
+							<Space xs={40} lg={100} />
 							<a
 								href="https://www.riangle.com/?ref=cherry.design"
 								target="_blank"
 								rel="noopener noreferrer"
+								data-icon-link
 							>
-								Riangle
-							</a>{" "}
-							and{" "}
+								<Riangle />
+							</a>
 							<a
 								href="https://www.deep-impact.ch/?ref=cherry.design"
 								target="_blank"
 								rel="noopener noreferrer"
+								data-icon-link
 							>
-								Deep-Impact AG
+								<DI />
 							</a>
-							.
-						</p>
-						<Space xs="none" lg={20} />
-					</Col>
-					<Col
-						xs={12}
-						lg={6}
-						css={(theme) => footerRightColStyles(theme)}
-					>
-						<Space xs={30} lg={80} />
-						<Logo />
-						<p>© Copyright 2021 - All rights reserved. </p>
-						<Space xs={30} lg={70} />
-					</Col>
-				</Row>
-			</Container>
-		</footer>
+							<p>
+								Powered by{" "}
+								<a
+									href="https://www.riangle.com/?ref=cherry.design"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Riangle
+								</a>{" "}
+								and{" "}
+								<a
+									href="https://www.deep-impact.ch/?ref=cherry.design"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Deep-Impact AG
+								</a>
+								.
+							</p>
+							<Space xs="none" lg={20} />
+						</Col>
+						<Col
+							xs={12}
+							lg={6}
+							css={(theme) => footerRightColStyles(theme)}
+						>
+							<Space xs={30} lg={80} />
+							<Logo />
+							<p>© Copyright 2021 - All rights reserved. </p>
+							<Space xs={30} lg={70} />
+						</Col>
+					</Row>
+				</Container>
+			</footer>
+		</>
 	);
 }
 
