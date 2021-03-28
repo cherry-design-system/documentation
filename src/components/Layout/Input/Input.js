@@ -11,6 +11,7 @@ function Input({
 	success,
 	error,
 	label,
+	fullWidth = true,
 	...props
 }) {
 	if ((type === "checkbox") | (type === "radio")) {
