@@ -50,15 +50,17 @@ function Input({
 			<input
 				type={type}
 				className={className}
-				css={inputStyles(
-					theme,
-					type,
-					size,
-					props.disabled,
-					success,
-					error,
-					fullWidth,
-				)}
+				css={(theme) =>
+					inputStyles(
+						theme,
+						type,
+						size,
+						props.disabled,
+						success,
+						error,
+						fullWidth,
+					)
+				}
 				{...props}
 			/>
 		</>
