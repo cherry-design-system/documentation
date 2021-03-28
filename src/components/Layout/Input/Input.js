@@ -16,19 +16,25 @@ function Input({
 }) {
 	if ((type === "checkbox") | (type === "radio")) {
 		return (
-			<div css={checkboxWrapperStyles(theme, type, size, fullWidth)}>
+			<div
+				css={(theme) =>
+					checkboxWrapperStyles(theme, type, size, fullWidth)
+				}
+			>
 				<input
 					type={type}
 					className={className}
-					css={inputStyles(
-						theme,
-						type,
-						size,
-						props.disabled,
-						success,
-						error,
-						fullWidth,
-					)}
+					css={(theme) =>
+						inputStyles(
+							theme,
+							type,
+							size,
+							props.disabled,
+							success,
+							error,
+							fullWidth,
+						)
+					}
 					{...props}
 				/>
 				{type === "checkbox" ? <Check /> : <em />}
