@@ -11,7 +11,6 @@ function Input({
 	success,
 	error,
 	label,
-	theme = localTheme,
 	...props
 }) {
 	if ((type === "checkbox") | (type === "radio")) {
