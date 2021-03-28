@@ -16,6 +16,7 @@ import {
 } from "../components/Layout";
 import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
+import { Projects } from "../components/Projects";
 
 function Index({ posts = [] }) {
 	return (
@@ -198,6 +199,7 @@ function Index({ posts = [] }) {
 					</Col>
 				</Row>
 			</Container>
+			<Projects />
 		</Page>
 	);
 }
