@@ -13,7 +13,12 @@ function Projects() {
 			</Container>
 			<Space xs={20} lg={80} />
 			<div css={(theme) => projectStyles(theme)}>
-				<a className="wordpressify">
+				<a
+					href="https://www.wordpressify.co/?ref=wordpressify.co"
+					target="_blank"
+					rel="noreferrer"
+					className="wordpressify"
+				>
 					<span>
 						<Image
 							src="/img/projects/wordpressify.svg"
@@ -24,7 +29,12 @@ function Projects() {
 						<p>Automate your WordPress development workflow.</p>
 					</span>
 				</a>
-				<a className="gopablo">
+				<a
+					href="https://www.gopablo.co/?ref=wordpressify.co"
+					target="_blank"
+					rel="noreferrer"
+					className="gopablo"
+				>
 					<span>
 						<Image
 							src="/img/projects/gopablo.svg"
@@ -35,7 +45,12 @@ function Projects() {
 						<p>Automate your WordPress development workflow.</p>
 					</span>
 				</a>
-				<a className="nextify">
+				<a
+					href="https://www.nextify.me/?ref=wordpressify.co"
+					target="_blank"
+					rel="noreferrer"
+					className="nextify"
+				>
 					<span>
 						<Image
 							src="/img/projects/nextify.svg"
@@ -46,7 +61,12 @@ function Projects() {
 						<p>React apps using Next.js and Emotion.</p>
 					</span>
 				</a>
-				<a className="fuzzymail">
+				<a
+					href="https://www.fuzzymail.co/?ref=wordpressify.co"
+					target="_blank"
+					rel="noreferrer"
+					className="fuzzymail"
+				>
 					<span>
 						<Image
 							src="/img/projects/fuzzymail.svg"
