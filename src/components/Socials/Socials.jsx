@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { Col, Container, H3, Row, Space } from "../Layout";
 import { Twitter } from "../../assets/svg/Twitter";
 import { GitHub } from "../../assets/svg/GitHub";
@@ -9,11 +10,16 @@ import { Discord } from "../../assets/svg/Discord";
 import { socialStyles } from "./Socials.styles";
 
 function Socials() {
+	const router = useRouter();
+
 	return (
 		<>
 			<hr className="no-margin" />
 			<Space xs={20} lg={80} />
-			<Container css={(theme) => socialStyles(theme)}>
+			<Container
+				css={(theme) => socialStyles(theme)}
+				fluid={router.pathname.includes("/docs") ? true : false}
+			>
 				<Row>
 					<Col xs={12} lg={6}>
 						<H3 size="h5">Follow the creator</H3>
