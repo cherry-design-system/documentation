@@ -99,7 +99,7 @@ function Pictogram() {
 					fill="url(#paint6_linear)"
 				/>
 				<path
-					style="mix-blend-mode:multiply"
+					style={{ mixBlendMode: "multiply" }}
 					opacity="0.5"
 					fillRule="evenodd"
 					clipRule="evenodd"
@@ -113,7 +113,7 @@ function Pictogram() {
 					fill="url(#paint8_linear)"
 				/>
 				<path
-					style="mix-blend-mode:multiply"
+					style={{ mixBlendMode: "multiply" }}
 					opacity="0.5"
 					fillRule="evenodd"
 					clipRule="evenodd"

@@ -23,7 +23,7 @@ export const projectStyles = (theme) => css`
 			margin: auto;
 			text-align: center;
 			transition: all 0.3s ease;
-			transform: translate3d(0,0,0) scale(1);
+			transform: translate3d(0, 0, 0) scale(1);
 		}
 
 		& p {
@@ -33,14 +33,14 @@ export const projectStyles = (theme) => css`
 		@media (hover: hover) {
 			&:hover {
 				& span {
-					transform: translate3d(0,0,0) scale(1.03);
+					transform: translate3d(0, 0, 0) scale(1.03);
 				}
 			}
 		}
 
 		&:active {
 			& span {
-				transform: translate3d(0,0,0) scale(0.97);
+				transform: translate3d(0, 0, 0) scale(0.97);
 			}
 		}
 
@@ -65,7 +65,7 @@ export const projectStyles = (theme) => css`
 		}
 
 		&.nextify {
-			background: #0370F3;
+			background: #0370f3;
 
 			@media (hover: hover) {
 				&:hover {
@@ -75,7 +75,7 @@ export const projectStyles = (theme) => css`
 		}
 
 		&.fuzzymail {
-			background: #59C8D0;
+			background: #59c8d0;
 
 			@media (hover: hover) {
 				&:hover {

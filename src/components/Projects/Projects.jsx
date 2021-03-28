@@ -7,6 +7,8 @@ function Projects() {
 	return (
 		<>
 			<Container textAlign="center">
+				<hr className="no-margin" />
+				<Space xs={20} lg={80} />
 				<H3 size="hero3">Open Source Projects</H3>
 			</Container>
 			<Space xs={20} lg={80} />

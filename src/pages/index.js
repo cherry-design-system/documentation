@@ -189,16 +189,6 @@ function Index({ posts = [] }) {
 					</Col>
 				</Row>
 				<Space xs={20} lg={80} />
-				<hr />
-				<Row>
-					<Col xs={12} textAlign="center">
-						<Space xs={20} lg={80} />
-						<Link href="/docs" as="/docs" size="big">
-							Get Started
-						</Link>
-						<Space xs={30} lg={80} />
-					</Col>
-				</Row>
 			</Container>
 			<Projects />
 			<Space xs={20} lg={80} />
@@ -208,7 +198,7 @@ function Index({ posts = [] }) {
 						<Link href="/docs" as="/docs" size="big">
 							Get Started
 						</Link>
-						<Space xs={20} lg={70} />
+						<Space xs={20} lg={80} />
 					</Col>
 				</Row>
 			</Container>
