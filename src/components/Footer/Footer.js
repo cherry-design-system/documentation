@@ -23,26 +23,60 @@ function Footer({ className }) {
 					<Space xs={40} lg={80} />
 					<Row className="first-row">
 						<Col xs={12} lg={6}>
-							<a>
+							<a
+								href="https://github.com/cherry-design-system/?ref=cherry.design"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<GitHub /> <span>GitHub</span>
 							</a>
 						</Col>
 						<Col xs={12} lg={6}>
 							<ul>
 								<li>
-									<a>Cherry</a>
+									<a
+										href="https://cherry.design/?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+									>
+										Cherry
+									</a>
 								</li>
 								<li>
-									<a>GoPablo</a>
+									<a
+										href="https://www.gopablo.co/?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+									>
+										GoPablo
+									</a>
 								</li>
 								<li>
-									<a>WordPressify</a>
+									<a
+										href="https://www.wordpressify.co/?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+									>
+										WordPressify
+									</a>
 								</li>
 								<li>
-									<a>Nextify</a>
+									<a
+										href="https://www.nextify.me/?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+									>
+										Nextify
+									</a>
 								</li>
 								<li>
-									<a>FuzzyMail</a>
+									<a
+										href="https://www.fuzzymail.co/?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+									>
+										FuzzyMail
+									</a>
 								</li>
 							</ul>
 						</Col>

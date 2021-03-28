@@ -31,7 +31,12 @@ function Socials() {
 								<em className="label">Luan Gjokaj</em>
 							</li>
 							<li>
-								<a className="icon-link twitter">
+								<a
+									href="https://twitter.com/LuanGjokaj?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link twitter"
+								>
 									<span>
 										<Twitter />
 									</span>
@@ -39,7 +44,12 @@ function Socials() {
 								</a>
 							</li>
 							<li>
-								<a className="icon-link github">
+								<a
+									href="https://github.com/luangjokaj?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link github"
+								>
 									<span>
 										<GitHub />
 									</span>
@@ -47,7 +57,12 @@ function Socials() {
 								</a>
 							</li>
 							<li>
-								<a className="icon-link dribbble">
+								<a
+									href="https://dribbble.com/luangjokaj?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link dribbble"
+								>
 									<span>
 										<Dribbble />
 									</span>
@@ -70,7 +85,12 @@ function Socials() {
 								<em className="label">Cherry</em>
 							</li>
 							<li>
-								<a className="icon-link discord">
+								<a
+									href="https://discord.com/invite/uQFdMddMZw?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link discord"
+								>
 									<span>
 										<Discord />
 									</span>
