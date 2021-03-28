@@ -8,6 +8,7 @@ function Textarea({
 	error,
 	success,
 	label,
+	fullWidth = true,
 	...props
 }) {
 	return (
@@ -27,6 +28,7 @@ function Textarea({
 						props.disabled,
 						success,
 						error,
+						fullWidth,
 					)
 				}
 				{...props}

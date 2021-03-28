@@ -9,6 +9,7 @@ function Select({
 	size = "default",
 	error,
 	success,
+	fullWidth = true,
 	label,
 	...props
 }) {
@@ -21,7 +22,7 @@ function Select({
 			)}
 			<div
 				css={(theme) =>
-					selectWrapperStyles(theme, size, success, error)
+					selectWrapperStyles(theme, size, success, error, fullWidth)
 				}
 			>
 				<select
@@ -34,6 +35,7 @@ function Select({
 							props.disabled,
 							success,
 							error,
+							fullWidth,
 						)
 					}
 					{...props}
