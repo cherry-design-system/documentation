@@ -44,13 +44,13 @@ function Index({ posts = [] }) {
 				Breakpoints define the screen size of the device. Cherry is
 				built with the mobile first approach.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="scss" value={xsCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="scss" value={smCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="scss" value={mdCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="scss"
 				value={lgCode}
@@ -58,11 +58,11 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={10} />
 			<CodeBlock language="scss" value={xlCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="scss" value={xxlCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="scss" value={xxxlCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<DocNavWrapper>
 				<DocNav
 					href="/docs/code/sass/grid"
