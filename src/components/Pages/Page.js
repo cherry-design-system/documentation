@@ -13,7 +13,7 @@ export const favIcon =
 export const safariPinnedTab =
 	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/512.svg";
 export const preview =
-	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/preview.png";
+	"https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/preview.jpg";
 
 const Page = ({
 	title = "Cherry",
