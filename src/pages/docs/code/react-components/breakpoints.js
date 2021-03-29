@@ -55,7 +55,7 @@ function Index({ posts = [] }) {
 		<Page title="Emotion Breakpoints">
 			<Space xs={20} lg={40} />
 			<H1 size="hero1">Emotion Breakpoints</H1>
-			<Space xs={10} lg={30} />
+			<Space xs={1} lg={30} />
 			<p>
 				Responsive web design is a web design method that enables the
 				website to fit the screens of different devices automatically.
@@ -66,16 +66,16 @@ function Index({ posts = [] }) {
 			<p>
 				All media queries are defined in <strong>mq.js</strong>
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={mqCode} />
-			<Space size={10} />
-			<Space size={10} />
+			<Space size={1} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={xsCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={smCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={mdCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="jsx"
 				value={lgCode}
@@ -83,11 +83,11 @@ function Index({ posts = [] }) {
 			/>
 			<Space size={10} />
 			<CodeBlock language="jsx" value={xlCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={xxlCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={xxxlCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<DocNavWrapper>
 				<DocNav
 					href="/docs/code/react-components/grid"

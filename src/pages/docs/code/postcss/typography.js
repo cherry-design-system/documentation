@@ -65,79 +65,79 @@ function Index({ posts = [] }) {
 				The definitions of the variables can be found in the file{" "}
 				<strong>theme.css</strong>.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="html"
 				value={hero1Code}
 				description={<H1 size="hero1">Hero1</H1>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={hero2Code}
 				description={<H1 size="hero2">Hero2</H1>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={hero3Code}
 				description={<H1 size="hero3">Hero3</H1>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={h1Code}
 				description={<H1>Heading1</H1>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={h2Code}
 				description={<H2>Heading2</H2>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={h3Code}
 				description={<H3>Heading3</H3>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={h4Code}
 				description={<H4>Heading4</H4>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={h5Code}
 				description={<H5>Heading5</H5>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={h6Code}
 				description={<H6>Heading6</H6>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={eyebrowCode}
 				description={<FontStyle variant="eyebrow">Eyebrow</FontStyle>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={subtitleCode}
 				description={<FontStyle variant="subtitle">Subtitle</FontStyle>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonCode}
 				description={<FontStyle variant="button">Button</FontStyle>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonBigCode}
@@ -145,19 +145,19 @@ function Index({ posts = [] }) {
 					<FontStyle variant="buttonBig">Button Big</FontStyle>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={leadCode}
 				description={<FontStyle variant="lead">Lead</FontStyle>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={inputCode}
 				description={<FontStyle variant="input">Input</FontStyle>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={inputBigCode}
@@ -165,7 +165,7 @@ function Index({ posts = [] }) {
 					<FontStyle variant="inputBig">Input Big</FontStyle>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={strongCode}
@@ -179,7 +179,7 @@ function Index({ posts = [] }) {
 					</strong>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={textCode}
@@ -193,7 +193,7 @@ function Index({ posts = [] }) {
 					</p>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={smallCode}
@@ -210,7 +210,7 @@ function Index({ posts = [] }) {
 					</p>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={blockquoteCode}

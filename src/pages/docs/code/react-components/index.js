@@ -39,15 +39,15 @@ function Index({ posts = [] }) {
 				Components can be personalized by passing various props to
 				change the states and styles.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="shell" value={installCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<H2>Component List</H2>
 			<p>
 				To import elements from the design system, include{" "}
 				<strong>cherry-components</strong> library in your packages.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="jsx"
 				value={componentsCode}

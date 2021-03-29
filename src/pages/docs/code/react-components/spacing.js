@@ -26,9 +26,9 @@ function Index({ posts = [] }) {
 				the media query. To change it to horizontal (in-line) use the
 				prop <strong>horizontal</strong>.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={spaceCode} description={""} />
-			<Space size={20} />
+			<Space size={10} />
 			<H2 size="h3">Props</H2>
 			<p>
 				Below you can find all the available props for this component.

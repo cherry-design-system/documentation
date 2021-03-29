@@ -36,7 +36,7 @@ function Index({ posts = [] }) {
 				<strong>$color</strong>. The definitions of the variables can be
 				found in the file <strong>theme.css</strong>.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="scss"
 				value={primaryCode}
@@ -48,7 +48,7 @@ function Index({ posts = [] }) {
 					</ColorBoxContainer>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="scss"
 				value={secondaryCode}
@@ -60,7 +60,7 @@ function Index({ posts = [] }) {
 					</ColorBoxContainer>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="scss"
 				value={tertiaryCode}
@@ -72,7 +72,7 @@ function Index({ posts = [] }) {
 					</ColorBoxContainer>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="scss"
 				value={bwCode}
@@ -83,7 +83,7 @@ function Index({ posts = [] }) {
 					</ColorBoxContainer>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="scss"
 				value={grayCode}
@@ -95,7 +95,7 @@ function Index({ posts = [] }) {
 					</ColorBoxContainer>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="scss"
 				value={uiCodes}
