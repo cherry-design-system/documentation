@@ -6,7 +6,7 @@ A design system to build the web.
 
 # Documentation Website
 
-This documentation website is built with Nextify. For full documentation, visit https://www.nextify.me.
+This website is built with Nextify. For full documentation, visit https://www.nextify.me.
 
 ## Community
 
