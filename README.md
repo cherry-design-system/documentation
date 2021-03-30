@@ -1,24 +1,19 @@
-[![Cherry Logo](https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/cherry-repository-logo.svg#0)](https://www.cherry.design/)
+[![Cherry Logo](https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/cherry-repository-logo.svg#1)](https://www.cherry.design/)
 
 A design system to build the web.
 
 ---
 
-This is the repository for the documentation website.
-For full documentation, visit https://cherry.design.
+# Documentation Website
+This documentation website is built with Nextify. 
+For full documentation, visit https://www.nextify.me.
 
-**Technology:**
-- ⚛ [Next.js](https://nextjs.org/)
-- 👩‍🎤 [Emotion (CSS in JS)](https://emotion.sh/)
-## Install dependencies
-```
-npm install
-```
+## Community
 
-## Runs the app in the development mode
-Build and open your browser to http://localhost:3000.
-```
-npm run dev
-```
+For help, discussion about best practices, or any other conversation that would benefit from being searchable:
 
-Deploy with [Vercel](https://vercel.com/) 🚀
+[Discuss Cherry-Components on GitHub](https://github.com/cherry-design-system/documentation/discussions)
+
+For casual chit-chat with others using Cherry:
+
+[Join the Discord Server](https://discord.com/invite/uQFdMddMZw)
