@@ -165,9 +165,9 @@ function Index({ posts = [] }) {
 				defined. You can find your Sass Theme in{" "}
 				<strong>theme.scss</strong>.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="scss" value={themeCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<DocNavWrapper>
 				<DocNav
 					href="/docs/code/sass/breakpoints"

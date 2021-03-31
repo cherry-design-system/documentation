@@ -46,17 +46,16 @@ function Index({ posts = [] }) {
 				distribution files. To install Cherry for PostCSS, run the
 				command:
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="shell" value={installCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<H2>Import CSS</H2>
 			<p>
 				To import all Cherry elements, include the{" "}
 				<strong>cherry.css</strong> file in your entry point style file:
 			</p>
-			<Space size={10} />
 			<CodeBlock language="css" value={importCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="css"
 				value={cherryCssCode}
@@ -70,7 +69,7 @@ function Index({ posts = [] }) {
 			</p>
 			<Space size={10} />
 			<H3 size="h3">PostCSS Plugins</H3>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="js"
 				value={postcssPluginsCode}
@@ -84,11 +83,11 @@ function Index({ posts = [] }) {
 				directory. Include it it in your main css file or directly in
 				the head of the HTML.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="css" value={importDistCode} />
 			<p>or</p>
 			<CodeBlock language="css" value={importHtmlCode} />
-			<Space size={10} />
+			<Space size={1} />
 			<p>That's it 🎉 you are ready to use Cherry.</p>
 			<Space size={10} />
 			<DocNavWrapper>

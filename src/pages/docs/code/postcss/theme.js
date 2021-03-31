@@ -167,9 +167,9 @@ function Index({ posts = [] }) {
 				defined. You can find your PostCSS Theme in{" "}
 				<strong>theme.css</strong>.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="css" value={themeCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<DocNavWrapper>
 				<DocNav
 					href="/docs/code/postcss/breakpoints"

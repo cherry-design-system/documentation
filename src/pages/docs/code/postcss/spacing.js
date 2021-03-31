@@ -28,9 +28,9 @@ function Index({ posts = [] }) {
 				to be shown in a specific media query, this allows different
 				spacings in different screen resolutions.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="html" value={spaceCode} description={""} />
-			<Space size={20} />
+			<Space size={10} />
 			<H2 size="h3">Classes</H2>
 			<p>
 				Below you can find the class names for all sizes. Make sure your

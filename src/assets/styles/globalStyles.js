@@ -59,6 +59,10 @@ const globalStyles = (
 				height: 0;
 				overflow: visible;
 				margin: 10px 0;
+
+				&.no-margin {
+					margin: 0;
+				}
 			}
 
 			b,

@@ -33,43 +33,43 @@ function Index({ posts = [] }) {
 				description, an icon for the browser, web-app manifest icons and
 				icons for Apple devices.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="html"
 				value={viewportCode}
 				description="The viewport meta tag tells the browser that the width of the screen should be considered the 'full width' of the page."
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={descriptionCode}
 				description="Defines a description for your website."
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={manifestCode}
 				description="The web app manifest provides informations about a web application in a JSON text file. Used also for Android home screen icons."
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={openGraphCode}
 				description="Define the open-graph informations for the website. Used by Facebook and others."
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={twitterMetaCode}
 				description="Define the Twitter card images and meta-data."
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={appleIconsCode}
 				description="Define the icons for Apple devices."
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={favIconCode}

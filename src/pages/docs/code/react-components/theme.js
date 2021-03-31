@@ -261,9 +261,9 @@ function Index({ posts = [] }) {
 				defined. You can find your Emotion Theme in{" "}
 				<strong>theme.js</strong>.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock language="jsx" value={themeCode} />
-			<Space size={20} />
+			<Space size={10} />
 			<DocNavWrapper>
 				<DocNav
 					href="/docs/code/react-components/breakpoints"

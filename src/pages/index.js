@@ -16,6 +16,8 @@ import {
 } from "../components/Layout";
 import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
+import { Projects } from "../components/Projects";
+import { Socials } from "../components/Socials/Socials";
 
 function Index({ posts = [] }) {
 	return (
@@ -187,14 +189,16 @@ function Index({ posts = [] }) {
 					</Col>
 				</Row>
 				<Space xs={20} lg={80} />
-				<hr />
+			</Container>
+			<Projects />
+			<Space xs={20} lg={80} />
+			<Container>
 				<Row>
 					<Col xs={12} textAlign="center">
-						<Space xs={20} lg={80} />
 						<Link href="/docs" as="/docs" size="big">
 							Get Started
 						</Link>
-						<Space xs={30} lg={80} />
+						<Space xs={20} lg={80} />
 					</Col>
 				</Row>
 			</Container>

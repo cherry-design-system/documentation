@@ -82,6 +82,11 @@ function Sidebar({ className }) {
 																	? "active"
 																	: ""
 															}
+															onClick={() =>
+																setMenuOpen(
+																	false,
+																)
+															}
 														>
 															{childItem.label}
 														</a>
@@ -173,6 +178,11 @@ function Sidebar({ className }) {
 																					subItem.href
 																						? "active"
 																						: ""
+																				}
+																				onClick={() =>
+																					setMenuOpen(
+																						false,
+																					)
 																				}
 																			>
 																				{

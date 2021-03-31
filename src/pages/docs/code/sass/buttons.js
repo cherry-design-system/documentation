@@ -35,19 +35,19 @@ function Index({ posts = [] }) {
 				All form buttons take the default style of the Cherry button.
 				You can change the variants of the buttons by using classes.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryCode}
 				description={<Button>Primary</Button>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryFrameCode}
 				description={<Button frame>Primary Frame</Button>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryBigCode}
@@ -63,13 +63,13 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonSecondaryCode}
 				description={<Button variant="secondary">Secondary</Button>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonSecondaryFrameCode}
@@ -79,7 +79,7 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonSecondaryBigCode}
@@ -89,7 +89,7 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonSecondaryFrameBigCode}
@@ -99,13 +99,13 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonTertiaryCode}
 				description={<Button variant="tertiary">Tertiary</Button>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonTertiaryFrameCode}
@@ -115,7 +115,7 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonTertiaryBigCode}
@@ -125,7 +125,7 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonTertiaryFrameBigCode}
@@ -135,13 +135,13 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryDisabledCode}
 				description={<Button disabled>Disabled</Button>}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryFrameDisabledCode}
@@ -151,7 +151,7 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryBigDisabledCode}
@@ -161,7 +161,7 @@ function Index({ posts = [] }) {
 					</Button>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={buttonPrimaryFrameBigDisabledCode}

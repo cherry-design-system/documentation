@@ -101,13 +101,13 @@ function Index({ posts = [] }) {
 				. You can change the variants of the inputs by using different
 				props.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextCode}
 				description={<Input type="text" placeholder="Placeholder" />}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextErrorCode}
@@ -115,7 +115,7 @@ function Index({ posts = [] }) {
 					<Input type="text" placeholder="Placeholder" error />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextSuccessCode}
@@ -123,7 +123,7 @@ function Index({ posts = [] }) {
 					<Input type="text" placeholder="Placeholder" success />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextLabelCode}
@@ -136,7 +136,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextBigCode}
@@ -144,7 +144,7 @@ function Index({ posts = [] }) {
 					<Input type="text" placeholder="Placeholder" size="big" />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextErrorBigCode}
@@ -157,7 +157,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextSuccessBigCode}
@@ -170,7 +170,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextLabelBigCode}
@@ -184,7 +184,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectCode}
@@ -196,7 +196,7 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectErrorCode}
@@ -208,7 +208,7 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectSuccessCode}
@@ -220,7 +220,7 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectBigCode}
@@ -232,7 +232,7 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectErrorBigCode}
@@ -244,7 +244,7 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectSuccessBigCode}
@@ -256,31 +256,31 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaCode}
 				description={<Textarea placeholder="Placeholder" />}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaErrorCode}
 				description={<Textarea placeholder="Placeholder" error />}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaSuccessCode}
 				description={<Textarea placeholder="Placeholder" success />}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaBigCode}
 				description={<Textarea placeholder="Placeholder" size="big" />}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaErrorBigCode}
@@ -288,7 +288,7 @@ function Index({ posts = [] }) {
 					<Textarea placeholder="Placeholder" error size="big" />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaSuccessBigCode}
@@ -296,7 +296,7 @@ function Index({ posts = [] }) {
 					<Textarea placeholder="Placeholder" success size="big" />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={checkboxCode}
@@ -304,7 +304,7 @@ function Index({ posts = [] }) {
 					<Input type="checkbox" label="Checkbox" id="sample-2" />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={checkboxCheckedCode}
@@ -317,7 +317,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={checkboxBigCode}
@@ -330,7 +330,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={checkboxCheckedBigCode}
@@ -344,7 +344,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={radioCode}
@@ -352,7 +352,7 @@ function Index({ posts = [] }) {
 					<Input type="radio" label="Checkbox" id="sample-6" />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={radioCheckedCode}
@@ -365,7 +365,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={radioBigCode}
@@ -378,7 +378,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={radioCheckedBigCode}
@@ -392,7 +392,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextDisabledCode}
@@ -400,7 +400,7 @@ function Index({ posts = [] }) {
 					<Input type="text" placeholder="Placeholder" disabled />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextDisabledBigCode}
@@ -413,7 +413,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectDisabledCode}
@@ -425,7 +425,7 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={selectBigDisabledCode}
@@ -437,13 +437,13 @@ function Index({ posts = [] }) {
 					</Select>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaDisabledCode}
 				description={<Textarea placeholder="Placeholder" disabled />}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={textareaBigDisabledCode}
@@ -451,7 +451,7 @@ function Index({ posts = [] }) {
 					<Textarea placeholder="Placeholder" disabled size="big" />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={checkboxDisabledCode}
@@ -464,7 +464,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={checkboxBigDisabledCode}
@@ -478,7 +478,7 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={radioDisabledCode}
@@ -486,7 +486,7 @@ function Index({ posts = [] }) {
 					<Input type="radio" label="Radio" id="sample-xx" disabled />
 				}
 			/>
-			<Space size={20} />
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={radioBigDisabledCode}

@@ -40,7 +40,7 @@ function Index({ posts = [] }) {
 				is fully responsive. Below is an example and an in-depth look at
 				how the grid comes together.
 			</p>
-			<Space size={10} />
+			<Space size={1} />
 			<CodeBlock
 				language="jsx"
 				value={gridCode}

@@ -11,11 +11,16 @@ function Input({
 	success,
 	error,
 	label,
+	fullWidth = true,
 	...props
 }) {
 	if ((type === "checkbox") | (type === "radio")) {
 		return (
-			<div css={(theme) => checkboxWrapperStyles(theme, type, size)}>
+			<div
+				css={(theme) =>
+					checkboxWrapperStyles(theme, type, size, fullWidth)
+				}
+			>
 				<input
 					type={type}
 					className={className}
@@ -27,6 +32,7 @@ function Input({
 							props.disabled,
 							success,
 							error,
+							fullWidth,
 						)
 					}
 					{...props}
@@ -59,6 +65,7 @@ function Input({
 						props.disabled,
 						success,
 						error,
+						fullWidth,
 					)
 				}
 				{...props}
