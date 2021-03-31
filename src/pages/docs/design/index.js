@@ -43,12 +43,18 @@ function Index({ posts = [] }) {
 			</ol>
 			<Space size={10} />
 			<Box noPadding>
-				<Image
-					src="/img/docs/design/figma.jpg"
-					alt="Scale illustration"
-					width={1916}
-					height={1051}
-				/>
+				<a
+					href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<Image
+						src="/img/docs/design/figma.jpg"
+						alt="Scale illustration"
+						width={1916}
+						height={1051}
+					/>
+				</a>
 			</Box>
 			<Space size={10} />
 			<hr />
