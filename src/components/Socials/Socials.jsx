@@ -7,6 +7,7 @@ import { GitHub } from "../../assets/svg/GitHub";
 import { Dribbble } from "../../assets/svg/Dribbble";
 import { Pictogram } from "../../assets/svg/Pictogram";
 import { Discord } from "../../assets/svg/Discord";
+import { Figma } from "../../assets/svg/Figma";
 import { socialStyles } from "./Socials.styles";
 
 function Socials() {
@@ -101,6 +102,58 @@ function Socials() {
 										<Discord />
 									</span>
 									<em className="label">Discord</em>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link figma"
+								>
+									<span>
+										<Figma />
+									</span>
+									<em className="label">Figma</em>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/cherry-design-system/sass/discussions?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link github"
+								>
+									<span>
+										<GitHub />
+									</span>
+									<em className="label">Sass</em>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/cherry-design-system/postcss/discussions?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link github"
+								>
+									<span>
+										<GitHub />
+									</span>
+									<em className="label">PostCSS</em>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://github.com/cherry-design-system/react-components/discussions?ref=cherry.design"
+									target="_blank"
+									rel="noreferrer"
+									className="icon-link github"
+								>
+									<span>
+										<GitHub />
+									</span>
+									<em className="label">React</em>
 								</a>
 							</li>
 						</ul>

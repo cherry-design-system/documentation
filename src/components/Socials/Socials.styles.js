@@ -101,9 +101,15 @@ export const socialStyles = (theme) => css`
 
 					& svg {
 						margin: auto;
+					}
+				}
 
-						& path {
-							fill: ${theme.colors.light};
+				&:not(.figma) {
+					& span {
+						& svg {
+							& path {
+								fill: ${theme.colors.light};
+							}
 						}
 					}
 				}
