@@ -204,8 +204,8 @@ export const navigationData = [
 						label: "Static Websites",
 					},
 					{
-						href: "/docs/scale/wordpress",
-						label: "WordPress",
+						href: "/docs/scale/wordpress-websites",
+						label: "WordPress Websites",
 					},
 					{
 						href: "/docs/scale/react-apps",
