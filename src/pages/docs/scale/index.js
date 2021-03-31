@@ -13,57 +13,92 @@ function Index({ posts = [] }) {
 			<p>
 				Cherry comes as a template for your design system. It contains
 				only the essential elements and patterns for a modern website.
-				Cherry it is meant to be extended and used as a starting point
-				for your own design system. It follows the same naming
-				convention from Design to Code and carries the same patterns
-				across different technologies.
+				It is meant to be extended and used as a starting point for your
+				own design system. It follows the same naming convention from
+				Design to Code and carries the same patterns across different
+				technologies.
 			</p>
 			<p>
 				All Cherry repositories are free and open-source. You can
 				implement the source code directly in your development
 				environment.
 			</p>
+			<Space size={1} />
+			<hr />
+			<Space size={1} />
+			<p>
+				Cherry is included in a few open-source projects and you can get
+				started building: Static Websites, WordPress Websites, React
+				Apps or Email Templates, by typing one command. That's some
+				speed!
+			</p>
 			<Space size={10} />
 			<Row>
-				<Col xs={12} lg={4} textAlign="center">
+				<Col xs={6} textAlign="center">
 					<Box
-						href="/docs/scale/static-site"
-						as="/docs/scale/static-site"
+						href="/docs/scale/static-websites"
+						as="/docs/scale/static-websites"
 					>
 						<Image
-							src="/img/docs/scale/html5.png"
-							alt="Html5 Logo"
-							width={63.77}
+							src="/img/docs/scale/gopablo-logo.svg"
+							alt="Static Websites - GoPablo"
+							width={100.59}
 							height={90}
 						/>
-						<strong data-primary>Static Site</strong>
+						<strong className="primary" title="Static Websites">
+							Static Websites
+						</strong>
 					</Box>
 				</Col>
-				<Col xs={12} lg={4} textAlign="center">
-					<Space xs={20} lg="none" />
+				<Col xs={6} textAlign="center">
 					<Box
 						href="/docs/scale/wordpress"
 						as="/docs/scale/wordpress"
 					>
 						<Image
-							src="/img/docs/scale/wordpress.png"
-							alt="WordPress Logo"
+							src="/img/docs/scale/wordpressify-logo.svg"
+							alt="WordPress Websites - Wordpressify"
 							width={90}
 							height={90}
 						/>
-						<strong data-primary>WordPress</strong>
+						<strong className="primary" title="WordPress Websites">
+							WordPress Websites
+						</strong>
 					</Box>
 				</Col>
-				<Col xs={12} lg={4} textAlign="center">
-					<Space xs={20} lg="none" />
-					<Box href="/docs/scale/react" as="/docs/scale/react">
+				<Col xs={6} textAlign="center">
+					<Space size={20} />
+					<Box
+						href="/docs/scale/react-apps"
+						as="/docs/scale/react-apps"
+					>
 						<Image
-							src="/img/docs/code/react.png"
-							alt="React Logo"
-							width={100.58}
+							src="/img/docs/scale/nextify-logo.svg"
+							alt="React - Nextify"
+							width={90}
 							height={90}
 						/>
-						<strong data-primary>React</strong>
+						<strong className="primary" title="React Apps">
+							React Apps
+						</strong>
+					</Box>
+					<Space size={20} />
+				</Col>
+				<Col xs={6} textAlign="center">
+					<Space size={20} />
+					<Box
+						href="/docs/scale/email-templates"
+						as="/docs/scale/email-templates"
+					>
+						<Image
+							src="/img/docs/scale/fuzzymail-logo.svg"
+							alt="Email Templates - FuzzyMail"
+							width={90}
+							height={90}
+						/>
+						<strong className="primary" title="Email Templates">
+							Email Templates
+						</strong>
 					</Box>
 					<Space size={20} />
 				</Col>
@@ -77,11 +112,11 @@ function Index({ posts = [] }) {
 					Emotion Theme
 				</DocNav>
 				<DocNav
-					href="/docs/scale/static-site"
-					as="/docs/scale/static-site"
+					href="/docs/scale/static-websites"
+					as="/docs/scale/static-websites"
 					next
 				>
-					Static Site
+					Static Websites
 				</DocNav>
 			</DocNavWrapper>
 		</Page>

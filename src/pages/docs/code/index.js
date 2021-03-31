@@ -33,7 +33,7 @@ function Index({ posts = [] }) {
 							width={120}
 							height={90}
 						/>
-						<strong data-tertiary>Sass</strong>
+						<strong className="tertiary">Sass</strong>
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
@@ -45,7 +45,7 @@ function Index({ posts = [] }) {
 							width={90}
 							height={90}
 						/>
-						<strong data-tertiary>PostCSS</strong>
+						<strong className="tertiary">PostCSS</strong>
 					</Box>
 				</Col>
 				<Col xs={12} lg={4} textAlign="center">
@@ -60,7 +60,7 @@ function Index({ posts = [] }) {
 							width={100.58}
 							height={90}
 						/>
-						<strong data-tertiary>React Components</strong>
+						<strong className="tertiary">React Components</strong>
 					</Box>
 					<Space size={20} />
 				</Col>

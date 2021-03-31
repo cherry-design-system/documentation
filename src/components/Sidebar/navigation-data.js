@@ -200,16 +200,20 @@ export const navigationData = [
 				state: "boilerplates",
 				children: [
 					{
-						href: "/docs/scale/static-site",
-						label: "Static Site",
+						href: "/docs/scale/static-websites",
+						label: "Static Websites",
 					},
 					{
 						href: "/docs/scale/wordpress",
 						label: "WordPress",
 					},
 					{
-						href: "/docs/scale/react",
-						label: "React",
+						href: "/docs/scale/react-apps",
+						label: "React Apps",
+					},
+					{
+						href: "/docs/scale/email-templates",
+						label: "Email Templates",
 					},
 				],
 			},
