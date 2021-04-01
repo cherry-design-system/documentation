@@ -51,7 +51,8 @@ export const headerStyles = (theme, isLoaded) => css`
 
 		&:after {
 			left: 50%;
-			transform: translate3d(0,0,0) translateX(-50%) scaleX(0) translateY(-100%) scaleY(1);
+			transform: translate3d(0, 0, 0) translateX(-50%) scaleX(0)
+				translateY(-100%) scaleY(1);
 			background: ${theme.colors.primary};
 			opacity: 1;
 			transform-origin: center bottom;
@@ -69,11 +70,13 @@ export const headerStyles = (theme, isLoaded) => css`
 			bottom: -6px;
 			background: ${theme.colors.light};
 			position: absolute;
-			transform: translate3d(0,0,0) scaleX(1) translateY(-100%) scaleY(1);
+			transform: translate3d(0, 0, 0) scaleX(1) translateY(-100%)
+				scaleY(1);
 			opacity: 1;
 			transition-delay: 1.3s;
 
-			${isLoaded && css`
+			${isLoaded &&
+			css`
 				opacity: 0;
 			`}
 		}
