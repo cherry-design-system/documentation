@@ -41,8 +41,7 @@ export const headerStyles = (theme, isLoaded) => css`
 			display: block;
 			position: absolute;
 			left: 50%;
-			transform: translate3d(0, 0, 0) translateX(-50%) scaleX(0) scaleY(1)
-				translateY(-100%);
+			transform: translate3d(0,0,0) translateX(-50%) scaleX(0) translateY(-100%) scaleY(1);
 			background: ${theme.colors.primary};
 			z-index: 9999;
 			height: 5px;
@@ -55,9 +54,15 @@ export const headerStyles = (theme, isLoaded) => css`
 
 			${isLoaded &&
 			css`
-				transform: translate3d(0, 0, 0) translateX(-50%) scaleX(1)
-					scaleY(1);
 				animation: ${animation} forwards 1 2s;
+			`}
+		}
+
+		&:before {
+			${isLoaded && css`
+				animation: none;
+				background: ${theme.colors.light};
+				transform: translate3d(0,0,0) translateX(-50%) scaleX(1) translateY(-100%) scaleY(1);
 			`}
 		}
 
@@ -160,6 +165,10 @@ export const headerStyles = (theme, isLoaded) => css`
 const animation = keyframes`
 	0% {
 		transform: translate3d(0,0,0) translateX(-50%) scaleX(0) translateY(-100%) scaleY(1);
+	}
+
+	30% {
+		transform: translate3d(0,0,0) translateX(-50%) scaleX(1)  translateY(-100%) scaleY(1);
 	}
 
 	100% {
