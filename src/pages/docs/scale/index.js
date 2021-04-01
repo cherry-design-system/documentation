@@ -52,8 +52,8 @@ function Index({ posts = [] }) {
 				</Col>
 				<Col xs={6} textAlign="center">
 					<Box
-						href="/docs/scale/wordpress"
-						as="/docs/scale/wordpress"
+						href="/docs/scale/wordpress-websites"
+						as="/docs/scale/wordpress-websites"
 					>
 						<Image
 							src="/img/docs/scale/wordpressify-logo.svg"

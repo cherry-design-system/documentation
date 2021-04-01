@@ -44,11 +44,11 @@ function Index({ posts = [] }) {
 					Scale Introduction
 				</DocNav>
 				<DocNav
-					href="/docs/scale/wordpress"
-					as="/docs/scale/wordpress"
+					href="/docs/scale/wordpress-websites"
+					as="/docs/scale/wordpress-websites"
 					next
 				>
-					WordPress
+					WordPress Websites
 				</DocNav>
 			</DocNavWrapper>
 		</Page>

@@ -42,11 +42,11 @@ function Index({ posts = [] }) {
 			<Space size={20} />
 			<DocNavWrapper>
 				<DocNav
-					href="/docs/scale/wordpress"
-					as="/docs/scale/wordpress"
+					href="/docs/scale/wordpress-websites"
+					as="/docs/scale/wordpress-websites"
 					prev
 				>
-					WordPress
+					WordPress Websites
 				</DocNav>
 				<DocNav
 					href="/docs/scale/email-templates"
