@@ -4,6 +4,10 @@ export const syntaxWrapperStyles = (theme) => css`
 	& pre {
 		margin: 10px 0 !important;
 		font-family: monospace !important;
+
+		& code {
+			font-family: monospace !important;
+		}
 	}
 `;
 
