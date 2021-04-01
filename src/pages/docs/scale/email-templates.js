@@ -13,7 +13,7 @@ function Index({ posts = [] }) {
 			<p>
 				FuzzyMail is a simple tool for generating beautiful email
 				templates. Supporting old email clients while maintaining
-				responsiveness. Fuzzymail is supported on over 60+ email
+				responsiveness. FuzzyMail is supported on over 60+ email
 				clients. It follows Cherry conventions.
 			</p>
 			<Space size={10} />
