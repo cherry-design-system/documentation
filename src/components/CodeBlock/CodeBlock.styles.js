@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 export const syntaxWrapperStyles = (theme) => css`
 	& pre {
 		margin: 10px 0 !important;
-		font-family: ${theme.fonts.mono};
+		font-family: monospace;
 	}
 `;
 
