@@ -5,6 +5,7 @@ import {
 	resetButtonStyles,
 } from "../../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../../assets/styles/mq";
+
 export const inputStyles = (
 	theme,
 	type,
