@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../../../../components/Pages";
-import { Space, H1, Button } from "../../../../components/Layout";
+import { Space, H1, Button, H2 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
@@ -23,6 +23,10 @@ const buttonPrimaryDisabledCode = `<a class="button" disabled>Primary</a>`;
 const buttonPrimaryFrameDisabledCode = `<a class="button frame" disabled>Disabled Frame</a>`;
 const buttonPrimaryBigDisabledCode = `<a class="button big" disabled>Disabled Big</a>`;
 const buttonPrimaryFrameBigDisabledCode = `<a class="button frame big" disabled>Disabled Frame Big</a>`;
+
+const buttonPrimaryFullWidthCode = `<a class="button full-width">Primary</a>`;
+const buttonSecondaryFullWidthCode = `<a class="button secondary full-width">Secondary</a>`;
+const buttonTertiaryFullWidthCode = `<a class="button tertiary full-width">Tertiary</a>`;
 
 function Index({ posts = [] }) {
 	return (
@@ -168,6 +172,34 @@ function Index({ posts = [] }) {
 				description={
 					<Button size="big" frame disabled>
 						Disabled Frame Big
+					</Button>
+				}
+			/>
+			<Space size={20} />
+			<H2>Full Width</H2>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={buttonPrimaryFullWidthCode}
+				description={<Button fullWidth>Primary Full Width</Button>}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={buttonSecondaryFullWidthCode}
+				description={
+					<Button variant="secondary" fullWidth>
+						Secondary Full Width
+					</Button>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={buttonTertiaryFullWidthCode}
+				description={
+					<Button variant="tertiary" fullWidth>
+						Tertiary Full Width
 					</Button>
 				}
 			/>

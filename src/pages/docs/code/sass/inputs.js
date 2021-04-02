@@ -6,6 +6,7 @@ import {
 	Input,
 	Select,
 	Textarea,
+	H2,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -76,33 +77,74 @@ const textareaErrorBigCode = `<textarea class="error big">Placeholder</textarea>
 const textareaSuccessBigCode = `<textarea class="success big">Placeholder</textarea>`;
 const textareaBigDisabledCode = `<textarea class="big">Placeholder</textarea>`;
 
-const checkboxCode = `<input type="checkbox" id="sample-check">
-<label for="sample-check">Checkbox</label>`;
-const checkboxCheckedCode = `<input type="checkbox" id="sample-check" checked>
-<label for="sample-check">Checkbox</label>`;
-const checkboxDisabledCode = `<input type="checkbox" id="sample-check" disabled>
-<label for="sample-check">Checkbox</label>`;
+const checkboxCode = `<div class="radio-check-wrapper">
+	<input type="checkbox" id="sample-check">
+	<label for="sample-check">Checkbox</label>
+</div>`;
+const checkboxCheckedCode = `<div class="radio-check-wrapper">
+	<input type="checkbox" id="sample-check" checked>
+	<label for="sample-check">Checkbox</label>
+</div>`;
+const checkboxDisabledCode = `<div class="radio-check-wrapper">
+	<input type="checkbox" id="sample-check" disabled>
+	<label for="sample-check">Checkbox</label>
+</div>`;
 
-const checkboxBigCode = `<input type="checkbox" id="sample-check" class="big">
-<label for="sample-check">Checkbox</label>`;
-const checkboxCheckedBigCode = `<input type="checkbox" id="sample-check" class="big" checked>
-<label for="sample-check">Checkbox</label>`;
-const checkboxBigDisabledCode = `<input type="checkbox" id="sample-check" class="big" disabled>
-<label for="sample-check">Checkbox</label>`;
+const checkboxBigCode = `<div class="radio-check-wrapper big">
+	<input type="checkbox" id="sample-check" class="big">
+	<label for="sample-check">Checkbox</label>
+</div>`;
+const checkboxCheckedBigCode = `<div class="radio-check-wrapper big">
+	<input type="checkbox" id="sample-check" class="big" checked>
+	<label for="sample-check">Checkbox</label>
+</div>`;
+const checkboxBigDisabledCode = `<div class="radio-check-wrapper big">
+	<input type="checkbox" id="sample-check" class="big" disabled>
+	<label for="sample-check">Checkbox</label>
+</div>`;
 
-const radioCode = `<input type="radio" id="sample-radio">
-<label for="sample-radio">Radio</label>`;
-const radioCheckedCode = `<input type="radio" id="sample-radio" checked>
-<label for="sample-radio">Radio</label>`;
-const radioDisabledCode = `<input type="radio" id="sample-radio" disabled>
-<label for="sample-radio">Radio</label>`;
+const radioCode = `<div class="radio-check-wrapper">
+	<input type="radio" id="sample-radio">
+	<label for="sample-radio">Radio</label>
+</div>`;
+const radioCheckedCode = `<div class="radio-check-wrapper">
+	<input type="radio" id="sample-radio" checked>
+	<label for="sample-radio">Radio</label>
+</div>`;
+const radioDisabledCode = `<div class="radio-check-wrapper">
+	<input type="radio" id="sample-radio" disabled>
+	<label for="sample-radio">Radio</label>
+</div>`;
 
-const radioBigCode = `<input type="radio" id="sample-radio" class="big">
-<label for="sample-radio">Radio</label>`;
-const radioCheckedBigCode = `<input type="radio" id="sample-radio" class="big" checked>
-<label for="sample-radio">Radio</label>`;
-const radioBigDisabledCode = `<input type="radio" id="sample-radio" class="big" disabled>
-<label for="sample-radio">Radio</label>`;
+const radioBigCode = `<div class="radio-check-wrapper big">
+	<input type="radio" id="sample-radio" class="big">
+	<label for="sample-radio">Radio</label>
+</div>`;
+const radioCheckedBigCode = `<div class="radio-check-wrapper big">
+	<input type="radio" id="sample-radio" class="big" checked>
+	<label for="sample-radio">Radio</label>
+</div>`;
+const radioBigDisabledCode = `<div class="radio-check-wrapper big">
+	<input type="radio" id="sample-radio" class="big" disabled>
+	<label for="sample-radio">Radio</label>
+</div>`;
+
+const inputTextLabelFullWidthCode = `<label for="sample">Label</label>
+<input type="text" placeholder="Placeholder" id="sample" class="full-width" />`;
+const inputTextLabelFullWidthBigCode = `<label for="sample">Label</label>
+<input type="text" class="big full-width" placeholder="Placeholder" id="sample" />`;
+const selectFullWidthCode = `<select class="full-width">
+	<option value="1">Sample 1</option>
+	<option value="2">Sample 2</option>
+	<option value="3">Sample 3</option>
+</select>`;
+const selectBigFullCode = `<select class="big full-width">
+	<option value="1">Sample 1</option>
+	<option value="2">Sample 2</option>
+	<option value="3">Sample 3</option>
+</select>`;
+const textareaFullCode = `<textarea class="full-width">Placeholder</textarea>`;
+const textareaBigFullCode = `<textarea class="big full-width">Placeholder</textarea>`;
 
 function Index({ posts = [] }) {
 	return (
@@ -513,6 +555,75 @@ function Index({ posts = [] }) {
 						disabled
 						size="big"
 					/>
+				}
+			/>
+			<Space size={20} />
+			<H2>Full Width</H2>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={inputTextLabelFullWidthBigCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						size="big"
+						id="label2"
+						fullWidth
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={inputTextLabelFullWidthCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						id="label1"
+						fullWidth
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={selectFullWidthCode}
+				description={
+					<Select fullWidth>
+						<option value="1">Sample 1</option>
+						<option value="2">Sample 2</option>
+						<option value="3">Sample 3</option>
+					</Select>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={selectBigFullCode}
+				description={
+					<Select size="big" fullWidth>
+						<option value="1">Sample 1</option>
+						<option value="2">Sample 2</option>
+						<option value="3">Sample 3</option>
+					</Select>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={textareaFullCode}
+				description={<Textarea fullWidth placeholder="Placeholder" />}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={textareaBigFullCode}
+				description={
+					<Textarea fullWidth size="big" placeholder="Placeholder" />
 				}
 			/>
 			<Space size={20} />

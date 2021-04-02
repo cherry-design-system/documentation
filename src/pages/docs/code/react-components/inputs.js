@@ -6,6 +6,7 @@ import {
 	Input,
 	Select,
 	Textarea,
+	H2,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -89,6 +90,32 @@ const radioDisabledCode = `<Input type="radio" id="sample-radio" label="Radio" d
 const radioBigCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" />`;
 const radioCheckedBigCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" checked />`;
 const radioBigDisabledCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" disabled />`;
+
+const inputTextLabelFullWidthCode = `<Input type="text" 
+	placeholder="Placeholder"
+	label="Label"
+	id="sample" 
+	fullWidth
+/>`;
+const inputTextLabelFullWidthBigCode = `<Input type="text" 
+	placeholder="Placeholder"
+	label="Label"
+	id="sample"
+	size="big"
+	fullWidth
+/>`;
+const selectFullWidthCode = `<Select fullWidth>
+	<option value="1">Sample 1</option>
+	<option value="2">Sample 2</option>
+	<option value="3">Sample 3</option>
+</Select>`;
+const selectBigFullCode = `<Select size="big" fullWidth>
+	<option value="1">Sample 1</option>
+	<option value="2">Sample 2</option>
+	<option value="3">Sample 3</option>
+</Select>`;
+const textareaFullCode = `<Textarea fullWidth>Placeholder</Textarea>`;
+const textareaBigFullCode = `<Textarea size="big" fullWidth>Placeholder</Textarea>`;
 
 function Index({ posts = [] }) {
 	return (
@@ -501,6 +528,74 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={20} />
+			<H2>Full Width</H2>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={inputTextLabelFullWidthCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						id="label1"
+						fullWidth
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={inputTextLabelFullWidthBigCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						size="big"
+						id="label2"
+						fullWidth
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={selectFullWidthCode}
+				description={
+					<Select fullWidth>
+						<option value="1">Sample 1</option>
+						<option value="2">Sample 2</option>
+						<option value="3">Sample 3</option>
+					</Select>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={selectBigFullCode}
+				description={
+					<Select size="big" fullWidth>
+						<option value="1">Sample 1</option>
+						<option value="2">Sample 2</option>
+						<option value="3">Sample 3</option>
+					</Select>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={textareaFullCode}
+				description={<Textarea fullWidth placeholder="Placeholder" />}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={textareaBigFullCode}
+				description={
+					<Textarea fullWidth size="big" placeholder="Placeholder" />
+				}
+			/>
 			<DocNavWrapper>
 				<DocNav
 					href="/docs/code/react-components/buttons"

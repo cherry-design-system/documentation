@@ -31,25 +31,41 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<Row>
 				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" />
-					<Space size={20} />
-				</Col>
-				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" error />
-					<Space size={20} />
-				</Col>
-				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" success />
-					<Space size={20} />
-				</Col>
-				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" size="big" />
+					<Input type="text" placeholder="Placeholder" fullWidth />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Input
 						type="text"
 						placeholder="Placeholder"
+						fullWidth
+						error
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						fullWidth
+						success
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						fullWidth
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						fullWidth
 						error
 						size="big"
 					/>
@@ -59,13 +75,14 @@ function Index({ posts = [] }) {
 					<Input
 						type="text"
 						placeholder="Placeholder"
+						fullWidth
 						success
 						size="big"
 					/>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select>
+					<Select fullWidth>
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -73,7 +90,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select error>
+					<Select fullWidth error>
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -81,7 +98,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select success>
+					<Select fullWidth success>
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -89,7 +106,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select size="big">
+					<Select fullWidth size="big">
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -97,7 +114,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select error size="big">
+					<Select fullWidth error size="big">
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -105,7 +122,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select success size="big">
+					<Select fullWidth success size="big">
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -113,21 +130,32 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Textarea type="text" placeholder="Placeholder" />
+					<Textarea fullWidth type="text" placeholder="Placeholder" />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Textarea type="text" placeholder="Placeholder" error />
+					<Textarea
+						fullWidth
+						type="text"
+						placeholder="Placeholder"
+						error
+					/>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Textarea type="text" placeholder="Placeholder" success />
+					<Textarea
+						fullWidth
+						type="text"
+						placeholder="Placeholder"
+						success
+					/>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<Textarea
 						type="text"
 						placeholder="Placeholder"
+						fullWidth
 						size="big"
 					/>
 					<Space size={20} />
@@ -136,6 +164,7 @@ function Index({ posts = [] }) {
 					<Textarea
 						type="text"
 						placeholder="Placeholder"
+						fullWidth
 						error
 						size="big"
 					/>
@@ -145,6 +174,7 @@ function Index({ posts = [] }) {
 					<Textarea
 						type="text"
 						placeholder="Placeholder"
+						fullWidth
 						success
 						size="big"
 					/>
@@ -155,6 +185,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
+						fullWidth
 						label="Checkbox"
 						id="check-1"
 					/>
@@ -164,6 +195,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
+						fullWidth
 						label="Checkbox"
 						id="check-2"
 						defaultChecked
@@ -174,6 +206,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
+						fullWidth
 						label="Checkbox"
 						id="check-3"
 						disabled
@@ -185,6 +218,7 @@ function Index({ posts = [] }) {
 						type="radio"
 						name="test1"
 						placeholder="Placeholder"
+						fullWidth
 						label="Radio"
 						id="radio-1"
 					/>
@@ -195,6 +229,7 @@ function Index({ posts = [] }) {
 						type="radio"
 						name="test1"
 						placeholder="Placeholder"
+						fullWidth
 						label="Radio"
 						id="radio-2"
 						defaultChecked
@@ -206,6 +241,7 @@ function Index({ posts = [] }) {
 						type="radio"
 						name="test2"
 						placeholder="Placeholder"
+						fullWidth
 						label="Radio"
 						id="radio-3"
 						disabled
@@ -216,6 +252,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
+						fullWidth
 						label="Checkbox"
 						id="check-4"
 						size="big"
@@ -226,6 +263,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
+						fullWidth
 						label="Checkbox"
 						id="check-5"
 						defaultChecked
@@ -237,6 +275,7 @@ function Index({ posts = [] }) {
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
+						fullWidth
 						label="Checkbox"
 						id="check-6"
 						disabled
@@ -249,6 +288,7 @@ function Index({ posts = [] }) {
 						type="radio"
 						name="test2"
 						placeholder="Placeholder"
+						fullWidth
 						label="Radio"
 						id="radio-4"
 						size="big"
@@ -260,6 +300,7 @@ function Index({ posts = [] }) {
 						type="radio"
 						name="test2"
 						placeholder="Placeholder"
+						fullWidth
 						label="Radio"
 						id="radio-5"
 						defaultChecked
@@ -273,6 +314,7 @@ function Index({ posts = [] }) {
 						name="radio-6"
 						id="radio-6"
 						placeholder="Placeholder"
+						fullWidth
 						label="Radio"
 						disabled
 						size="big"
@@ -281,32 +323,16 @@ function Index({ posts = [] }) {
 				</Col>
 
 				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" disabled />
-					<Space size={20} />
-				</Col>
-				<Col xs={12} lg={4}>
-					<Select disabled>
-						<option value="1">Sample 1</option>
-						<option value="2">Sample 2</option>
-						<option value="3">Sample 3</option>
-					</Select>
-					<Space size={20} />
-				</Col>
-				<Col xs={12} lg={4}>
-					<Textarea type="text" placeholder="Placeholder" disabled />
-					<Space size={20} />
-				</Col>
-				<Col xs={12} lg={4}>
 					<Input
 						type="text"
 						placeholder="Placeholder"
-						size="big"
+						fullWidth
 						disabled
 					/>
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select size="big" disabled>
+					<Select fullWidth disabled>
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -317,6 +343,34 @@ function Index({ posts = [] }) {
 					<Textarea
 						type="text"
 						placeholder="Placeholder"
+						fullWidth
+						disabled
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						fullWidth
+						size="big"
+						disabled
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Select fullWidth size="big" disabled>
+						<option value="1">Sample 1</option>
+						<option value="2">Sample 2</option>
+						<option value="3">Sample 3</option>
+					</Select>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<Textarea
+						type="text"
+						placeholder="Placeholder"
+						fullWidth
 						size="big"
 						disabled
 					/>

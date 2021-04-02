@@ -108,16 +108,11 @@ export const inputStyles = (
 	`}
 `;
 
-export const radioCheckWrapperStyles = (theme, type, size, fullWidth) => css`
+export const radioCheckWrapperStyles = (theme, type, size) => css`
 	position: relative;
-	display: inline-block;
+	display: block;
+	width: 100%;
 	line-height: 1;
-
-	${fullWidth &&
-	css`
-		display: block;
-		width: 100%;
-	`}
 
 	& input {
 		vertical-align: top;
@@ -127,13 +122,13 @@ export const radioCheckWrapperStyles = (theme, type, size, fullWidth) => css`
 		? css`
 				& label {
 					max-width: calc(100% - 40px);
-					margin-top: 3px;
+					margin-top: 4px;
 				}
 		  `
 		: css`
 				& label {
 					max-width: calc(100% - 30px);
-					margin-top: -2px;
+					margin-top: -1px;
 				}
 		  `}
 
