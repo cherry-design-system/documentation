@@ -100,8 +100,8 @@ function Index({ posts = [] }) {
 						</H2>
 						<p>
 							You start by designing your website. Cherry provides
-							a template that defines all standard web patterns
-							and typographys for your design system.
+							a Figma template that defines all standard web
+							patterns and typographys for your design system.
 						</p>
 						<Space xs={10} lg={20} />
 						<Link
