@@ -80,7 +80,6 @@ export const inputStyles = (
 	${(type === "checkbox") | (type === "radio") &&
 	css`
 		padding: 0;
-		margin-right: 7px;
 
 		${size === "big"
 			? css`
@@ -110,12 +109,17 @@ export const inputStyles = (
 
 export const radioCheckWrapperStyles = (theme, type, size) => css`
 	position: relative;
-	display: block;
+	display: flex;
 	width: 100%;
 	line-height: 1;
 
 	& input {
 		vertical-align: top;
+		cursor: pointer;
+	}
+
+	& label {
+		padding: 0 0 0 10px;
 	}
 
 	${size === "big"
@@ -131,6 +135,25 @@ export const radioCheckWrapperStyles = (theme, type, size) => css`
 					margin-top: -1px;
 				}
 		  `}
+
+	${type === "slide-check" && css`
+		& .slide-check-wrapper {
+			margin-top: 0;
+			vertical-align: top;
+		}
+
+		${size === "big"
+		? css`
+				& label {
+					max-width: calc(100% - 70px);
+				}
+		  `
+		: css`
+				& label {
+					max-width: calc(100% - 60px);
+				}
+		  `}
+	`}
 
 	${type === "checkbox" &&
 	css`

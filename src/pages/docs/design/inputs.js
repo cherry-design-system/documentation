@@ -10,6 +10,7 @@ import {
 	Input,
 	Select,
 	Textarea,
+	SlideCheck,
 } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
@@ -249,6 +250,38 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
+					<SlideCheck
+						type="checkbox"
+						name="slide-1"
+						placeholder="Placeholder"
+						label="Slide Check"
+						id="slide-1"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<SlideCheck
+						type="checkbox"
+						name="slide-2"
+						placeholder="Placeholder"
+						label="Slide Check"
+						id="slide-2"
+						defaultChecked
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<SlideCheck
+						type="checkbox"
+						name="slide-3"
+						id="slide-3"
+						placeholder="Placeholder"
+						label="Slide Check"
+						disabled
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
@@ -321,7 +354,44 @@ function Index({ posts = [] }) {
 					/>
 					<Space size={20} />
 				</Col>
-
+				<Col xs={12} lg={4}>
+					<SlideCheck
+						type="checkbox"
+						name="slide-big-1"
+						placeholder="Placeholder"
+						fullWidth
+						label="Slide Check"
+						id="slide-big-1"
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<SlideCheck
+						type="checkbox"
+						name="slide-big-2"
+						placeholder="Placeholder"
+						fullWidth
+						label="Slide Check"
+						id="slide-big-2"
+						defaultChecked
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<SlideCheck
+						type="checkbox"
+						name="slide-big-3"
+						id="slide-big-3"
+						placeholder="Placeholder"
+						fullWidth
+						label="Slide Check"
+						disabled
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
 				<Col xs={12} lg={4}>
 					<Input
 						type="text"
