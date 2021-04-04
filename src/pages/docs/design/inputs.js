@@ -10,6 +10,7 @@ import {
 	Input,
 	Select,
 	Textarea,
+	ToggleInput,
 } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
@@ -249,6 +250,35 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
+					<ToggleInput
+						type="checkbox"
+						name="slide-1"
+						label="Toggle"
+						id="slide-1"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<ToggleInput
+						type="checkbox"
+						name="slide-2"
+						label="Toggle"
+						id="slide-2"
+						defaultChecked
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<ToggleInput
+						type="checkbox"
+						name="slide-3"
+						id="slide-3"
+						label="Toggle"
+						disabled
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
 					<Input
 						type="checkbox"
 						placeholder="Placeholder"
@@ -314,14 +344,44 @@ function Index({ posts = [] }) {
 						name="radio-6"
 						id="radio-6"
 						placeholder="Placeholder"
-						fullWidth
 						label="Radio"
 						disabled
 						size="big"
 					/>
 					<Space size={20} />
 				</Col>
-
+				<Col xs={12} lg={4}>
+					<ToggleInput
+						type="checkbox"
+						name="slide-big-1"
+						label="Toggle"
+						id="slide-big-1"
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<ToggleInput
+						type="checkbox"
+						name="slide-big-2"
+						label="Toggle"
+						id="slide-big-2"
+						defaultChecked
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<ToggleInput
+						type="checkbox"
+						name="slide-big-3"
+						id="slide-big-3"
+						label="Toggle"
+						disabled
+						size="big"
+					/>
+					<Space size={20} />
+				</Col>
 				<Col xs={12} lg={4}>
 					<Input
 						type="text"

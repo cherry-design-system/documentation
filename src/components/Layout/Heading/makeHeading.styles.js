@@ -5,6 +5,8 @@ const makeHeadingStyles = (theme, size, h) => css`
 	font-family: ${theme.fonts.head};
 	font-weight: 800;
 	margin: 0;
+	position: relative;
+	z-index: -1;
 
 	&:before {
 		content: "";
