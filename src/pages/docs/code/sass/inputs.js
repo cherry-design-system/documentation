@@ -8,6 +8,7 @@ import {
 	Textarea,
 	H2,
 	ToggleInput,
+	RangeSlider,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -173,6 +174,10 @@ const toggleBigDisabledCode = `<div class="toggle-input-wrapper big">
 	</div>
 	<label for="sample-toggle">Toggle</label>
 </div>`;
+
+const rangeCode = `<input type="range" />`;
+const rangeBigCode = `<input type="range" class="big" />`;
+const rangeDisabledCode = `<input type="range" class="big" disabled />`;
 
 const inputTextLabelFullWidthCode = `<label for="sample">Label</label>
 <input type="text" placeholder="Placeholder" id="sample" class="full-width" />`;
@@ -546,6 +551,30 @@ function Index({ posts = [] }) {
 						size="big"
 						checked
 					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={rangeCode}
+				description={
+					<RangeSlider />
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={rangeBigCode}
+				description={
+					<RangeSlider size="big" />
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={rangeDisabledCode}
+				description={
+					<RangeSlider size="big" disabled />
 				}
 			/>
 			<Space size={10} />
