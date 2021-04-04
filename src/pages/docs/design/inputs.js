@@ -234,7 +234,8 @@ function Index({ posts = [] }) {
 						fullWidth
 						label="Radio"
 						id="radio-2"
-						defaultChecked
+						onChange={() => {}}
+						checked
 					/>
 					<Space size={20} />
 				</Col>
@@ -265,7 +266,8 @@ function Index({ posts = [] }) {
 						name="slide-2"
 						label="Toggle"
 						id="slide-2"
-						defaultChecked
+						onChange={() => {}}
+						checked
 					/>
 					<Space size={20} />
 				</Col>
@@ -367,7 +369,8 @@ function Index({ posts = [] }) {
 						name="slide-big-2"
 						label="Toggle"
 						id="slide-big-2"
-						defaultChecked
+						onChange={() => {}}
+						checked
 						size="big"
 					/>
 					<Space size={20} />

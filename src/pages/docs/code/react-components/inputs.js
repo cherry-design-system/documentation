@@ -456,6 +456,7 @@ function Index({ posts = [] }) {
 						label="Toggle"
 						id="slide-2"
 						checked
+						onChange={() => {}}
 					/>
 				}
 			/>
@@ -485,6 +486,7 @@ function Index({ posts = [] }) {
 						id="slide-2-big"
 						size="big"
 						checked
+						onChange={() => {}}
 					/>
 				}
 			/>
