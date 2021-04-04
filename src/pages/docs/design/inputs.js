@@ -11,6 +11,7 @@ import {
 	Select,
 	Textarea,
 	ToggleInput,
+	RangeSlider,
 } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
@@ -382,6 +383,20 @@ function Index({ posts = [] }) {
 					/>
 					<Space size={20} />
 				</Col>
+
+				<Col xs={12} lg={4}>
+					<RangeSlider label="Toggle" />
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<RangeSlider label="Toggle" size="big" />
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<RangeSlider label="Toggle" size="big" disabled />
+					<Space size={20} />
+				</Col>
+
 				<Col xs={12} lg={4}>
 					<Input
 						type="text"
