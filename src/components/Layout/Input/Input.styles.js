@@ -80,6 +80,7 @@ export const inputStyles = (
 	${(type === "checkbox") | (type === "radio") &&
 	css`
 		padding: 0;
+		cursor: pointer;
 
 		${size === "big"
 			? css`
@@ -107,15 +108,18 @@ export const inputStyles = (
 	`}
 `;
 
-export const radioCheckWrapperStyles = (theme, type, size) => css`
+export const radioCheckWrapperStyles = (theme, type, size, fullWidth) => css`
 	position: relative;
-	display: flex;
+	display: inline-flex;
 	width: 100%;
 	line-height: 1;
 
+	${fullWidth && css`
+		display: flex;
+	`}
+
 	& input {
 		vertical-align: top;
-		cursor: pointer;
 	}
 
 	& label {

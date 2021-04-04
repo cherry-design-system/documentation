@@ -7,6 +7,7 @@ import {
 	Select,
 	Textarea,
 	H2,
+	ToggleInput,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -90,6 +91,14 @@ const radioDisabledCode = `<Input type="radio" id="sample-radio" label="Radio" d
 const radioBigCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" />`;
 const radioCheckedBigCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" checked />`;
 const radioBigDisabledCode = `<Input type="radio" id="sample-radio" label="Radio" size="big" disabled />`;
+
+const toggleCode = `<ToggleInput id="sample-toggle" label="Toggle" />`;
+const toggleCheckedCode = `<ToggleInput id="sample-toggle" label="Toggle" checked />`;
+const toggleDisabledCode = `<ToggleInput id="sample-toggle" label="Toggle" disabled />`;
+
+const toggleBigCode = `<ToggleInput id="sample-toggle" label="Toggle" size="big" />`;
+const toggleCheckedBigCode = `<ToggleInput id="sample-toggle" label="Toggle" size="big" checked />`;
+const toggleBigDisabledCode = `<ToggleInput id="sample-toggle" label="Toggle" size="big" disabled />`;
 
 const inputTextLabelFullWidthCode = `<Input type="text" 
 	placeholder="Placeholder"
@@ -376,7 +385,7 @@ function Index({ posts = [] }) {
 				language="jsx"
 				value={radioCode}
 				description={
-					<Input type="radio" label="Checkbox" id="sample-6" />
+					<Input type="radio" label="Radio" id="sample-6" />
 				}
 			/>
 			<Space size={10} />
@@ -386,7 +395,7 @@ function Index({ posts = [] }) {
 				description={
 					<Input
 						type="radio"
-						label="Checkbox"
+						label="Radio"
 						id="sample-7"
 						defaultChecked
 					/>
@@ -399,7 +408,7 @@ function Index({ posts = [] }) {
 				description={
 					<Input
 						type="radio"
-						label="Checkbox"
+						label="Radio"
 						id="sample-8"
 						size="big"
 					/>
@@ -412,7 +421,7 @@ function Index({ posts = [] }) {
 				description={
 					<Input
 						type="radio"
-						label="Checkbox"
+						label="Radio"
 						id="sample-9"
 						size="big"
 						defaultChecked
@@ -420,6 +429,62 @@ function Index({ posts = [] }) {
 				}
 			/>
 			<Space size={10} />
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-1"
+						label="Toggle"
+						id="slide1"
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleCheckedCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-2"
+						label="Toggle"
+						id="slide-2"
+						checked
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleBigCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-1-big"
+						label="Toggle"
+						id="slide-1-big"
+						size="big"
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleCheckedBigCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-2-big"
+						label="Toggle"
+						id="slide-2-big"
+						size="big"
+						checked
+					/>
+				}
+			/>
 			<CodeBlock
 				language="jsx"
 				value={inputTextDisabledCode}
@@ -522,6 +587,33 @@ function Index({ posts = [] }) {
 						type="radio"
 						label="Radio"
 						id="sample-xxx"
+						disabled
+						size="big"
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleDisabledCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						label="Toggle"
+						id="toggle-1-disabled"
+						disabled
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleBigDisabledCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						label="Toggle"
+						id="toggle-1-disabled"
 						disabled
 						size="big"
 					/>

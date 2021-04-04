@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { resetButtonStyles } from "../../../assets/styles/helperStyles";
 
-export const slideCheckStyles = (theme, size) => css`
+export const toggleInputStyles = (theme, size) => css`
 	display: inline-block;
 	margin: auto 0;
 	position: relative;
@@ -21,7 +21,7 @@ export const slideCheckStyles = (theme, size) => css`
 		outline: none;
 	}
 
-	& input:checked ~ .slide-check {
+	& input:checked ~ .toggle-input-slider {
 		&:before {
 			max-width: 46px;
 			background: ${theme.colors.secondaryLight};
@@ -33,18 +33,18 @@ export const slideCheckStyles = (theme, size) => css`
 	}
 
 	@media (hover: hover) {
-		& input:hover:not([disabled]) ~ .slide-check {
+		& input:hover:not([disabled]) ~ .toggle-input-slider {
 			border-color: ${theme.colors.secondary};
 		}
 	}
 
-	& input:focus:not([disabled]) ~ .slide-check {
+	& input:focus:not([disabled]) ~ .toggle-input-slider {
 		border-color: ${theme.colors.secondary};
 		box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
 		outline: none;
 	}
 
-	& input:active:not([disabled]) ~ .slide-check {
+	& input:active:not([disabled]) ~ .toggle-input-slider {
 		box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
 	}
 
@@ -52,7 +52,7 @@ export const slideCheckStyles = (theme, size) => css`
 		cursor: not-allowed;
 	}
 
-	& input:disabled ~ .slide-check {
+	& input:disabled ~ .toggle-input-slider {
 		border-color: ${theme.colors.gray};
 
 		&:before {
@@ -64,7 +64,7 @@ export const slideCheckStyles = (theme, size) => css`
 		}
 	}
 
-	& .slide-check {
+	& .toggle-input-slider {
 		border: solid 2px ${theme.colors.grayLight};
 		border-radius: 30px;
 		background: ${theme.colors.light};

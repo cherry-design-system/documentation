@@ -7,6 +7,7 @@ import {
 	Select,
 	Textarea,
 	H2,
+	ToggleInput,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -127,6 +128,50 @@ const radioCheckedBigCode = `<div class="radio-check-wrapper big">
 const radioBigDisabledCode = `<div class="radio-check-wrapper big">
 	<input type="radio" id="sample-radio" class="big" disabled>
 	<label for="sample-radio">Radio</label>
+</div>`;
+
+const toggleCode = `<div class="toggle-input-wrapper">
+	<div class="toggle-input-inner">
+		<input type="checkbox" id="sample-toggle" />
+		<div class="toggle-input-slider"></div>
+	</div>
+	<label for="sample-toggle">Toggle</label>
+</div>`;
+const toggleCheckedCode = `<div class="toggle-input-wrapper">
+	<div class="toggle-input-inner">
+		<input type="checkbox" id="sample-toggle" checked />
+		<div class="toggle-input-slider"></div>
+	</div>
+	<label for="sample-toggle">Toggle</label>
+</div>`;
+const toggleDisabledCode = `<div class="toggle-input-wrapper">
+	<div class="toggle-input-inner">
+		<input type="checkbox" id="sample-toggle" disabled />
+		<div class="toggle-input-slider"></div>
+	</div>
+	<label for="sample-toggle">Toggle</label>
+</div>`;
+
+const toggleBigCode = `<div class="toggle-input-wrapper big">
+	<div class="toggle-input-inner">
+		<input type="checkbox" id="sample-toggle" class="big" />
+		<div class="toggle-input-slider"></div>
+	</div>
+	<label for="sample-toggle">Toggle</label>
+</div>`;
+const toggleCheckedBigCode = `<div class="toggle-input-wrapper big">
+	<div class="toggle-input-inner">
+		<input type="checkbox" id="sample-toggle" class="big" checked />
+		<div class="toggle-input-slider"></div>
+	</div>
+	<label for="sample-toggle">Toggle</label>
+</div>`;
+const toggleBigDisabledCode = `<div class="toggle-input-wrapper big">
+	<div class="toggle-input-inner">
+		<input type="checkbox" id="sample-toggle" class="big" disabled />
+		<div class="toggle-input-slider"></div>
+	</div>
+	<label for="sample-toggle">Toggle</label>
 </div>`;
 
 const inputTextLabelFullWidthCode = `<label for="sample">Label</label>
@@ -405,9 +450,7 @@ function Index({ posts = [] }) {
 			<CodeBlock
 				language="html"
 				value={radioCode}
-				description={
-					<Input type="radio" label="Checkbox" id="sample-6" />
-				}
+				description={<Input type="radio" label="Radio" id="sample-6" />}
 			/>
 			<Space size={10} />
 			<CodeBlock
@@ -416,7 +459,7 @@ function Index({ posts = [] }) {
 				description={
 					<Input
 						type="radio"
-						label="Checkbox"
+						label="Radio"
 						id="sample-7"
 						defaultChecked
 					/>
@@ -429,7 +472,7 @@ function Index({ posts = [] }) {
 				description={
 					<Input
 						type="radio"
-						label="Checkbox"
+						label="Radio"
 						id="sample-8"
 						size="big"
 					/>
@@ -442,10 +485,66 @@ function Index({ posts = [] }) {
 				description={
 					<Input
 						type="radio"
-						label="Checkbox"
+						label="Radio"
 						id="sample-9"
 						size="big"
 						defaultChecked
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-1"
+						label="Toggle"
+						id="slide1"
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleCheckedCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-2"
+						label="Toggle"
+						id="slide-2"
+						checked
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleBigCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-1-big"
+						label="Toggle"
+						id="slide-1-big"
+						size="big"
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleCheckedBigCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						name="slide-2-big"
+						label="Toggle"
+						id="slide-2-big"
+						size="big"
+						checked
 					/>
 				}
 			/>
@@ -557,8 +656,49 @@ function Index({ posts = [] }) {
 					/>
 				}
 			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleDisabledCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						label="Toggle"
+						id="toggle-1-disabled"
+						disabled
+					/>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={toggleBigDisabledCode}
+				description={
+					<ToggleInput
+						type="checkbox"
+						label="Toggle"
+						id="toggle-1-disabled"
+						disabled
+						size="big"
+					/>
+				}
+			/>
 			<Space size={20} />
 			<H2>Full Width</H2>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={inputTextLabelFullWidthCode}
+				description={
+					<Input
+						type="text"
+						placeholder="Placeholder"
+						label="Label"
+						id="label1"
+						fullWidth
+					/>
+				}
+			/>
 			<Space size={10} />
 			<CodeBlock
 				language="html"
@@ -570,20 +710,6 @@ function Index({ posts = [] }) {
 						label="Label"
 						size="big"
 						id="label2"
-						fullWidth
-					/>
-				}
-			/>
-			<Space size={10} />
-			<CodeBlock
-				language="html"
-				value={inputTextLabelFullWidthCode}
-				description={
-					<Input
-						type="text"
-						placeholder="Placeholder"
-						label="Label"
-						id="label1"
 						fullWidth
 					/>
 				}

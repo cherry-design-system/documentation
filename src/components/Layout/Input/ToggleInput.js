@@ -1,7 +1,7 @@
 import React from "react";
 import { Label } from "../Label";
 import { radioCheckWrapperStyles } from "./Input.styles";
-import { slideCheckStyles } from "./SlideCheck.styles";
+import { toggleInputStyles } from "./ToggleInput.styles";
 
 function ToggleInput({
 	className,
@@ -10,20 +10,22 @@ function ToggleInput({
 	success,
 	error,
 	label,
+	type = "checkbox",
+	fullWidth,
 	...props
 }) {
 	return (
 		<div
 			css={(theme) =>
-				radioCheckWrapperStyles(theme, "toggle-input", size, true)
+				radioCheckWrapperStyles(theme, "toggle-input", size, fullWidth)
 			}
 		>
 			<div
-				css={(theme) => slideCheckStyles(theme, size)}
+				css={(theme) => toggleInputStyles(theme, size)}
 				className="toggle-input-inner"
 			>
 				<input type="checkbox" className={className} {...props} />
-				<div className="slide-check" />
+				<div className="toggle-input-slider" />
 			</div>
 			{label && (
 				<Label htmlFor={props.id} error={error} success={success}>
