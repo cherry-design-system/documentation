@@ -114,7 +114,8 @@ export const radioCheckWrapperStyles = (theme, type, size, fullWidth) => css`
 	width: 100%;
 	line-height: 1;
 
-	${fullWidth && css`
+	${fullWidth &&
+	css`
 		display: flex;
 	`}
 

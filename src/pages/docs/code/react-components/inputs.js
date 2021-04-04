@@ -384,9 +384,7 @@ function Index({ posts = [] }) {
 			<CodeBlock
 				language="jsx"
 				value={radioCode}
-				description={
-					<Input type="radio" label="Radio" id="sample-6" />
-				}
+				description={<Input type="radio" label="Radio" id="sample-6" />}
 			/>
 			<Space size={10} />
 			<CodeBlock
