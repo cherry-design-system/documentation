@@ -559,25 +559,19 @@ function Index({ posts = [] }) {
 			<CodeBlock
 				language="html"
 				value={rangeCode}
-				description={
-					<RangeSlider />
-				}
+				description={<RangeSlider />}
 			/>
 			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={rangeBigCode}
-				description={
-					<RangeSlider size="big" />
-				}
+				description={<RangeSlider size="big" />}
 			/>
 			<Space size={10} />
 			<CodeBlock
 				language="html"
 				value={rangeDisabledCode}
-				description={
-					<RangeSlider size="big" disabled />
-				}
+				description={<RangeSlider size="big" disabled />}
 			/>
 			<Space size={10} />
 			<CodeBlock
