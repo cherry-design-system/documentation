@@ -11,6 +11,7 @@ import {
 	Select,
 	Textarea,
 	ToggleInput,
+	RangeSlider,
 } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
@@ -233,7 +234,8 @@ function Index({ posts = [] }) {
 						fullWidth
 						label="Radio"
 						id="radio-2"
-						defaultChecked
+						onChange={() => {}}
+						checked
 					/>
 					<Space size={20} />
 				</Col>
@@ -264,7 +266,8 @@ function Index({ posts = [] }) {
 						name="slide-2"
 						label="Toggle"
 						id="slide-2"
-						defaultChecked
+						onChange={() => {}}
+						checked
 					/>
 					<Space size={20} />
 				</Col>
@@ -366,7 +369,8 @@ function Index({ posts = [] }) {
 						name="slide-big-2"
 						label="Toggle"
 						id="slide-big-2"
-						defaultChecked
+						onChange={() => {}}
+						checked
 						size="big"
 					/>
 					<Space size={20} />
@@ -382,6 +386,20 @@ function Index({ posts = [] }) {
 					/>
 					<Space size={20} />
 				</Col>
+
+				<Col xs={12} lg={4}>
+					<RangeSlider label="Toggle" />
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<RangeSlider label="Toggle" size="big" />
+					<Space size={20} />
+				</Col>
+				<Col xs={12} lg={4}>
+					<RangeSlider label="Toggle" size="big" disabled />
+					<Space size={20} />
+				</Col>
+
 				<Col xs={12} lg={4}>
 					<Input
 						type="text"

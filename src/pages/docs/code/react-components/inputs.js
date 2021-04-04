@@ -8,6 +8,7 @@ import {
 	Textarea,
 	H2,
 	ToggleInput,
+	RangeSlider,
 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -99,6 +100,10 @@ const toggleDisabledCode = `<ToggleInput id="sample-toggle" label="Toggle" disab
 const toggleBigCode = `<ToggleInput id="sample-toggle" label="Toggle" size="big" />`;
 const toggleCheckedBigCode = `<ToggleInput id="sample-toggle" label="Toggle" size="big" checked />`;
 const toggleBigDisabledCode = `<ToggleInput id="sample-toggle" label="Toggle" size="big" disabled />`;
+
+const rangeCode = `<RangeSlider />`;
+const rangeBigCode = `<RangeSlider size="big" />`;
+const rangeDisabledCode = `<RangeSlider size="big" disabled />`;
 
 const inputTextLabelFullWidthCode = `<Input type="text" 
 	placeholder="Placeholder"
@@ -451,6 +456,7 @@ function Index({ posts = [] }) {
 						label="Toggle"
 						id="slide-2"
 						checked
+						onChange={() => {}}
 					/>
 				}
 			/>
@@ -480,9 +486,29 @@ function Index({ posts = [] }) {
 						id="slide-2-big"
 						size="big"
 						checked
+						onChange={() => {}}
 					/>
 				}
 			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={rangeCode}
+				description={<RangeSlider />}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={rangeBigCode}
+				description={<RangeSlider size="big" />}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="html"
+				value={rangeDisabledCode}
+				description={<RangeSlider size="big" disabled />}
+			/>
+			<Space size={10} />
 			<CodeBlock
 				language="jsx"
 				value={inputTextDisabledCode}

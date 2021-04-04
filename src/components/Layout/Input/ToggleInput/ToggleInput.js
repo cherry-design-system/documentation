@@ -1,6 +1,6 @@
 import React from "react";
-import { Label } from "../Label";
-import { radioCheckWrapperStyles } from "./Input.styles";
+import { Label } from "../../Label";
+import { radioCheckWrapperStyles } from "../Input.styles";
 import { toggleInputStyles } from "./ToggleInput.styles";
 
 function ToggleInput({

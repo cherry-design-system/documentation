@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { resetButtonStyles } from "../../../assets/styles/helperStyles";
+import { resetButtonStyles } from "../../../../assets/styles/helperStyles";
 
 export const toggleInputStyles = (theme, size) => css`
 	display: inline-block;

@@ -5,6 +5,7 @@ import {
 	resetButtonStyles,
 } from "../../../assets/styles/helperStyles";
 import { Breakpoints, mq } from "../../../assets/styles/mq";
+import { rangeSliderStyles } from "./RangeSlider/RangeSlider.styles";
 
 export const inputStyles = (
 	theme,
@@ -96,6 +97,11 @@ export const inputStyles = (
 	${type === "radio" &&
 	css`
 		border-radius: 50%;
+	`}
+
+	${type === "range" &&
+	css`
+		${rangeSliderStyles(theme, size, disabled)}
 	`}
 
 	${disabled &&
