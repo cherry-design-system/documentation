@@ -136,23 +136,24 @@ export const radioCheckWrapperStyles = (theme, type, size) => css`
 				}
 		  `}
 
-	${type === "slide-check" && css`
-		& .slide-check-wrapper {
+	${type === "toggle-input" &&
+	css`
+		& .toggle-input-inner {
 			margin-top: 0;
 			vertical-align: top;
 		}
 
 		${size === "big"
-		? css`
-				& label {
-					max-width: calc(100% - 70px);
-				}
-		  `
-		: css`
-				& label {
-					max-width: calc(100% - 60px);
-				}
-		  `}
+			? css`
+					& label {
+						max-width: calc(100% - 70px);
+					}
+			  `
+			: css`
+					& label {
+						max-width: calc(100% - 60px);
+					}
+			  `}
 	`}
 
 	${type === "checkbox" &&

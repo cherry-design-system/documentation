@@ -3,7 +3,7 @@ import { Label } from "../Label";
 import { radioCheckWrapperStyles } from "./Input.styles";
 import { slideCheckStyles } from "./SlideCheck.styles";
 
-function SlideCheck({
+function ToggleInput({
 	className,
 	children,
 	size = "default",
@@ -15,14 +15,15 @@ function SlideCheck({
 	return (
 		<div
 			css={(theme) =>
-				radioCheckWrapperStyles(theme, "slide-check", size, true)
+				radioCheckWrapperStyles(theme, "toggle-input", size, true)
 			}
 		>
-			<div css={(theme) => slideCheckStyles(theme, size)} className="slide-check-wrapper">
+			<div
+				css={(theme) => slideCheckStyles(theme, size)}
+				className="toggle-input-inner"
+			>
 				<input type="checkbox" className={className} {...props} />
-				<div className="slide-check">
-					<span />
-				</div>
+				<div className="slide-check" />
 			</div>
 			{label && (
 				<Label htmlFor={props.id} error={error} success={success}>
@@ -33,4 +34,4 @@ function SlideCheck({
 	);
 }
 
-export { SlideCheck };
+export { ToggleInput };

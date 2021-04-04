@@ -27,7 +27,7 @@ export const slideCheckStyles = (theme, size) => css`
 			background: ${theme.colors.secondaryLight};
 		}
 
-		& span {
+		&:after {
 			transform: translate3d(0, 0, 0) translateX(23px);
 		}
 	}
@@ -59,7 +59,7 @@ export const slideCheckStyles = (theme, size) => css`
 			background: ${theme.colors.grayLight};
 		}
 
-		& span {
+		&:after {
 			background: ${theme.colors.gray};
 		}
 	}
@@ -82,10 +82,14 @@ export const slideCheckStyles = (theme, size) => css`
 					width: 56px;
 			  `}
 
-		&:before {
+		&:before,
+		&:after {
 			content: "";
 			display: block;
 			position: absolute;
+		}
+
+		&:before {
 			top: 5px;
 			left: 5px;
 			width: calc(100% - 10px);
@@ -96,9 +100,7 @@ export const slideCheckStyles = (theme, size) => css`
 			background: ${theme.colors.light};
 		}
 
-		& span {
-			display: block;
-			position: absolute;
+		&:after {
 			left: 0;
 			top: 0;
 			border-radius: 50%;
