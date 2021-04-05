@@ -10,7 +10,8 @@ import {
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
-const spaceCode = `<span class="space size-160 xs-hide lg-show"></span>
+const spaceCode = `<span class="space size-24"></span>
+<span class="space size-160 xs-hide lg-show"></span>
 <span class="space size-24 horizontal xs-show lg-hide"></span>`;
 
 function Index({ posts = [] }) {
@@ -46,56 +47,56 @@ function Index({ posts = [] }) {
 					</thead>
 					<tbody>
 						<tr>
-							<td>.space.size-2</td>
+							<td>space size-2</td>
 							<td>2px</td>
 						</tr>
 						<tr>
-							<td>.space.size-4</td>
+							<td>space size-4</td>
 							<td>4px</td>
 						</tr>
 						<tr>
-							<td>.space.size-8</td>
+							<td>space size-8</td>
 							<td>8px</td>
 						</tr>
 						<tr>
-							<td>.space.size-12</td>
+							<td>space size-12</td>
 							<td>12px</td>
 						</tr>
 						<tr>
-							<td>.space.size-16</td>
+							<td>space size-16</td>
 							<td>16px</td>
 						</tr>
 						<tr>
-							<td>.space.size-24</td>
+							<td>space size-24</td>
 							<td>24px</td>
 						</tr>
 						<tr>
-							<td>.space.size-32</td>
+							<td>space size-32</td>
 							<td>32px</td>
 						</tr>
 						<tr>
-							<td>.space.size-48</td>
+							<td>space size-48</td>
 							<td>48px</td>
 						</tr>
 						<tr>
-							<td>.space.size-56</td>
+							<td>space size-56</td>
 							<td>56px</td>
 						</tr>
 						<tr>
-							<td>.space.size-64</td>
+							<td>space size-64</td>
 							<td>64px</td>
 						</tr>
 						<tr>
-							<td>.space.size-96</td>
+							<td>space size-96</td>
 							<td>96px</td>
 						</tr>
 						<tr>
-							<td>.space.size-128</td>
+							<td>space size-128</td>
 							<td>128px</td>
 						</tr>
 						<tr>
-							<td>.space.size-180</td>
-							<td>180px</td>
+							<td>space size-160</td>
+							<td>160px</td>
 						</tr>
 					</tbody>
 				</table>
@@ -116,63 +117,63 @@ function Index({ posts = [] }) {
 					</thead>
 					<tbody>
 						<tr>
-							<td>.space.horizontal</td>
+							<td>space horizontal</td>
 							<td>Horizontal space (in-line)</td>
 						</tr>
 						<tr>
-							<td>.xs-hide</td>
+							<td>xs-hide</td>
 							<td>Hide on XS media query</td>
 						</tr>
 						<tr>
-							<td>.xs-show</td>
+							<td>xs-show</td>
 							<td>Show on XS media query</td>
 						</tr>
 						<tr>
-							<td>.sm-hide</td>
+							<td>sm-hide</td>
 							<td>Hide on SM media query</td>
 						</tr>
 						<tr>
-							<td>.sm-show</td>
+							<td>sm-show</td>
 							<td>Show on SM media query</td>
 						</tr>
 						<tr>
-							<td>.md-hide</td>
+							<td>md-hide</td>
 							<td>Hide on MD media query</td>
 						</tr>
 						<tr>
-							<td>.md-show</td>
+							<td>md-show</td>
 							<td>Show on MD media query</td>
 						</tr>
 						<tr>
-							<td>.lg-hide</td>
+							<td>lg-hide</td>
 							<td>Hide on LG media query</td>
 						</tr>
 						<tr>
-							<td>.lg-show</td>
+							<td>lg-show</td>
 							<td>Show on LG media query</td>
 						</tr>
 						<tr>
-							<td>.xl-hide</td>
+							<td>xl-hide</td>
 							<td>Hide on XL media query</td>
 						</tr>
 						<tr>
-							<td>.xl-show</td>
+							<td>xl-show</td>
 							<td>Show on XL media query</td>
 						</tr>
 						<tr>
-							<td>.xxl-hide</td>
+							<td>xxl-hide</td>
 							<td>Hide on XXL media query</td>
 						</tr>
 						<tr>
-							<td>.xxl-show</td>
+							<td>xxl-show</td>
 							<td>Show on XXL media query</td>
 						</tr>
 						<tr>
-							<td>.xxxl-hide</td>
+							<td>xxxl-hide</td>
 							<td>Hide on XXXL media query</td>
 						</tr>
 						<tr>
-							<td>.xxxl-show</td>
+							<td>xxxl-show</td>
 							<td>Show on XXXL media query</td>
 						</tr>
 					</tbody>

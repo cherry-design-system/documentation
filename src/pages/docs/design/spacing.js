@@ -76,7 +76,7 @@ function Index({ posts = [] }) {
 							<td>px</td>
 						</tr>
 						<tr>
-							<td>180</td>
+							<td>160</td>
 							<td>px</td>
 						</tr>
 					</tbody>
