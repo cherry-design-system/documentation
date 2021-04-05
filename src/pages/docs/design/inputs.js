@@ -235,7 +235,7 @@ function Index({ posts = [] }) {
 						label="Radio"
 						id="radio-2"
 						onChange={() => {}}
-						checked
+						defaultChecked
 					/>
 					<Space size={20} />
 				</Col>
@@ -267,7 +267,7 @@ function Index({ posts = [] }) {
 						label="Toggle"
 						id="slide-2"
 						onChange={() => {}}
-						checked
+						defaultChecked
 					/>
 					<Space size={20} />
 				</Col>
@@ -370,7 +370,7 @@ function Index({ posts = [] }) {
 						label="Toggle"
 						id="slide-big-2"
 						onChange={() => {}}
-						checked
+						defaultChecked
 						size="big"
 					/>
 					<Space size={25} />

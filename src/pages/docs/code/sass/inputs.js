@@ -520,7 +520,7 @@ function Index({ posts = [] }) {
 						name="slide-2"
 						label="Toggle"
 						id="slide-2"
-						checked
+						defaultChecked
 						onChange={() => {}}
 					/>
 				}
@@ -550,7 +550,7 @@ function Index({ posts = [] }) {
 						label="Toggle"
 						id="slide-2-big"
 						size="big"
-						checked
+						defaultChecked
 						onChange={() => {}}
 					/>
 				}
