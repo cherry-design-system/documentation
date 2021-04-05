@@ -361,7 +361,7 @@ function Index({ posts = [] }) {
 						id="slide-big-1"
 						size="big"
 					/>
-					<Space size={20} />
+					<Space size={25} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<ToggleInput
@@ -373,7 +373,7 @@ function Index({ posts = [] }) {
 						checked
 						size="big"
 					/>
-					<Space size={20} />
+					<Space size={25} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<ToggleInput
@@ -384,20 +384,20 @@ function Index({ posts = [] }) {
 						disabled
 						size="big"
 					/>
-					<Space size={20} />
+					<Space size={25} />
 				</Col>
 
 				<Col xs={12} lg={4}>
 					<RangeSlider label="Toggle" />
-					<Space size={20} />
+					<Space size={25} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<RangeSlider label="Toggle" size="big" />
-					<Space size={20} />
+					<Space size={25} />
 				</Col>
 				<Col xs={12} lg={4}>
 					<RangeSlider label="Toggle" size="big" disabled />
-					<Space size={20} />
+					<Space size={25} />
 				</Col>
 
 				<Col xs={12} lg={4}>
