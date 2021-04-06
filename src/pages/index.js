@@ -18,6 +18,7 @@ import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
 import { Projects } from "../components/Projects";
 import { Socials } from "../components/Socials/Socials";
+import { ImageWrapper } from "../components/ImageWrapper";
 
 function Index({ posts = [] }) {
 	return (
@@ -114,15 +115,17 @@ function Index({ posts = [] }) {
 						</Link>
 					</Col>
 					<Col xs={12} lg={4} textAlign="right">
-						<Image
-							src="/img/design.png"
-							alt="Design illustration"
-							width={109.5}
-							height={147}
-						/>
+						<ImageWrapper>
+							<Image
+								src="/img/design.png"
+								alt="Design illustration"
+								width={109.5}
+								height={147}
+							/>
+						</ImageWrapper>
 					</Col>
 				</Row>
-				<Space xs={20} lg={80} />
+				<Space xs={10} lg={80} />
 				<hr />
 				<Space xs={20} lg={80} />
 				<Row>
@@ -147,12 +150,14 @@ function Index({ posts = [] }) {
 						</Link>
 					</Col>
 					<Col xs={12} lg={4} textAlign="right">
-						<Image
-							src="/img/code.png"
-							alt="Code illustration"
-							width={114}
-							height={127.12}
-						/>
+						<ImageWrapper>
+							<Image
+								src="/img/code.png"
+								alt="Code illustration"
+								width={114}
+								height={127.12}
+							/>
+						</ImageWrapper>
 					</Col>
 				</Row>
 				<Space xs={20} lg={80} />
@@ -180,12 +185,14 @@ function Index({ posts = [] }) {
 						</Link>
 					</Col>
 					<Col xs={12} lg={4} textAlign="right">
-						<Image
-							src="/img/scale.png"
-							alt="Scale illustration"
-							width={114}
-							height={104.63}
-						/>
+						<ImageWrapper>
+							<Image
+								src="/img/scale.png"
+								alt="Scale illustration"
+								width={114}
+								height={104.63}
+							/>
+						</ImageWrapper>
 					</Col>
 				</Row>
 				<Space xs={20} lg={80} />
