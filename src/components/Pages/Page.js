@@ -48,14 +48,29 @@ const Page = ({
 			<link rel="icon" type="image/png" sizes="32x32" href={favIcon32} />
 			<link rel="icon" type="image/png" sizes="16x16" href={favIcon16} />
 			<link rel="shortcut icon" href={favIcon} />
-
 			<title>{title + " - Cherry"}</title>
-			<link rel="preconnect" href="https://fonts.gstatic.com" />
 			<link
-				href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+				rel="preconnect"
+				href="https://fonts.gstatic.com"
+				crossOrigin="true"
+			/>
+			<link
 				rel="preload"
 				as="style"
+				href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
 			/>
+			<link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+				media="print"
+				onLoad="this.media='all'"
+			/>
+			<noscript>
+				<link
+					rel="stylesheet"
+					href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+				/>
+			</noscript>
 		</Head>
 		{children}
 	</React.Fragment>
