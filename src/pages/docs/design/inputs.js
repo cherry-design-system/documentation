@@ -33,7 +33,7 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<Row>
 				<Col xs={12} lg={4}>
-					<Input type="text" placeholder="Placeholder" fullWidth />
+					<Input type="text" placeholder="Placeholder" variant="primary" fullWidth />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
@@ -84,7 +84,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select fullWidth>
+					<Select fullWidth variant="primary">
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -388,7 +388,7 @@ function Index({ posts = [] }) {
 				</Col>
 
 				<Col xs={12} lg={4}>
-					<RangeSlider label="Toggle" />
+					<RangeSlider label="Toggle" variant="primary" />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>

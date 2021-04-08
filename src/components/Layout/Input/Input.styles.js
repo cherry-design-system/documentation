@@ -15,6 +15,7 @@ export const inputStyles = (
 	success,
 	error,
 	fullWidth,
+	variant,
 ) => css`
 	appearance: none;
 	border: none;
@@ -24,13 +25,26 @@ export const inputStyles = (
 	margin: 0;
 	font-family: ${theme.fonts.text};
 	border-radius: 6px;
-	border: solid 2px ${theme.colors.grayLight};
 	padding: 15px 15px;
 	background: ${theme.colors.light};
+	border: solid 2px ${theme.colors.grayLight};
 
 	@media (hover: hover) {
 		&:hover:not([disabled]) {
-			border-color: ${theme.colors.secondary};
+			${variant === "primary" &&
+			css`
+				border-color: ${theme.colors.primary};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				border-color: ${theme.colors.secondary};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				border-color: ${theme.colors.tertiary};
+			`}
 		}
 	}
 
@@ -49,12 +63,20 @@ export const inputStyles = (
 		(type === "password") &&
 	css`
 		display: inline-block;
-		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 
-		${fullWidth &&
+		${variant === "primary" &&
 		css`
-			display: block;
-			width: 100%;
+			box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
 		`}
 
 		${error &&
@@ -68,14 +90,50 @@ export const inputStyles = (
 		`}
 	`};
 
+	${(type !== "checkbox") | (type !== "radio") &&
+	fullWidth &&
+	css`
+		display: block;
+		width: 100%;
+	`}
+
 	&:focus:not([disabled]) {
-		border-color: ${theme.colors.secondary};
-		box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
 		outline: none;
+
+		${variant === "primary" &&
+		css`
+			border-color: ${theme.colors.primary};
+			box-shadow: 0 0 0 4px ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			border-color: ${theme.colors.secondary};
+			box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			border-color: ${theme.colors.tertiary};
+			box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
+		`}
 	}
 
 	&:active:not([disabled]) {
-		box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+		${variant === "primary" &&
+		css`
+			box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
+		`}
 	}
 
 	${(type === "checkbox") | (type === "radio") &&
@@ -101,7 +159,7 @@ export const inputStyles = (
 
 	${type === "range" &&
 	css`
-		${rangeSliderStyles(theme, size, disabled)}
+		${rangeSliderStyles(theme, size, variant, disabled)}
 	`}
 
 	${disabled &&
@@ -114,7 +172,13 @@ export const inputStyles = (
 	`}
 `;
 
-export const radioCheckWrapperStyles = (theme, type, size, fullWidth) => css`
+export const radioCheckWrapperStyles = (
+	theme,
+	type,
+	size,
+	fullWidth,
+	variant,
+) => css`
 	position: relative;
 	display: inline-flex;
 	line-height: 1;
@@ -253,6 +317,7 @@ export const selectWrapperStyles = (
 	success,
 	error,
 	fullWidth,
+	variant,
 ) => css`
 	position: relative;
 	display: inline-block;
@@ -281,14 +346,39 @@ export const selectWrapperStyles = (
 		}
 	}
 
+	& select ~ svg {
+		& polyline,
+		& path {
+			${variant === "primary" &&
+			css`
+				stroke: ${theme.colors.primary};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				stroke: ${theme.colors.secondary};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				stroke: ${theme.colors.tertiary};
+			`}
+
+			${success &&
+			css`
+				stroke: ${theme.colors.success};
+			`}
+
+			${error &&
+			css`
+				stroke: ${theme.colors.error};
+			`}
+		}
+	}
+
 	& select:focus:hover ~ svg {
 		opacity: 1;
 		transform: translate3d(0, 0, 0) rotate(180deg);
-
-		& polyline,
-		& path {
-			stroke: ${theme.colors.secondary};
-		}
 	}
 
 	& svg {
@@ -302,16 +392,6 @@ export const selectWrapperStyles = (
 		& polyline,
 		& path {
 			stroke: ${theme.colors.secondary};
-
-			${success &&
-			css`
-				stroke: ${theme.colors.success};
-			`}
-
-			${error &&
-			css`
-				stroke: ${theme.colors.error};
-			`}
 		}
 	}
 `;

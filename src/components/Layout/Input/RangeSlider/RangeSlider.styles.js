@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { resetButtonStyles } from "../../../../assets/styles/helperStyles";
 
-export const rangeSliderStyles = (theme, size, disabled) => css`
+export const rangeSliderStyles = (theme, size, variant, disabled) => css`
 	padding: 0;
 	height: 10px;
 	font-size: 0;
@@ -15,17 +15,47 @@ export const rangeSliderStyles = (theme, size, disabled) => css`
 		border-radius: 25px;
 		border: 2px solid ${theme.colors.grayLight};
 		transition: all 0.3s ease;
-		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+
+		${variant === "primary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
+		`}
 	}
 
 	&::-webkit-slider-thumb {
 		${resetButtonStyles}
 		border: 0 solid transparent;
 		border-radius: 50%;
-		background: ${theme.colors.secondary};
 		cursor: pointer;
-		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 		transition: all 0.3s ease;
+
+		${variant === "primary" &&
+		css`
+			background: ${theme.colors.primary};
+			box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			background: ${theme.colors.secondary};
+			box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			background: ${theme.colors.tertiary};
+			box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
+		`}
 	}
 
 	&::-moz-range-track {
@@ -36,7 +66,21 @@ export const rangeSliderStyles = (theme, size, disabled) => css`
 		border-radius: 25px;
 		border: 2px solid ${theme.colors.grayLight};
 		transition: all 0.3s ease;
-		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+
+		${variant === "primary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
+		`}
 	}
 
 	&::-moz-range-thumb {
@@ -44,20 +88,62 @@ export const rangeSliderStyles = (theme, size, disabled) => css`
 		height: 22px;
 		width: 22px;
 		border-radius: 50%;
-		background: ${theme.colors.secondary};
 		cursor: pointer;
-		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
 		transition: all 0.3s ease;
+
+		${variant === "primary" &&
+		css`
+			background: ${theme.colors.primary};
+			box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			background: ${theme.colors.secondary};
+			box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			background: ${theme.colors.tertiary};
+			box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
+		`}
 	}
 
 	@media (hover: hover) {
 		&:hover:not([disabled]) {
 			&::-webkit-slider-runnable-track {
-				border-color: ${theme.colors.secondary};
+				${variant === "primary" &&
+				css`
+					border-color: ${theme.colors.primary};
+				`}
+
+				${variant === "secondary" &&
+				css`
+					border-color: ${theme.colors.secondary};
+				`}
+
+				${variant === "tertiary" &&
+				css`
+					border-color: ${theme.colors.tertiary};
+				`}
 			}
 
 			&::-moz-range-track {
-				border-color: ${theme.colors.secondary};
+				${variant === "primary" &&
+				css`
+					border-color: ${theme.colors.secondary};
+				`}
+
+				${variant === "secondary" &&
+				css`
+					border-color: ${theme.colors.secondary};
+				`}
+
+				${variant === "tertiary" &&
+				css`
+					border-color: ${theme.colors.tertiary};
+				`}
 			}
 		}
 	}
@@ -66,26 +152,88 @@ export const rangeSliderStyles = (theme, size, disabled) => css`
 		box-shadow: none;
 
 		&::-webkit-slider-runnable-track {
-			border-color: ${theme.colors.secondary};
 			background: ${theme.colors.light};
+			border-color: ${theme.colors.secondary};
 			box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+
+			${variant === "primary" &&
+			css`
+				border-color: ${theme.colors.primary};
+				box-shadow: 0 0 0 4px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				border-color: ${theme.colors.secondary};
+				box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+			`}
+
+				${variant === "tertiary" &&
+			css`
+				border-color: ${theme.colors.tertiary};
+				box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
+			`}
 		}
 
 		&::-webkit-slider-thumb {
 			border-color: ${theme.colors.grayLight};
-			box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
 			outline: none;
+
+			${variant === "primary" &&
+			css`
+				box-shadow: 0 0 0 4px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
+			`}
 		}
 
 		&::-moz-range-track {
-			border-color: ${theme.colors.secondary};
-			box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+			${variant === "primary" &&
+			css`
+				border-color: ${theme.colors.light};
+				box-shadow: 0 0 0 4px ${theme.colors.lightLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				border-color: ${theme.colors.secondary};
+				box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				border-color: ${theme.colors.tertiary};
+				box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
+			`}
+			
 		}
 
 		&::-moz-range-thumb {
 			border-color: ${theme.colors.grayLight};
-			box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
 			outline: none;
+
+			${variant === "primary" &&
+			css`
+				box-shadow: 0 0 0 4px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
+			`}
 		}
 	}
 
@@ -93,19 +241,71 @@ export const rangeSliderStyles = (theme, size, disabled) => css`
 		box-shadow: none;
 
 		&::-webkit-slider-runnable-track {
-			box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			${variant === "primary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
+			`}
 		}
 
 		&::-webkit-slider-thumb {
-			box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			${variant === "primary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
+			`}
 		}
 
 		&::-moz-range-track {
-			box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			${variant === "primary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
+			`}
 		}
 
 		&::-moz-range-thumb {
-			box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			${variant === "primary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
+			`}
+
+			${variant === "secondary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+			`}
+
+			${variant === "tertiary" &&
+			css`
+				box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
+			`}
 		}
 	}
 
