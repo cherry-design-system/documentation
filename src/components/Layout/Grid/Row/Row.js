@@ -8,12 +8,12 @@ function Row({
 	alignItems,
 	justifyContent,
 	gutterXs = "default",
-	gutterSm,
-	gutterMd,
-	gutterLg,
-	gutterXl,
-	gutterXxl,
-	gutterXxxl,
+	gutterSm = "default",
+	gutterMd = "default",
+	gutterLg = "default",
+	gutterXl = "default",
+	gutterXxl = "default",
+	gutterXxxl = "default",
 }) {
 	return (
 		<div

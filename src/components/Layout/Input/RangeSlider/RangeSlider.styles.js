@@ -1,5 +1,4 @@
 import { css } from "@emotion/react";
-import { borderColor } from "polished";
 import { resetButtonStyles } from "../../../../assets/styles/helperStyles";
 import {
 	activeColorsStyles,
@@ -75,7 +74,6 @@ export const rangeSliderStyles = (theme, size, variant, disabled) => css`
 
 		&::-webkit-slider-runnable-track {
 			background: ${theme.colors.light};
-			${borderColor(theme, variant)};
 			${focusColorsStyles(theme, variant)};
 		}
 
@@ -87,7 +85,6 @@ export const rangeSliderStyles = (theme, size, variant, disabled) => css`
 
 		&::-moz-range-track {
 			background: ${theme.colors.light};
-			${borderColor(theme, variant)};
 			${focusColorsStyles(theme, variant)};
 		}
 

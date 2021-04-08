@@ -6,7 +6,7 @@ function RangeSlider({
 	className,
 	size = "default",
 	fullWidth,
-	variant,
+	variant = "secondary",
 	...props
 }) {
 	return (
@@ -22,7 +22,7 @@ function RangeSlider({
 					false,
 					false,
 					fullWidth,
-					(variant = "secondary"),
+					variant,
 				)
 			}
 			{...props}
