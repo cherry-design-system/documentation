@@ -1,8 +1,9 @@
 import React from "react";
+import { Space, H1, Col, Row } from "cherry-components";
 import { Page } from "../../../components/Pages";
-import { Space, H1, Link, Col, Row } from "../../../components/Layout";
 import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
+import Link from "next/link";
 
 function Index() {
 	return (

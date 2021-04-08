@@ -1,18 +1,18 @@
 import React from "react";
-import { Page } from "../../../../components/Pages";
 import {
 	Space,
 	H1,
 	H2,
-	TableOverflow,
 	H3,
+	H4,
+	TableOverflow,
 	Row,
 	Col,
-	Box,
-	H4,
-} from "../../../../components/Layout";
+} from "cherry-components";
+import { Page } from "../../../../components/Pages";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
+import { Box } from "../../../../components/Layout";
 
 const gridCode = `<Container>
 	<Row>

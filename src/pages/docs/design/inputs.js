@@ -1,10 +1,7 @@
 import React from "react";
-import { Page } from "../../../components/Pages";
 import {
 	Space,
 	H1,
-	Link,
-	Box,
 	Row,
 	Col,
 	Input,
@@ -12,8 +9,10 @@ import {
 	Textarea,
 	ToggleInput,
 	RangeSlider,
-} from "../../../components/Layout";
+} from "cherry-components";
+import { Page } from "../../../components/Pages";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
+import { Link } from "../../../components/Layout";
 
 function Index() {
 	return (

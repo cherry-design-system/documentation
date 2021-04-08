@@ -1,15 +1,8 @@
 import React from "react";
+import { Space, H1, Box, Row, Col, Button } from "cherry-components";
 import { Page } from "../../../components/Pages";
-import {
-	Space,
-	H1,
-	Link,
-	Box,
-	Row,
-	Col,
-	Button,
-} from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
+import { Link } from "../../../components/Layout";
 
 function Index() {
 	return (

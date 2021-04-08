@@ -1,6 +1,6 @@
 import React from "react";
+import { Space, H1 } from "cherry-components";
 import { Page } from "../../../../components/Pages";
-import { Space, H1 } from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { ColorBox, ColorBoxContainer } from "../../../../components/ColorBox";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";

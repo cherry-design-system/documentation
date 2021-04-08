@@ -8,11 +8,10 @@ import {
 	H4,
 	H5,
 	H6,
-	Link,
 	Col,
 	Row,
 	TableOverflow,
-} from "../../../components/Layout";
+} from "cherry-components";
 import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
 import {
 	buttonBigFontStyles,
@@ -24,6 +23,7 @@ import {
 	inputBigFontStyles,
 } from "../../../assets/styles/helperStyles";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
+import { Link } from "../../../components/Layout";
 
 function Index() {
 	return (

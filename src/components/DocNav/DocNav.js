@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Link from "next/link";
+import { FontStyle } from "cherry-components";
 import { ArrowTail } from "../../assets/svg/ArrowTail";
-import { FontStyle } from "../Layout";
 import { docNavStyles, docNavWrapperStyles } from "./DoNav.styles";
 
 function DocNav({ next, prev, href, as, children }) {

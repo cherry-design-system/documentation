@@ -1,7 +1,6 @@
 import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
-import { Page } from "../components/Pages";
 import {
 	Container,
 	Row,
@@ -12,13 +11,14 @@ import {
 	H2,
 	H3,
 	H4,
-	Link,
-} from "../components/Layout";
+} from "cherry-components";
+import { Page } from "../components/Pages";
 import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
 import { Projects } from "../components/Projects";
 import { Socials } from "../components/Socials/Socials";
 import { ImageWrapper } from "../components/ImageWrapper";
+import { Link } from "../components/Layout";
 
 function Index() {
 	return (

@@ -1,12 +1,6 @@
 import React from "react";
+import { Space, H1, H2, H3, TableOverflow } from "cherry-components";
 import { Page } from "../../../../components/Pages";
-import {
-	Space,
-	H1,
-	H2,
-	TableOverflow,
-	H3,
-} from "../../../../components/Layout";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 

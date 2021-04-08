@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import { Space, TableOverflow, H1 } from "cherry-components";
 import { Page } from "../../../components/Pages";
-import { Space, H1, TableOverflow, Link } from "../../../components/Layout";
+import { Link } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index() {

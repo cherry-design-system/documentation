@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { Col, Container, H3, Row, Space } from "../Layout";
+import { Col, Container, H3, Row, Space } from "cherry-components";
+import { useTheme } from "@emotion/react";
 import { Twitter } from "../../assets/svg/Twitter";
 import { GitHub } from "../../assets/svg/GitHub";
 import { Dribbble } from "../../assets/svg/Dribbble";
@@ -11,16 +11,12 @@ import { Figma } from "../../assets/svg/Figma";
 import { socialStyles } from "./Socials.styles";
 
 function Socials() {
-	const router = useRouter();
-
+	const theme = useTheme();
 	return (
 		<>
 			<hr className="no-margin" />
 			<Space xs={20} lg={80} />
-			<Container
-				css={(theme) => socialStyles(theme)}
-				fluid={router.pathname.includes("/docs") ? true : false}
-			>
+			<Container css={(theme) => socialStyles(theme)} theme={theme}>
 				<Row>
 					<Col xs={12} lg={6}>
 						<H3 size="h5">Follow the creator</H3>

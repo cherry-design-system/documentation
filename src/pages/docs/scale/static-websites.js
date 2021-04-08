@@ -1,8 +1,9 @@
 import React from "react";
-import { Page } from "../../../components/Pages";
-import { Space, H1, Box, Link } from "../../../components/Layout";
-import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 import Image from "next/image";
+import { Space, H1 } from "cherry-components";
+import { Page } from "../../../components/Pages";
+import { Box, Link } from "../../../components/Layout";
+import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
 function Index() {
 	return (

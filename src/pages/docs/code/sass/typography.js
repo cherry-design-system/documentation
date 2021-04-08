@@ -1,15 +1,6 @@
 import React from "react";
 import { Page } from "../../../../components/Pages";
-import {
-	Space,
-	H1,
-	H2,
-	H3,
-	H4,
-	H5,
-	H6,
-	FontStyle,
-} from "../../../../components/Layout";
+import { Space, H1, H2, H3, H4, H5, H6, FontStyle } from "cherry-components";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 

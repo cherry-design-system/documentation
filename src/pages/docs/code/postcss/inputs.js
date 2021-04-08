@@ -1,15 +1,15 @@
 import React from "react";
-import { Page } from "../../../../components/Pages";
 import {
 	Space,
 	H1,
+	H2,
 	Input,
 	Select,
 	Textarea,
-	H2,
 	ToggleInput,
 	RangeSlider,
-} from "../../../../components/Layout";
+} from "cherry-components";
+import { Page } from "../../../../components/Pages";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 

@@ -1,6 +1,7 @@
 import React from "react";
+import { Space, H1, H2 } from "cherry-components";
 import { Page } from "../../../../components/Pages";
-import { Space, H1, H2 } from "../../../../components/Layout";
+import { useTheme } from "@emotion/react";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
@@ -33,6 +34,7 @@ const xxxlCode = `@media (--screen-xxxl) {
 }`;
 
 function Index() {
+	const theme = useTheme();
 	return (
 		<Page title="PostCSS Breakpoints">
 			<Space xs={20} lg={40} />

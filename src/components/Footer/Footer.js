@@ -1,5 +1,6 @@
 import React from "react";
-import { Col, Container, Row, Space } from "../Layout";
+import { Col, Container, Row, Space } from "cherry-components";
+import { useTheme } from "@emotion/react";
 import { Logo } from "../../assets/svg/Logo";
 import { Riangle } from "../../assets/svg/Riangle";
 import { DI } from "../../assets/svg/DI";
@@ -12,11 +13,12 @@ import { Socials } from "../Socials/Socials";
 import { GitHub } from "../../assets/svg/GitHub";
 
 function Footer({ className }) {
+	const theme = useTheme();
 	return (
 		<>
 			<Socials />
 			<footer className={className} css={(theme) => footerStyles(theme)}>
-				<Container>
+				<Container theme={theme}>
 					<Space xs={40} lg={80} />
 					<Row className="first-row">
 						<Col xs={12} lg={6}>

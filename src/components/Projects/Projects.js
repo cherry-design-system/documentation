@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Container, H3, Space } from "../Layout";
+import { Container, H3, Space } from "cherry-components";
 import { projectStyles } from "./Projects.styles";
 
 function Projects() {
