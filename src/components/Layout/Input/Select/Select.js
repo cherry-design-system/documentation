@@ -11,7 +11,7 @@ function Select({
 	success,
 	fullWidth,
 	label,
-	variant,
+	variant = "secondary",
 	...props
 }) {
 	return (

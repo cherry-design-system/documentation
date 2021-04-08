@@ -31,20 +31,7 @@ export const inputStyles = (
 
 	@media (hover: hover) {
 		&:hover:not([disabled]) {
-			${variant === "primary" &&
-			css`
-				border-color: ${theme.colors.primary};
-			`}
-
-			${variant === "secondary" &&
-			css`
-				border-color: ${theme.colors.secondary};
-			`}
-
-			${variant === "tertiary" &&
-			css`
-				border-color: ${theme.colors.tertiary};
-			`}
+			${hoverColorsStyles(theme, variant)};
 		}
 	}
 
@@ -63,21 +50,7 @@ export const inputStyles = (
 		(type === "password") &&
 	css`
 		display: inline-block;
-
-		${variant === "primary" &&
-		css`
-			box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
-		`}
-
-		${variant === "secondary" &&
-		css`
-			box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
-		`}
-
-		${variant === "tertiary" &&
-		css`
-			box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
-		`}
+		${defaultShadowStyles(theme, variant)};
 
 		${error &&
 		css`
@@ -99,41 +72,11 @@ export const inputStyles = (
 
 	&:focus:not([disabled]) {
 		outline: none;
-
-		${variant === "primary" &&
-		css`
-			border-color: ${theme.colors.primary};
-			box-shadow: 0 0 0 4px ${theme.colors.primaryLight};
-		`}
-
-		${variant === "secondary" &&
-		css`
-			border-color: ${theme.colors.secondary};
-			box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
-		`}
-
-		${variant === "tertiary" &&
-		css`
-			border-color: ${theme.colors.tertiary};
-			box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
-		`}
+		${focusColorsStyles(theme, variant)};
 	}
 
 	&:active:not([disabled]) {
-		${variant === "primary" &&
-		css`
-			box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
-		`}
-
-		${variant === "secondary" &&
-		css`
-			box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
-		`}
-
-		${variant === "tertiary" &&
-		css`
-			box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
-		`}
+		${activeColorsStyles(theme, variant)};
 	}
 
 	${(type === "checkbox") | (type === "radio") &&
@@ -261,6 +204,8 @@ export const radioCheckWrapperStyles = (
 			pointer-events: none;
 			transform: translate3d(0, 0, 0) scale(0.7);
 
+			${svgColor(theme, false, false, variant)};
+
 			${size === "big"
 				? css`
 						top: 10px;
@@ -288,11 +233,11 @@ export const radioCheckWrapperStyles = (
 			display: block;
 			position: absolute;
 			border-radius: 50%;
-			background: ${theme.colors.secondary};
 			transition: all 0.3s ease;
 			opacity: 0;
 			pointer-events: none;
 			transform: translate3d(0, 0, 0) scale(0.7);
+			${defaultBackgroundStyles(theme, variant)};
 
 			${size === "big"
 				? css`
@@ -338,47 +283,17 @@ export const selectWrapperStyles = (
 			width: 100%;
 		`}
 
+		&:focus:hover ~ svg {
+			opacity: 1;
+			transform: translate3d(0, 0, 0) rotate(180deg);
+		}
+
 		&:disabled ~ svg {
 			& polyline,
 			& path {
 				stroke: ${theme.colors.gray};
 			}
 		}
-	}
-
-	& select ~ svg {
-		& polyline,
-		& path {
-			${variant === "primary" &&
-			css`
-				stroke: ${theme.colors.primary};
-			`}
-
-			${variant === "secondary" &&
-			css`
-				stroke: ${theme.colors.secondary};
-			`}
-
-			${variant === "tertiary" &&
-			css`
-				stroke: ${theme.colors.tertiary};
-			`}
-
-			${success &&
-			css`
-				stroke: ${theme.colors.success};
-			`}
-
-			${error &&
-			css`
-				stroke: ${theme.colors.error};
-			`}
-		}
-	}
-
-	& select:focus:hover ~ svg {
-		opacity: 1;
-		transform: translate3d(0, 0, 0) rotate(180deg);
 	}
 
 	& svg {
@@ -388,10 +303,141 @@ export const selectWrapperStyles = (
 		opacity: 1;
 		pointer-events: none;
 		transform: translate3d(0, 0, 0) rotate(0deg);
-
-		& polyline,
-		& path {
-			stroke: ${theme.colors.secondary};
-		}
+		${svgColor(theme, success, error, variant)};
 	}
+`;
+
+export const svgColor = (theme, success, error, variant) => css`
+	& polyline,
+	& path {
+		${variant === "primary" &&
+		css`
+			stroke: ${theme.colors.primary};
+		`}
+
+		${variant === "secondary" &&
+		css`
+			stroke: ${theme.colors.secondary};
+		`}
+
+		${variant === "tertiary" &&
+		css`
+			stroke: ${theme.colors.tertiary};
+		`}
+
+		${success &&
+		css`
+			stroke: ${theme.colors.success};
+		`}
+
+		${error &&
+		css`
+			stroke: ${theme.colors.error};
+		`}
+	}
+`;
+
+export const defaultShadowStyles = (theme, variant) => css`
+	${variant === "primary" &&
+	css`
+		box-shadow: 0 0 0 0 ${theme.colors.primaryLight};
+	`}
+
+	${variant === "secondary" &&
+	css`
+		box-shadow: 0 0 0 0 ${theme.colors.secondaryLight};
+	`}
+
+	${variant === "tertiary" &&
+	css`
+		box-shadow: 0 0 0 0 ${theme.colors.tertiaryLight};
+	`}
+`;
+
+export const defaultBackgroundStyles = (theme, variant) => css`
+	${variant === "primary" &&
+	css`
+		background: ${theme.colors.primary};
+	`}
+
+	${variant === "secondary" &&
+	css`
+		background: ${theme.colors.secondary};
+	`}
+
+	${variant === "tertiary" &&
+	css`
+		background: ${theme.colors.tertiary};
+	`}
+`;
+
+export const defaultLightBackgroundStyles = (theme, variant) => css`
+	${variant === "primary" &&
+	css`
+		background: ${theme.colors.primaryLight};
+	`}
+
+	${variant === "secondary" &&
+	css`
+		background: ${theme.colors.secondaryLight};
+	`}
+
+	${variant === "tertiary" &&
+	css`
+		background: ${theme.colors.tertiaryLight};
+	`}
+`;
+
+export const hoverColorsStyles = (theme, variant) => css`
+	${variant === "primary" &&
+	css`
+		border-color: ${theme.colors.primary};
+	`}
+
+	${variant === "secondary" &&
+	css`
+		border-color: ${theme.colors.secondary};
+	`}
+
+	${variant === "tertiary" &&
+	css`
+		border-color: ${theme.colors.tertiary};
+	`}
+`;
+
+export const focusColorsStyles = (theme, variant) => css`
+	${variant === "primary" &&
+	css`
+		border-color: ${theme.colors.primary};
+		box-shadow: 0 0 0 4px ${theme.colors.primaryLight};
+	`}
+
+	${variant === "secondary" &&
+	css`
+		border-color: ${theme.colors.secondary};
+		box-shadow: 0 0 0 4px ${theme.colors.secondaryLight};
+	`}
+
+	${variant === "tertiary" &&
+	css`
+		border-color: ${theme.colors.tertiary};
+		box-shadow: 0 0 0 4px ${theme.colors.tertiaryLight};
+	`}
+`;
+
+export const activeColorsStyles = (theme, variant) => css`
+	${variant === "primary" &&
+	css`
+		box-shadow: 0 0 0 2px ${theme.colors.primaryLight};
+	`}
+
+	${variant === "secondary" &&
+	css`
+		box-shadow: 0 0 0 2px ${theme.colors.secondaryLight};
+	`}
+
+	${variant === "tertiary" &&
+	css`
+		box-shadow: 0 0 0 2px ${theme.colors.tertiaryLight};
+	`}
 `;
