@@ -1,27 +1,27 @@
 import React from "react";
-import { Input as CherryInput } from "cherry-components";
+import { ToggleInput as CherryToggleInput } from "cherry-components";
 import { useTheme } from "@emotion/react";
 
-function Input({
+function ToggleInput({
 	className,
 	size = "default",
-	type = "text",
 	success,
 	error,
 	label,
+	type = "checkbox",
 	fullWidth,
 	variant = "secondary",
 	...props
 }) {
 	const theme = useTheme();
 	return (
-		<CherryInput
+		<CherryToggleInput
 			className={className}
 			size={size}
-			type={type}
 			success={success}
 			error={error}
 			label={label}
+			type={type}
 			fullWidth={fullWidth}
 			variant={variant}
 			theme={theme}
@@ -30,4 +30,4 @@ function Input({
 	);
 }
 
-export { Input };
+export { ToggleInput };

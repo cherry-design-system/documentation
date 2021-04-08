@@ -1,5 +1,6 @@
 import React from "react";
-import { rowStyles } from "./Row.styles";
+import { Row as CherryRow } from "cherry-components";
+import { useTheme } from "@emotion/react";
 
 function Row({
 	id,
@@ -15,28 +16,24 @@ function Row({
 	gutterXxl = "default",
 	gutterXxxl = "default",
 }) {
+	const theme = useTheme();
 	return (
-		<div
-			css={(theme) =>
-				rowStyles(
-					theme,
-					alignItems,
-					justifyContent,
-					gutterXs,
-					gutterSm,
-					gutterMd,
-					gutterLg,
-					gutterXl,
-					gutterXxl,
-					gutterXxxl,
-				)
-			}
+		<CherryRow
 			id={id}
 			className={className}
-			data-row
+			alignItems={alignItems}
+			justifyContent={justifyContent}
+			gutterXs={gutterXs}
+			gutterSm={gutterSm}
+			gutterMd={gutterMd}
+			gutterLg={gutterLg}
+			gutterXl={gutterXl}
+			gutterXxl={gutterXxl}
+			gutterXxxl={gutterXxxl}
+			theme={theme}
 		>
 			{children}
-		</div>
+		</CherryRow>
 	);
 }
 

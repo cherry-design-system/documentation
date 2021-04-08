@@ -1,30 +1,31 @@
 import React from "react";
-import { Button as CherryButton } from "cherry-components";
+import { Textarea as CherryTextarea } from "cherry-components";
 import { useTheme } from "@emotion/react";
 
-function Button({
+function Textarea({
 	className,
-	children,
-	variant = "primary",
 	size = "default",
-	frame,
+	error,
+	success,
+	label,
 	fullWidth,
+	variant = "secondary",
 	...props
 }) {
 	const theme = useTheme();
 	return (
-		<CherryButton
+		<CherryTextarea
 			className={className}
-			variant={variant}
 			size={size}
-			frame={frame}
+			error={error}
+			success={success}
+			label={label}
 			fullWidth={fullWidth}
+			variant={variant}
 			theme={theme}
 			{...props}
-		>
-			{children}
-		</CherryButton>
+		/>
 	);
 }
 
-export { Button };
+export { Textarea };

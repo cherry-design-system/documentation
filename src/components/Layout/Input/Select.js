@@ -1,30 +1,34 @@
 import React from "react";
-import { Button as CherryButton } from "cherry-components";
+import { Select as CherrySelect } from "cherry-components";
 import { useTheme } from "@emotion/react";
 
-function Button({
+function Select({
 	className,
 	children,
-	variant = "primary",
 	size = "default",
-	frame,
+	error,
+	success,
 	fullWidth,
+	label,
+	variant = "secondary",
 	...props
 }) {
 	const theme = useTheme();
 	return (
-		<CherryButton
+		<CherrySelect
 			className={className}
-			variant={variant}
 			size={size}
-			frame={frame}
+			error={error}
+			success={success}
 			fullWidth={fullWidth}
+			label={label}
 			theme={theme}
+			variant={variant}
 			{...props}
 		>
 			{children}
-		</CherryButton>
+		</CherrySelect>
 	);
 }
 
-export { Button };
+export { Select };
