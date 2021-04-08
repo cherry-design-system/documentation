@@ -2,7 +2,13 @@ import React from "react";
 import { Label } from "../../Label/Label";
 import { inputStyles } from "../Input.styles";
 
-function RangeSlider({ className, size = "default", ...props }) {
+function RangeSlider({
+	className,
+	size = "default",
+	fullWidth,
+	variant = "secondary",
+	...props
+}) {
 	return (
 		<input
 			type="range"
@@ -15,7 +21,8 @@ function RangeSlider({ className, size = "default", ...props }) {
 					props.disabled,
 					false,
 					false,
-					false,
+					fullWidth,
+					variant,
 				)
 			}
 			{...props}

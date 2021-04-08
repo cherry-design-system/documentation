@@ -67,7 +67,7 @@ function Col({
 					sticky,
 				)
 			}
-			className={className}
+			className={className ? `col ${className}` : "col"}
 			id={id}
 			data-col
 		>

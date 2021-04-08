@@ -12,16 +12,23 @@ function ToggleInput({
 	label,
 	type = "checkbox",
 	fullWidth,
+	variant = "secondary",
 	...props
 }) {
 	return (
 		<div
 			css={(theme) =>
-				radioCheckWrapperStyles(theme, "toggle-input", size, fullWidth)
+				radioCheckWrapperStyles(
+					theme,
+					"toggle-input",
+					size,
+					fullWidth,
+					variant,
+				)
 			}
 		>
 			<div
-				css={(theme) => toggleInputStyles(theme, size)}
+				css={(theme) => toggleInputStyles(theme, size, variant)}
 				className="toggle-input-inner"
 			>
 				<input type="checkbox" className={className} {...props} />

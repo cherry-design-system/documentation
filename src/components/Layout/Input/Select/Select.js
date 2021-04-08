@@ -11,6 +11,7 @@ function Select({
 	success,
 	fullWidth,
 	label,
+	variant = "secondary",
 	...props
 }) {
 	return (
@@ -22,7 +23,14 @@ function Select({
 			)}
 			<div
 				css={(theme) =>
-					selectWrapperStyles(theme, size, success, error, fullWidth)
+					selectWrapperStyles(
+						theme,
+						size,
+						success,
+						error,
+						fullWidth,
+						variant,
+					)
 				}
 			>
 				<select
@@ -36,6 +44,7 @@ function Select({
 							success,
 							error,
 							fullWidth,
+							variant,
 						)
 					}
 					{...props}

@@ -9,6 +9,7 @@ function Textarea({
 	success,
 	label,
 	fullWidth,
+	variant = "secondary",
 	...props
 }) {
 	return (
@@ -29,6 +30,7 @@ function Textarea({
 						success,
 						error,
 						fullWidth,
+						variant,
 					)
 				}
 				{...props}
