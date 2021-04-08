@@ -33,12 +33,7 @@ function Index({ posts = [] }) {
 			<Space size={10} />
 			<Row>
 				<Col xs={12} lg={4}>
-					<Input
-						type="text"
-						placeholder="Placeholder"
-						variant="primary"
-						fullWidth
-					/>
+					<Input type="text" placeholder="Placeholder" fullWidth />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
@@ -89,7 +84,7 @@ function Index({ posts = [] }) {
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
-					<Select fullWidth variant="primary">
+					<Select fullWidth>
 						<option value="1">Sample 1</option>
 						<option value="2">Sample 2</option>
 						<option value="3">Sample 3</option>
@@ -195,7 +190,6 @@ function Index({ posts = [] }) {
 						fullWidth
 						label="Checkbox"
 						id="check-1"
-						variant="primary"
 					/>
 					<Space size={20} />
 				</Col>
@@ -204,9 +198,8 @@ function Index({ posts = [] }) {
 						type="checkbox"
 						placeholder="Placeholder"
 						fullWidth
-						label="Checkbo 1x"
+						label="Checkbox"
 						id="check-2"
-						variant="primary"
 						defaultChecked
 					/>
 					<Space size={20} />
@@ -230,7 +223,6 @@ function Index({ posts = [] }) {
 						fullWidth
 						label="Radio"
 						id="radio-1"
-						variant="primary"
 					/>
 					<Space size={20} />
 				</Col>
@@ -265,7 +257,6 @@ function Index({ posts = [] }) {
 						name="slide-1"
 						label="Toggle"
 						id="slide-1"
-						variant="tertiary"
 					/>
 					<Space size={20} />
 				</Col>
@@ -397,7 +388,7 @@ function Index({ posts = [] }) {
 				</Col>
 
 				<Col xs={12} lg={4}>
-					<RangeSlider label="Toggle" variant="primary" />
+					<RangeSlider label="Toggle" />
 					<Space size={20} />
 				</Col>
 				<Col xs={12} lg={4}>
