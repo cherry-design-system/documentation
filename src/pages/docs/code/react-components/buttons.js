@@ -28,7 +28,7 @@ const buttonPrimaryFullWidthCode = `<Button fullWidth>Primary</Button>`;
 const buttonSecondaryFullWidthCode = `<Button variant="secondary" fullWidth>Secondary</Button>`;
 const buttonTertiaryFullWidthCode = `<Button variant="tertiary" fullWidth>Tertiary</Button>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Button Components">
 			<Space xs={20} lg={40} />

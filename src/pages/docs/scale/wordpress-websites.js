@@ -4,7 +4,7 @@ import { Space, H1, Box, Link } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 import Image from "next/image";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="WordPress Websites">
 			<Space xs={20} lg={40} />

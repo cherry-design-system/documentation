@@ -17,7 +17,7 @@ const cherryScssCode = `@import "cherry-sass/src/theme";
 const importDistCode = `@import "cherry-sass/dist/cherry.css";`;
 const importHtmlCode = `<link rel="stylesheet" href="cherry-sass/dist/cherry.css">`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Install Cherry for Sass">
 			<Space xs={20} lg={40} />

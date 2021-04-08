@@ -24,7 +24,7 @@ $color-error: #DC3545;
 $color-warning: #FFC107;
 $color-info: #17A2B8;`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Colors">
 			<Space xs={20} lg={40} />

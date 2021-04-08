@@ -196,7 +196,7 @@ const selectBigFullCode = `<select class="big full-width">
 const textareaFullCode = `<textarea class="full-width">Placeholder</textarea>`;
 const textareaBigFullCode = `<textarea class="big full-width">Placeholder</textarea>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Inputs">
 			<Space xs={20} lg={40} />

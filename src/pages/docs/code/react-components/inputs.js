@@ -131,7 +131,7 @@ const selectBigFullCode = `<Select size="big" fullWidth>
 const textareaFullCode = `<Textarea fullWidth>Placeholder</Textarea>`;
 const textareaBigFullCode = `<Textarea size="big" fullWidth>Placeholder</Textarea>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Input Components">
 			<Space xs={20} lg={40} />

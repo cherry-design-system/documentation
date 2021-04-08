@@ -4,7 +4,7 @@ import { Space, H1, Link, Col, Row } from "../../../components/Layout";
 import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page
 			title="Design Colors"

@@ -29,7 +29,7 @@ const componentsCode = `import {
 	globalStyles
 } from "cherry-components";`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Install Cherry Components">
 			<Space xs={20} lg={40} />

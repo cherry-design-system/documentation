@@ -28,7 +28,7 @@ const gridCode = `<Container>
 	</Row>
 </Container>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Grid Components">
 			<Space xs={20} lg={40} />

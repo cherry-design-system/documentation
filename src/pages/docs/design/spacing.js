@@ -4,7 +4,7 @@ import { Page } from "../../../components/Pages";
 import { Space, H1, TableOverflow, Link } from "../../../components/Layout";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page
 			title="Design Spacing"

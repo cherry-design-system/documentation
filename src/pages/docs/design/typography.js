@@ -25,7 +25,7 @@ import {
 } from "../../../assets/styles/helperStyles";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page
 			title="Design Typography"

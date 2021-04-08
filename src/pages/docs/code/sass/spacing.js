@@ -14,7 +14,7 @@ const spaceCode = `<span class="space size-24"></span>
 <span class="space size-160 xs-hide lg-show"></span>
 <span class="space size-24 horizontal xs-show lg-hide"></span>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Spacing">
 			<Space xs={20} lg={40} />

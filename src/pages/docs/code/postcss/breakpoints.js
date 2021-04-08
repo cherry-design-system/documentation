@@ -32,7 +32,7 @@ const xxxlCode = `@media (--screen-xxxl) {
 	// Media query for the XXXL Large size = 1920px
 }`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="PostCSS Breakpoints">
 			<Space xs={20} lg={40} />

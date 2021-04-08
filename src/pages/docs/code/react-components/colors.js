@@ -24,7 +24,7 @@ error: "#DC3545",
 warning: "#FFC107",
 info: "#17A2B8",`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Emotion Colors">
 			<Space xs={20} lg={40} />

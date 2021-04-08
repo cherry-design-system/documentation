@@ -4,7 +4,7 @@ import { Page } from "../../../components/Pages";
 import { Space, H1, Link, Box } from "../../../components/Layout";
 import { DocNavWrapper, DocNav } from "../../../components/DocNav";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page
 			title="Design Documentation"

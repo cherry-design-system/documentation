@@ -24,7 +24,7 @@ const uiCodes = `--color-success: #28A745;
 --color-warning: #FFC107;
 --color-info: #17A2B8;`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="PostCSS Colors">
 			<Space xs={20} lg={40} />

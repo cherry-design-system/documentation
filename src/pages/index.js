@@ -20,12 +20,17 @@ import { Projects } from "../components/Projects";
 import { Socials } from "../components/Socials/Socials";
 import { ImageWrapper } from "../components/ImageWrapper";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Design System">
 			<Container>
 				<Space xs={20} lg={150} />
-				<Row gutterLg="medium">
+				<Row
+					gutterLg="medium"
+					gutterXl="medium"
+					gutterXxl="medium"
+					gutterXxl="medium"
+				>
 					<Col xs={12} lg={8}>
 						<H1 size="hero1">A design system to build the web.</H1>
 						<Space xs="none" lg={10} />

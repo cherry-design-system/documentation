@@ -154,7 +154,7 @@ $lineheight-blockquote-mobile: 1.5;
 $size-blockquote-desktop: 18px;
 $lineheight-blockquote-desktop: 1.5;`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Theme">
 			<Space xs={20} lg={40} />

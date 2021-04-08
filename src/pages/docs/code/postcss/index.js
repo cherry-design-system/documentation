@@ -33,7 +33,7 @@ const postcssPluginsCode = `module.exports = {
 const importDistCode = `@import "cherry-postcss/dist/cherry.css";`;
 const importHtmlCode = `<link rel="stylesheet" href="cherry-postcss/dist/cherry.css">`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Install Cherry for PostCSS">
 			<Space xs={20} lg={40} />

@@ -156,7 +156,7 @@ const themeCode = `@custom-media --screen-xs (min-width: 0);
 	--lineheight-blockquote-desktop: 1.5;
 }`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="PostCSS Theme">
 			<Space xs={20} lg={40} />

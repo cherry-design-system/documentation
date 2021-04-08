@@ -28,7 +28,7 @@ const buttonPrimaryFullWidthCode = `<a class="button full-width">Primary</a>`;
 const buttonSecondaryFullWidthCode = `<a class="button secondary full-width">Secondary</a>`;
 const buttonTertiaryFullWidthCode = `<a class="button tertiary full-width">Tertiary</a>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Buttons">
 			<Space xs={20} lg={40} />

@@ -12,7 +12,7 @@ import {
 } from "../../../components/Layout";
 import { DocNavWrapper, DocNav } from "../../../components/DocNav";
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page
 			title="Design Meta Images"

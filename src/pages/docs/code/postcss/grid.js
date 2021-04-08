@@ -31,7 +31,7 @@ const gridCode = `<!--- Grid Container -->
 	</div>
 </div>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="PostCSS Grid">
 			<Space xs={20} lg={40} />

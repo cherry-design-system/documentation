@@ -20,7 +20,7 @@ const favIconCode = `<link rel="icon" type="image/png" sizes="32x32" href="https
 <link rel="icon" type="image/png" sizes="16x16" href="https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/16.png" />
 <link rel="shortcut icon" href="https://cherry-documentation.s3-eu-west-1.amazonaws.com/img/meta/favicon.ico" />`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Meta Tags">
 			<Space xs={20} lg={40} />

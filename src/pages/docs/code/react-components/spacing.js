@@ -14,7 +14,7 @@ const spaceCode = `<Space size={24} />
 <Space xs="none" lg={160} />
 <Space xs={24} lg="none" horizontal />`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Spacing Component">
 			<Space xs={20} lg={40} />

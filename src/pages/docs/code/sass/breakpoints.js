@@ -32,7 +32,7 @@ const xxxlCode = `@media (min-width: $screen-xxxl) {
 	// Media query for the XXXL Large size = 1920px
 }`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Breakpoints">
 			<Space xs={20} lg={40} />

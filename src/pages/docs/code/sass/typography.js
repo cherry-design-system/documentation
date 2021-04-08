@@ -42,7 +42,7 @@ const blockquoteCode = `<blockquote>
 	Blockquote - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.
 </blockquote>`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Sass Typography">
 			<Space xs={20} lg={40} />

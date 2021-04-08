@@ -50,7 +50,7 @@ const xxxlCode = `\${mq(Breakpoints.xxxl)} {
 	// Media query for the XXXL Large size = 1920px
 }`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Emotion Breakpoints">
 			<Space xs={20} lg={40} />

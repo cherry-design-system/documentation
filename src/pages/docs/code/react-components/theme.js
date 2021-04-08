@@ -250,7 +250,7 @@ const themeCode = `const theme = {
 
 export { theme };`;
 
-function Index({ posts = [] }) {
+function Index() {
 	return (
 		<Page title="Emotion Theme">
 			<Space xs={20} lg={40} />
