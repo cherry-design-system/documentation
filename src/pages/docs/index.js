@@ -26,7 +26,10 @@ function Index() {
 				out-of-the-box.
 			</p>
 			<Space size={20} />
-			<Row>
+			<Row
+				gutterXs="default"
+				gutterLg="default"
+			>
 				<Col xs={12} lg={4} textAlign="center">
 					<Box href="/docs/design" as="/docs/design">
 						<Image

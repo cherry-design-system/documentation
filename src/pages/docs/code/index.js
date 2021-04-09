@@ -25,7 +25,7 @@ function Index() {
 				.
 			</p>
 			<Space size={20} />
-			<Row>
+			<Row gutterXs="default" gutterLg="default">
 				<Col xs={12} lg={4} textAlign="center">
 					<Box href="/docs/code/sass" as="/docs/code/sass">
 						<Image

@@ -25,13 +25,7 @@ function Index() {
 		<Page title="Design System">
 			<Container>
 				<Space xs={20} lg={150} />
-				<Row
-					gutterLg="medium"
-					gutterXl="medium"
-					gutterXxl="medium"
-					gutterXxl="medium"
-					gutterXxxl="medium"
-				>
+				<Row gutterLg="medium">
 					<Col xs={12} lg={8}>
 						<H1 size="hero1">A design system to build the web.</H1>
 						<Space xs="none" lg={10} />
