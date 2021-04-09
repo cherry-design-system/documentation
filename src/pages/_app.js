@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, Router } from "next/router";
 import Head from "next/head";
 import NProgress from "nprogress";
@@ -18,6 +18,11 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 function App({ Component, pageProps }) {
 	const router = useRouter();
+	const [isLoaded, setIsLoaded] = useState(false);
+
+	useEffect(() => {
+		setIsLoaded(true);
+	}, []);
 	return (
 		<>
 			{globalStyles}
@@ -36,8 +41,7 @@ function App({ Component, pageProps }) {
 					<link
 						rel="stylesheet"
 						href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-						media="print"
-						onLoad="this.media='all'"
+						media={isLoaded ? "all" : "print"}
 					/>
 					<noscript>
 						<link
