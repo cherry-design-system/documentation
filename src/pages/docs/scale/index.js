@@ -34,7 +34,13 @@ function Index() {
 				speed!
 			</p>
 			<Space size={10} />
-			<Row gutterXs="default" gutterLg="default">
+			<Row
+				gutterXs="default"
+				gutterLg="default"
+				gutterXl="default"
+				gutterXxl="default"
+				gutterXxxl="default"
+			>
 				<Col xs={6} textAlign="center">
 					<Box
 						href="/docs/scale/static-websites"
