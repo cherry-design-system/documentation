@@ -20,7 +20,7 @@ function Footer({ className }) {
 			<footer className={className} css={(theme) => footerStyles(theme)}>
 				<Container theme={theme}>
 					<Space xs={40} lg={80} />
-					<Row className="first-row">
+					<Row gutterLg="default" className="first-row">
 						<Col xs={12} lg={6}>
 							<a
 								href="https://github.com/cherry-design-system/?ref=cherry.design"
