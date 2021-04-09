@@ -1,7 +1,17 @@
 import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
-import { Col, Container, Input, Row, Space, H1 } from "cherry-components";
+import {
+	Col,
+	Container,
+	Input,
+	Row,
+	Space,
+	H1,
+	H2,
+	H3,
+	H4,
+} from "cherry-components";
 import { Page } from "../components/Pages";
 import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
