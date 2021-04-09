@@ -8,9 +8,6 @@ import Document, {
 } from "next/document";
 
 class MyDocument extends Document {
-	componentDidMount() {
-
-	}
 	render() {
 		return (
 			<Html>
