@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useRouter, Router } from "next/router";
+import Head from "next/head";
 import NProgress from "nprogress";
 import { ThemeProvider } from "@emotion/react";
 import { Col, Container, MinHeight, Row } from "cherry-components";
-import Head from "next/head";
 import { globalStyles } from "../assets/styles/globalStyles";
 import { theme } from "../assets/styles/theme";
 import { Header } from "../components/Header/Header";
