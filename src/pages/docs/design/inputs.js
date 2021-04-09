@@ -30,7 +30,7 @@ function Index() {
 				include 2 different statuses: error and success.
 			</p>
 			<Space size={10} />
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12} lg={4}>
 					<Input type="text" placeholder="Placeholder" fullWidth />
 					<Space size={20} />

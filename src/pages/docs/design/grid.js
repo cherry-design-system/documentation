@@ -21,7 +21,7 @@ function Index() {
 				different variations for the gutter size: default, medium, big.
 			</p>
 			<Space size={10} />
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12}>
 					<Box noPadding>
 						<p>

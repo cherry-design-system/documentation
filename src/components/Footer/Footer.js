@@ -82,7 +82,7 @@ function Footer({ className }) {
 					</Row>
 					<Space xs={40} lg={80} />
 					<hr />
-					<Row>
+					<Row gutterLg="default">
 						<Col xs={12} lg={6} className="left-col">
 							<Space xs={40} lg={100} />
 							<a

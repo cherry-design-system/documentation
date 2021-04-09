@@ -20,7 +20,7 @@ function Index() {
 				buttons.
 			</p>
 			<Space size={10} />
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12} lg={4}>
 					<Button variant="primary">Primary</Button>
 					<Space size={20} />

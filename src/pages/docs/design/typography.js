@@ -222,7 +222,7 @@ function Index() {
 			<Space size={10} />
 			<hr />
 			<Space size={10} />
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12} lg={6}>
 					<H1 size="hero1">Hero1</H1>
 					<Space size={10} />

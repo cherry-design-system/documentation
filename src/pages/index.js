@@ -93,7 +93,7 @@ function Index() {
 				<Space xs={10} lg={150} />
 				<hr />
 				<Space xs={20} lg={80} />
-				<Row>
+				<Row gutterLg="default">
 					<Col xs={12} lg={8}>
 						<H2 size="h1">
 							<BigNumber number="1" color="secondary" />
@@ -128,7 +128,7 @@ function Index() {
 				<Space xs={10} lg={80} />
 				<hr />
 				<Space xs={20} lg={80} />
-				<Row>
+				<Row gutterLg="default">
 					<Col xs={12} lg={8}>
 						<H3 size="h1">
 							<BigNumber number="2" color="tertiary" />
@@ -163,7 +163,7 @@ function Index() {
 				<Space xs={20} lg={80} />
 				<hr />
 				<Space xs={20} lg={80} />
-				<Row>
+				<Row gutterLg="default">
 					<Col xs={12} lg={8}>
 						<H4 size="h1">
 							<BigNumber number="3" color="primary" />
@@ -200,7 +200,7 @@ function Index() {
 			<Projects />
 			<Space xs={20} lg={80} />
 			<Container>
-				<Row>
+				<Row gutterLg="default">
 					<Col xs={12} textAlign="center">
 						<Link href="/docs" as="/docs" size="big">
 							Get Started

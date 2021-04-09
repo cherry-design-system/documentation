@@ -48,7 +48,7 @@ function Index() {
 					<>
 						<H3 size="h6">🖥 Desktop</H3>
 						<Space size={20} />
-						<Row>
+						<Row gutterLg="default">
 							<Col xs={4}>
 								<Box>
 									<p>
@@ -74,7 +74,7 @@ function Index() {
 						<Space size={20} />
 						<H4 size="h6">📱 Mobile</H4>
 						<Space size={20} />
-						<Row>
+						<Row gutterLg="default">
 							<Col xs={6}>
 								<Box>
 									<p>

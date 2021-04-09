@@ -22,7 +22,7 @@ function Index() {
 			<Space size={10} />
 			<hr />
 			<Space size={10} />
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12} lg={4}>
 					<ColorBox name="Primary Light" value="#FDA4AF" />
 					<Space size={20} />
@@ -36,7 +36,7 @@ function Index() {
 					<Space size={20} />
 				</Col>
 			</Row>
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12} lg={4}>
 					<ColorBox name="Primary" value="#F43F5E" />
 					<Space size={20} />
@@ -50,7 +50,7 @@ function Index() {
 					<Space size={20} />
 				</Col>
 			</Row>
-			<Row>
+			<Row gutterLg="default">
 				<Col xs={12} lg={4}>
 					<ColorBox name="Primary Dark" value="#9F1239" />
 					<Space xs={20} lg={10} />

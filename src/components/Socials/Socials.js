@@ -17,7 +17,7 @@ function Socials() {
 			<hr className="no-margin" />
 			<Space xs={20} lg={80} />
 			<Container css={(theme) => socialStyles(theme)} theme={theme}>
-				<Row>
+				<Row gutterLg="default">
 					<Col xs={12} lg={6}>
 						<H3 size="h5">Follow the creator</H3>
 						<Space xs={20} lg={20} />
