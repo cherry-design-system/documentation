@@ -207,7 +207,7 @@ function Index() {
 				}
 			/>
 			<Space size={20} />
-			<H2 size="h3">§s</H2>
+			<H2 size="h3">FontStyle Props</H2>
 			<Space size={10} />
 			<TableOverflow>
 				<table>
