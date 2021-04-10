@@ -18,7 +18,11 @@ function Index() {
 	return (
 		<Page
 			title="Design Inputs"
-			description="Cherry includes form styles for all the default HTML inputs. Input text, phone, number, email, password, checkbox, radio, select and textarea. The input texts, textareas and selects include 2 different statuses: error and success."
+			description="Cherry includes form styles for all the default HTML inputs.
+			Input text, phone, number, email, password, checkbox, radio,
+			range, custom toggle, select and textarea. The input texts,
+			textareas and selects include 2 different statuses: error and
+			success."
 		>
 			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Inputs</H1>
@@ -26,8 +30,9 @@ function Index() {
 			<p>
 				Cherry includes form styles for all the default HTML inputs.
 				Input text, phone, number, email, password, checkbox, radio,
-				select and textarea. The input texts, textareas and selects
-				include 2 different statuses: error and success.
+				range, custom toggle, select and textarea. The input texts,
+				textareas and selects include 2 different statuses: error and
+				success.
 			</p>
 			<Space size={10} />
 			<Row

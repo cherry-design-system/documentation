@@ -9,7 +9,11 @@ function Index() {
 	return (
 		<Page
 			title="Design Grid"
-			description="Cherry's grid system allows up to 12 columns across the page. If you do not want to use all 12 column individually, you can group the columns together to create wider columns. There are 3 different variations for the gutter size: default, medium, big."
+			description="Cherry's grid system allows up to 12 columns across the page. If
+			you do not want to use all 12 column individually, you can group
+			the columns together to create wider columns. There are 3
+			different variations for the gutter size: default, medium and
+			big."
 		>
 			<Space xs={20} lg={40} />
 			<H1 size="hero1">Design Grid</H1>
@@ -18,7 +22,8 @@ function Index() {
 				Cherry's grid system allows up to 12 columns across the page. If
 				you do not want to use all 12 column individually, you can group
 				the columns together to create wider columns. There are 3
-				different variations for the gutter size: default, medium, big.
+				different variations for the gutter size: default, medium and
+				big.
 			</p>
 			<Space size={10} />
 			<Row
