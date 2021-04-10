@@ -66,7 +66,12 @@ export const footerStyles = (theme) => css`
 
 			& li {
 				& a {
-					margin: 10px;
+					display: inline-block;
+					margin: 5px 10px;
+
+					${mq(Breakpoints.lg)} {
+						margin: 0 10px;
+					}
 				}
 			}
 		}
