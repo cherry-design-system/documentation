@@ -12,11 +12,7 @@ export const headerStyles = (theme, isLoaded) => css`
 	display: flex;
 	transition: all 1s ease;
 	height: 100vh;
-	transition-delay: 0.5s;
-
-	${mq(Breakpoints.lg)} {
-		transition-delay: 1s;
-	}
+	transition-delay: 1s;
 
 	${isLoaded &&
 	css`
@@ -77,11 +73,7 @@ export const headerStyles = (theme, isLoaded) => css`
 			transform: translate3d(0, 0, 0) scaleX(1) translateY(-100%)
 				scaleY(1);
 			opacity: 1;
-			transition-delay: 0.7s;
-
-			${mq(Breakpoints.lg)} {
-				transition-delay: 1.3s;
-			}
+			transition-delay: 1.3s;
 
 			${isLoaded &&
 			css`
@@ -95,15 +87,11 @@ export const headerStyles = (theme, isLoaded) => css`
 			top: 50%;
 			transform: translate3d(0, 0, 0) translateY(-50%);
 			transition: all 1s ease;
-			transition-delay: 0s;
+			transition-delay: 0.5s;
 			display: flex;
 			width: 100%;
 			justify-content: center;
 			max-width: 100%;
-
-			${mq(Breakpoints.lg)} {
-				transition-delay: 0.5s;
-			}
 
 			${isLoaded &&
 			css`
@@ -149,19 +137,11 @@ export const headerStyles = (theme, isLoaded) => css`
 				`}
 
 				&:nth-of-type(1) {
-					transition-delay: 0.5s;
-
-					${mq(Breakpoints.lg)} {
-						transition-delay: 1s;
-					}
+					transition-delay: 1s;
 				}
 
 				&:nth-of-type(2) {
-					transition-delay: 0.6s;
-
-					${mq(Breakpoints.lg)} {
-						transition-delay: 1.1s;
-					}
+					transition-delay: 1.1s;
 				}
 
 				& a {
