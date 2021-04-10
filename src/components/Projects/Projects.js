@@ -8,10 +8,10 @@ function Projects() {
 		<>
 			<Container textAlign="center">
 				<hr className="no-margin" />
-				<Space xs={20} lg={80} />
+				<Space xs={40} lg={80} />
 				<H3 size="hero3">Open Source Projects</H3>
+				<Space xs={40} lg={80} />
 			</Container>
-			<Space xs={20} lg={80} />
 			<div css={(theme) => projectStyles(theme)}>
 				<a
 					href="https://www.wordpressify.co/?ref=wordpressify.co"
