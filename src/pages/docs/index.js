@@ -20,7 +20,7 @@ function Index() {
 				patterns. It covers the design aspects of your website by
 				providing a Figma template with the original designs. Each
 				element of the design system is implemented in code using
-				various modern fron-end technologies. This facilitates
+				various modern front-end technologies. This facilitates
 				co-creation from design to code. If you are not a designer you
 				can still use Cherry components to build your layouts
 				out-of-the-box.
