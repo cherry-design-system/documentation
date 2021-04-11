@@ -3,7 +3,7 @@ import { Space, H1, Col, Row } from "cherry-components";
 import { Page } from "../../../components/Pages";
 import { ColorBox, ColorBoxContainer } from "../../../components/ColorBox";
 import { DocNav, DocNavWrapper } from "../../../components/DocNav";
-import Link from "next/link";
+import { Link } from "../../../components/Layout";
 
 function Index() {
 	return (
