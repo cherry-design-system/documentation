@@ -1,12 +1,15 @@
 import { css } from "@emotion/react";
+import { darken } from "polished";
 
 export const syntaxWrapperStyles = (theme) => css`
 	& pre {
 		margin: 10px 0 !important;
 		font-family: monospace !important;
+		background: ${darken(0.1, "#111827")} !important;
 
 		& code {
 			font-family: monospace !important;
+			background: ${darken(0.1, "#111827")} !important;
 		}
 	}
 `;
