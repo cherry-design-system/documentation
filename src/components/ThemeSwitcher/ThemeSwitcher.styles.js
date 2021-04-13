@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import { resetButtonStyles } from "../../assets/styles/helperStyles";
-import { Breakpoints, mq } from "../../assets/styles/mq";
 
 export const themeSwitcherStyles = (theme) => css`
 	${resetButtonStyles};
@@ -10,10 +9,6 @@ export const themeSwitcherStyles = (theme) => css`
 	width: 32px;
 	height: 22px;
 	display: flex;
-
-	${mq(Breakpoints.lg)} {
-		height: 32px;
-	}
 
 	& .moon,
 	& .sun {
