@@ -1,4 +1,4 @@
-const theme = {
+const themeLight = {
 	isDark: false,
 	spacing: {
 		maxWidth: "1280px",
@@ -243,4 +243,4 @@ const theme = {
 	},
 };
 
-export { theme };
+export { themeLight };

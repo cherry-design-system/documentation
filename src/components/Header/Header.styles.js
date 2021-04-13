@@ -10,7 +10,7 @@ export const headerStyles = (theme, isLoaded) => css`
 	width: 100%;
 	z-index: 9999;
 	display: flex;
-	transition: all 1s ease;
+	transition: height 1s ease;
 	height: 100vh;
 	transition-delay: 1s;
 
@@ -142,6 +142,10 @@ export const headerStyles = (theme, isLoaded) => css`
 
 				&:nth-of-type(2) {
 					transition-delay: 1.1s;
+				}
+
+				&:nth-of-type(3) {
+					transition-delay: 1.3s;
 				}
 
 				& a {

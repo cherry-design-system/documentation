@@ -7,6 +7,11 @@ export const footerStyles = (theme) => css`
 	background: ${rgba(theme.colors.grayLight, 0.3)};
 	text-align: center;
 
+	${theme.isDark &&
+	css`
+		background: ${rgba(theme.colors.dark, 0.05)};
+	`}
+
 	${mq(Breakpoints.lg)} {
 		text-align: left;
 	}
