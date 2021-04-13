@@ -68,7 +68,6 @@ export const headerStyles = (theme, isLoaded) => css`
 			width: 100%;
 			left: 0;
 			bottom: -6px;
-			background: ${theme.colors.light};
 			position: absolute;
 			transform: translate3d(0, 0, 0) scaleX(1) translateY(-100%)
 				scaleY(1);
