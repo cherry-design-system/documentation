@@ -79,6 +79,10 @@ export const socialStyles = (theme) => css`
 						transform: translate(-50%, -50%);
 						padding: 6px;
 						border-radius: 50%;
+						${theme.isDark &&
+						css`
+							background: ${theme.colors.dark};
+						`}
 					}
 				}
 			}
