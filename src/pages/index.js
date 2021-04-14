@@ -13,10 +13,10 @@ import {
 	H4,
 } from "cherry-components";
 import { Page } from "../components/Pages";
-import { LogoWrapper } from "../components/LogoWrapper/LogoWrapper";
+import { LogoWrapper } from "../components/LogoWrapper";
 import { BigNumber } from "../components/BigNumber";
 import { Projects } from "../components/Projects";
-import { Socials } from "../components/Socials/Socials";
+import { Socials } from "../components/Socials";
 import { ImageWrapper } from "../components/ImageWrapper";
 import { Link } from "../components/Layout";
 
