@@ -7,8 +7,9 @@ export const themeSwitcherStyles = (theme) => css`
 	z-index: 99999;
 	overflow: hidden;
 	width: 32px;
-	height: 22px;
+	height: 25px;
 	display: flex;
+	margin-right: 5px;
 
 	& .moon,
 	& .sun {
@@ -19,7 +20,6 @@ export const themeSwitcherStyles = (theme) => css`
 		opacity: 0;
 		width: 18px;
 		height: 18px;
-		padding-right: 2px;
 	}
 
 	& .sun {
@@ -34,14 +34,14 @@ export const themeSwitcherStyles = (theme) => css`
 		? css`
 				& .moon {
 					transform: translate3d(0, 0, 0) translate(-50%, -50%)
-						translateY(2px);
+						translateY(0);
 					opacity: 1;
 				}
 		  `
 		: css`
 				& .sun {
 					transform: translate3d(0, 0, 0) translate(-50%, -50%)
-						translateY(2px);
+						translateY(0);
 					opacity: 1;
 				}
 		  `};
