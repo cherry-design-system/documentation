@@ -8,7 +8,7 @@ export const logoWrapperStyles = (theme) => css`
 		margin: 0 -10px;
 	}
 
-	& > div {
+	& > * {
 		margin: 10px !important;
 	}
 `;
