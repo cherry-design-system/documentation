@@ -112,13 +112,14 @@ function Sidebar({ className }) {
 																	childItem.state,
 																)
 															) {
-																const newState = activeMenus.filter(
-																	(
-																		localItem,
-																	) =>
-																		localItem !==
-																		childItem.state,
-																);
+																const newState =
+																	activeMenus.filter(
+																		(
+																			localItem,
+																		) =>
+																			localItem !==
+																			childItem.state,
+																	);
 																setActiveMenus(
 																	newState,
 																);
