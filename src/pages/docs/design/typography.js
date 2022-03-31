@@ -40,6 +40,12 @@ function Index() {
 				paragraphs and so on. There are 2 types of typography
 				definitions, one for mobile and one for desktop.
 			</p>
+			<H2>Form Input</H2>
+			<p>
+				The font-size of an <strong>{"<input>"}</strong> should always
+				be 16px or larger. As soon as the font-size is 15px or less,
+				Safari on iOS will zoom into that input.
+			</p>
 			<Space size={10} />
 			<TableOverflow>
 				<table>
