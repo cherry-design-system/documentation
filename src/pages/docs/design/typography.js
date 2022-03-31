@@ -145,9 +145,9 @@ function Index() {
 						<tr>
 							<td>Button</td>
 							<td>Inter, sans-serif</td>
-							<td>14px</td>
+							<td>16px</td>
 							<td>1</td>
-							<td>12px</td>
+							<td>16px</td>
 							<td>1</td>
 						</tr>
 						<tr>
@@ -155,7 +155,7 @@ function Index() {
 							<td>Inter, sans-serif</td>
 							<td>18px</td>
 							<td>1</td>
-							<td>16px</td>
+							<td>18px</td>
 							<td>1</td>
 						</tr>
 						<tr>
@@ -169,9 +169,9 @@ function Index() {
 						<tr>
 							<td>Input</td>
 							<td>Inter, sans-serif</td>
-							<td>14px</td>
+							<td>16px</td>
 							<td>1</td>
-							<td>12px</td>
+							<td>16px</td>
 							<td>1</td>
 						</tr>
 						<tr>
@@ -179,7 +179,7 @@ function Index() {
 							<td>Inter, sans-serif</td>
 							<td>18px</td>
 							<td>1</td>
-							<td>16px</td>
+							<td>18px</td>
 							<td>1</td>
 						</tr>
 						<tr>
