@@ -19,38 +19,43 @@ import { Projects } from "../components/Projects";
 import { Socials } from "../components/Socials";
 import { ImageWrapper } from "../components/ImageWrapper";
 import { Link } from "../components/Layout";
+import { OverflowHidden } from "../components/Layout/OverflowHidden";
 
 function Index() {
 	return (
 		<Page title="Design System">
 			<Container>
 				<Space xs={20} lg={150} />
-				<Row gutterLg="medium">
-					<Col xs={12} lg={8}>
-						<H1 size="hero1">A design system to build the web.</H1>
-						<Space xs="none" lg={10} />
-						<p>
-							Cherry is the foundation for your design system,
-							from design to code. With examples of
-							implementations in modern front-end technologies.
-							Customizable and scalable, ready to be used
-							out-of-the-box.
-						</p>
-						<Space xs={10} lg={20} />
-						<Link href="/docs" as="/docs">
-							Get Started
-						</Link>
-						<Space xs={10} lg="none" />
-					</Col>
-					<Col xs={12} lg={4} textAlign="center">
-						<Image
-							src="/img/illustration.png"
-							alt="Cherry home page illustration"
-							width={267.92}
-							height={314}
-						/>
-					</Col>
-				</Row>
+				<OverflowHidden>
+					<Row gutterLg="big">
+						<Col xs={12} lg={8}>
+							<H1 size="hero1">
+								A design system to build the web.
+							</H1>
+							<Space xs="none" lg={10} />
+							<p>
+								Cherry is the foundation for your design system,
+								from design to code. With examples of
+								implementations in modern front-end
+								technologies. Customizable and scalable, ready
+								to be used out-of-the-box.
+							</p>
+							<Space xs={10} lg={20} />
+							<Link href="/docs" as="/docs">
+								Get Started
+							</Link>
+							<Space xs={10} lg="none" />
+						</Col>
+						<Col xs={12} lg={4} textAlign="center">
+							<Image
+								src="/img/illustration.png"
+								alt="Cherry home page illustration"
+								width={267.92}
+								height={314}
+							/>
+						</Col>
+					</Row>
+				</OverflowHidden>
 				<Space xs={20} lg="none" />
 				<LogoWrapper>
 					<Image
