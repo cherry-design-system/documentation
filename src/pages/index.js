@@ -41,6 +41,7 @@ function Index() {
 								to be used out-of-the-box.
 							</p>
 							<Space xs={10} lg={20} />
+							<Space size={5} horizontal />
 							<Link href="/docs" as="/docs">
 								Get Started
 							</Link>
