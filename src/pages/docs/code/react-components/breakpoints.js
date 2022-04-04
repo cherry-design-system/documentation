@@ -18,7 +18,7 @@ const Breakpoints = {
 };
 
 function mq(minWidth) {
-	return `@media screen and (min-width: ${breakpoints[minWidth]}px)`;
+	return \`@media screen and (min-width: \${breakpoints[minWidth]}px)\`;
 }
 
 export { mq, Breakpoints };
