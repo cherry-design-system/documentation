@@ -4,7 +4,8 @@ import { Page } from "../../../../components/Pages";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
-const mqCode = `const breakpoints = [0, 576, 768, 992, 1200, 1440, 1920];
+const mqCode = `import { localTheme as theme } from "./theme";
+const breakpoints = theme.spacing.breakpoints;
 
 const Breakpoints = {
 	xs: 0,
@@ -17,10 +18,11 @@ const Breakpoints = {
 };
 
 function mq(minWidth) {
-	return \`@media screen and (min-width: \${breakpoints[minWidth]}px)\`;
+	return `@media screen and (min-width: ${breakpoints[minWidth]}px)`;
 }
 
-export { mq, Breakpoints };`;
+export { mq, Breakpoints };
+`;
 
 const xsCode = `\${mq(Breakpoints.xs)} {
 	// Media query for the Extra Small size = 0px
@@ -62,9 +64,6 @@ function Index() {
 				Breakpoints define the screen size of the device. Cherry is
 				built with the mobile first approach and uses Emotion to
 				generate styles.
-			</p>
-			<p>
-				All media queries are defined in <strong>mq.js</strong>
 			</p>
 			<Space size={1} />
 			<CodeBlock language="jsx" value={mqCode} />
