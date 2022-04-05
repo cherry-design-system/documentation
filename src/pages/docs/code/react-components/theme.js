@@ -8,42 +8,51 @@ const themeCode = `const theme = {
 	spacing: {
 		maxWidth: "1280px",
 		maxWidthLimit: "1440px",
-		paddingTopBody: { mobile: "76px", desktop: "76px" },
-		marginContainer: { mobile: "20px", desktop: "20px" },
-		marginRow: { default: "-10px", medium: "-30px", big: "-50px" },
-		gutterCol: { default: "10px", medium: "30px", big: "50px" },
+		paddingTopBody: {
+			mobile: "76px",
+			desktop: "76px",
+		},
+		marginContainer: {
+			mobile: "20px",
+			desktop: "20px",
+		},
+		marginRow: {
+			default: "-10px",
+			medium: "-30px",
+			big: "-50px",
+		},
+		gutterCol: {
+			default: "10px",
+			medium: "30px",
+			big: "50px",
+		},
 		breakpoints: [0, 576, 768, 992, 1200, 1440, 1920],
 	},
 	colors: {
-		primaryLight: "#FDA4AF",
-		primary: "#F43F5E",
-		primaryDark: "#9F1239",
-
-		secondaryLight: "#7DD3FC",
-		secondary: "#0EA5E9",
+		primaryLight: "#fda4af",
+		primary: "#f43f5e",
+		primaryDark: "#9f1239",
+		secondaryLight: "#7dd3fc",
+		secondary: "#0ea5e9",
 		secondaryDark: "#075985",
-
-		tertiaryLight: "#D8B4FE",
-		tertiary: "#A855F7",
-		tertiaryDark: "#6B21A8",
-
-		dark: "#000",
-		light: "#fff",
-
-		grayLight: "#E5E7EB",
-		gray: "#9CA3AF",
-		grayDark: "#4B5563",
-
-		success: "#28A745",
-		error: "#DC3545",
-		warning: "#FFC107",
-		info: "#17A2B8",
+		tertiaryLight: "#d8b4fe",
+		tertiary: "#a855f7",
+		tertiaryDark: "#6b21a8",
+		dark: "#000000",
+		light: "#ffffff",
+		grayLight: "#e5e7eb",
+		gray: "#9ca3af",
+		grayDark: "#4b5563",
+		success: "#28a745",
+		error: "#dc3545",
+		warning: "#ffc107",
+		info: "#17a2b8",
 	},
 	fonts: {
-		text: "'Inter', sans-serif",
-		head: "'Inter', sans-serif",
-		special: "'Inter', sans-serif",
-		mono: "'Inter', monospace",
+		text: "Inter",
+		head: "Inter",
+		special: "Inter",
+		mono: "Inter",
 	},
 	sizes: {
 		hero1: {
@@ -78,62 +87,62 @@ const themeCode = `const theme = {
 		},
 		h1: {
 			size: {
-				mobile: "38px",
+				mobile: "30px",
 				desktop: "40px",
 			},
 			lineheight: {
-				mobile: "1.2",
-				desktop: "1.2",
+				mobile: "1.20",
+				desktop: "1.20",
 			},
 		},
 		h2: {
 			size: {
-				mobile: "28px",
+				mobile: "22px",
 				desktop: "32px",
 			},
 			lineheight: {
-				mobile: "1.2",
-				desktop: "1.2",
+				mobile: "1.20",
+				desktop: "1.20",
 			},
 		},
 		h3: {
 			size: {
-				mobile: "24px",
+				mobile: "18px",
 				desktop: "28px",
 			},
 			lineheight: {
-				mobile: "1.2",
-				desktop: "1.2",
+				mobile: "1.20",
+				desktop: "1.20",
 			},
 		},
 		h4: {
 			size: {
-				mobile: "22px",
+				mobile: "16px",
 				desktop: "24px",
 			},
 			lineheight: {
-				mobile: "1.3",
-				desktop: "1.3",
+				mobile: "1.30",
+				desktop: "1.30",
 			},
 		},
 		h5: {
 			size: {
-				mobile: "18px",
+				mobile: "14px",
 				desktop: "20px",
 			},
 			lineheight: {
-				mobile: "1.4",
-				desktop: "1.4",
+				mobile: "1.40",
+				desktop: "1.40",
 			},
 		},
 		h6: {
 			size: {
-				mobile: "16px",
+				mobile: "12px",
 				desktop: "18px",
 			},
 			lineheight: {
-				mobile: "1.4",
-				desktop: "1.4",
+				mobile: "1.40",
+				desktop: "1.40",
 			},
 		},
 		eyebrow: {
@@ -158,22 +167,22 @@ const themeCode = `const theme = {
 		},
 		button: {
 			size: {
-				mobile: "12px",
-				desktop: "14px",
+				mobile: "16px",
+				desktop: "16px",
 			},
 			lineheight: {
-				mobile: "1",
-				desktop: "1",
+				mobile: "1.00",
+				desktop: "1.00",
 			},
 		},
 		buttonBig: {
 			size: {
-				mobile: "16px",
+				mobile: "18px",
 				desktop: "18px",
 			},
 			lineheight: {
-				mobile: "1",
-				desktop: "1",
+				mobile: "1.00",
+				desktop: "1.00",
 			},
 		},
 		lead: {
@@ -183,27 +192,27 @@ const themeCode = `const theme = {
 			},
 			lineheight: {
 				mobile: "1.35",
-				desktop: "1.35",
+				desktop: "1.45",
 			},
 		},
 		input: {
 			size: {
-				mobile: "12px",
-				desktop: "14px",
+				mobile: "16px",
+				desktop: "16px",
 			},
 			lineheight: {
-				mobile: "1",
-				desktop: "1",
+				mobile: "1.00",
+				desktop: "1.00",
 			},
 		},
 		inputBig: {
 			size: {
-				mobile: "16px",
+				mobile: "18px",
 				desktop: "18px",
 			},
 			lineheight: {
-				mobile: "1",
-				desktop: "1",
+				mobile: "1.00",
+				desktop: "1.00",
 			},
 		},
 		strong: {
@@ -212,8 +221,8 @@ const themeCode = `const theme = {
 				desktop: "16px",
 			},
 			lineheight: {
-				mobile: "1.5",
-				desktop: "1.5",
+				mobile: "1.50",
+				desktop: "1.50",
 			},
 		},
 		text: {
@@ -222,8 +231,8 @@ const themeCode = `const theme = {
 				desktop: "16px",
 			},
 			lineheight: {
-				mobile: "1.5",
-				desktop: "1.5",
+				mobile: "1.50",
+				desktop: "1.50",
 			},
 		},
 		small: {
@@ -232,18 +241,18 @@ const themeCode = `const theme = {
 				desktop: "14px",
 			},
 			lineheight: {
-				mobile: "1.3",
-				desktop: "1.3",
+				mobile: "1.30",
+				desktop: "1.30",
 			},
 		},
 		blockquote: {
 			size: {
-				mobile: "16px",
+				mobile: "14px",
 				desktop: "18px",
 			},
 			lineheight: {
-				mobile: "1.5",
-				desktop: "1.5",
+				mobile: "1.50",
+				desktop: "1.50",
 			},
 		},
 	},
