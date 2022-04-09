@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Space, H1 } from "cherry-components";
+import { Space, H1, H2 } from "cherry-components";
 import { Page } from "../../../components/Pages";
 import { Box, Link } from "../../../components/Layout";
 import { DocNavWrapper, DocNav } from "../../../components/DocNav";
@@ -28,6 +28,10 @@ function Index() {
 					<strong>Interface</strong> - You can find all the form
 					elements, buttons, inputs, checkboxes, radio buttons and
 					drop-down selects.
+				</li>
+				<li>
+					<strong>Patterns</strong> - The desktop and mobile header
+					can be found here.
 				</li>
 				<li>
 					<strong>Icons</strong> - Cherry uses open source icons from
@@ -65,6 +69,41 @@ function Index() {
 				href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System"
 			>
 				Figma UI Kit
+			</Link>
+			<Space size={10} />
+			<hr />
+			<Space size={10} />
+			<H2>Figma Plugin</H2>
+			<p>
+				Cherry has its own Figma Plugin to generate design tokens
+				automatically with a click of a button.{" "}
+				<strong>Cherry Theme Generator</strong> exports all values of
+				the design system. It supports PostCSS, Sass, and React
+				Components.
+			</p>
+			<Space size={10} />
+			<Box noPadding>
+				<a
+					href="https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<Image
+						src="/img/docs/design/cherry-theme-generator-figma-plugin.png"
+						alt="Scale illustration"
+						width={1920}
+						height={960}
+					/>
+				</a>
+			</Box>
+			<Space size={10} />
+			<hr />
+			<Space size={10} />
+			<Link
+				external
+				href="https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator"
+			>
+				Cherry Theme Generator
 			</Link>
 			<Space size={20} />
 			<DocNavWrapper>
