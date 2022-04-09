@@ -53,7 +53,7 @@ const themeCode = `@custom-media --screen-xs (min-width: 0);
 	--font-text: "Inter";
 	--font-head: "Inter";
 	--font-special: "Inter";
-	--font-mono: "Inter";
+	--font-mono: "Roboto Mono";
 
 	--size-hero1-mobile: 52px;
 	--lineheight-hero1-mobile: 1.15;
@@ -154,6 +154,11 @@ const themeCode = `@custom-media --screen-xs (min-width: 0);
 	--lineheight-blockquote-mobile: 1.50;
 	--size-blockquote-desktop: 18px;
 	--lineheight-blockquote-desktop: 1.50;
+
+	--size-code-mobile: 14px;
+	--lineheight-code-mobile: 1.50;
+	--size-code-desktop: 18px;
+	--lineheight-code-desktop: 1.50;
 }`;
 
 function Index() {

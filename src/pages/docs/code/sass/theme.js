@@ -52,7 +52,7 @@ $color-info: #17a2b8;
 $font-text: "Inter";
 $font-head: "Inter";
 $font-special: "Inter";
-$font-mono: "Inter";
+$font-mono: "Roboto Mono";
 
 $size-hero1-mobile: 52px;
 $lineheight-hero1-mobile: 1.15;
@@ -152,7 +152,12 @@ $lineheight-small-desktop: 1.30;
 $size-blockquote-mobile: 14px;
 $lineheight-blockquote-mobile: 1.50;
 $size-blockquote-desktop: 18px;
-$lineheight-blockquote-desktop: 1.50;`;
+$lineheight-blockquote-desktop: 1.50;
+
+$size-code-mobile: 14px;
+$lineheight-code-mobile: 1.50;
+$size-code-desktop: 18px;
+$lineheight-code-desktop: 1.50;`;
 
 function Index() {
 	return (

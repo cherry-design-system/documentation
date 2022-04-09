@@ -40,8 +40,11 @@ const smallCode = `<small>
 	Small - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.
 </small>`;
 const blockquoteCode = `<blockquote>
-	Blockquote - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.
+	Blockquote - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 </blockquote>`;
+const codeCode = `<code>
+	Code - Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+</code>`;
 
 function Index() {
 	return (
@@ -301,12 +304,22 @@ function Index() {
 				value={blockquoteCode}
 				description={
 					<blockquote>
-						Small - Fusce dapibus, tellus ac cursus commodo, tortor
-						mauris condimentum nibh, ut fermentum massa justo sit
-						amet risus. Duis mollis, est non commodo luctus, nisi
-						erat porttitor ligula, eget lacinia odio sem nec elit.
-						Donec id elit non mi porta gravida at eget metus.
+						Blockquote - Fusce dapibus, tellus ac cursus commodo,
+						tortor mauris condimentum nibh, ut fermentum massa justo
+						sit amet risus.
 					</blockquote>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="jsx"
+				value={codeCode}
+				description={
+					<code>
+						Code - Fusce dapibus, tellus ac cursus commodo, tortor
+						mauris condimentum nibh, ut fermentum massa justo sit
+						amet risus.
+					</code>
 				}
 			/>
 			<Space size={20} />

@@ -55,9 +55,9 @@ function Index() {
 				>
 					<Image
 						src="/img/docs/design/figma.jpg"
-						alt="Scale illustration"
-						width={1916}
-						height={1051}
+						alt="Cherry Figma Design System"
+						width={1726}
+						height={1078}
 					/>
 				</a>
 			</Box>

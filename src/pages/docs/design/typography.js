@@ -220,6 +220,14 @@ function Index() {
 							<td>18px</td>
 							<td>1.50</td>
 						</tr>
+						<tr>
+							<td>Code</td>
+							<td>Roboto Mono, monospace</td>
+							<td>14px</td>
+							<td>1.50</td>
+							<td>18px</td>
+							<td>1.50</td>
+						</tr>
 					</tbody>
 				</table>
 			</TableOverflow>
@@ -300,10 +308,12 @@ function Index() {
 			<blockquote>
 				Blockquote - Fusce dapibus, tellus ac cursus commodo, tortor
 				mauris condimentum nibh, ut fermentum massa justo sit amet
-				risus. Duis mollis, est non commodo luctus, nisi erat porttitor
-				ligula, eget lacinia odio sem nec elit. Donec id elit non mi
-				porta gravida at eget metus.
+				risus.
 			</blockquote>
+			<code>
+				Code - Fusce dapibus, tellus ac cursus commodo, tortor mauris
+				condimentum nibh, ut fermentum massa justo sit amet risus.
+			</code>
 			<Space size={10} />
 			<hr />
 			<Space size={10} />
