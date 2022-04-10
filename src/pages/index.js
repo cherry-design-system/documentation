@@ -20,6 +20,7 @@ import { Socials } from "../components/Socials";
 import { ImageWrapper } from "../components/ImageWrapper";
 import { Link } from "../components/Layout";
 import { OverflowHidden } from "../components/Layout/OverflowHidden";
+import { Text } from "../components/Layout/Text/Text";
 
 function Index() {
 	return (
@@ -33,13 +34,13 @@ function Index() {
 								A design system to build the web.
 							</H1>
 							<Space xs="none" lg={10} />
-							<p>
+							<Text>
 								Cherry is the foundation for your design system,
 								from design to code. With examples of
 								implementations in modern front-end
 								technologies. Customizable and scalable, ready
 								to be used out-of-the-box.
-							</p>
+							</Text>
 							<Space xs={10} lg={20} />
 							<Space size={5} horizontal />
 							<Link href="/docs" as="/docs">
@@ -105,11 +106,11 @@ function Index() {
 							<BigNumber number="1" color="secondary" />
 							Start with design
 						</H2>
-						<p>
+						<Text maxWidth>
 							You start by designing your website. Cherry provides
 							a Figma template that defines all standard web
 							patterns and typographys for your design system.
-						</p>
+						</Text>
 						<Space xs={10} lg={20} />
 						<Link
 							variant="secondary"
@@ -140,11 +141,11 @@ function Index() {
 							<BigNumber number="2" color="tertiary" />
 							Continue in code
 						</H3>
-						<p>
+						<Text maxWidth>
 							Each design element comes with a code implemented in
 							various modern front-end technologies or can be used
 							as components.
-						</p>
+						</Text>
 						<Space xs={10} lg={20} />
 						<Link
 							variant="tertiary"
@@ -175,11 +176,11 @@ function Index() {
 							<BigNumber number="3" color="primary" />
 							Scale your design system
 						</H4>
-						<p>
+						<Text maxWidth>
 							Cherry follows it’s own naming convention from
 							design to code. Expanding and customizing your
 							design system has never been easier.
-						</p>
+						</Text>
 						<Space xs={10} lg={20} />
 						<Link
 							variant="primary"
