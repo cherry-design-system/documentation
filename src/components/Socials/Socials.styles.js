@@ -178,3 +178,13 @@ export const socialStyles = (theme) => css`
 		}
 	}
 `;
+
+export const rightFlextyles = (theme) => css`
+	${mq(Breakpoints.lg)} {
+		display: flex;
+	}
+`;
+
+export const rightSideStyles = (theme) => css`
+	margin: auto 0 auto auto;
+`;

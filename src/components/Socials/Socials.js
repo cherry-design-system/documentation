@@ -8,7 +8,11 @@ import { Dribbble } from "../../assets/svg/Dribbble";
 import { Pictogram } from "../../assets/svg/Pictogram";
 import { Discord } from "../../assets/svg/Discord";
 import { Figma } from "../../assets/svg/Figma";
-import { socialStyles } from "./Socials.styles";
+import {
+	rightFlextyles,
+	rightSideStyles,
+	socialStyles,
+} from "./Socials.styles";
 
 function Socials() {
 	const theme = useTheme();
@@ -18,7 +22,7 @@ function Socials() {
 			<Space xs={20} lg={80} />
 			<Container css={(theme) => socialStyles(theme)} theme={theme}>
 				<Row gutterLg="default">
-					<Col xs={12} lg={6}>
+					<Col xs={12} lg={5}>
 						<H3 size="h5">Follow the creator</H3>
 						<Space xs={20} lg={20} />
 						<ul className="socials-list">
@@ -74,86 +78,101 @@ function Socials() {
 							</li>
 						</ul>
 					</Col>
-					<Col xs={12} lg={6}>
-						<Space xs={20} lg="none" />
-						<H3 size="h5">Join the community</H3>
-						<Space xs={20} lg={20} />
-						<ul className="socials-list">
-							<li className="rounded user">
-								<span className="product">
-									<span>
-										<Pictogram />
+					<Col xs={12} lg={7} css={rightFlextyles}>
+						<div css={rightSideStyles}>
+							<Space xs={20} lg="none" />
+							<H3 size="h5">Join the community</H3>
+							<Space xs={20} lg={20} />
+							<ul className="socials-list">
+								<li className="rounded user">
+									<span className="product">
+										<span>
+											<Pictogram />
+										</span>
 									</span>
-								</span>
-								<em className="label">Cherry</em>
-							</li>
-							<li>
-								<a
-									href="https://discord.com/invite/uQFdMddMZw?ref=cherry.design"
-									target="_blank"
-									rel="noreferrer"
-									className="icon-link discord"
-								>
-									<span>
-										<Discord />
-									</span>
-									<em className="label">Discord</em>
-								</a>
-							</li>
-							<li>
-								<a
-									href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System?ref=cherry.design"
-									target="_blank"
-									rel="noreferrer"
-									className="icon-link figma"
-								>
-									<span>
-										<Figma />
-									</span>
-									<em className="label">Figma</em>
-								</a>
-							</li>
-							<li>
-								<a
-									href="https://github.com/cherry-design-system/sass/discussions?ref=cherry.design"
-									target="_blank"
-									rel="noreferrer"
-									className="icon-link github"
-								>
-									<span>
-										<GitHub />
-									</span>
-									<em className="label">Sass</em>
-								</a>
-							</li>
-							<li>
-								<a
-									href="https://github.com/cherry-design-system/postcss/discussions?ref=cherry.design"
-									target="_blank"
-									rel="noreferrer"
-									className="icon-link github"
-								>
-									<span>
-										<GitHub />
-									</span>
-									<em className="label">PostCSS</em>
-								</a>
-							</li>
-							<li>
-								<a
-									href="https://github.com/cherry-design-system/react-components/discussions?ref=cherry.design"
-									target="_blank"
-									rel="noreferrer"
-									className="icon-link github"
-								>
-									<span>
-										<GitHub />
-									</span>
-									<em className="label">React</em>
-								</a>
-							</li>
-						</ul>
-						<Space xs={20} lg={60} />
+									<em className="label">Cherry</em>
+								</li>
+								<li>
+									<a
+										href="https://discord.com/invite/uQFdMddMZw?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+										className="icon-link discord"
+									>
+										<span>
+											<Discord />
+										</span>
+										<em className="label">Discord</em>
+									</a>
+								</li>
+								<li>
+									<a
+										href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+										className="icon-link figma"
+									>
+										<span>
+											<Figma />
+										</span>
+										<em className="label">UI Kit</em>
+									</a>
+								</li>
+								<li>
+									<a
+										href="https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+										className="icon-link figma"
+									>
+										<span>
+											<Figma />
+										</span>
+										<em className="label">Figma Plugin</em>
+									</a>
+								</li>
+								<li>
+									<a
+										href="https://github.com/cherry-design-system/sass/discussions?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+										className="icon-link github"
+									>
+										<span>
+											<GitHub />
+										</span>
+										<em className="label">Sass</em>
+									</a>
+								</li>
+								<li>
+									<a
+										href="https://github.com/cherry-design-system/postcss/discussions?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+										className="icon-link github"
+									>
+										<span>
+											<GitHub />
+										</span>
+										<em className="label">PostCSS</em>
+									</a>
+								</li>
+								<li>
+									<a
+										href="https://github.com/cherry-design-system/react-components/discussions?ref=cherry.design"
+										target="_blank"
+										rel="noreferrer"
+										className="icon-link github"
+									>
+										<span>
+											<GitHub />
+										</span>
+										<em className="label">React</em>
+									</a>
+								</li>
+							</ul>
+							<Space xs={20} lg={60} />
+						</div>
 					</Col>
 				</Row>
 			</Container>
