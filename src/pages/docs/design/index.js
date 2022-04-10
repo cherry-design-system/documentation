@@ -89,7 +89,7 @@ function Index() {
 					rel="noreferrer"
 				>
 					<Image
-						src="/img/docs/design/cherry-theme-generator-figma-plugin.png"
+						src="/img/docs/design/cherry-theme-generator-figma-plugin.jpg"
 						alt="Scale illustration"
 						width={1920}
 						height={960}
