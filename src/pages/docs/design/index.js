@@ -91,8 +91,8 @@ function Index() {
 					<Image
 						src="/img/docs/design/cherry-theme-generator-figma-plugin.jpg"
 						alt="Scale illustration"
-						width={1920}
-						height={960}
+						width={1920*2}
+						height={960*2}
 					/>
 				</a>
 			</Box>
