@@ -25,7 +25,7 @@ function Header({ themeSwitcher }) {
 	}, []);
 
 	return (
-		<header css={(theme) => headerStyles(theme, isLoaded)}>
+		<div css={(theme) => headerStyles(theme, isLoaded)}>
 			<Container className="container">
 				<div className="inner-wrapper" id="header-inner">
 					<Link href="/" as="/">
@@ -61,7 +61,7 @@ function Header({ themeSwitcher }) {
 					</ul>
 				</div>
 			</Container>
-		</header>
+		</div>
 	);
 }
 
