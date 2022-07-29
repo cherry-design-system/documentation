@@ -30,7 +30,7 @@
 		"analyze:browser": "BUNDLE_ANALYZE=browser next build"
 	},
 	"dependencies": {
-		"@emotion/babel-plugin": "^11.9.2",
+		"@emotion/babel-plugin": "^11.9.5",
 		"@emotion/react": "^11.9.3",
 		"@next/bundle-analyzer": "^12.2.3",
 		"cherry-components": "^0.0.2-17",
