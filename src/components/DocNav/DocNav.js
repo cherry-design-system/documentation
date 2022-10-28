@@ -6,12 +6,14 @@ import { docNavStyles, docNavWrapperStyles } from "./DoNav.styles";
 
 function DocNav({ next, prev, href, as, children }) {
 	return (
-		<Link href={href} as={as}>
-			<a css={(theme) => docNavStyles(theme, next, prev)} href={href}>
-				{prev && <ArrowTail />}
-				<FontStyle variant="button">{children}</FontStyle>
-				{next && <ArrowTail />}
-			</a>
+		<Link
+			href={href}
+			as={as}
+			css={(theme) => docNavStyles(theme, next, prev)}
+		>
+			{prev && <ArrowTail />}
+			<FontStyle variant="button">{children}</FontStyle>
+			{next && <ArrowTail />}
 		</Link>
 	);
 }
