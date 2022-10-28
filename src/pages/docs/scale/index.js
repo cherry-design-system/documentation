@@ -51,6 +51,11 @@ function Index() {
 							alt="Static Websites - GoPablo"
 							width={100.59}
 							height={90}
+							style={{
+								width: 100,
+								height: 90,
+								objectFit: "contain",
+							}}
 						/>
 						<strong className="primary" title="Static Websites">
 							Static Websites
@@ -67,6 +72,11 @@ function Index() {
 							alt="WordPress Websites - Wordpressify"
 							width={90}
 							height={90}
+							style={{
+								width: 90,
+								height: 90,
+								objectFit: "contain",
+							}}
 						/>
 						<strong className="primary" title="WordPress Websites">
 							WordPress Websites
@@ -84,6 +94,11 @@ function Index() {
 							alt="React - Nextify"
 							width={90}
 							height={90}
+							style={{
+								width: 90,
+								height: 90,
+								objectFit: "contain",
+							}}
 						/>
 						<strong className="primary" title="React Apps">
 							React Apps
@@ -102,6 +117,11 @@ function Index() {
 							alt="Email Templates - FuzzyMail"
 							width={90}
 							height={90}
+							style={{
+								width: 90,
+								height: 90,
+								objectFit: "contain",
+							}}
 						/>
 						<strong className="primary" title="Email Templates">
 							Email Templates

@@ -38,8 +38,9 @@ function Index() {
 						<Image
 							src="/img/design.png"
 							alt="Design illustration"
-							width={94.6}
+							width={94}
 							height={127}
+							style={{ height: 127, objectFit: "contain" }}
 						/>
 						<strong className="secondary">Design</strong>
 					</Box>
@@ -50,8 +51,9 @@ function Index() {
 						<Image
 							src="/img/code.png"
 							alt="Code illustration"
-							width={113.89}
+							width={113}
 							height={127}
+							style={{ height: 127, objectFit: "contain" }}
 						/>
 						<strong className="tertiary">Code</strong>
 					</Box>
@@ -62,8 +64,9 @@ function Index() {
 						<Image
 							src="/img/scale.png"
 							alt="Scale illustration"
-							width={138.37}
+							width={138}
 							height={127}
+							style={{ height: 127, objectFit: "contain" }}
 						/>
 						<strong className="primary">Scale</strong>
 					</Box>
