@@ -46,6 +46,14 @@ export const socialStyles = (theme) => css`
 					box-shadow: inset 0 0 0 2px ${theme.colors.primary};
 					position: relative;
 
+					& img {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						border-radius: 50%;
+					}
+
 					& > span,
 					& > div,
 					& svg {
