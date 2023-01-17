@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import {
@@ -11,6 +11,7 @@ import {
 	H2,
 	H3,
 	H4,
+	Button,
 } from "cherry-components";
 import { Page } from "../components/Pages";
 import { LogoWrapper } from "../components/LogoWrapper";
@@ -21,8 +22,10 @@ import { ImageWrapper } from "../components/ImageWrapper";
 import { Link } from "../components/Layout";
 import { OverflowHidden } from "../components/Layout/OverflowHidden";
 import { Text } from "../components/Layout/Text/Text";
+import { ToastNotificationsContext } from "../components/ToastNotifications/ToastNotificationsContext";
 
 function Index() {
+	const { addNotification } = useContext(ToastNotificationsContext);
 	return (
 		<Page title="Design System">
 			<Container>
@@ -41,6 +44,45 @@ function Index() {
 								technologies. Customizable and scalable, ready
 								to be used out-of-the-box.
 							</Text>
+							<Space xs={10} lg={20} />
+							<Space size={5} horizontal />
+							<Button
+								variant="primary"
+								onClick={() => {
+									addNotification(
+										"1",
+										"Hello, world 1",
+										3500,
+									);
+								}}
+							>
+								Show Toast
+							</Button>
+							<Button
+								variant="primary"
+								onClick={() => {
+									addNotification(
+										"2",
+										"Hello, world 2",
+										3500,
+									);
+								}}
+							>
+								Show Toast
+							</Button>
+							<Button
+								variant="primary"
+								onClick={() => {
+									addNotification(
+										"3",
+										"Hello, world 3",
+										3500,
+									);
+								}}
+							>
+								Show Toast
+							</Button>
+
 							<Space xs={10} lg={20} />
 							<Space size={5} horizontal />
 							<Link href="/docs" as="/docs">
