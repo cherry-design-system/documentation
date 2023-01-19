@@ -19,7 +19,6 @@ function ToastNotifications() {
 								className="close-button"
 								onClick={() => {
 									removeNotification(
-										notification.id,
 										notification.text,
 									);
 								}}

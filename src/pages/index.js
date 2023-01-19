@@ -50,7 +50,6 @@ function Index() {
 								variant="primary"
 								onClick={() => {
 									addNotification(
-										"1",
 										"Hello, world 1",
 										3500,
 									);
@@ -62,7 +61,6 @@ function Index() {
 								variant="primary"
 								onClick={() => {
 									addNotification(
-										"2",
 										"Hello, world 2",
 										3500,
 									);
@@ -74,7 +72,6 @@ function Index() {
 								variant="primary"
 								onClick={() => {
 									addNotification(
-										"3",
 										"Hello, world 3",
 										3500,
 									);

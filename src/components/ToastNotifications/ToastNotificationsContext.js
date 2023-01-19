@@ -8,30 +8,30 @@ const ToastNotificationsContext = createContext({
 
 function ToastNotificationsProvider({ children }) {
 	const [notifications, setToastNotifications] = useState([]);
-	const addNotification = (id, text, autoHide) => {
+	const addNotification = (text, autoHide) => {
 		setToastNotifications((prevState) => [
 			...prevState,
-			{ id, text, status: "hidden" },
+			{ text, status: "hidden" },
 		]);
 
 		setTimeout(() => {
 			setToastNotifications([
 				...notifications,
-				{ id, text, status: "visible" },
+				{ text, status: "visible" },
 			]);
 		}, 300);
 
 		// if (autoHide) {
 		// 	setTimeout(() => {
-		// 		removeNotification(id, text);
+		// 		removeNotification(text);
 		// 	}, autoHide)
 		// }
 	};
-	const removeNotification = (id, text) => {
-		const updatedNotification = notifications.filter((t) => t.id !== id);
+	const removeNotification = (text) => {
+		const updatedNotification = notifications.filter((t) => t.text !== text);
 		setToastNotifications([
 			...updatedNotification,
-			{ id, text, status: "hidden" },
+			{ text, status: "hidden" },
 		]);
 		setTimeout(() => {
 			setToastNotifications(updatedNotification);
