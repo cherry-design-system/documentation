@@ -49,10 +49,9 @@ function Index() {
 							<Button
 								variant="primary"
 								onClick={() => {
-									addNotification(
-										"Hello, world 1",
-										3500,
-									);
+									addNotification("Hello, world 1", {
+										autoHide: 3500,
+									});
 								}}
 							>
 								Show Toast
@@ -60,10 +59,10 @@ function Index() {
 							<Button
 								variant="primary"
 								onClick={() => {
-									addNotification(
-										"Hello, world 2",
-										3500,
-									);
+									addNotification("Hello, world 2", {
+										autoHide: 3500,
+										color: "error",
+									});
 								}}
 							>
 								Show Toast
@@ -71,10 +70,10 @@ function Index() {
 							<Button
 								variant="primary"
 								onClick={() => {
-									addNotification(
-										"Hello, world 3",
-										3500,
-									);
+									addNotification("Hello, world 3", {
+										autoHide: 3500,
+										color: "success",
+									});
 								}}
 							>
 								Show Toast

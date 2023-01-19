@@ -81,6 +81,18 @@ export const notificationsStyles = (theme) => css`
 			}
 		}
 
+		&.error {
+			& .item {
+				background: ${theme.colors.error};
+			}
+		}
+
+		&.success {
+			& .item {
+				background: ${theme.colors.success};
+			}
+		}
+
 		&.visible {
 			opacity: 1;
 			pointer-events: all;

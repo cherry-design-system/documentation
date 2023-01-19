@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const ToastNotificationsContext = createContext({
 	notifications: [],
@@ -6,41 +6,51 @@ const ToastNotificationsContext = createContext({
 	removeNotification: () => null,
 });
 
+const color = (config) => config?.color || "info";
+
 function ToastNotificationsProvider({ children }) {
 	const [notifications, setToastNotifications] = useState([]);
-	const addNotification = (text, autoHide) => {
+
+	const addNotification = (text, config) => {
 		setToastNotifications((prevState) => [
 			...prevState,
-			{ text, status: "hidden" },
+			{
+				text,
+				status: "hidden",
+				color: color(config),
+				autoHide: config.autoHide,
+			},
 		]);
-
 		setTimeout(() => {
 			setToastNotifications([
 				...notifications,
-				{ text, status: "visible" },
+				{
+					text,
+					status: "visible",
+					color: color(config),
+					autoHide: config.autoHide,
+				},
 			]);
 		}, 300);
-
-		// if (autoHide) {
-		// 	setTimeout(() => {
-		// 		removeNotification(text);
-		// 	}, autoHide)
-		// }
 	};
-	const removeNotification = (text) => {
-		const updatedNotification = notifications.filter((t) => t.text !== text);
+
+	const removeNotification = (notification) => {
+		const updatedNotification = notifications.filter(
+			(t) => t.text !== notification.text,
+		);
 		setToastNotifications([
 			...updatedNotification,
-			{ text, status: "hidden" },
+			{
+				text: notification.text,
+				status: "hidden",
+				color: notification.color,
+				autoHide: notification.autoHide,
+			},
 		]);
 		setTimeout(() => {
 			setToastNotifications(updatedNotification);
 		}, 300);
 	};
-
-	useEffect(() => {
-		console.log(notifications, "notifications");
-	}, [notifications]);
 
 	return (
 		<ToastNotificationsContext.Provider
