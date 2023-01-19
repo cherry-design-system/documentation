@@ -100,6 +100,12 @@ export const notificationsStyles = (theme) => css`
 			}
 		}
 
+		&.warning {
+			& .item {
+				background: ${theme.colors.warning};
+			}
+		}
+
 		&.visible {
 			opacity: 1;
 			pointer-events: all;
