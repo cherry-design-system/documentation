@@ -20,10 +20,21 @@ function ToastNotificationsProvider({ children }) {
 				{ id, text, status: "visible" },
 			]);
 		}, 300);
+
+		// if (autoHide) {
+		// 	setTimeout(() => {
+		// 		removeNotification(id, text);
+		// 	}, autoHide)
+		// }
 	};
 	const removeNotification = (id, text) => {
+		const updatedNotification = notifications.filter((t) => t.id !== id);
+		setToastNotifications([
+			...updatedNotification,
+			{ id, text, status: "hidden" },
+		]);
 		setTimeout(() => {
-			setToastNotifications(notifications.filter((t) => t.id !== id));
+			setToastNotifications(updatedNotification);
 		}, 300);
 	};
 
