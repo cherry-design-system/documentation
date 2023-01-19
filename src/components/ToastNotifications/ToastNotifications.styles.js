@@ -48,11 +48,20 @@ export const notificationsStyles = (theme) => css`
 				margin: auto 0 auto 10px;
 				padding: 14px 12px;
 				display: inline-flex;
-				border-left: solid 1px ${rgba(theme.colors.light, 0.3)};
 				background: ${rgba(theme.colors.light, 0)};
 				transition: all 0.3s ease;
 				max-width: 40px;
 				width: 40px;
+
+				${theme.isDark
+					? css`
+							border-left: solid 1px
+								${rgba(theme.colors.dark, 0.3)};
+					  `
+					: css`
+							border-left: solid 1px
+								${rgba(theme.colors.light, 0.3)};
+					  `}
 
 				& svg {
 					width: 12px;
