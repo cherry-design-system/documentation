@@ -14,6 +14,7 @@ import { GitHub } from "../../assets/svg/GitHub";
 
 function Footer({ className }) {
 	const theme = useTheme();
+	const year = new Date().getFullYear();
 	return (
 		<>
 			<Socials />
@@ -127,7 +128,7 @@ function Footer({ className }) {
 							<a href="#">
 								<Logo />
 							</a>
-							<p>© Copyright 2021 - All rights reserved. </p>
+							<p>© Copyright {year}  - All rights reserved. </p>
 							<Space xs={30} lg={70} />
 						</Col>
 					</Row>

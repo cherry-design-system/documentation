@@ -39,7 +39,6 @@ function App({ Component, pageProps }) {
 		<ThemeProvider theme={currentTheme}>
 			<ToastNotificationsProvider>
 				{globalStyles}
-				<ToastNotifications />
 				<ScrollToTop>
 					<Header
 						themeSwitcher={
@@ -69,6 +68,7 @@ function App({ Component, pageProps }) {
 					</MinHeight>
 					<Footer />
 				</ScrollToTop>
+				<ToastNotifications />
 			</ToastNotificationsProvider>
 		</ThemeProvider>
 	);
