@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
 import {
@@ -11,7 +11,6 @@ import {
 	H2,
 	H3,
 	H4,
-	Button,
 } from "cherry-components";
 import { Page } from "../components/Pages";
 import { LogoWrapper } from "../components/LogoWrapper";
@@ -22,11 +21,8 @@ import { ImageWrapper } from "../components/ImageWrapper";
 import { Link } from "../components/Layout";
 import { OverflowHidden } from "../components/Layout/OverflowHidden";
 import { Text } from "../components/Layout/Text/Text";
-import { ToastNotificationsContext } from "../components/ToastNotifications";
 
 function Index() {
-	const { addNotification } = useContext(ToastNotificationsContext);
-
 	return (
 		<Page title="Design System">
 			<Container>
@@ -50,49 +46,6 @@ function Index() {
 							<Link href="/docs" as="/docs">
 								Get Started
 							</Link>
-							<Space size={20} />
-							<Space size={5} horizontal />
-							<Button
-								onClick={() => {
-									addNotification("Default info message");
-								}}
-							>
-								Notification 1
-							</Button>
-							<Space size={20} horizontal />
-							<Button
-								onClick={() => {
-									addNotification("Copied to clipboard", {
-										autoHide: 3500,
-										color: "success",
-									});
-								}}
-							>
-								Notification 2
-							</Button>
-							<Space size={20} horizontal />
-							<Button
-								onClick={() => {
-									addNotification("Something went wrong!", {
-										autoHide: 4000,
-										color: "error",
-									});
-								}}
-							>
-								Notification 3
-							</Button>
-							<Space size={20} horizontal />
-							<Button
-								onClick={() => {
-									addNotification("This is a warning!", {
-										autoHide: 4000,
-										color: "warning",
-									});
-								}}
-							>
-								Notification 4
-							</Button>
-							<Space size={20} />
 							<Space xs={10} lg="none" />
 						</Col>
 						<Col xs={12} lg={4} textAlign="center">
