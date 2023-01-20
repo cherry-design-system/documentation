@@ -128,7 +128,7 @@ function Footer({ className }) {
 							<a href="#">
 								<Logo />
 							</a>
-							<p>© Copyright {year}  - All rights reserved. </p>
+							<p>© Copyright {year} - All rights reserved. </p>
 							<Space xs={30} lg={70} />
 						</Col>
 					</Row>
