@@ -83,7 +83,19 @@ export const notificationsStyles = (theme) => css`
 
 				@media (hover: hover) {
 					&:hover {
-						background: ${rgba(theme.colors.light, 0.1)};
+						${theme.isDark
+							? css`
+									background: ${rgba(
+										theme.colors.dark,
+										0.2,
+									)};
+							  `
+							: css`
+									background: ${rgba(
+										theme.colors.light,
+										0.2,
+									)};
+							  `}
 					}
 				}
 			}
