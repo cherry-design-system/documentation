@@ -31,6 +31,7 @@ export const notificationsStyles = (theme) => css`
 			background: ${theme.colors.info};
 			border-radius: 6px;
 			margin: 0;
+			overflow: hidden;
 			${shadowStyles(theme)};
 			${theme.isDark
 				? css`
