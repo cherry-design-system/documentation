@@ -1,5 +1,13 @@
 import React, { useContext } from "react";
-import { Space, Button, H1, H2 } from "cherry-components";
+import {
+	Space,
+	Button,
+	H1,
+	H2,
+	TableOverflow,
+	Row,
+	Col,
+} from "cherry-components";
 import { Page } from "../../../../components/Pages";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
@@ -89,7 +97,8 @@ function Index() {
 				Toast Notifications notify the user of a system occurrence. The
 				notifications should have a consistent location in each
 				application. There are 3 different types of notifications,
-				"info", "success", "error", "warning".
+				<strong>info</strong>, <strong>success</strong>,{" "}
+				<strong>error</strong>, <strong>warning</strong>.
 			</p>
 			<Space size={10} />
 			<H2>Context</H2>
@@ -177,6 +186,110 @@ function Index() {
 					</Button>
 				}
 			/>
+			<Space size={20} />
+			<H2 size="h3">addNotification Parameters</H2>
+			<p>
+				Below you can find the available parameters for the
+				addNotification function.
+			</p>
+			<TableOverflow>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>text</td>
+							<td>The first paramenter is the text content</td>
+							<td>String</td>
+						</tr>
+						<tr>
+							<td>config</td>
+							<td>
+								The second parameter is optional configuration
+							</td>
+							<td>Object</td>
+						</tr>
+					</tbody>
+				</table>
+			</TableOverflow>
+			<Space size={10} />
+			<p>
+				The optional configuration object takes a few properties listed
+				below.
+			</p>
+			<TableOverflow>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>autoHide</td>
+							<td>Duration in milliseconds</td>
+							<td>Number</td>
+						</tr>
+						<tr>
+							<td>color</td>
+							<td>Defines the notification color</td>
+							<td>"info" | "error" | "success" | "warning"</td>
+						</tr>
+					</tbody>
+				</table>
+			</TableOverflow>
+			<Space size={20} />
+			<H2 size="h3">All Variation</H2>
+			<Space size={20} />
+			<Button
+				onClick={() => {
+					addNotification("Warning notification", {
+						autoHide: 3500,
+					});
+				}}
+			>
+				Info
+			</Button>
+			<Space size={20} horizontal />
+			<Button
+				onClick={() => {
+					addNotification("Warning notification", {
+						color: "success",
+						autoHide: 3500,
+					});
+				}}
+			>
+				Success
+			</Button>
+			<Space size={20} horizontal />
+			<Button
+				onClick={() => {
+					addNotification("Warning notification", {
+						color: "error",
+						autoHide: 3500,
+					});
+				}}
+			>
+				Error
+			</Button>
+			<Space size={20} horizontal />
+			<Button
+				onClick={() => {
+					addNotification("Warning notification", {
+						color: "warning",
+						autoHide: 3500,
+					});
+				}}
+			>
+				Warning
+			</Button>
 			<Space size={20} />
 			<DocNavWrapper>
 				<DocNav

@@ -163,7 +163,7 @@ function Index() {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
-			<H2 size="h3">Row classes</H2>
+			<H2 size="h3">Row Props</H2>
 			<p>
 				Below you can find all the available props for the row
 				component.
@@ -253,7 +253,7 @@ function Index() {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
-			<H2 size="h3">Columns classes</H2>
+			<H2 size="h3">Columns Props</H2>
 			<p>
 				Below you can find all the available props for the column
 				component.
