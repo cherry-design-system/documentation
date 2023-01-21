@@ -438,11 +438,11 @@ function Index() {
 					Spacing Component
 				</DocNav>
 				<DocNav
-					href="/docs/code/react-components/breakpoints"
-					as="/docs/code/react-components/breakpoints"
+					href="/docs/code/react-components/toast-notifications"
+					as="/docs/code/react-components/toast-notifications"
 					next
 				>
-					Emotion Breakpoints
+					Toast Notifications
 				</DocNav>
 			</DocNavWrapper>
 		</Page>

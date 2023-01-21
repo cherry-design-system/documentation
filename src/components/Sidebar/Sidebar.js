@@ -168,6 +168,11 @@ function Sidebar({ className }) {
 																					: ""
 																			}
 																		>
+																			{subItem.new && (
+																				<span className="new">
+																					New
+																				</span>
+																			)}
 																			{
 																				subItem.label
 																			}

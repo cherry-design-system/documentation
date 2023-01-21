@@ -1,0 +1,201 @@
+import React, { useContext } from "react";
+import { Space, Button, H1, H2 } from "cherry-components";
+import { Page } from "../../../../components/Pages";
+import { CodeBlock } from "../../../../components/CodeBlock";
+import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
+import { ToastNotificationsContext } from "../../../../components/ToastNotifications";
+
+const appWrap = `import {
+	ToastNotifications,
+	ToastNotificationsProvider,
+} from "cherry-components";
+
+function App({ Component, pageProps }) {
+	return (
+		<ToastNotificationsProvider>
+			<Component {...pageProps} />
+			<ToastNotifications />
+		</ToastNotificationsProvider>
+	);
+}
+
+export default App;`;
+
+const useContextCode = `import React, { useContext } from "react";
+import { ToastNotificationsContext } from "cherry-components";
+
+function Page() {
+	const { addNotification } = useContext(ToastNotificationsContext);
+
+	return (
+		<div>
+			<button onClick={() => {
+				addNotification("Default notification");
+			}}>
+				Trigger Notification
+			</button>
+		</div>
+	);
+}
+
+export default Page;`;
+
+const defaultNotification = `<Button onClick={() => { addNotification("Default notification"); }}>
+	Default Notification
+</Button>`;
+
+const successNotification = `<Button
+	onClick={() => {
+		addNotification("Success notification", {
+			color: "success",
+			autoHide: 3500,
+		});
+	}}
+>
+	Success Notification
+</Button>`;
+
+const errorNotification = `<Button
+	onClick={() => {
+		addNotification("Error notification", {
+			color: "error",
+			autoHide: 3500,
+		});
+	}}
+>
+	Error Notification
+</Button>`;
+
+const warningNotification = `<Button
+	onClick={() => {
+		addNotification("Warning notification", {
+			color: "warning",
+			autoHide: 3500,
+		});
+	}}
+>
+	Warning Notification
+</Button>`;
+
+function Index() {
+	const { addNotification } = useContext(ToastNotificationsContext);
+
+	return (
+		<Page title="Toast Notifications">
+			<Space xs={20} lg={40} />
+			<H1 size="hero1">Toast Notifications</H1>
+			<Space xs={10} lg={30} />
+			<p>
+				Toast Notifications notify the user of a system occurrence. The
+				notifications should have a consistent location in each
+				application. There are 3 different types of notifications,
+				"info", "success", "error", "warning".
+			</p>
+			<Space size={10} />
+			<H2>Context</H2>
+			<Space size={10} />
+			<p>
+				In order for notifications to work, the application has to be
+				wrapped with the React Context component provided by Cherry.
+			</p>
+			<Space size={1} />
+			<CodeBlock
+				language="tsx"
+				value={appWrap}
+				description="Wrap everything with the ToastNotificationsProvider. Include also the ToastNotifications component as a child, it takes care of the notifications rendering. "
+			/>
+			<Space size={10} />
+			<p>
+				Notifications can be triggered from anywhere, in a button, input
+				or after a certain event is executed. To create a new
+				notification make use of the context.
+			</p>
+			<Space size={1} />
+			<CodeBlock language="tsx" value={useContextCode} />
+			<Space size={10} />
+			<CodeBlock
+				language="tsx"
+				value={defaultNotification}
+				description={
+					<Button
+						onClick={() => {
+							addNotification("Default notification");
+						}}
+					>
+						Default Notification
+					</Button>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="tsx"
+				value={successNotification}
+				description={
+					<Button
+						onClick={() => {
+							addNotification("Success notification", {
+								color: "success",
+								autoHide: 3500,
+							});
+						}}
+					>
+						Success Notification
+					</Button>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="tsx"
+				value={errorNotification}
+				description={
+					<Button
+						onClick={() => {
+							addNotification("Error notification", {
+								color: "error",
+								autoHide: 3500,
+							});
+						}}
+					>
+						Error Notification
+					</Button>
+				}
+			/>
+			<Space size={10} />
+			<CodeBlock
+				language="tsx"
+				value={warningNotification}
+				description={
+					<Button
+						onClick={() => {
+							addNotification("Warning notification", {
+								color: "warning",
+								autoHide: 3500,
+							});
+						}}
+					>
+						Warning Notification
+					</Button>
+				}
+			/>
+			<Space size={20} />
+			<DocNavWrapper>
+				<DocNav
+					href="/docs/code/react-components/grid"
+					as="/docs/code/react-components/grid"
+					prev
+				>
+					Grid Components
+				</DocNav>
+				<DocNav
+					href="/docs/code/react-components/breakpoints"
+					as="/docs/code/react-components/breakpoints"
+					next
+				>
+					Emotion Breakpoints
+				</DocNav>
+			</DocNavWrapper>
+		</Page>
+	);
+}
+
+export default Index;

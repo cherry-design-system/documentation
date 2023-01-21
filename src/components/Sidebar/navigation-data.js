@@ -176,6 +176,11 @@ export const navigationData = [
 						label: "Grid",
 					},
 					{
+						href: "/docs/code/react-components/toast-notifications",
+						label: "Toast Notifications",
+						new: true,
+					},
+					{
 						href: "/docs/code/react-components/breakpoints",
 						label: "Breakpoints",
 					},

@@ -83,10 +83,31 @@ export const sidebarStyles = (theme, isMenuOpen) => css`
 				padding: 5px;
 				width: 100%;
 
+				& .new {
+					display: inline-block;
+					border: solid 1px ${theme.colors.grayLight};
+					border-radius: 3px;
+					font-size: ${theme.sizes.small.size.mobile};
+					padding: 1px 6px;
+					margin: 0 5px 0 0;
+					background: ${rgba(theme.colors.grayLight, 0.2)};
+					color: ${theme.colors.success};
+					font-weight: 600;
+					transition: all 0.3s ease;
+
+					${mq(Breakpoints.lg)} {
+						font-size: ${theme.sizes.small.size.desktop};
+					}
+				}
+
 				&.active {
 					border-radius: 6px;
 					font-weight: 500;
 					color: ${theme.colors.dark};
+
+					& .new {
+						background: ${theme.colors.light};
+					}
 
 					${theme.isDark
 						? css`

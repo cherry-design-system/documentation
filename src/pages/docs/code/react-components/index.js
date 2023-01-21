@@ -26,6 +26,9 @@ const componentsCode = `import {
 	MinHeight,
 	Space,
 	TableOverflow,
+	ToastNotificationsContext,
+	ToastNotificationsProvider,
+	ToastNotifications,
 	globalStyles
 } from "cherry-components";`;
 
