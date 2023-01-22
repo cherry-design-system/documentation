@@ -3,11 +3,11 @@ import { ToastNotificationsContext } from "./ToastNotificationsContext";
 import * as styles from "./ToastNotifications.styles";
 import { Close } from "../../assets/svg/Close";
 
-function ToastNotifications() {
+function ToastNotifications({ align = "center", bottom }) {
 	const { notifications } = useContext(ToastNotificationsContext);
 
 	return (
-		<ul css={(theme) => styles.notificationsStyles(theme)}>
+		<ul css={(theme) => styles.notificationsStyles(theme, align, bottom)}>
 			{notifications.map((notification, i) => (
 				<NotificationItem key={i} {...notification} />
 			))}
