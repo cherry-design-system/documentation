@@ -39,6 +39,7 @@ function Index() {
 							alt="Sass Logo"
 							width={120}
 							height={90}
+							className="fixed-height"
 						/>
 						<strong className="tertiary">Sass</strong>
 					</Box>
@@ -51,6 +52,7 @@ function Index() {
 							alt="PostCSS Logo"
 							width={90}
 							height={90}
+							className="fixed-height"
 						/>
 						<strong className="tertiary">PostCSS</strong>
 					</Box>
@@ -66,6 +68,7 @@ function Index() {
 							alt="React Logo"
 							width={100.58}
 							height={90}
+							className="fixed-height"
 						/>
 						<strong className="tertiary">React Components</strong>
 					</Box>

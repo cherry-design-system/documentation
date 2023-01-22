@@ -89,4 +89,9 @@ export const boxStyles = (theme, isLink, noPadding, isVideo) => css`
 		overflow: hidden;
 		border-radius: 12px;
 	}
+
+	& .fixed-height {
+		width: auto;
+		height: 90px;
+	}
 `;
