@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const flexStyles = (theme, inline, justifyContent) => css`
+export const flexStyles = (theme, inline, justifyContent, gap) => css`
 	display: flex;
 
 	${justifyContent &&
@@ -11,5 +11,11 @@ export const flexStyles = (theme, inline, justifyContent) => css`
 	${inline &&
 	css`
 		display: inline-flex;
+	`}
+
+	${gap &&
+	css`
+		gap: 20px;
+		flex-wrap: wrap;
 	`}
 `;

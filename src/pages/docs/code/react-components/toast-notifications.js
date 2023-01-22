@@ -12,6 +12,7 @@ import { Page } from "../../../../components/Pages";
 import { CodeBlock } from "../../../../components/CodeBlock";
 import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 import { ToastNotificationsContext } from "../../../../components/ToastNotifications";
+import { Flex } from "../../../../components/Layout/Flex";
 
 const appWrap = `import {
 	ToastNotifications,
@@ -248,48 +249,47 @@ function Index() {
 			<Space size={20} />
 			<H2 size="h3">All Variation</H2>
 			<Space size={20} />
-			<Button
-				onClick={() => {
-					addNotification("Warning notification", {
-						autoHide: 3500,
-					});
-				}}
-			>
-				Info
-			</Button>
-			<Space size={20} horizontal />
-			<Button
-				onClick={() => {
-					addNotification("Warning notification", {
-						color: "success",
-						autoHide: 3500,
-					});
-				}}
-			>
-				Success
-			</Button>
-			<Space size={20} horizontal />
-			<Button
-				onClick={() => {
-					addNotification("Warning notification", {
-						color: "error",
-						autoHide: 3500,
-					});
-				}}
-			>
-				Error
-			</Button>
-			<Space size={20} horizontal />
-			<Button
-				onClick={() => {
-					addNotification("Warning notification", {
-						color: "warning",
-						autoHide: 3500,
-					});
-				}}
-			>
-				Warning
-			</Button>
+			<Flex gap>
+				<Button
+					onClick={() => {
+						addNotification("Warning notification", {
+							autoHide: 3500,
+						});
+					}}
+				>
+					Info
+				</Button>
+				<Button
+					onClick={() => {
+						addNotification("Warning notification", {
+							color: "success",
+							autoHide: 3500,
+						});
+					}}
+				>
+					Success
+				</Button>
+				<Button
+					onClick={() => {
+						addNotification("Warning notification", {
+							color: "error",
+							autoHide: 3500,
+						});
+					}}
+				>
+					Error
+				</Button>
+				<Button
+					onClick={() => {
+						addNotification("Warning notification", {
+							color: "warning",
+							autoHide: 3500,
+						});
+					}}
+				>
+					Warning
+				</Button>
+			</Flex>
 			<Space size={20} />
 			<DocNavWrapper>
 				<DocNav
