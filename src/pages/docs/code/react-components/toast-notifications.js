@@ -190,8 +190,8 @@ function Index() {
 			<Space size={20} />
 			<H2 size="h3">addNotification Parameters</H2>
 			<p>
-				Below you can find the available parameters for the
-				addNotification function.
+				Below you can find the available parameters for the{" "}
+				<strong>addNotification()</strong> function.
 			</p>
 			<TableOverflow>
 				<table>
@@ -249,8 +249,8 @@ function Index() {
 			<Space size={20} />
 			<H2 size="h3">ToastNotifications Props</H2>
 			<p>
-				Below you can find the available props for the
-				ToastNotifications component.
+				Below you can find the available props for the{" "}
+				<strong>{"<ToastNotifications />"}</strong> component.
 			</p>
 			<TableOverflow>
 				<table>
