@@ -247,6 +247,37 @@ function Index() {
 				</table>
 			</TableOverflow>
 			<Space size={20} />
+			<H2 size="h3">ToastNotifications Props</H2>
+			<p>
+				Below you can find the available props for the
+				ToastNotifications component.
+			</p>
+			<TableOverflow>
+				<table>
+					<thead>
+						<tr>
+							<th>Prop</th>
+							<th>Description</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>align</td>
+							<td>Horizontal alignment.</td>
+							<td>"right" | "left" | "center"</td>
+						</tr>
+						<tr>
+							<td>bottom</td>
+							<td>
+								Show notification from the bottom.
+							</td>
+							<td>Boolean</td>
+						</tr>
+					</tbody>
+				</table>
+			</TableOverflow>
+			<Space size={20} />
 			<H2 size="h3">All Variation</H2>
 			<Space size={20} />
 			<Flex gap>
