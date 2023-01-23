@@ -58,7 +58,7 @@ function Index() {
 						</Col>
 					</Row>
 				</OverflowHidden>
-				<Space xs={20} lg="none" />
+				<Space size={20} />
 				<LogoWrapper>
 					<Image
 						src="/img/docs/design/figma-logo.png"
