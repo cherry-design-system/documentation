@@ -281,7 +281,7 @@ function Index() {
 			<Flex gap>
 				<Button
 					onClick={() => {
-						addNotification("Warning notification", {
+						addNotification("Info notification", {
 							autoHide: 3500,
 						});
 					}}
@@ -290,7 +290,7 @@ function Index() {
 				</Button>
 				<Button
 					onClick={() => {
-						addNotification("Warning notification", {
+						addNotification("Success notification", {
 							color: "success",
 							autoHide: 3500,
 						});
@@ -300,7 +300,7 @@ function Index() {
 				</Button>
 				<Button
 					onClick={() => {
-						addNotification("Warning notification", {
+						addNotification("Error notification", {
 							color: "error",
 							autoHide: 3500,
 						});
