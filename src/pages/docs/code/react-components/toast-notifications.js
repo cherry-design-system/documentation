@@ -285,6 +285,7 @@ function Index() {
 							autoHide: 3500,
 						});
 					}}
+					frame
 				>
 					Info
 				</Button>
@@ -295,6 +296,7 @@ function Index() {
 							autoHide: 3500,
 						});
 					}}
+					frame
 				>
 					Success
 				</Button>
@@ -305,6 +307,7 @@ function Index() {
 							autoHide: 3500,
 						});
 					}}
+					frame
 				>
 					Error
 				</Button>
@@ -315,6 +318,7 @@ function Index() {
 							autoHide: 3500,
 						});
 					}}
+					frame
 				>
 					Warning
 				</Button>
