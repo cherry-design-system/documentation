@@ -270,8 +270,7 @@ function Index() {
 						<tr>
 							<td>bottom</td>
 							<td>
-								Show notification from the bottom of the
-								screen.
+								Show notification from the bottom of the screen.
 							</td>
 							<td>Boolean</td>
 						</tr>
