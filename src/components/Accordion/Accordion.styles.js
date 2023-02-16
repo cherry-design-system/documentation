@@ -116,7 +116,8 @@ export const accordionContentStyles = (theme, isActive, height) => css`
 	transition: all 0.3s ease;
 	color: ${theme.colors.gray};
 
-	${isActive && css`
+	${isActive &&
+	css`
 		opacity: 1;
 		max-height: ${height}px;
 	`}

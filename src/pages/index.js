@@ -21,6 +21,7 @@ import { ImageWrapper } from "../components/ImageWrapper";
 import { Link } from "../components/Layout";
 import { OverflowHidden } from "../components/Layout/OverflowHidden";
 import { Text } from "../components/Layout/Text/Text";
+import { Accordion } from "../components/Accordion/Accordion";
 
 function Index() {
 	return (
@@ -58,6 +59,7 @@ function Index() {
 						</Col>
 					</Row>
 				</OverflowHidden>
+				<Accordion title="Test">Hello</Accordion>
 				<Space size={20} />
 				<LogoWrapper>
 					<Image
