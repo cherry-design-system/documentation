@@ -63,7 +63,7 @@ function Index() {
 						<tr>
 							<td>title</td>
 							<td>Accordion title</td>
-							<td>String</td>
+							<td>String | ReactNode</td>
 						</tr>
 						<tr>
 							<td>children</td>
