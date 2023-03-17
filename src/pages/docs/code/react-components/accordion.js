@@ -97,11 +97,11 @@ function Index() {
 			</Accordion>
 			<DocNavWrapper>
 				<DocNav
-					href="/docs/code/react-components/grid"
-					as="/docs/code/react-components/grid"
+					href="/docs/code/react-components/toast-notifications"
+					as="/docs/code/react-components/toast-notifications"
 					prev
 				>
-					Grid Components
+					Toast Notifications
 				</DocNav>
 				<DocNav
 					href="/docs/code/react-components/breakpoints"

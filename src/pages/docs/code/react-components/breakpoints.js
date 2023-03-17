@@ -89,11 +89,11 @@ function Index() {
 			<Space size={10} />
 			<DocNavWrapper>
 				<DocNav
-					href="/docs/code/react-components/toast-notifications"
-					as="/docs/code/react-components/toast-notifications"
+					href="/docs/code/react-components/accordion"
+					as="/docs/code/react-components/accordion"
 					prev
 				>
-					Toast Notifications
+					Accordion
 				</DocNav>
 				<DocNav
 					href="/docs/code/react-components/theme"

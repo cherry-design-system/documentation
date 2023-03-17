@@ -335,11 +335,11 @@ function Index() {
 					Grid Components
 				</DocNav>
 				<DocNav
-					href="/docs/code/react-components/breakpoints"
-					as="/docs/code/react-components/breakpoints"
+					href="/docs/code/react-components/accordion"
+					as="/docs/code/react-components/accordion"
 					next
 				>
-					Emotion Breakpoints
+					Accordion
 				</DocNav>
 			</DocNavWrapper>
 		</Page>
