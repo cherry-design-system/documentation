@@ -181,6 +181,11 @@ export const navigationData = [
 						new: true,
 					},
 					{
+						href: "/docs/code/react-components/accordion",
+						label: "Accordion",
+						new: true,
+					},
+					{
 						href: "/docs/code/react-components/breakpoints",
 						label: "Breakpoints",
 					},

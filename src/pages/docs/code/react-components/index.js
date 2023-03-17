@@ -6,6 +6,7 @@ import { DocNav, DocNavWrapper } from "../../../../components/DocNav";
 
 const installCode = `npm install cherry-components`;
 const componentsCode = `import {
+	Accordion,
 	Button,
 	Container,
 	FontStyle,

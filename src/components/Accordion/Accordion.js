@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import * as styles from "./Accordion.styles";
 
-function Accordion({ title, children, start, delay }) {
+function Accordion({ title, children }) {
 	const [isActive, setIsActive] = useState(false);
 	const childrenRef = useRef(null);
 
