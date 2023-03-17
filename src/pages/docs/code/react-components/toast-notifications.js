@@ -274,6 +274,11 @@ function Index() {
 							</td>
 							<td>Boolean</td>
 						</tr>
+						<tr>
+							<td>theme</td>
+							<td>Emotion theme configuration</td>
+							<td>Object</td>
+						</tr>
 					</tbody>
 				</table>
 			</TableOverflow>

@@ -70,6 +70,11 @@ function Index() {
 							<td>Children elements</td>
 							<td>ReactNode</td>
 						</tr>
+						<tr>
+							<td>theme</td>
+							<td>Emotion theme configuration</td>
+							<td>Object</td>
+						</tr>
 					</tbody>
 				</table>
 			</TableOverflow>
