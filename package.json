@@ -30,12 +30,12 @@
 		"analyze:browser": "BUNDLE_ANALYZE=browser next build"
 	},
 	"dependencies": {
-		"@emotion/babel-plugin": "^11.10.6",
-		"@emotion/react": "^11.10.6",
-		"@next/bundle-analyzer": "^13.3.1",
+		"@emotion/babel-plugin": "^11.10.8",
+		"@emotion/react": "^11.10.8",
+		"@next/bundle-analyzer": "^13.3.4",
 		"cherry-components": "^0.0.2-23",
 		"express": "^4.18.2",
-		"next": "^13.3.1",
+		"next": "^13.3.4",
 		"nprogress": "^0.2.0",
 		"polished": "^4.2.2",
 		"prettier": "^2.8.8",
@@ -43,6 +43,6 @@
 		"react-dom": "^18.2.0",
 		"react-markdown": "^8.0.7",
 		"react-syntax-highlighter": "^15.5.0",
-		"sharp": "^0.32.0"
+		"sharp": "^0.32.1"
 	}
 }
