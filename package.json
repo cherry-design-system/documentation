@@ -32,17 +32,17 @@
 	"dependencies": {
 		"@emotion/babel-plugin": "^11.11.0",
 		"@emotion/react": "^11.11.3",
-		"@next/bundle-analyzer": "^14.0.4",
+		"@next/bundle-analyzer": "^14.1.0",
 		"cherry-components": "^0.0.2-23",
 		"express": "^4.18.2",
-		"next": "^14.0.4",
+		"next": "^14.1.0",
 		"nprogress": "^0.2.0",
-		"polished": "^4.2.2",
-		"prettier": "^3.1.1",
+		"polished": "^4.3.0",
+		"prettier": "^3.2.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-markdown": "^9.0.1",
 		"react-syntax-highlighter": "^15.5.0",
-		"sharp": "^0.33.1"
+		"sharp": "^0.33.2"
 	}
 }
