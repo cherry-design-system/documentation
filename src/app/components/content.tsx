@@ -24,16 +24,16 @@ const StyledContent = styled.div<ContentProps>`
 			&::before {
 				content: "";
 				display: block;
-				width: 8px;
-				height: 8px;
+				width: 6px;
+				height: 6px;
 				border-radius: 50%;
 				background: ${({ theme }) => theme.colors.primaryLight};
 				position: absolute;
-				top: 7px;
-				left: 0;
+				top: 8px;
+				left: 2px;
 
 				${mq("lg")} {
-					top: 9px;
+					top: 11px;
 				}
 			}
 		}
