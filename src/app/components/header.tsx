@@ -10,7 +10,7 @@ import {
 	Container,
 	Flex,
 } from "cherry-styled-components/src/lib";
-import { Search } from "./search/Search";
+import { Search } from "./search";
 
 const StyledHeader = styled.header<{ theme: Theme }>`
 	background: ${({ theme }) => theme.colors.light};
@@ -85,7 +85,7 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 	}
 `;
 
-export default function Header() {
+function Header() {
 	return (
 		<>
 			<StyledBg />
@@ -101,8 +101,8 @@ export default function Header() {
 								priority
 							/>
 						</StyledLink>
-
 						<StyledNav>
+							<Search />
 							<StyledLink href="/docs" aria-label="Documentation">
 								Docs
 							</StyledLink>
@@ -117,7 +117,8 @@ export default function Header() {
 					</Flex>
 				</Container>
 			</StyledHeader>
-			{/* <Search /> */}
 		</>
 	);
 }
+
+export { Header };
