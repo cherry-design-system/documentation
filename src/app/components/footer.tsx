@@ -202,7 +202,7 @@ function DocsFooter() {
 					</StyledParagraph>
 				</Col>
 				<StyledLink
-					href={`https://github.com/cherry-design-system/documentation/edit/realease/main/src/app${usePathname()}/page.mdx`}
+					href={`https://github.com/cherry-design-system/documentation/edit/main/src/app${usePathname()}/page.mdx`}
 					target="_blank"
 				>
 					Edit this page on GitHub
