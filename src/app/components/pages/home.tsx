@@ -25,7 +25,7 @@ import {
 	Space,
 	Textarea,
 	Toggle,
-} from "@/app/components/cherry";
+} from "cherry-styled-components/src/lib";
 import { LinkButton } from "@/app/components/link-button";
 import Content from "@/app/docs/snippets/demo.mdx";
 import { IconLink } from "@/app/components/icon-link";

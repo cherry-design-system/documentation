@@ -4,7 +4,7 @@ import { MinHeight } from "@/app/components/min-height";
 import {
 	StyledComponentsRegistry,
 	CherryThemeProvider,
-} from "@/app/components/cherry";
+} from "cherry-styled-components/src/lib";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import { rgba } from "polished";
-import { Theme, styledCode, Space } from "@/app/components/cherry";
+import { Theme, styledCode, Space } from "cherry-styled-components/src/lib";
 
 interface CodeProps {
 	children?: React.ReactNode;

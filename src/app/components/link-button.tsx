@@ -4,7 +4,7 @@ import {
 	theme as localTheme,
 	ButtonProps,
 	buttonStyles,
-} from "@/app/components/cherry";
+} from "cherry-styled-components/src/lib";
 
 interface LinkButtonProps extends ButtonProps {
 	href: string;

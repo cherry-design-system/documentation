@@ -14,7 +14,7 @@ import {
 	resetButton,
 	styledStrong,
 	Space,
-} from "@/app/components/cherry";
+} from "cherry-styled-components/src/lib";
 
 interface Props {
 	theme?: Theme;

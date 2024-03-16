@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { lighten } from "polished";
-import { Theme, styledStrong } from "@/app/components/cherry";
+import { Theme, styledStrong } from "cherry-styled-components/src/lib";
 
 interface IconLinkProps {
 	children?: React.ReactNode;

@@ -9,7 +9,7 @@ import {
 	IconGitHub,
 	Container,
 	Flex,
-} from "@/app/components/cherry";
+} from "cherry-styled-components/src/lib";
 import { Search } from "./search/Search";
 
 const StyledHeader = styled.header<{ theme: Theme }>`

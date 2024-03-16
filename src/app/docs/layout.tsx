@@ -1,4 +1,4 @@
-import { Container, MaxWidth } from "@/app/components/cherry";
+import { Container, MaxWidth } from "cherry-styled-components/src/lib";
 import { Sidebar } from "@/app/components/sidebar";
 import { Content } from "@/app/components/content";
 import { DocsFooter } from "@/app/components/footer";

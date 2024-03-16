@@ -16,7 +16,7 @@ import {
 	Flex,
 	Grid,
 	Space,
-} from "@/app/components/cherry";
+} from "cherry-styled-components/src/lib";
 import { IconLink } from "@/app/components/icon-link";
 
 const StyledFooter = styled.footer<{ theme: Theme }>`
