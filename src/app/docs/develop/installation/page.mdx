@@ -1,0 +1,94 @@
+import { Button } from "cherry-styled-components/src/lib";
+import { OG_IMAGE } from "@/app/utils/constants";
+
+export const metadata = {
+	title: "Installation - Cherry Design System",
+	openGraph: {
+		title: "Installation - Cherry Design System",
+		images: OG_IMAGE,
+	},
+};
+
+# Installation
+
+There are two main ways to install Cherry Styled Components into your project. You can either clone the main repository and customize the components to your liking, or you can install the library from npmjs and start using the components right away.
+
+## Implementation Options
+
+### Direct Repository Cloning:
+
+-   Clone the main Cherry repository.
+-   Dive into the components’ code.
+-   Customize to your heart’s content.
+-   Ideal for extensive modifications.
+
+```bash
+git clone git@github.com:cherry-design-system/styled-components.git
+```
+
+### NPM Installation:
+
+-   Install the Cherry library from npmjs.
+-   Import components directly into your project.
+-   Get started quickly.
+-   Perfect for smaller projects or rapid development.
+
+```bash
+npm i cherry-styled-components
+```
+Feel free to explore Cherry’s React components and choose the path that suits your project best. That’s it! Happy coding!
+
+# Next.js
+
+When integrating Cherry Styled Components into your Next.js app, pay attention to how you import them. To ensure compatibility with compiled modules, follow this approach. First install both dependencies:
+
+```bash
+npm i cherry-styled-components styled-components
+```
+
+Make sure to always import uncompiled components from:
+```jsx
+"cherry-styled-components/src/lib"
+```
+
+To render the CSS when using Cherry React Components in your Next.js app, follow these instructions:
+
+1. Open your **layout.tsx** file.
+2. Wrap your entire application in the following components:
+
+```tsx
+import {
+  StyledComponentsRegistry,
+  CherryThemeProvider,
+} from "cherry-styled-components/src/lib";
+```
+
+Here’s how it should look:
+
+```tsx
+import {
+  StyledComponentsRegistry,
+  CherryThemeProvider,
+} from "cherry-styled-components/src/lib";
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <StyledComponentsRegistry>
+          <CherryThemeProvider>
+            {children}
+          </CherryThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
+}
+```
+
+By following these steps, your Cherry components will be styled correctly, **Next.js** requires these additional steps because it uses server-side rendering.
+
