@@ -19,7 +19,6 @@ import {
 	Flex,
 	Grid,
 	Input,
-	LinkButton,
 	MaxWidth,
 	Range,
 	Select,
@@ -27,6 +26,7 @@ import {
 	Textarea,
 	Toggle,
 } from "@/app/components/cherry";
+import { LinkButton } from "@/app/components/link-button";
 import Content from "@/app/docs/snippets/demo.mdx";
 import { IconLink } from "@/app/components/icon-link";
 import { Footer } from "@/app/components/footer";

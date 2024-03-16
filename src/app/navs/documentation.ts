@@ -51,6 +51,11 @@ export const docsFigmaNav = [
 
 export const docsComponentsNav = [
 	{
+		title: "Installation",
+		url: "/docs/develop/installation",
+		icon: "",
+	},
+	{
 		title: "Theme",
 		url: "/docs/develop/theme",
 		icon: "",

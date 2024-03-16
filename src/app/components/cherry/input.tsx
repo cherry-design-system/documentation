@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
+	theme as defaultTheme,
 	Theme,
 	IconCheck,
 	formElementHeightStyles,
@@ -222,12 +223,16 @@ const StyledRadioCheckboxInput = styled.input<InputProps>`
 	}
 `;
 
-function Input({ ...props }: InputProps) {
+function Input({ theme = defaultTheme, ...props }: InputProps) {
 	if (props.type === "checkbox" || props.type === "radio") {
 		return (
-			<StyledInputWrapper $fullWidth={props.$fullWidth} type={props.type}>
-				<StyledIconWrapper>
-					<StyledRadioCheckboxInput {...props} />
+			<StyledInputWrapper
+				$fullWidth={props.$fullWidth}
+				type={props.type}
+				theme={theme}
+			>
+				<StyledIconWrapper theme={theme}>
+					<StyledRadioCheckboxInput {...props} theme={theme} />
 					{!props.disabled && props.type === "checkbox" ? (
 						<IconCheck />
 					) : (
@@ -235,18 +240,26 @@ function Input({ ...props }: InputProps) {
 					)}
 				</StyledIconWrapper>
 				{props.$label && (
-					<StyledLabel htmlFor={props.id}>{props.$label}</StyledLabel>
+					<StyledLabel htmlFor={props.id} theme={theme}>
+						{props.$label}
+					</StyledLabel>
 				)}
 			</StyledInputWrapper>
 		);
 	}
 
 	return (
-		<StyledInputWrapper $fullWidth={props.$fullWidth} type={props.type}>
+		<StyledInputWrapper
+			$fullWidth={props.$fullWidth}
+			type={props.type}
+			theme={theme}
+		>
 			{props.$label && (
-				<StyledLabel htmlFor={props.id}>{props.$label}</StyledLabel>
+				<StyledLabel htmlFor={props.id} theme={theme}>
+					{props.$label}
+				</StyledLabel>
 			)}
-			<StyledInput {...props} />
+			<StyledInput {...props} theme={theme} />
 		</StyledInputWrapper>
 	);
 }

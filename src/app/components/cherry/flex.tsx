@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
+	theme as defaultTheme,
 	Theme,
 	mq,
 	generateGapStyles,
@@ -83,8 +84,12 @@ const StyledFlex = styled.div<FlexProps>`
 		generateJustifyContentStyles("xxxl", $xxxlJustifyContent)}
 `;
 
-function Flex({ ...props }: FlexProps) {
-	return <StyledFlex {...props}>{props.children}</StyledFlex>;
+function Flex({ theme = defaultTheme, ...props }: FlexProps) {
+	return (
+		<StyledFlex {...props} theme={theme}>
+			{props.children}
+		</StyledFlex>
+	);
 }
 
 export { Flex };

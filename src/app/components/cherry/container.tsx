@@ -1,7 +1,12 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import { Theme, mq, generatePaddingStyles } from "./utils";
+import {
+	theme as defaultTheme,
+	Theme,
+	mq,
+	generatePaddingStyles,
+} from "./utils";
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string;
@@ -48,8 +53,12 @@ const StyledContainer = styled.div<ContainerProps>`
 		$xxxlPadding && generatePaddingStyles("xxxl", $xxxlPadding)}
 `;
 
-function Container({ ...props }: ContainerProps) {
-	return <StyledContainer {...props}>{props.children}</StyledContainer>;
+function Container({ theme = defaultTheme, ...props }: ContainerProps) {
+	return (
+		<StyledContainer {...props} theme={theme}>
+			{props.children}
+		</StyledContainer>
+	);
 }
 
 export { Container };

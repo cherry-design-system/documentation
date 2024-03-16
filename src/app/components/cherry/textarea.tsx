@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
+	theme as defaultTheme,
 	Theme,
 	fullWidthStyles,
 	resetButton,
@@ -84,13 +85,17 @@ const StyledTextarea = styled.textarea<TextareaProps>`
 	${({ $fullWidth }) => fullWidthStyles($fullWidth ? true : false)}
 `;
 
-function Textarea({ ...props }: TextareaProps) {
+function Textarea({ theme = defaultTheme, ...props }: TextareaProps) {
 	return (
-		<StyledInputWrapper $fullWidth={props.$fullWidth}>
+		<StyledInputWrapper $fullWidth={props.$fullWidth} theme={theme}>
 			{props.$label && (
-				<StyledLabel htmlFor={props.id}>{props.$label}</StyledLabel>
+				<StyledLabel htmlFor={props.id} theme={theme}>
+					{props.$label}
+				</StyledLabel>
 			)}
-			<StyledTextarea {...props}>{props.children}</StyledTextarea>
+			<StyledTextarea {...props} theme={theme}>
+				{props.children}
+			</StyledTextarea>
 		</StyledInputWrapper>
 	);
 }

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import { Theme, generateColSpanStyles } from "./utils";
+import { theme as defaultTheme, Theme, generateColSpanStyles } from "./utils";
 
 interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 	children?: React.ReactNode;
@@ -32,8 +32,12 @@ const StyledCol = styled.div<ColProps>`
 	${({ $xxxlSpan }) => $xxxlSpan && generateColSpanStyles("xxxl", $xxxlSpan)}
 `;
 
-function Col({ ...props }: ColProps) {
-	return <StyledCol {...props}>{props.children}</StyledCol>;
+function Col({ theme = defaultTheme, ...props }: ColProps) {
+	return (
+		<StyledCol {...props} theme={theme}>
+			{props.children}
+		</StyledCol>
+	);
 }
 
 export { Col };

@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
-import { useTheme } from "styled-components";
-import { Theme } from "./theme";
+import { theme as defaultTheme, Theme } from "./theme";
 
-function IconCheck(props: React.SVGProps<SVGSVGElement>) {
-	const theme: Theme = useTheme() as Theme;
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+	theme?: Theme;
+}
+
+function IconCheck({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="12"
@@ -25,8 +27,7 @@ function IconCheck(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-function IconArrow(props: React.SVGProps<SVGSVGElement>) {
-	const theme: Theme = useTheme() as Theme;
+function IconArrow({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="16"
@@ -47,8 +48,7 @@ function IconArrow(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-function IconGitHub(props: React.SVGProps<SVGSVGElement>) {
-	const theme: Theme = useTheme() as Theme;
+function IconGitHub({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="24"
@@ -66,8 +66,7 @@ function IconGitHub(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-function IconDiscord(props: React.SVGProps<SVGSVGElement>) {
-	const theme: Theme = useTheme() as Theme;
+function IconDiscord({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="28"
@@ -85,8 +84,7 @@ function IconDiscord(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-function IconDribbble(props: React.SVGProps<SVGSVGElement>) {
-	const theme: Theme = useTheme() as Theme;
+function IconDribbble({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="24"
@@ -104,8 +102,7 @@ function IconDribbble(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-function IconThreads(props: React.SVGProps<SVGSVGElement>) {
-	const theme: Theme = useTheme() as Theme;
+function IconThreads({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="24"
@@ -123,7 +120,7 @@ function IconThreads(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-function IconFigma(props: React.SVGProps<SVGSVGElement>) {
+function IconFigma({ theme = defaultTheme, ...props }: IconProps) {
 	return (
 		<svg
 			width="19"

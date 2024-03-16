@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
+	theme as defaultTheme,
 	Theme,
 	fullWidthStyles,
 	resetButton,
@@ -209,13 +210,15 @@ const StyledInput = styled.input<InputProps>`
 	}}
 `;
 
-function Range({ ...props }: InputProps) {
+function Range({ theme = defaultTheme, ...props }: InputProps) {
 	return (
-		<StyledInputWrapper $fullWidth={props.$fullWidth}>
+		<StyledInputWrapper $fullWidth={props.$fullWidth} theme={theme}>
 			{props.$label && (
-				<StyledLabel htmlFor={props.id}>{props.$label}</StyledLabel>
+				<StyledLabel htmlFor={props.id} theme={theme}>
+					{props.$label}
+				</StyledLabel>
 			)}
-			<StyledInput {...props} type="range" />
+			<StyledInput {...props} type="range" theme={theme} />
 		</StyledInputWrapper>
 	);
 }

@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
+	theme as defaultTheme,
 	Theme,
 	IconArrow,
 	formElementHeightStyles,
@@ -105,15 +106,19 @@ export const StyledIconWrapper = styled.span<SelectProps>`
 	}
 `;
 
-function Select({ ...props }: SelectProps) {
+function Select({ theme = defaultTheme, ...props }: SelectProps) {
 	return (
-		<StyledInputWrapper $fullWidth={props.$fullWidth}>
+		<StyledInputWrapper $fullWidth={props.$fullWidth} theme={theme}>
 			{props.$label && (
-				<StyledLabel htmlFor={props.id}>{props.$label}</StyledLabel>
+				<StyledLabel htmlFor={props.id} theme={theme}>
+					{props.$label}
+				</StyledLabel>
 			)}
-			<StyledIconWrapper $fullWidth={props.$fullWidth}>
-				<StyledSelect {...props}>{props.children}</StyledSelect>
-				<IconArrow />
+			<StyledIconWrapper $fullWidth={props.$fullWidth} theme={theme}>
+				<StyledSelect {...props} theme={theme}>
+					{props.children}
+				</StyledSelect>
+				<IconArrow theme={theme} />
 			</StyledIconWrapper>
 		</StyledInputWrapper>
 	);

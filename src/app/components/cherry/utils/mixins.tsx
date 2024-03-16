@@ -3,6 +3,7 @@ import { css } from "styled-components";
 import { Breakpoints, Theme, mq } from "./theme";
 
 export const resetButton = css`
+	box-sizing: border-box;
 	appearance: none;
 	border: none;
 	background: none;

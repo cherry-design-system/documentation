@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import { Theme, mq, generateColsStyles, generateGapStyles } from "./utils";
+import {
+	theme as defaultTheme,
+	Theme,
+	mq,
+	generateColsStyles,
+	generateGapStyles,
+} from "./utils";
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
 	children?: React.ReactNode;
@@ -53,8 +59,12 @@ const StyledGrid = styled.div<GridProps>`
 	${({ $xxxlCols }) => $xxxlCols && generateColsStyles("xxxl", $xxxlCols)}
 `;
 
-function Grid({ ...props }: GridProps) {
-	return <StyledGrid {...props}>{props.children}</StyledGrid>;
+function Grid({ theme = defaultTheme, ...props }: GridProps) {
+	return (
+		<StyledGrid {...props} theme={theme}>
+			{props.children}
+		</StyledGrid>
+	);
 }
 
 export { Grid };

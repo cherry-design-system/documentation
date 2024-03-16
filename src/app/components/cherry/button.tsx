@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import styled, { css } from "styled-components";
 import {
+	theme as defaultTheme,
 	Theme,
-	theme as localTheme,
 	formElementHeightStyles,
 	resetButton,
 } from "./utils";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	children?: React.ReactNode;
 	$variant?: "primary" | "secondary" | "tertiary";
 	$size?: "default" | "big";
@@ -18,12 +18,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: Theme;
 }
 
-interface LinkButtonProps extends ButtonProps {
-	href: string;
-	target?: "_blank" | "_self" | "_parent" | "_top";
-}
-
-const buttonStyles = (
+export const buttonStyles = (
 	theme: Theme,
 	$variant?: "primary" | "secondary" | "tertiary",
 	$size?: "default" | "big",
@@ -149,29 +144,16 @@ const StyledButton = styled.button<ButtonProps>`
 		buttonStyles(theme, $variant, $size, $outline, $fullWidth, disabled)}
 `;
 
-const StyledLinkButton = styled(Link)<LinkButtonProps>`
-	${({ theme, $variant, $size, $outline, $fullWidth, disabled }) =>
-		buttonStyles(theme, $variant, $size, $outline, $fullWidth, disabled)}
-`;
-
-function Button({ $variant = "primary", ...props }: ButtonProps) {
+function Button({
+	theme = defaultTheme,
+	$variant = "primary",
+	...props
+}: ButtonProps) {
 	return (
-		<StyledButton $variant={$variant} {...props}>
+		<StyledButton $variant={$variant} {...props} theme={theme}>
 			{props.children}
 		</StyledButton>
 	);
 }
 
-function LinkButton({
-	$variant = "primary",
-	theme = localTheme,
-	...props
-}: LinkButtonProps) {
-	return (
-		<StyledLinkButton $variant={$variant} {...props}>
-			{props.children}
-		</StyledLinkButton>
-	);
-}
-
-export { Button, LinkButton };
+export { Button };

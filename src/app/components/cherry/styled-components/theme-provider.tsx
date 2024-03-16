@@ -7,7 +7,7 @@ function CherryThemeProvider({
 	children,
 	theme,
 }: {
-	children: React.ReactNode;
+	children: any;
 	theme?: any;
 }) {
 	return (
