@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import Header from "@/app/components/header";
+import { Header } from "@/app/components/header";
 import { MinHeight } from "@/app/components/min-height";
 import {
 	StyledComponentsRegistry,
