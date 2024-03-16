@@ -18,6 +18,7 @@ import {
 	Space,
 } from "cherry-styled-components/src/lib";
 import { IconLink } from "@/app/components/icon-link";
+import { usePathname } from "next/navigation";
 
 const StyledFooter = styled.footer<{ theme: Theme }>`
 	background: ${({ theme }) => rgba(theme.colors.primaryLight, 0.2)};
@@ -201,7 +202,7 @@ function DocsFooter() {
 					</StyledParagraph>
 				</Col>
 				<StyledLink
-					href="https://github.com/cherry-design-system/styled-components?ref=cherry.design"
+					href={`https://github.com/cherry-design-system/documentation/edit/realease/v0.1.0/src/app${usePathname()}/page.mdx`}
 					target="_blank"
 				>
 					Edit this page on GitHub
