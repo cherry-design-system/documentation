@@ -1,4 +1,5 @@
-import { Button } from "cherry-styled-components/src/lib";
+import { Grid, Button } from "cherry-styled-components/src/lib";
+import { Box } from "@/app/components/Box";
 import { PAGE_DESCRIPTION, OG_IMAGE } from "@/app/utils/constants";
 
 export const metadata = {
@@ -31,3 +32,8 @@ At Cherry, we offer simplicity with purpose. Here’s what we bring to the table
 -   **Open Source React Components**: We don’t stop at visuals. Cherry offers open source React components for the default implementation. But remember, Cherry is meant to be customized and built upon. For smaller projects, you might find more than you need out of the box—like secondary and tertiary buttons or size variations. Start small, stay organized, and grow as needed.
 
 While it may appear extensive, the Cherry Design System intentionally focuses on providing the essential building blocks that most interfaces require. By offering a concise yet robust set of elements, we empower designers and developers to create consistent, efficient, and well-structured user experiences. Remember, simplicity often leads to elegance, and Cherry is here to simplify your creation journey!
+
+<Grid $xsCols={1} $lgCols={2}>
+	<Box title="Design" text="Start with design." href="/docs/design" />
+	<Box title="Develop" text="Continue in code." href="/docs/develop" />
+</Grid>

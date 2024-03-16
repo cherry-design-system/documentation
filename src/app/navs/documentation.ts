@@ -18,6 +18,11 @@ export const docsIntroNav = [
 
 export const docsFigmaNav = [
 	{
+		title: "Figma",
+		url: "/docs/design/figma",
+		icon: "",
+	},
+	{
 		title: "Colors",
 		url: "/docs/design/colors",
 		icon: "",
