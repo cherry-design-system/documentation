@@ -1,5 +1,8 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Grid, Input, Toggle, Range, IconFigma } from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Inputs - Cherry Design System",
@@ -10,3 +13,273 @@ export const metadata = {
 };
 
 # Inputs
+
+Cherry offers several variations for input elements, which play a crucial role in the user interface. Inputs facilitate user interaction with our applications. While there are no color variations for inputs, we provide two different sizes: default and big. Inputs can have an error or success state to provide feedback to the user.
+
+When customizing your designs, it’s crucial to consider all the different states that inputs can have:
+
+1. **Normal State** The default appearance of the input.
+2. **Hover State (:hover)** The appearance when the user hovers the cursor over the input.
+3. **Active State (:active)** The appearance when the input is clicked or pressed.
+4. **Focus State (:focus)** The appearance when the input gains focus (e.g., through keyboard navigation).
+4. **Checked**  depending on the type of input, additional states may apply.
+5. **Disabled State** The appearance when the input is disabled and cannot be interacted with.
+
+Ensure that your designs account for all these states to provide a consistent and user-friendly experience.
+
+<Grid $xsGap={20} $xsCols={1} $lgCols={2}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Text"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Input />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Text"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Input $size="big" />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Text"
+		$subTitle="Success"
+		$fullWidth
+	>
+		<Input placeholder="Yay" $success />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Text"
+		$subTitle="Error"
+		$fullWidth
+	>
+		<Input placeholder="Ops" $error />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Input disabled />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Input $size="big" disabled />
+	</PreviewTile>
+
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Checkbox"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Input type="checkbox" defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Checkbox"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Input type="checkbox" $size="big" defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Checkbox"
+		$subTitle="Success"
+		$fullWidth
+	>
+		<Input type="checkbox" $success />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Checkbox"
+		$subTitle="Error"
+		$fullWidth
+	>
+		<Input type="checkbox" $error />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Input type="checkbox" disabled />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Input type="checkbox" $size="big" disabled />
+	</PreviewTile>
+
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Radio"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Input type="radio" defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Radio"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Input type="radio" $size="big" defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Radio"
+		$subTitle="Success"
+		$fullWidth
+	>
+		<Input type="radio" $success name="test-radio" />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Radio"
+		$subTitle="Error"
+		$fullWidth
+	>
+		<Input type="radio" $error name="test-radio" />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Input type="radio" disabled />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Input type="radio" $size="big" disabled />
+	</PreviewTile>
+
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Toggle"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Toggle defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Toggle"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Toggle $size="big" defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Toggle"
+		$subTitle="Success"
+		$fullWidth
+	>
+		<Toggle $success />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Toggle"
+		$subTitle="Error"
+		$fullWidth
+	>
+		<Toggle $error />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Toggle disabled />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Toggle $size="big" disabled />
+	</PreviewTile>
+
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Range"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Range defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Range"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Range $size="big" defaultChecked />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Range"
+		$subTitle="Success"
+		$fullWidth
+	>
+		<Range $success />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Range"
+		$subTitle="Error"
+		$fullWidth
+	>
+		<Range $error />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Range disabled />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Range $size="big" disabled />
+	</PreviewTile>
+</Grid>
+
+Inputs can be found in the Figma Template in the 👉 **Inputs** page.
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Inputs"
+	href="https://www.figma.com/community/file/943862931766586094/cherry-design-system"
+	target="_blank"
+/>
