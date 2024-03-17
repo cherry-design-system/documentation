@@ -24,6 +24,7 @@ interface StyledBoxProps {
 }
 
 const StyledBox = styled(Link)<StyledBoxProps>`
+	cursor: pointer;
 	flex: 1;
 	margin: 0;
 	padding: 20px;
@@ -32,6 +33,8 @@ const StyledBox = styled(Link)<StyledBoxProps>`
 	border: solid 1px ${({ theme }) => theme.colors.grayLight};
 	border-radius: ${({ theme }) => theme.spacing.radius.lg};
 	transition: all 0.3s ease;
+	background: ${({ theme }) => theme.colors.light};
+	box-shadow: ${({ theme }) => theme.shadows.xs};
 
 	@media (hover: hover) {
 		&:hover {

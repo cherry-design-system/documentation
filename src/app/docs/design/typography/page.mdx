@@ -1,5 +1,14 @@
-import { Button } from "cherry-styled-components/src/lib";
+import {
+	Space,
+	Grid,
+	Button,
+	IconFigma,
+} from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { Typography } from "@/app/components/typography";
+import { IconFile } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Typography - Cherry Design System",
@@ -10,3 +19,435 @@ export const metadata = {
 };
 
 # Typography
+
+Cherry offers two distinct sets of typography definitions: one for desktop and another for mobile. These comprehensive definitions ensure that type displays correctly on screens of all sizes. 
+
+### Desktop
+
+<Grid $xsCols={2} $lgCols={3} $xsGap={20}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Hero1"
+		$subTitle="Inter 128px/1.1"
+		$isTypography
+		$mq="LG"
+		$fullWidth
+	>
+		<Typography $fontSize="128px" $lineHeight="1.1" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Hero2"
+		$subTitle="Inter 96px/1.1"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="96px" $lineHeight="1.1" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Hero3"
+		$subTitle="Inter 72px/1.1"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="72px" $lineHeight="1.1" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H1"
+		$subTitle="Inter 60px/1.4"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="60px" $lineHeight="1.4" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H2"
+		$subTitle="Inter 36px/1.5"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="36px" $lineHeight="1.5" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H3"
+		$subTitle="Inter 30px/1.5"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="30px" $lineHeight="1.5" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H4"
+		$subTitle="Inter 24px/1.5"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="24px" $lineHeight="1.5" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H5"
+		$subTitle="Inter 20px/1.5"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="20px" $lineHeight="1.5" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H6"
+		$subTitle="Inter 18px/1.6"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="18px" $lineHeight="1.6" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Text"
+		$subTitle="Inter 16px/1.7"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="16px" $lineHeight="1.7" $fontWeight="400">
+			Laborum cupidatat voluptate sit do nisi laboris...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Strong"
+		$subTitle="Inter 16px/1.7"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="16px" $lineHeight="1.7" $fontWeight="700">
+			Exercitation eiusmod ad anim...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Small"
+		$subTitle="Inter 14px/1.7"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="14px" $lineHeight="1.7" $fontWeight="400">
+			Exercitation deserunt minim minim dolor...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Blockquote"
+		$subTitle="Inter 18px/1.7"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="18px" $lineHeight="1.7" $fontWeight="400">
+			Quis nostrud dolor labore labore do...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Code"
+		$subTitle="Mono 16px/1.7"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography
+			$fontSize="16px"
+			$lineHeight="1.7"
+			$fontWeight="400"
+			$fontFamily="'Roboto Mono', monospace"
+		>
+			Dolor enim deserunt anim pariatur...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Button"
+		$subTitle="Inter 16px/1"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="16px" $lineHeight="1" $fontWeight="600">
+			Aute consect...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Button Big"
+		$subTitle="Inter 18p/1"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="18px" $lineHeight="1" $fontWeight="600">
+			Aliquip laboris...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Input"
+		$subTitle="Inter 16px/1"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="16px" $lineHeight="1" $fontWeight="400">
+			Enim ex duis...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Input Big"
+		$subTitle="Inter 18px/1"
+		$isTypography
+		$mq="LG"
+	>
+		<Typography $fontSize="18px" $lineHeight="1" $fontWeight="400">
+			Culpa eiusmod...
+		</Typography>
+	</PreviewTile>
+</Grid>
+<Space $lg={20} />
+
+### Mobile
+
+<Space $size={20} />
+<Grid $xsCols={2} $lgCols={3} $xsGap={20}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Hero1"
+		$subTitle="Inter 72px/1.1"
+		$isTypography
+		$mq="XS"
+		$fullWidth
+	>
+		<Typography $fontSize="72px" $lineHeight="1.1" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Hero2"
+		$subTitle="Inter 60px/1.1"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="60px" $lineHeight="1.1" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Hero3"
+		$subTitle="Inter 36px/1.2"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="36px" $lineHeight="1.2" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H1"
+		$subTitle="Inter 40px/1.5"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="40px" $lineHeight="1.5" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H2"
+		$subTitle="Inter 30px/1.5"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="30px" $lineHeight="1.5" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H3"
+		$subTitle="Inter 28px/1.3"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="28px" $lineHeight="1.3" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H4"
+		$subTitle="Inter 26px/1.3"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="26px" $lineHeight="1.3" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H5"
+		$subTitle="Inter 18px/1.6"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="18px" $lineHeight="1.6" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="H6"
+		$subTitle="Inter 16px/1.6"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="16px" $lineHeight="1.6" $fontWeight="700">
+			Aa
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Text"
+		$subTitle="Inter 14px/1.7"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="14px" $lineHeight="1.7" $fontWeight="400">
+			Laborum cupidatat voluptate sit do nisi laboris...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Strong"
+		$subTitle="Inter 14px/1.7"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="14px" $lineHeight="1.7" $fontWeight="700">
+			Exercitation eiusmod ad anim...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Small"
+		$subTitle="Inter 12px/1.7"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="12px" $lineHeight="1.7" $fontWeight="400">
+			Exercitation deserunt minim minim dolor...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Blockquote"
+		$subTitle="Inter 16px/1.7"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="16px" $lineHeight="1.7" $fontWeight="400">
+			Quis nostrud dolor labore labore do...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Code"
+		$subTitle="Mono 14px/1.7"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography
+			$fontSize="14px"
+			$lineHeight="1.7"
+			$fontWeight="400"
+			$fontFamily="'Roboto Mono', monospace"
+		>
+			Dolor enim deserunt anim pariatur...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Button"
+		$subTitle="Inter 16px/1"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="16px" $lineHeight="1" $fontWeight="600">
+			Aute consect...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Button Big"
+		$subTitle="Inter 18px/1"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="18px" $lineHeight="1" $fontWeight="600">
+			Aliquip laboris...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Input"
+		$subTitle="Inter 16px/1"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="16px" $lineHeight="1" $fontWeight="400">
+			Enim ex duis...
+		</Typography>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Input Big"
+		$subTitle="Inter 18px/1"
+		$isTypography
+		$mq="XS"
+	>
+		<Typography $fontSize="18px" $lineHeight="1" $fontWeight="400">
+			Culpa eiusmod...
+		</Typography>
+	</PreviewTile>
+</Grid>
+
+The styles can be found in the Figma Template in the ✍️ **Typography** page.
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Typography"
+	href="https://www.figma.com/community/file/943862931766586094/cherry-design-system"
+	target="_blank"
+/>

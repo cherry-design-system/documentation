@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import { Theme } from "cherry-styled-components/src/lib";
+import { Theme, styledSmall, theme } from "cherry-styled-components/src/lib";
 
 interface PreviewTileProps {
 	$title: string;
@@ -9,6 +9,9 @@ interface PreviewTileProps {
 	$rightTitle: string;
 	$rightSubTitle: string;
 	$bgColor?: string;
+	$isTypography?: boolean;
+	$mq?: string;
+	$fullWidth?: boolean;
 	children?: React.ReactNode;
 	theme?: Theme;
 }
@@ -21,16 +24,29 @@ const StyledPreviewTile = styled.div<PreviewTileProps>`
 	border: solid 1px ${({ theme }) => theme.colors.grayLight};
 	overflow: clip;
 	box-shadow: ${({ theme }) => theme.shadows.xs};
+	position: relative;
 `;
 
 const StyledCenterContainer = styled.div<PreviewTileProps>`
 	display: flex;
 	margin: auto;
 	width: 100%;
-	height: 150px;
+	height: ${({ $isTypography }) => ($isTypography ? "180px" : "150px")};
 	background: ${({ theme, $bgColor }) =>
 		($bgColor && $bgColor) || theme.colors.grayLight};
 	border-bottom: solid 1px ${({ theme }) => theme.colors.grayLight};
+
+	& > *,
+	& h1 {
+		margin: auto;
+		display: inline-flex;
+	}
+`;
+
+const StyledCenter = styled.div<PreviewTileProps>`
+	margin: auto;
+	max-width: ${({ $fullWidth }) =>
+		$fullWidth ? "100%" : "calc(100% - 40px)"};
 `;
 
 const StyledContent = styled.div<PreviewTileProps>`
@@ -48,11 +64,29 @@ const StyledContent = styled.div<PreviewTileProps>`
 	}
 `;
 
+const StyledMQ = styled.span<{ theme: Theme }>`
+	display: block;
+	font-size: ${theme.fontSizes.small.xs};
+	line-height: ${theme.lineHeights.small.xs};
+	border: solid 1px ${({ theme }) => theme.colors.grayLight};
+	border-radius: ${({ theme }) => theme.spacing.radius.xs};
+	color: ${({ theme }) => theme.colors.grayDark};
+	text-align: center;
+	font-weight: 600;
+	padding: 2px 10px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+`;
+
 function PreviewTile({ ...props }: PreviewTileProps) {
 	return (
 		<StyledPreviewTile {...props}>
+			{props.$mq && <StyledMQ>{props.$mq}</StyledMQ>}
 			<StyledCenterContainer {...props}>
-				{props.children}
+				{props.children && (
+					<StyledCenter {...props}>{props.children}</StyledCenter>
+				)}
 			</StyledCenterContainer>
 			<StyledContent {...props}>
 				<strong>{props.$title}</strong>
