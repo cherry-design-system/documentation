@@ -39,6 +39,8 @@ const Body = styled.div<{ theme: Theme }>`
 	font-family: ${({ theme }) => theme.fonts.mono};
 	text-align: left;
 	overflow-x: auto;
+	overflow-y: auto;
+	max-height: calc(100svh - 400px);
 	${({ theme }) => styledCode(theme)};
 
 	& .hljs {
