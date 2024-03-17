@@ -11,7 +11,8 @@ interface ContentProps {
 const StyledContent = styled.div<ContentProps>`
 	& p,
 	& ul,
-	& ol {
+	& ol,
+	& table {
 		margin: 20px 0;
 		${({ theme }) => styledText(theme)};
 	}

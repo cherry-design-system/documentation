@@ -1,8 +1,9 @@
+import { OG_IMAGE } from "@/app/utils/constants";
 import { Grid, Button, IconGitHub } from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
 import { IconFile } from "@/app/components/icons";
-import { OG_IMAGE } from "@/app/utils/constants";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Button - Cherry Design System",
@@ -14,7 +15,7 @@ export const metadata = {
 
 # Button
 
-Buttons are essential components in web development, frequently used for user interactions. In this guide, we’ll explore various button variations and their associated properties. 
+Buttons are essential components in web development, frequently used for user interactions. In this guide, we’ll explore various button variations and their associated properties.
 
 Keep in mind that the **\<button>** element inherently includes native browser properties like onClick. Additionally, Cherry UI components introduce custom properties that always begin with a **$** to distinguish them from native component props.
 
@@ -60,6 +61,61 @@ It looks just like this:
 >
 	<Button $variant="secondary">Button</Button>
 </PreviewTile>
+
+You can try more variations and props like **$outline**.
+
+```jsx
+import React from "react";
+import { Button } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+	<Button $variant="secondary">Button</Button>
+  )
+}
+```
+It looks just like this:
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="Tertiary"
+	$subTitle="Outline"
+>
+	<Button $variant="tertiary" $outline>Button</Button>
+</PreviewTile>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>children?</TableData>
+		<TableData>React.ReactNode</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$variant?</TableData>
+		<TableData>"primary" | "secondary" | "tertiary"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$size?</TableData>
+		<TableData>"default" | "big"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$outline?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$fullWidth?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
 
 Explore the source code on GitHub:
 
