@@ -9,7 +9,7 @@ interface PreviewTileProps {
 	$rightTitle: string;
 	$rightSubTitle: string;
 	$bgColor?: string;
-	$isTypography?: boolean;
+	$isLonger?: boolean;
 	$mq?: string;
 	$fullWidth?: boolean;
 	children?: React.ReactNode;
@@ -31,7 +31,7 @@ const StyledCenterContainer = styled.div<PreviewTileProps>`
 	display: flex;
 	margin: auto;
 	width: 100%;
-	height: ${({ $isTypography }) => ($isTypography ? "180px" : "150px")};
+	height: ${({ $isLonger }) => ($isLonger ? "180px" : "150px")};
 	background: ${({ theme, $bgColor }) =>
 		($bgColor && $bgColor) || theme.colors.grayLight};
 	border-bottom: solid 1px ${({ theme }) => theme.colors.grayLight};
@@ -45,6 +45,8 @@ const StyledCenterContainer = styled.div<PreviewTileProps>`
 
 const StyledCenter = styled.div<PreviewTileProps>`
 	margin: auto;
+	text-align: center;
+
 	max-width: ${({ $fullWidth }) =>
 		$fullWidth ? "100%" : "calc(100% - 40px)"};
 `;
