@@ -32,7 +32,14 @@ export default function App() {
 Alternatively you can pass the theme object directly to any Cherry component through the **theme** prop.
 
 ```tsx
-<Button theme={theme}>Button</Button>
+import React from "react"
+import { theme } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+	<Button theme={theme}>Button</Button>
+  )
+}
 ```
 
 # Theme Object
@@ -304,7 +311,7 @@ Explore the source code on GitHub:
 <Box
 	$icon={<IconFile />}
 	$iconLink={<IconGitHub />}
-	$title="Theme Source Code"
+	$title="Theme"
 	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/theme.ts"
 	target="_blank"
 />

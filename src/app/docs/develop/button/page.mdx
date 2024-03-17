@@ -1,4 +1,7 @@
-import { Button } from "cherry-styled-components/src/lib";
+import { Grid, Button, IconGitHub } from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
 import { OG_IMAGE } from "@/app/utils/constants";
 
 export const metadata = {
@@ -10,3 +13,60 @@ export const metadata = {
 };
 
 # Button
+
+Buttons are essential components in web development, frequently used for user interactions. In this guide, we’ll explore various button variations and their associated properties. 
+
+Keep in mind that the **\<button>** element inherently includes native browser properties like onClick. Additionally, Cherry UI components introduce custom properties that always begin with a **$** to distinguish them from native component props.
+
+```jsx
+import React from "react";
+import { Button } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+	<Button>Button</Button>
+  )
+}
+```
+
+It looks just like this:
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="Primary"
+	$subTitle="Default"
+>
+	<Button>Button</Button>
+</PreviewTile>
+
+You can change the look of your button by adding a **$variant** prop.
+
+```jsx
+import React from "react";
+import { Button } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+	<Button $variant="secondary">Button</Button>
+  )
+}
+```
+It looks just like this:
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="Secondary"
+	$subTitle="Default"
+>
+	<Button $variant="secondary">Button</Button>
+</PreviewTile>
+
+Explore the source code on GitHub:
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Button"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/button.tsx"
+	target="_blank"
+/>
