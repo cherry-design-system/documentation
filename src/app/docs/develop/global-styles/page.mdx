@@ -1,5 +1,7 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Box } from "@/app/components/box";
+import { Grid, IconGitHub } from "cherry-styled-components/src/lib";
+import { IconFile } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Global Styles - Cherry Design System",
@@ -10,3 +12,122 @@ export const metadata = {
 };
 
 # Global Styles
+
+Global styles consist of a basic set of CSS rules designed to reset certain browser behaviors. However, it’s important to note that we don’t reset everything—just the essential. If you’re utilizing the **CherryThemeProvider**, you can rest easy; it will automatically inject the Cherry global styles for you. Otherwise, if you’re not using the CherryThemeProvider, you can manually include these styles by following the code example below:
+
+```jsx
+"use client";
+import React from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { theme, GlobalStyles } from "../utils";
+
+function CherryThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <StyledThemeProvider theme={theme}>
+      <GlobalStyles />
+      {children}
+    </StyledThemeProvider>
+  );
+}
+
+export { CherryThemeProvider };
+
+```
+
+## The actual global styles
+Remember if needed to adjust the global styles according to your project’s requirements.
+
+```jsx
+"use client";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+}
+
+pre,
+code,
+kbd,
+samp,
+blockquote,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+fieldset {
+  appearance: none;
+  border: none;
+}
+
+button,
+input,
+a,
+img,
+svg,
+svg * {
+  transition: all 0.3s ease;
+}
+
+strong,
+b {
+  font-weight: 700;
+}`;
+
+export { GlobalStyles };
+```
+Explore the source code on GitHub:
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Global Styles"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/global.tsx"
+	target="_blank"
+/>
