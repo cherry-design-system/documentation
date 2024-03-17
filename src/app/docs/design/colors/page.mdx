@@ -1,6 +1,8 @@
-import { Space, Grid, Button } from "cherry-styled-components/src/lib";
+import { Space, Grid, Button, IconFigma } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
 import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Colors - Cherry Design System",
@@ -107,4 +109,12 @@ export const metadata = {
 	/>
 </Grid>
 
+<Space $xs={20} $lg={40} />
 
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Colors"
+	href="https://www.figma.com/file/oumA2pAqhEDMpTAtDgarxr/Cherry-Design-System?type=design&node-id=5279-710&mode=design"
+	target="_blank"
+/>

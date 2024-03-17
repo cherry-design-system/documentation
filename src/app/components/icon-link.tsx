@@ -9,6 +9,7 @@ interface IconLinkProps {
 	$label?: string;
 	theme?: Theme;
 	href?: string;
+	target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 const StyledLink = styled.a<IconLinkProps>`
