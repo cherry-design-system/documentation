@@ -68,6 +68,7 @@ const StyledMQ = styled.span<{ theme: Theme }>`
 	display: block;
 	font-size: ${theme.fontSizes.small.xs};
 	line-height: ${theme.lineHeights.small.xs};
+	background: ${({ theme }) => theme.colors.light};
 	border: solid 1px ${({ theme }) => theme.colors.grayLight};
 	border-radius: ${({ theme }) => theme.spacing.radius.xs};
 	color: ${({ theme }) => theme.colors.grayDark};
