@@ -57,7 +57,6 @@ const StyledContent = styled.div<ContentProps>`
 		}
 	}
 
-	& a[class],
 	& button,
 	& h1,
 	& h2,

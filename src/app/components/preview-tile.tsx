@@ -39,7 +39,9 @@ function PreviewTile({ ...props }: PreviewTileProps) {
 					</li>
 					<li>
 						{props.$rightTitle}
-						<span><span>{props.$rightSubTitle}</span></span>
+						<span>
+							<span>{props.$rightSubTitle}</span>
+						</span>
 					</li>
 				</ul>
 			</StyledContent>
