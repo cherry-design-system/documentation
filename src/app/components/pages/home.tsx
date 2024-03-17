@@ -54,6 +54,7 @@ const gridDecoration = css`
 const StyledIntro = styled.h1<{ theme: Theme }>`
 	max-width: 900px;
 	margin: auto;
+
 	${({ theme }) => styledHero2(theme)};
 
 	${gridDecoration};

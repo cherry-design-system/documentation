@@ -9,6 +9,7 @@ interface MinHeightProps {
 
 const StyledMinHeight = styled.div`
 	min-height: calc(100svh - 80px);
+	overflow: clip;
 
 	${mq("lg")} {
 		min-height: calc(100svh - 100px);
