@@ -1,5 +1,6 @@
-import { Button } from "cherry-styled-components/src/lib";
+import { Space, Grid, Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { PreviewTile } from "@/app/components/preview-tile";
 
 export const metadata = {
 	title: "Colors - Cherry Design System",
@@ -10,3 +11,100 @@ export const metadata = {
 };
 
 # Colors
+
+<Space $size={20} />
+<Grid $xsCols={2} $lgCols={3} $xsGap={20}>
+	<PreviewTile
+		$bgColor="#91AEC4"
+		$title="Primary Light"
+		$subTitle="#91AEC4"
+	/>
+	<PreviewTile
+		$bgColor="#4D6F8B"
+		$title="Primary"
+		$subTitle="#4D6F8B"
+	/>
+	<PreviewTile
+		$bgColor="#194569"
+		$title="Primary Dark"
+		$subTitle="#194569"
+	/>
+	<PreviewTile
+		$bgColor="#A4B17B"
+		$title="Secondary Light"
+		$subTitle="#A4B17B"
+	/>
+	<PreviewTile
+		$bgColor="#5C6E46"
+		$title="Secondary"
+		$subTitle="#5C6E46"
+	/>
+	<PreviewTile
+		$bgColor="#354C2B"
+		$title="Secondary Dark"
+		$subTitle="#354C2B"
+	/>
+	<PreviewTile
+		$bgColor="#EBCCB9"
+		$title="Tertirary Light"
+		$subTitle="#EBCCB9"
+	/>
+	<PreviewTile
+		$bgColor="#816B5A"
+		$title="Tertirary"
+		$subTitle="#816B5A"
+	/>
+	<PreviewTile
+		$bgColor="#675445"
+		$title="Tertirary Dark"
+		$subTitle="#675445"
+	/>
+
+	<PreviewTile
+		$bgColor="#E5E7EB"
+		$title="Gray Light"
+		$subTitle="#E5E7EB"
+	/>
+	<PreviewTile
+		$bgColor="#9CA3AF"
+		$title="Gray"
+		$subTitle="#9CA3AF"
+	/>
+	<PreviewTile
+		$bgColor="#4B5563"
+		$title="Gray Dark"
+		$subTitle="#4B5563"
+	/>
+	<PreviewTile
+		$bgColor="#84CC16"
+		$title="Success"
+		$subTitle="#84CC16"
+	/>
+	<PreviewTile
+		$bgColor="#EF4444"
+		$title="Error"
+		$subTitle="#EF4444"
+	/>
+	<PreviewTile
+		$bgColor="#EAB308"
+		$title="Warning"
+		$subTitle="#EAB308"
+	/>
+	<PreviewTile
+		$bgColor="#06B6D4"
+		$title="Info"
+		$subTitle="#06B6D4"
+	/>
+	<PreviewTile
+		$bgColor="#000000"
+		$title="Dark"
+		$subTitle="#000000"
+	/>
+	<PreviewTile
+		$bgColor="#FFFFF"
+		$title="Light"
+		$subTitle="#FFFFF"
+	/>
+</Grid>
+
+

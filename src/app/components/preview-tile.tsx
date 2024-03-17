@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
 import { Theme } from "cherry-styled-components/src/lib";
@@ -13,17 +14,39 @@ interface PreviewTileProps {
 }
 
 const StyledPreviewTile = styled.div<PreviewTileProps>`
+	background: ${({ theme }) => theme.colors.light};
 	display: flex;
-	border-radius: ${({ theme }) => theme.spacing.radius.xs};
-	border: 1px solid ${({ theme }) => theme.colors.grayLight};
+	flex-wrap: wrap;
+	border-radius: ${({ theme }) => theme.spacing.radius.lg};
+	border: solid 1px ${({ theme }) => theme.colors.grayLight};
+	overflow: clip;
+	box-shadow: ${({ theme }) => theme.shadows.xs};
 `;
 
 const StyledCenterContainer = styled.div<PreviewTileProps>`
 	display: flex;
 	margin: auto;
+	width: 100%;
+	height: 150px;
+	background: ${({ theme, $bgColor }) =>
+		($bgColor && $bgColor) || theme.colors.grayLight};
+	border-bottom: solid 1px ${({ theme }) => theme.colors.grayLight};
 `;
 
-const StyledContent = styled.div<PreviewTileProps>``;
+const StyledContent = styled.div<PreviewTileProps>`
+	padding: 20px;
+	width: 100%;
+
+	& span {
+		display: block;
+
+		&.highlight {
+			padding: 5px 0 0 0;
+			color: ${({ theme }) => theme.colors.info};
+			font-family: ${({ theme }) => theme.fonts.mono};
+		}
+	}
+`;
 
 function PreviewTile({ ...props }: PreviewTileProps) {
 	return (
@@ -32,18 +55,8 @@ function PreviewTile({ ...props }: PreviewTileProps) {
 				{props.children}
 			</StyledCenterContainer>
 			<StyledContent {...props}>
-				<ul>
-					<li>
-						{props.$title}
-						<span>{props.$subTitle}</span>
-					</li>
-					<li>
-						{props.$rightTitle}
-						<span>
-							<span>{props.$rightSubTitle}</span>
-						</span>
-					</li>
-				</ul>
+				<strong>{props.$title}</strong>
+				<span className="highlight">{props.$subTitle}</span>
 			</StyledContent>
 		</StyledPreviewTile>
 	);
