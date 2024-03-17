@@ -1,9 +1,8 @@
-import {
-	Space,
-	Grid,
-	IconFigma,
-} from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Grid, Button, IconFigma } from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Buttons - Cherry Design System",
@@ -14,3 +13,140 @@ export const metadata = {
 };
 
 # Buttons
+
+Cherry offers three variations of buttons, each defining the color of the button. These variations can be customized further to create different visual effects, like outlined. Additionally, buttons in Cherry come in two sizes: the default size and a larger “big” size.
+
+When customizing your designs, it’s crucial to consider all the different states that buttons can have:
+
+1. **Normal State** The default appearance of the button.
+2. **Hover State (:hover)** The appearance when the user hovers the cursor over the button.
+3. **Active State (:active)** The appearance when the button is clicked or pressed.
+4. **Focus State (:focus)** The appearance when the button gains focus (e.g., through keyboard navigation).
+5. **Disabled State** The appearance when the button is disabled and cannot be interacted with.
+
+Ensure that your designs account for all these states to provide a consistent and user-friendly experience.
+
+<Grid $xsGap={20} $xsCols={1} $lgCols={2}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Primary"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Button>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Primary"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Button $size="big">Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Primary"
+		$subTitle="Default Outline"
+		$fullWidth
+	>
+		<Button $outline>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Primary"
+		$subTitle="Big Outline"
+		$fullWidth
+	>
+		<Button $size="big" $outline>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Secondary"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Button $variant="secondary">Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Secondary"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Button $variant="secondary" $size="big">Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Secondary"
+		$subTitle="Default Outline"
+		$fullWidth
+	>
+		<Button $variant="secondary" $outline>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Secondary"
+		$subTitle="Big Outline"
+		$fullWidth
+	>
+		<Button $variant="secondary" $size="big" $outline>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Tertiary"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Button $variant="tertiary">Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Tertiary"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Button $variant="tertiary" $size="big">Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Tertiary"
+		$subTitle="Default Outline"
+		$fullWidth
+	>
+		<Button $variant="tertiary" $outline>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Tertiary"
+		$subTitle="Big Outline"
+		$fullWidth
+	>
+		<Button $variant="tertiary" $size="big" $outline>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Default"
+		$fullWidth
+	>
+		<Button $outline disabled>Button</Button>
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Disabled"
+		$subTitle="Big"
+		$fullWidth
+	>
+		<Button $size="big" disabled>Button</Button>
+	</PreviewTile>
+</Grid>
+
+Buttons can be found in the Figma Template in the 👆 **Buttons** page.
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Buttons"
+	href="https://www.figma.com/community/file/943862931766586094/cherry-design-system"
+	target="_blank"
+/>
