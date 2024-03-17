@@ -1,6 +1,7 @@
-import { Button } from "cherry-styled-components/src/lib";
-import { Box } from "@/app/components/box";
+import { Button, Space, IconFigma } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Box } from "@/app/components/box";
+import { IconFile, IconPlugin } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Design - Cherry Design System",
@@ -46,13 +47,31 @@ Explore the Cherry template organized into the following sections:
 
 ## Download Template
 
-Download the **[Cherry Design System](https://www.figma.com/community/file/943862931766586094/Cherry-Design-System)** template from the Figma Community.
+Download the **Cherry Design System** template from the Figma Community.
 [![Cherry Figma Template](/figma-template.jpg)](https://www.figma.com/community/file/943862931766586094/Cherry-Design-System)
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Figma Template"
+	href="https://www.figma.com/community/file/943862931766586094/Cherry-Design-System"
+	target="_blank"
+/>
 
 ## Download Plugin
 
-Download the **[Cherry Theme Generator](https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator)** plugin from the Figma Community.
+Download the **Cherry Theme Generator** plugin from the Figma Community.
 [![Cherry Theme Generator](/figma-plugin.jpg)](https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator)
+
+<Box
+	$icon={<IconPlugin />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Figma Plugin"
+	href="https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator"
+	target="_blank"
+/>
+
+<Space $xs={20} $lg={40} />
 
 <Box
 	$title="Figma"
