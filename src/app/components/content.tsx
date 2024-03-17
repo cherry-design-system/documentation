@@ -18,6 +18,8 @@ const StyledContent = styled.div<ContentProps>`
 
 	& ul {
 		& > li {
+			text-indent: 0;
+			display: block;
 			position: relative;
 			padding: 0 0 0 15px;
 
@@ -33,7 +35,7 @@ const StyledContent = styled.div<ContentProps>`
 				left: 2px;
 
 				${mq("lg")} {
-					top: 11px;
+					top: 10px;
 				}
 			}
 		}

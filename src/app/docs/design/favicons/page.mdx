@@ -1,5 +1,7 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { IconFigma } from "cherry-styled-components/src/lib";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
 
 export const metadata = {
 	title: "Favicons - Cherry Design System",
@@ -10,3 +12,35 @@ export const metadata = {
 };
 
 # Favicons
+
+When designing interfaces for web applications, it’s essential to include icons and thumbnails. These visual elements enhance user experience and provide a professional look. Let’s explore the different types of icons and images that come with Cherry.:
+
+1. **Favicons**
+    - Sizes: 32x32px (standard) and 16x16px (small).
+    - Favicons appear in browser tabs, bookmarks, and other places where your website is listed. They help users quickly identify your site.
+2. **Apple Touch Icons**
+    - These icons are specifically for iOS devices (like iPhones and iPads).
+    - Size: 180x180px.
+    - When users add your website to their home screen, this icon is displayed.
+3. **Safari Pinned Tab Icon**
+    - Used for pinned tabs in Safari browsers.
+4. **Google Manifest Icons**
+    - These are for Android devices.
+    - Sizes: 256x256px and 192x192px.
+    - The manifest file specifies how your web app should behave when installed on an Android device.
+5. **Open Graphg (OG) Images**
+    - This image serves as a thumbnail when your website is shared on social media platforms (like Facebook, Twitter, or LinkedIn).
+    - Size: Varies, but a common recommendation is around 1200x630px.
+    - Make sure the OG image represents your site well and encourages users to click through.
+
+Remember to include these icons and images in your project to create a cohesive and professional appearance for your web application.
+
+Favicons can be found in the Figma Template in the 🌐 **Favicons** page.
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconFigma className="figma" />}
+	$title="Favicons"
+	href="https://www.figma.com/community/file/943862931766586094/cherry-design-system"
+	target="_blank"
+/>
