@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 import {
-	Box as CherryBox,
 	Flex,
-	IconFigma,
 	Theme,
 	styledH5,
 	styledStrong,
