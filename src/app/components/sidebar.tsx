@@ -103,6 +103,7 @@ const StyledSidebarListItemLink = styled(Link)<Props>`
 		`
 			color: ${theme.colors.dark};
 			border-color: ${theme.colors.info};
+			font-weight: 600;
 	`};
 `;
 
