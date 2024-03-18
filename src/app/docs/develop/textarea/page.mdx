@@ -1,5 +1,14 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import {
+	Space,
+	Grid,
+	Textarea,
+	IconGitHub,
+} from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Textarea - Cherry Design System",
@@ -9,4 +18,127 @@ export const metadata = {
 	},
 };
 
-# Textarea 
+# Textarea
+
+Textarea shares all the same properties as an Input component of type text, it just allows for multiple lines of text. And you can pass children to it. Textareas can have an error or success state to provide feedback to the user.
+
+Keep in mind that the **\<textarea>** element inherently includes native browser properties like onChange. Additionally, Cherry UI components introduce custom properties that always begin with a **$** to distinguish them from native component props.
+
+```jsx
+import React from "react";
+import { Textarea } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Textarea type="text" placeholder="Placeholder">
+  )
+}
+```
+
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Textarea" $subTitle="Default">
+	<Textarea type="text" placeholder="Placeholder" />
+</PreviewTile>
+
+You can add a label by adding a **$label** prop.
+
+```jsx
+import React from "react";
+import { Textarea } from "cherry-styled-components";
+
+export default function Page() {
+  return <Textarea type="text" $label="Username" $fullWidth />;
+}
+```
+<Space $size={20} />
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="Textarea"
+	$subTitle="Full width with Label"
+	$isLonger
+>
+	<Textarea type="text" $label="Username" $fullWidth />
+</PreviewTile>
+
+Here is an example of a Textarea with an error and success state.
+
+```jsx
+import React from "react";
+import { Textarea } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Textarea $success placeholder="Yay" />
+    <Textarea $error placeholder="Ops" />
+  )
+}
+```
+<Space $size={20} />
+
+<Grid $gap={20} $lgCols={2}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Textarea"
+		$subTitle="Success"
+		$isLonger
+	>
+		<Textarea $success placeholder="Yay" />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Textarea"
+		$subTitle="Error"
+		$isLonger
+	>
+		<Textarea $error placeholder="Ops" />
+	</PreviewTile>
+</Grid>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>type</TableData>
+		<TableData>"text" | "checkbox" | "radio"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$label?</TableData>
+		<TableData>string</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$size?</TableData>
+		<TableData>"default" | "big"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$error?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$success?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$fullWidth?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Input"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx"
+	target="_blank"
+/>
