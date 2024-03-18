@@ -1,5 +1,14 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import {
+	Space,
+	Grid,
+	Toggle,
+	IconGitHub,
+} from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Toggle - Cherry Design System",
@@ -10,3 +19,126 @@ export const metadata = {
 };
 
 # Toggle
+
+The Toggle component is just a cooler 😎 input checkbox or radio element.
+
+Keep in mind that the **\<input>** element inherently includes native browser properties like onChange. Additionally, Cherry UI components introduce custom properties that always begin with a **$** to distinguish them from native component props.
+
+```jsx
+import React from "react";
+import { Toggle } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Toggle defaultChecked />
+  )
+}
+```
+
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Toggle" $subTitle="Default">
+	<Toggle defaultChecked />
+</PreviewTile>
+
+You can add a label by adding a **$label** prop.
+
+```jsx
+import React from "react";
+import { Toggle } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Toggle $label="Label" $fullWidth />
+  )
+}
+```
+<Space $size={20} />
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="Toggle"
+	$subTitle="Full width with Label"
+	$isLonger
+>
+	<Toggle $label="Label" $fullWidth />
+</PreviewTile>
+
+Here is an example of a Toggle with success and error state.
+
+```jsx
+import React from "react";
+import { Toggle } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <>
+      <Toggle $success />
+      <Toggle $error />
+    </>
+  )
+}
+```
+<Space $size={20} />
+
+<Grid $gap={20} $lgCols={2}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Toggle"
+		$subTitle="Success"
+		$isLonger
+	>
+		<Toggle $success />
+	</PreviewTile>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Toggle"
+		$subTitle="Error"
+		$isLonger
+	>
+		<Toggle $error />
+	</PreviewTile>
+</Grid>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$label?</TableData>
+		<TableData>string</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$size?</TableData>
+		<TableData>"default" | "big"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$error?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$success?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$fullWidth?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Toggle"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toggle.tsx"
+	target="_blank"
+/>
