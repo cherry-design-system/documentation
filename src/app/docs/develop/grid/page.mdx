@@ -1,19 +1,18 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import { IconGitHub } from "cherry-styled-components/src/lib";
-import { PreviewTile } from "@/app/components/preview-tile";
-import { Box as LocalBox } from "@/app/components/box";
+import { Box } from "@/app/components/box";
 import { IconFile } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Grid - Cherry Design System",
+	title: "Grid - Develop - Cherry Design System",
 	openGraph: {
-		title: "Grid - Cherry Design System",
+		title: "Grid - Develop - Cherry Design System",
 		images: OG_IMAGE,
 	},
 };
 
-# Grid
+# Grid - Develop
 
 The CSS grid layout module is a powerful tool for creating complex and responsive layouts in web design. It allows you to divide a page into major regions or define relationships between parts of a control built from HTML primitives. Unlike traditional tables, grid layout provides more flexibility and enables authors to align elements into columns and rows with ease.
 
@@ -114,11 +113,11 @@ The Cherry Grid system simplifies creating responsive layouts using the modern C
 	</TableRow>
 </Table>
 
-<LocalBox $title="Col" $text="There is no grid without a Col." href="/docs/develop/col" />
+<Box $title="Col" $text="There is no grid without a Col." href="/docs/develop/col" />
 
 Explore the source code on GitHub:
 
-<LocalBox
+<Box
 	$icon={<IconFile />}
 	$iconLink={<IconGitHub />}
 	$title="Grid"

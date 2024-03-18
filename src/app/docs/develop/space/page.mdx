@@ -1,27 +1,22 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import {
 	Container,
-	Flex,
 	Button,
-	Space,
-	MaxWidth,
-	Box,
 	IconGitHub,
 } from "cherry-styled-components/src/lib";
-import { PreviewTile } from "@/app/components/preview-tile";
-import { Box as LocalBox } from "@/app/components/box";
+import { Box } from "@/app/components/box";
 import { IconFile } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Space - Cherry Design System",
+	title: "Space - Develop - Cherry Design System",
 	openGraph: {
-		title: "Space - Cherry Design System",
+		title: "Space - Develop - Cherry Design System",
 		images: OG_IMAGE,
 	},
 };
 
-# Space
+# Space - Develop
 
 Space is our favorite component. It is an element that allows you to create spaces between elements. Whether you need horizontal or vertical spacing, the Space component has got you covered. Additionally, it seamlessly adapts to different media queries, making it a versatile and powerful tool for layout and design.
 
@@ -88,7 +83,7 @@ In the example above we have two buttons with a space of 20px on extra small scr
 
 Explore the source code on GitHub:
 
-<LocalBox
+<Box
 	$icon={<IconFile />}
 	$iconLink={<IconGitHub />}
 	$title="Space"
