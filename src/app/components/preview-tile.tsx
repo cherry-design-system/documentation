@@ -47,8 +47,6 @@ const StyledCenter = styled.div<PreviewTileProps>`
 	margin: auto;
 	text-align: center;
 
-	${({ $fullWidth }) => $fullWidth && `width: 100%;`};
-
 	max-width: ${({ $fullWidth }) =>
 		$fullWidth ? "100%" : "calc(100% - 40px)"};
 `;
