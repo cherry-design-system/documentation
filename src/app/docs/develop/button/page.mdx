@@ -1,5 +1,10 @@
 import { OG_IMAGE } from "@/app/utils/constants";
-import { Grid, Button, IconGitHub } from "cherry-styled-components/src/lib";
+import {
+	Space,
+	Grid,
+	Button,
+	IconGitHub,
+} from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
 import { IconFile } from "@/app/components/icons";
@@ -24,19 +29,13 @@ import React from "react";
 import { Button } from "cherry-styled-components";
 
 export default function Page() {
-  return (
-	<Button>Button</Button>
-  )
+  return <Button>Button</Button>;
 }
 ```
 
-It looks just like this:
+<Space $size={20} />
 
-<PreviewTile
-	$bgColor="#FFFFFF"
-	$title="Primary"
-	$subTitle="Default"
->
+<PreviewTile $bgColor="#FFFFFF" $title="Primary" $subTitle="Default">
 	<Button>Button</Button>
 </PreviewTile>
 
@@ -47,18 +46,13 @@ import React from "react";
 import { Button } from "cherry-styled-components";
 
 export default function Page() {
-  return (
-	<Button $variant="secondary">Button</Button>
-  )
+  return <Button $variant="secondary">Button</Button>;
 }
 ```
-It looks just like this:
 
-<PreviewTile
-	$bgColor="#FFFFFF"
-	$title="Secondary"
-	$subTitle="Default"
->
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Secondary" $subTitle="Default">
 	<Button $variant="secondary">Button</Button>
 </PreviewTile>
 
@@ -69,18 +63,13 @@ import React from "react";
 import { Button } from "cherry-styled-components";
 
 export default function Page() {
-  return (
-	<Button $variant="secondary">Button</Button>
-  )
+  return <Button $variant="secondary">Button</Button>;
 }
 ```
-It looks just like this:
 
-<PreviewTile
-	$bgColor="#FFFFFF"
-	$title="Tertiary"
-	$subTitle="Outline"
->
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Tertiary" $subTitle="Outline">
 	<Button $variant="tertiary" $outline>Button</Button>
 </PreviewTile>
 

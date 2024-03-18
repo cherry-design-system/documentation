@@ -1,5 +1,14 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import {
+	Space,
+	Grid,
+	Input,
+	IconGitHub,
+} from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Input - Cherry Design System",
@@ -10,3 +19,118 @@ export const metadata = {
 };
 
 # Input
+
+The Input component encompasses various text input types, including radio buttons and checkboxes.
+
+Inputs are essential components in web development, used for user interactions. Inputs can have an error or success state to provide feedback to the user.
+
+Keep in mind that the **\<input>** element inherently includes native browser properties like onChange. Additionally, Cherry UI components introduce custom properties that always begin with a **$** to distinguish them from native component props.
+
+```jsx
+import React from "react";
+import { Input } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Input type="text" placeholder="Placeholder">
+  )
+}
+```
+
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Text" $subTitle="Default">
+	<Input type="text" placeholder="Placeholder" />
+</PreviewTile>
+
+You can add a label by adding a **$label** prop.
+
+```jsx
+import React from "react";
+import { Input } from "cherry-styled-components";
+
+export default function Page() {
+  return <Input type="text" $label="Username" $fullWidth />;
+}
+```
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Text" $subTitle="Full with with Label">
+	<Input type="text" $label="Username" $fullWidth />
+</PreviewTile>
+
+Here is an example of a checkbox and a radio:
+
+```jsx
+import React from "react";
+import { Input } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Input type="checkbox" defaultChecked />
+    <Input type="radio" />
+  )
+}
+```
+
+<Space $size={20} />
+
+<Grid $gap={20} $lgCols={2}>
+	<PreviewTile
+		$bgColor="#FFFFFF"
+		$title="Checkbox"
+		$subTitle="defaultChecked"
+	>
+		<Input type="checkbox" defaultChecked />
+	</PreviewTile>
+	<PreviewTile $bgColor="#FFFFFF" $title="Radio" $subTitle="Default">
+		<Input type="radio" />
+	</PreviewTile>
+</Grid>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>type</TableData>
+		<TableData>"text" | "checkbox" | "radio"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$label?</TableData>
+		<TableData>string</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$size?</TableData>
+		<TableData>"default" | "big"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$error?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$success?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$fullWidth?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<Box
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Input"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx"
+	target="_blank"
+/>

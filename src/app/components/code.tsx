@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
+import { Theme, styledCode } from "cherry-styled-components/src/lib";
 import { rgba } from "polished";
-import { Theme, styledCode, Space } from "cherry-styled-components/src/lib";
 
 interface CodeProps {
 	children?: React.ReactNode;
@@ -139,14 +139,12 @@ const Body = styled.div<{ theme: Theme }>`
 function Code({ children, ...props }: CodeProps) {
 	return (
 		<>
-			<Space $size={10} />
 			<TopBar {...props}>
 				<Dot />
 				<Dot />
 				<Dot />
 			</TopBar>
 			<Body>{children}</Body>
-			<Space $size={10} />
 		</>
 	);
 }
