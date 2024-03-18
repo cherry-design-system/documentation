@@ -20,7 +20,7 @@ export const metadata = {
 
 # Textarea
 
-Textarea shares all the same properties as an Input component of type text, it just allows for multiple lines of text. And you can pass children to it. Textareas can have an error or success state to provide feedback to the user.
+Textarea shares the same properties as Input component of type text, it just allows for multiple lines of text. And you can pass children to it. Textareas can have an error or success state to provide feedback to the user.
 
 Keep in mind that the **\<textarea>** element inherently includes native browser properties like onChange. Additionally, Cherry UI components introduce custom properties that always begin with a **$** to distinguish them from native component props.
 
@@ -62,7 +62,7 @@ export default function Page() {
 	<Textarea $label="Username" $fullWidth />
 </PreviewTile>
 
-Here is an example of a Textarea with an error and success state.
+Here is an example of a Textarea with success and error state.
 
 ```jsx
 import React from "react";
