@@ -1,5 +1,13 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import {
+	Space,
+	Box,
+	IconGitHub,
+} from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box as LocalBox } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Box - Cherry Design System",
@@ -10,3 +18,95 @@ export const metadata = {
 };
 
 # Box
+
+The Box component is a container that extends the functionality of the Container component. It inherits the same props as Container and adds additional styling properties. You can use it to create visually appealing boxes / tiles or containers within your applications. Feel free to customize the it according to your design requirements!
+
+
+```jsx
+import React from "react";
+import { Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Box>
+      Boxing things around!
+    </Box>
+  )
+}
+```
+
+<Space $size={20} />
+
+<PreviewTile $bgColor="#FFFFFF" $title="Box" $subTitle="Just a box 📦" $isLonger>
+	<Box>
+		Boxing things around!
+	</Box>
+</PreviewTile>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>children?</TableData>
+		<TableData>React.ReactNode</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$fluid?</TableData>
+		<TableData>boolean</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$textAlign?</TableData>
+		<TableData>"right" | "left" | "center"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$padding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xsPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$smPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$mdPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$lgPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xlPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxlPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxxlPadding?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<LocalBox
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Box"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/container.tsx"
+	target="_blank"
+/>
+
