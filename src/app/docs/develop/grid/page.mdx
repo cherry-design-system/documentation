@@ -1,5 +1,9 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Space, IconGitHub } from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box as LocalBox } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Grid - Cherry Design System",
@@ -10,3 +14,116 @@ export const metadata = {
 };
 
 # Grid
+
+The CSS grid layout module is a powerful tool for creating complex and responsive layouts in web design. It allows you to divide a page into major regions or define relationships between parts of a control built from HTML primitives. Unlike traditional tables, grid layout provides more flexibility and enables authors to align elements into columns and rows with ease.
+
+The Cherry Grid system simplifies creating responsive layouts using the modern CSS grid property. The component serves as the main container for creating grids. It allows you to define the grid structure, including the number of columns and the gaps. Let’s dive into the details of how to use Cherry’s grid components.
+
+
+```jsx
+<Container>
+  <Grid $xsCols={1} $lgCols={3}>
+    <Col $lgSpan={3}>
+      <Input type="text" $fullWidth />
+    </Col>
+    <Button $variant="primary">Save</Button>
+    <Button $variant="secondary">Cancel</Button>
+    <Button $outline>Remind Later</Button>
+  </Grid>
+</Container>
+```
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>children</TableData>
+		<TableData>React.ReactNode</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>gap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xsGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$smGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$mdGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$lgGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xlGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxlGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxxlGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$cols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xsCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$smCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$mdCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$lgCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xlCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxlCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxxlCols?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<LocalBox
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Grid"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/grid.tsx"
+	target="_blank"
+/>
+
+<Space $size={20} />
+
+<LocalBox $title="Col" $text="There is no grid without a Col." href="/develop/col" />
