@@ -30,7 +30,7 @@ import { Textarea } from "cherry-styled-components";
 
 export default function Page() {
   return (
-    <Textarea type="text" placeholder="Placeholder">
+    <Textarea placeholder="Placeholder" />
   )
 }
 ```
@@ -38,7 +38,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $bgColor="#FFFFFF" $title="Textarea" $subTitle="Default">
-	<Textarea type="text" placeholder="Placeholder" />
+	<Textarea placeholder="Placeholder" />
 </PreviewTile>
 
 You can add a label by adding a **$label** prop.
@@ -48,7 +48,7 @@ import React from "react";
 import { Textarea } from "cherry-styled-components";
 
 export default function Page() {
-  return <Textarea type="text" $label="Username" $fullWidth />;
+  return <Textarea $label="Username" $fullWidth />;
 }
 ```
 <Space $size={20} />
@@ -59,7 +59,7 @@ export default function Page() {
 	$subTitle="Full width with Label"
 	$isLonger
 >
-	<Textarea type="text" $label="Username" $fullWidth />
+	<Textarea $label="Username" $fullWidth />
 </PreviewTile>
 
 Here is an example of a Textarea with an error and success state.
@@ -138,7 +138,7 @@ Explore the source code on GitHub:
 <Box
 	$icon={<IconFile />}
 	$iconLink={<IconGitHub />}
-	$title="Input"
-	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx"
+	$title="Textarea"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/textarea.tsx"
 	target="_blank"
 />
