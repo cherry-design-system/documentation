@@ -1,5 +1,9 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Container, Space, Flex, Box, IconGitHub } from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box as LocalBox } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "Flex - Cherry Design System",
@@ -10,3 +14,135 @@ export const metadata = {
 };
 
 # Flex
+
+The Flex component is a flexible container that allows you to create responsive layouts with ease. It’s particularly useful for arranging child elements in a row or column, adjusting the gap between them, and controlling their alignment.
+
+## Responsive props
+
+The Flex component adapts to different screen sizes for example **$xsGap**, **$smJustifyContent**: Customize the gap and alignment for specific screen sizes using media queries. You will see this pattern throughout the Cherry Design System.
+
+```jsx
+import React from "react";
+import { Flex, Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Flex $justifyContent="center">
+      <Box>Box</Box>
+      <Box>Box</Box>
+    </Flex>
+  );
+}
+```
+
+<Space $size={20} />
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="Flex"
+	$subTitle="Justify center"
+	$isLonger
+	$fullWidth
+>
+	<Container>
+		<Flex $justifyContent="center" $gap={20} $wrap="nowrap" $fullWidth>
+			<Box>Box</Box>
+			<Box>Box</Box>
+		</Flex>
+	</Container>
+</PreviewTile>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>children?</TableData>
+		<TableData>React.ReactNode</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$justifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xsJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$smJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$mdJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$lgJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xlJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxlJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxxlJustifyContent?</TableData>
+		<TableData>"center" | "flex-start"	| "flex-end	| "space-between" | "space-around" | "space-evenly"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$wrap?</TableData>
+		<TableData>"wrap" | "nowrap" | "wrap-reverse"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$gap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xsGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$smGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$mdGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$lgGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xlGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxlGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxxlGap?</TableData>
+		<TableData>number | "none"</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<LocalBox
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Flex"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/flex.tsx"
+	target="_blank"
+/>

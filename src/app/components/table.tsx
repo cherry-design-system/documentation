@@ -37,7 +37,7 @@ const StylesTableHead = styled.th<TableProps>`
 
 const StylesTableData = styled.td<TableProps>`
 	border-bottom: solid 1px ${({ theme }) => theme.colors.grayLight};
-	padding: 10px 0;
+	padding: 10px 10px 10px 0;
 	color: ${({ theme }) => theme.colors.grayDark};
 	${({ theme }) => styledSmall(theme)};
 
