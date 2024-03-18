@@ -322,7 +322,7 @@ function Home() {
 						$bgColor="#000000"
 						$label="Figma"
 					>
-						<IconFigma className="figma" />
+						<IconFigma />
 					</IconLink>
 					<IconLink
 						href="https://github.com/cherry-design-system/styled-components?ref=cherry.design"
