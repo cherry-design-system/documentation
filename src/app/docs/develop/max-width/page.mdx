@@ -1,5 +1,9 @@
-import { Button } from "cherry-styled-components/src/lib";
 import { OG_IMAGE } from "@/app/utils/constants";
+import { Container, Space, MaxWidth, Box, IconGitHub } from "cherry-styled-components/src/lib";
+import { PreviewTile } from "@/app/components/preview-tile";
+import { Box as LocalBox } from "@/app/components/box";
+import { IconFile } from "@/app/components/icons";
+import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
 	title: "MaxWidth - Cherry Design System",
@@ -10,3 +14,93 @@ export const metadata = {
 };
 
 # MaxWidth
+
+This component MaxWidth is a container that allows you to set a maximum width for its content. It is useful for creating a layout that is centered and has a maximum width.
+
+```jsx
+import React from "react";
+import { MaxWidth, Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <MaxWidth $size={150}>
+      <Box>150px</Box>
+    </MaxWidth>
+  );
+}
+```
+
+<Space $size={20} />
+
+<PreviewTile
+	$bgColor="#FFFFFF"
+	$title="MaxWidth"
+	$subTitle="Limited to 150px"
+	$isLonger
+	$fullWidth
+>
+	<Container>
+		<MaxWidth $size={150}>
+			<Box>150px</Box>
+		</MaxWidth>
+	</Container>
+</PreviewTile>
+
+## Properties
+
+<Table>
+	<TableRow>
+		<TableHead>Property</TableHead>
+		<TableHead>Description</TableHead>
+	</TableRow>
+	<TableRow>
+		<TableData $code>children?</TableData>
+		<TableData>React.ReactNode</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>size?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xs?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$sm?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$md?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$lg?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xl?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxl?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$xxxl?</TableData>
+		<TableData>number</TableData>
+	</TableRow>
+	<TableRow>
+		<TableData $code>$theme?</TableData>
+		<TableData>Theme</TableData>
+	</TableRow>
+</Table>
+
+Explore the source code on GitHub:
+
+<LocalBox
+	$icon={<IconFile />}
+	$iconLink={<IconGitHub />}
+	$title="Flex"
+	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/flex.tsx"
+	target="_blank"
+/>
