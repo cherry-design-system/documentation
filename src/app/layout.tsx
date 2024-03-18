@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { Header } from "@/app/components/header";
 import { MinHeight } from "@/app/components/min-height";
+import { theme } from "@/app/theme";
 import {
 	StyledComponentsRegistry,
 	CherryThemeProvider,
@@ -62,7 +63,7 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<StyledComponentsRegistry>
-					<CherryThemeProvider>
+					<CherryThemeProvider theme={theme}>
 						<MinHeight>
 							<Header />
 							{children}
