@@ -29,7 +29,7 @@ import { IconLink } from "@/app/components/icon-link";
 import { Footer } from "@/app/components/footer";
 import { IconDiscord, IconFigma, IconGitHub } from "@/app/components/icons";
 
-const gridDecoration = css`
+export const gridDecoration = css`
 	position: relative;
 
 	&::before {
@@ -165,7 +165,9 @@ function Home() {
 					</MaxWidth>
 				</GridDecoration>
 				<Space $size={100} />
-				<StyledH2>Streamline Your Design with Cherry</StyledH2>
+				<MaxWidth $size={350}>
+					<StyledH2>Streamline Your Design with Cherry</StyledH2>
+				</MaxWidth>
 				<Space $size={20} />
 				<StyledParagraph>
 					For every serious project, a robust design system is
