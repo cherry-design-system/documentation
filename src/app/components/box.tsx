@@ -79,7 +79,7 @@ const StyledSmallerTitle = styled(StyledTitle)`
 
 const StyledText = styled.span<StyledBoxProps>`
 	color: ${({ theme }) =>
-		theme.isDark ? theme.colors.gray : theme.colors.dark};
+		theme.isDark ? theme.colors.grayDark : theme.colors.dark};
 	margin: 0;
 	padding: 10px 0 0 0;
 	display: block;

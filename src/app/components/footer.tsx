@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { rgba } from "polished";
 import Link from "next/link";
 import {
@@ -105,7 +105,6 @@ const StyledHr = styled.hr<{ theme: Theme }>`
 `;
 
 function Footer() {
-	const theme: Theme = useTheme() as Theme;
 	const year = new Date().getFullYear();
 	return (
 		<StyledFooter>
@@ -137,7 +136,7 @@ function Footer() {
 						<Space $xs={20} $lg="none" />
 						<IconLink
 							href="https://www.threads.net/@luangjokaj?ref=cherry.design"
-							$bgColor={theme.colors.dark}
+							$bgColor="#000000"
 							$label="Threads"
 						>
 							<IconThreads />

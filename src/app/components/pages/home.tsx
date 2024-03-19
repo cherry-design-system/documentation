@@ -39,6 +39,10 @@ const gridDecoration = css`
 		width: 100vw;
 		max-width: 100vw;
 		background: url("/grid.svg") no-repeat center center;
+		${({ theme }) =>
+			theme.isDark &&
+			'background: url("/grid-w.svg") no-repeat center center;'}
+
 		z-index: -1;
 		background-size: 100%;
 		height: 357px;
@@ -64,6 +68,7 @@ const GridDecoration = styled.span<{ theme: Theme }>`
 
 	&::before {
 		transform: translate(-50%, -50%) rotate(180deg);
+		left: 0;
 	}
 `;
 
@@ -154,11 +159,11 @@ function Home() {
 					<Image src="react.svg" alt="React" width={38} height={42} />
 				</Flex>
 				<Space $size={80} />
-				<MaxWidth $xs={600}>
-					<GridDecoration>
+				<GridDecoration>
+					<MaxWidth $xs={600}>
 						<Content />
-					</GridDecoration>
-				</MaxWidth>
+					</MaxWidth>
+				</GridDecoration>
 				<Space $size={100} />
 				<StyledH2>Streamline Your Design with Cherry</StyledH2>
 				<Space $size={20} />

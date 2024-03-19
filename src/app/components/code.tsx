@@ -13,7 +13,7 @@ const TopBar = styled.div<CodeProps>`
 	background: #0d1117;
 	border-top-left-radius: ${({ theme }) => theme.spacing.radius.lg};
 	border-top-right-radius: ${({ theme }) => theme.spacing.radius.lg};
-	border-bottom: solid 1px ${rgba("#ffffff", 0.2)};
+	border-bottom: solid 1px ${rgba("#ffffff", 0.1)};
 	height: 33px;
 	width: 100%;
 	display: flex;
@@ -27,7 +27,7 @@ const Dot = styled.span<{ theme: Theme }>`
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
-	background: ${rgba("#ffffff", 0.2)};
+	background: ${rgba("#ffffff", 0.1)};
 `;
 
 const Body = styled.div<{ theme: Theme }>`

@@ -1,12 +1,20 @@
 "use client";
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { useTheme } from "styled-components";
 import Link from "next/link";
-import { mq, Container, Flex } from "cherry-styled-components/src/lib";
-import { Search } from "./search";
-import { IconCherry, IconGitHub } from "./icons";
+import {
+	mq,
+	Container,
+	Flex,
+	theme as themeLight,
+	resetButton,
+	themeDark,
+} from "cherry-styled-components/src/lib";
 import { Theme } from "cherry-styled-components/src/lib";
 import { rgba } from "polished";
+import { Search } from "./search";
+import { IconCherry, IconGitHub, IconMoon, IconSun } from "./icons";
+import { ThemeContext } from "./theme-provider";
 
 const StyledHeader = styled.header<{ theme: Theme }>`
 	background: ${({ theme }) =>
@@ -74,6 +82,7 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 
 	@media (hover: hover) {
 		&:hover {
+			transform: scale(1.05);
 			color: ${({ theme }) =>
 				theme.isDark
 					? theme.colors.primaryLight
@@ -98,6 +107,8 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 	}
 
 	&:active {
+		transform: scale(0.97);
+
 		& svg,
 		& img {
 			transform: scale(0.95);
@@ -105,7 +116,71 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 	}
 `;
 
+const StyledThemeToggle = styled.button<{ theme: Theme }>`
+	${resetButton}
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: flex;
+	position: relative;
+	margin: auto 0;
+	transform: scale(1);
+
+	& svg {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) translateY(0);
+		margin: auto;
+		transition: all 0.3s ease;
+
+		&.light {
+			${({ theme }) =>
+				theme.isDark &&
+				`opacity: 0;
+			transform: translate(-50%, -50%) translateY(10px);`}
+		}
+
+		&.dark {
+			${({ theme }) =>
+				!theme.isDark &&
+				`opacity: 0;
+			transform: translate(-50%, -50%) translateY(10px);`}
+		}
+	}
+
+	& svg[stroke] {
+		stroke: ${({ theme }) => theme.colors.info};
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			transform: scale(1.05);
+			color: ${({ theme }) =>
+				theme.isDark
+					? theme.colors.primaryLight
+					: theme.colors.primaryDark};
+
+			& svg[stroke] {
+				stroke: ${({ theme }) =>
+					theme.isDark
+						? theme.colors.primaryLight
+						: theme.colors.primaryDark};
+			}
+		}
+	}
+
+	&:active {
+		transform: scale(0.97);
+	}
+`;
+
 function Header() {
+	const { setTheme } = useContext(ThemeContext);
+	const theme: Theme = useTheme() as Theme;
 	return (
 		<>
 			<StyledBg />
@@ -127,6 +202,20 @@ function Header() {
 							>
 								<IconGitHub />
 							</StyledLink>
+							<StyledThemeToggle
+								onClick={() => {
+									if (theme.isDark) {
+										setTheme(themeLight);
+										localStorage.theme = "light";
+									} else {
+										setTheme(themeDark);
+										localStorage.theme = "dark";
+									}
+								}}
+							>
+								<IconMoon className="dark" />
+								<IconSun className="light" />
+							</StyledThemeToggle>
 						</StyledNav>
 					</Flex>
 				</Container>
