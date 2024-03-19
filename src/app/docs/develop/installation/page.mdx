@@ -37,6 +37,22 @@ npm i cherry-styled-components
 ```
 Feel free to explore Cherry’s React components and choose the path that suits your project best. That’s it! Happy coding!
 
+# Theme Context
+
+Always make sure to wrap your application in the **CherryThemeProvider** component. Ensure that your theme prop is passed down correctly. Here’s an example of how to do this:
+
+```tsx
+import { CherryThemeProvider, theme } from "cherry-styled-components";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <CherryThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </CherryThemeProvider>
+  );
+}
+```
+
 # Next.js
 
 When integrating Cherry Styled Components into your Next.js app, pay attention to how you import them. To ensure compatibility with compiled modules, follow this approach. First install both dependencies:
@@ -62,12 +78,13 @@ import {
 } from "cherry-styled-components/src/lib";
 ```
 
-Here’s how it should look:
+Make sure you pass down the theme prop. Here’s how it should look:
 
 ```tsx
 import {
   StyledComponentsRegistry,
   CherryThemeProvider,
+  theme,
 } from "cherry-styled-components/src/lib";
 
 export default function RootLayout({
@@ -79,7 +96,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
-          <CherryThemeProvider>
+          <CherryThemeProvider theme={theme}>
             {children}
           </CherryThemeProvider>
         </StyledComponentsRegistry>
