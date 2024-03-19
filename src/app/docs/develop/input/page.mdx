@@ -38,7 +38,7 @@ export default function Page() {
 
 <Space $size={20} />
 
-<PreviewTile $bgColor="#FFFFFF" $title="Text" $subTitle="Default">
+<PreviewTile $title="Text" $subTitle="Default">
 	<Input type="text" placeholder="Placeholder" />
 </PreviewTile>
 
@@ -54,7 +54,7 @@ export default function Page() {
 ```
 <Space $size={20} />
 
-<PreviewTile $bgColor="#FFFFFF" $title="Text" $subTitle="Full width with Label">
+<PreviewTile $title="Text" $subTitle="Full width with Label">
 	<Input type="text" $label="Username" $fullWidth />
 </PreviewTile>
 
@@ -76,13 +76,12 @@ export default function Page() {
 
 <Grid $gap={20} $lgCols={2}>
 	<PreviewTile
-		$bgColor="#FFFFFF"
 		$title="Checkbox"
 		$subTitle="defaultChecked"
 	>
 		<Input type="checkbox" defaultChecked />
 	</PreviewTile>
-	<PreviewTile $bgColor="#FFFFFF" $title="Radio" $subTitle="Default">
+	<PreviewTile $title="Radio" $subTitle="Default">
 		<Input type="radio" />
 	</PreviewTile>
 </Grid>

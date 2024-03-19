@@ -33,7 +33,7 @@ const StyledCenterContainer = styled.div<PreviewTileProps>`
 	width: 100%;
 	height: ${({ $isLonger }) => ($isLonger ? "180px" : "150px")};
 	background: ${({ theme, $bgColor }) =>
-		($bgColor && $bgColor) || theme.colors.grayLight};
+		($bgColor && $bgColor) || theme.colors.light};
 	border-bottom: solid 1px ${({ theme }) => theme.colors.grayLight};
 
 	& > *,
