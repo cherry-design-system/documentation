@@ -193,7 +193,7 @@ function Home() {
 					cohesive user interfaces. Whether you’re building a web app,
 					mobile app, or any digital product, having a well-defined
 					set of basic elements is crucial. These elements include
-					typography, buttons, form input components, and more.
+					typography, buttons, form inputs, components, and more.
 				</StyledParagraph>
 				<Space $size={20} />
 				<LinkButton href="/docs" $outline>
@@ -214,9 +214,9 @@ function Home() {
 							<StyledStrong>Design</StyledStrong>
 							<Space $size={10} />
 							<StyledParagraph>
-								Cherry Figma Design includes all the fundamental
-								elements of an interface, well organised and
-								it’s completely free.
+								Cherry provides a Figma Template that includes
+								all the fundamental elements of an interface.
+								And a Figma Plugin to extract the design tokens.
 							</StyledParagraph>
 						</TileContent>
 					</Tile>
@@ -233,9 +233,9 @@ function Home() {
 							<StyledStrong>Code</StyledStrong>
 							<Space $size={10} />
 							<StyledParagraph>
-								All Cherry element seamlessly translates
-								into open-source React components, making
-								implementation a breeze.
+								All Cherry elements seamlessly translate into
+								open-source React components written in
+								TypeScript, making implementation a breeze.
 							</StyledParagraph>
 						</TileContent>
 					</Tile>
