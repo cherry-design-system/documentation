@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import styled, { css, useTheme } from "styled-components";
+import styled, { css } from "styled-components";
 import {
 	Theme,
 	styledH1,
@@ -27,7 +27,12 @@ import { LinkButton } from "@/app/components/link-button";
 import Content from "@/app/docs/snippets/demo.mdx";
 import { IconLink } from "@/app/components/icon-link";
 import { Footer } from "@/app/components/footer";
-import { IconDiscord, IconFigma, IconGitHub } from "@/app/components/icons";
+import {
+	IconDiscord,
+	IconFigma,
+	IconGitHub,
+	IconReact,
+} from "@/app/components/icons";
 
 export const gridDecoration = css`
 	position: relative;
@@ -136,8 +141,22 @@ const StyledBringOnTop = styled.span<{ theme: Theme }>`
 	z-index: 10;
 `;
 
+const StyledIconWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+
+	& svg {
+		height: 42px;
+		width: auto;
+
+		&:last-of-type {
+			height: 46px;
+		}
+	}
+`;
+
 function Home() {
-	const theme: Theme = useTheme() as Theme;
 	return (
 		<StyledBringOnTop>
 			<Container $textAlign="center">
@@ -145,19 +164,18 @@ function Home() {
 				<StyledIntro>Design system for the modern web.</StyledIntro>
 				<Space $size={40} />
 				<StyledParagraph>
-					The Cherry Design System is a versatile foundation for
-					projects. It offers a white label base, ready-to-use Figma
-					designs, React components, theming support and is open
-					source. Explore the documentation to create delightful user
-					interfaces.{" "}
+					Cherry Design System is a versatile foundation for projects.
+					It offers a white label base, ready-to-use Figma designs,
+					open-source React components, theming support with dark
+					mode. Explore the docs to create delightful user interfaces.
 				</StyledParagraph>
 				<Space $size={40} />
 				<LinkButton href="/docs">Get Started</LinkButton>
 				<Space $size={80} />
-				<Flex $justifyContent="center">
-					<Image src="figma.svg" alt="Figma" width={28} height={42} />
-					<Image src="react.svg" alt="React" width={38} height={42} />
-				</Flex>
+				<StyledIconWrapper>
+					<IconFigma />
+					<IconReact />
+				</StyledIconWrapper>
 				<Space $size={80} />
 				<GridDecoration>
 					<MaxWidth $xs={600}>
