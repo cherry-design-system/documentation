@@ -15,6 +15,7 @@ import {
 	docsFigmaNav,
 	docsIntroNav,
 } from "@/app/navs/documentation";
+import { rgba } from "polished";
 
 interface Props {
 	theme?: Theme;
@@ -117,9 +118,15 @@ const StyleMobileBar = styled.button<Props>`
 	top: 20px;
 	font-size: ${({ theme }) => theme.fontSizes.strong.lg};
 	line-height: ${({ theme }) => theme.fontSizes.strong.lg};
-	background: ${({ theme }) => theme.colors.light};
 	box-shadow: ${({ theme }) => theme.shadows.sm};
-	color: ${({ theme }) => theme.colors.primary};
+	background: ${({ theme }) =>
+		theme.isDark
+			? rgba(theme.colors.grayLight, 0.7)
+			: rgba(theme.colors.light, 0.7)};
+	color: ${({ theme }) =>
+		theme.isDark ? theme.colors.dark : theme.colors.primary};
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 	padding: 30px;
 	border-radius: 100px;
 	margin: 0 0 20px 0;
@@ -144,7 +151,7 @@ const StyledMobileBurger = styled.span<Props>`
 	height: 18px;
 	position: relative;
 	overflow: hidden;
-	background: ${({ theme }) => theme.colors.light};
+	background: transparent;
 	position: relative;
 
 	&::before,
@@ -155,7 +162,8 @@ const StyledMobileBurger = styled.span<Props>`
 		width: 18px;
 		height: 3px;
 		border-radius: 3px;
-		background: ${({ theme }) => theme.colors.primary};
+		background: ${({ theme }) =>
+			theme.isDark ? theme.colors.dark : theme.colors.primary};
 		transition: all 0.3s ease;
 	}
 
