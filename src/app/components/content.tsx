@@ -9,6 +9,9 @@ interface ContentProps {
 }
 
 const StyledContent = styled.div<ContentProps>`
+	position: relative;
+	z-index: 1;
+
 	& p,
 	& ul,
 	& ol,

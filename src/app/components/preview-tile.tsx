@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import { Theme, styledSmall, theme } from "cherry-styled-components/src/lib";
+import { Theme, theme } from "cherry-styled-components/src/lib";
 
 interface PreviewTileProps {
 	$title: string;
@@ -54,6 +54,7 @@ const StyledCenter = styled.div<PreviewTileProps>`
 const StyledContent = styled.div<PreviewTileProps>`
 	padding: 20px;
 	width: 100%;
+	color: ${({ theme }) => theme.colors.dark};
 
 	& span {
 		display: block;

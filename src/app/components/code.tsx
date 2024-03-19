@@ -13,7 +13,7 @@ const TopBar = styled.div<CodeProps>`
 	background: #0d1117;
 	border-top-left-radius: ${({ theme }) => theme.spacing.radius.lg};
 	border-top-right-radius: ${({ theme }) => theme.spacing.radius.lg};
-	border-bottom: solid 1px ${({ theme }) => rgba(theme.colors.light, 0.2)};
+	border-bottom: solid 1px ${rgba("#ffffff", 0.2)};
 	height: 33px;
 	width: 100%;
 	display: flex;
@@ -27,14 +27,14 @@ const Dot = styled.span<{ theme: Theme }>`
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
-	background: ${({ theme }) => rgba(theme.colors.light, 0.2)};
+	background: ${rgba("#ffffff", 0.2)};
 `;
 
 const Body = styled.div<{ theme: Theme }>`
 	background: #0d1117;
 	border-bottom-left-radius: ${({ theme }) => theme.spacing.radius.lg};
 	border-bottom-right-radius: ${({ theme }) => theme.spacing.radius.lg};
-	color: ${({ theme }) => theme.colors.light};
+	color: #ffffff;
 	padding: 20px;
 	font-family: ${({ theme }) => theme.fonts.mono};
 	text-align: left;

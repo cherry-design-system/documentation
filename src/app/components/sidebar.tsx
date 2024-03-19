@@ -4,17 +4,17 @@ import styled, { css } from "styled-components";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-	docsComponentsNav,
-	docsFigmaNav,
-	docsIntroNav,
-} from "@/app/navs/documentation";
-import {
 	Theme,
 	mq,
 	resetButton,
 	styledStrong,
 	Space,
 } from "cherry-styled-components/src/lib";
+import {
+	docsComponentsNav,
+	docsFigmaNav,
+	docsIntroNav,
+} from "@/app/navs/documentation";
 
 interface Props {
 	theme?: Theme;
@@ -80,7 +80,8 @@ const StyledSidebarListItemLink = styled(Link)<Props>`
 	text-decoration: none;
 	font-size: ${({ theme }) => theme.fontSizes.strong.xs};
 	line-height: 2.1;
-	color: ${({ theme }) => theme.colors.primary};
+	color: ${({ theme }) =>
+		theme.isDark ? theme.colors.grayDark : theme.colors.primary};
 	padding: 0 0 0 20px;
 	display: flex;
 	transition: all 0.3s ease;
@@ -93,7 +94,10 @@ const StyledSidebarListItemLink = styled(Link)<Props>`
 
 	@media (hover: hover) {
 		&:hover {
-			color: ${({ theme }) => theme.colors.primaryDark};
+			color: ${({ theme }) =>
+				theme.isDark
+					? theme.colors.primaryLight
+					: theme.colors.primaryDark};
 			border-color: ${({ theme }) => theme.colors.info};
 		}
 	}

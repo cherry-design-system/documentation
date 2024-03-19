@@ -1,10 +1,11 @@
 import { Inter } from "next/font/google";
 import { Header } from "@/app/components/header";
 import { MinHeight } from "@/app/components/min-height";
-import { theme } from "@/app/theme";
 import {
 	StyledComponentsRegistry,
 	CherryThemeProvider,
+	themeDark,
+	theme,
 } from "cherry-styled-components/src/lib";
 import Script from "next/script";
 

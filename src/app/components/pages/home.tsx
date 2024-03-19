@@ -2,12 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 import {
 	Theme,
-	IconDiscord,
-	IconFigma,
-	IconGitHub,
 	styledH1,
 	styledH3,
 	styledHero2,
@@ -30,6 +27,7 @@ import { LinkButton } from "@/app/components/link-button";
 import Content from "@/app/docs/snippets/demo.mdx";
 import { IconLink } from "@/app/components/icon-link";
 import { Footer } from "@/app/components/footer";
+import { IconDiscord, IconFigma, IconGitHub } from "@/app/components/icons";
 
 const gridDecoration = css`
 	position: relative;
@@ -48,6 +46,7 @@ const gridDecoration = css`
 		top: 50%;
 		aspect-ratio: 1440 / 357;
 		transform: translate(-50%, -50%);
+		pointer-events: none;
 	}
 `;
 
@@ -111,6 +110,7 @@ const StyledStrong = styled.div<{ theme: Theme }>`
 	display: block;
 	font-weight: 700;
 	${({ theme }) => styledStrong(theme)};
+	color: ${({ theme }) => theme.colors.dark};
 `;
 const TileContent = styled.div<{ theme: Theme }>`
 	background: ${({ theme }) => theme.colors.light};
@@ -126,9 +126,15 @@ const StyledH3 = styled.h3<{ theme: Theme }>`
 	${({ theme }) => styledH1(theme)};
 `;
 
+const StyledBringOnTop = styled.span<{ theme: Theme }>`
+	position: relative;
+	z-index: 10;
+`;
+
 function Home() {
+	const theme: Theme = useTheme() as Theme;
 	return (
-		<>
+		<StyledBringOnTop>
 			<Container $textAlign="center">
 				<Space $size={40} />
 				<StyledIntro>Design system for the modern web.</StyledIntro>
@@ -345,7 +351,7 @@ function Home() {
 				</LinkButton>
 			</Container>
 			<Footer />
-		</>
+		</StyledBringOnTop>
 	);
 }
 

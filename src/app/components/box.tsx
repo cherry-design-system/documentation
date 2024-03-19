@@ -36,10 +36,16 @@ const StyledBox = styled(Link)<StyledBoxProps>`
 
 	@media (hover: hover) {
 		&:hover {
-			border-color: ${({ theme }) => theme.colors.primary};
+			border-color: ${({ theme }) =>
+				theme.isDark
+					? theme.colors.primaryLight
+					: theme.colors.primary};
 
 			& strong {
-				color: ${({ theme }) => theme.colors.primaryDark};
+				color: ${({ theme }) =>
+					theme.isDark
+						? theme.colors.primaryLight
+						: theme.colors.primaryDark};
 			}
 		}
 	}
@@ -53,7 +59,8 @@ const StyledSmallerBox = styled(StyledBox)`
 `;
 
 const StyledTitle = styled.strong<StyledBoxProps>`
-	color: ${({ theme }) => theme.colors.primary};
+	color: ${({ theme }) =>
+		theme.isDark ? theme.colors.dark : theme.colors.primary};
 	${({ theme }) => styledH5(theme)};
 	transition: all 0.3s ease;
 	display: flex;
@@ -71,7 +78,8 @@ const StyledSmallerTitle = styled(StyledTitle)`
 `;
 
 const StyledText = styled.span<StyledBoxProps>`
-	color: ${({ theme }) => theme.colors.dark};
+	color: ${({ theme }) =>
+		theme.isDark ? theme.colors.gray : theme.colors.dark};
 	margin: 0;
 	padding: 10px 0 0 0;
 	display: block;

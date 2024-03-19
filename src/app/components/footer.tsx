@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
-import styled from "styled-components";
-import Image from "next/image";
+import styled, { useTheme } from "styled-components";
 import { rgba } from "polished";
 import Link from "next/link";
 import {
-	Theme,
 	mq,
-	IconDribbble,
-	IconThreads,
 	styledSmall,
 	styledText,
 	Col,
@@ -19,9 +15,14 @@ import {
 } from "cherry-styled-components/src/lib";
 import { IconLink } from "@/app/components/icon-link";
 import { usePathname } from "next/navigation";
+import { IconCherry, IconDribbble, IconThreads } from "./icons";
+import { Theme } from "cherry-styled-components/src/lib";
 
 const StyledFooter = styled.footer<{ theme: Theme }>`
-	background: ${({ theme }) => rgba(theme.colors.primaryLight, 0.2)};
+	background: ${({ theme }) =>
+		theme.isDark
+			? rgba(theme.colors.grayLight, 0.5)
+			: rgba(theme.colors.primaryLight, 0.2)};
 	margin-top: 60px;
 `;
 
@@ -39,14 +40,18 @@ const StyledParagraph = styled.p<{
 	}
 
 	& a {
-		color: ${({ theme }) => theme.colors.primary};
+		color: ${({ theme }) =>
+			theme.isDark ? theme.colors.dark : theme.colors.primary};
 		transition: all 0.3s ease;
 		text-decoration: none;
 		font-weight: 700;
 
 		@media (hover: hover) {
 			&:hover {
-				color: ${({ theme }) => theme.colors.primaryDark};
+				color: ${({ theme }) =>
+					theme.isDark
+						? theme.colors.primaryLight
+						: theme.colors.primaryDark};
 			}
 		}
 	}
@@ -64,9 +69,15 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 	transition: all 0.3s ease;
 	display: inline-block;
 	margin: auto;
+	color: ${({ theme }) => theme.colors.primary};
 
 	${mq("lg")} {
 		margin: auto 0;
+	}
+
+	& .logo {
+		width: 148px;
+		height: auto;
 	}
 
 	& img,
@@ -87,10 +98,14 @@ const StyledHr = styled.hr<{ theme: Theme }>`
 	border: none;
 	height: 1px;
 	width: 100%;
-	background: ${({ theme }) => rgba(theme.colors.primaryLight, 0.5)};
+	background: ${({ theme }) =>
+		theme.isDark
+			? rgba(theme.colors.grayDark, 0.5)
+			: rgba(theme.colors.primaryLight, 0.5)};
 `;
 
 function Footer() {
+	const theme: Theme = useTheme() as Theme;
 	const year = new Date().getFullYear();
 	return (
 		<StyledFooter>
@@ -122,7 +137,7 @@ function Footer() {
 						<Space $xs={20} $lg="none" />
 						<IconLink
 							href="https://www.threads.net/@luangjokaj?ref=cherry.design"
-							$bgColor="#000000"
+							$bgColor={theme.colors.dark}
 							$label="Threads"
 						>
 							<IconThreads />
@@ -141,13 +156,8 @@ function Footer() {
 				<Space $size={40} />
 				<Grid $xsCols={1} $lgCols={2}>
 					<StyledLinkWrapper>
-						<StyledLink href="/">
-							<Image
-								src="/logo.svg"
-								alt="Cherry Logo"
-								width={150}
-								height={38}
-							/>
+						<StyledLink href="/" aria-label="Cherry Logo">
+							<IconCherry className="logo" />
 						</StyledLink>
 					</StyledLinkWrapper>
 					<StyledParagraph $align="right">
@@ -174,17 +184,22 @@ function DocsFooter() {
 		}
 	`;
 	const StyledParagraph = styled.p<{ theme: Theme }>`
-		color: ${({ theme }) => theme.colors.gray};
+		color: ${({ theme }) =>
+			theme.isDark ? theme.colors.grayDark : theme.colors.gray};
 	`;
 	const StyledLink = styled.a<{ theme: Theme }>`
 		font-weight: 500;
 		text-decoration: none;
-		color: ${({ theme }) => theme.colors.primary};
+		color: ${({ theme }) =>
+			theme.isDark ? theme.colors.dark : theme.colors.primary};
 		transition: all 0.3s ease;
 
 		@media (hover: hover) {
 			&:hover {
-				color: ${({ theme }) => theme.colors.primaryDark};
+				color: ${({ theme }) =>
+					theme.isDark
+						? theme.colors.primaryLight
+						: theme.colors.primaryDark};
 			}
 		}
 

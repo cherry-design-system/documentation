@@ -2,18 +2,17 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import Image from "next/image";
-import {
-	Theme,
-	mq,
-	IconGitHub,
-	Container,
-	Flex,
-} from "cherry-styled-components/src/lib";
+import { mq, Container, Flex } from "cherry-styled-components/src/lib";
 import { Search } from "./search";
+import { IconCherry, IconGitHub } from "./icons";
+import { Theme } from "cherry-styled-components/src/lib";
+import { rgba } from "polished";
 
 const StyledHeader = styled.header<{ theme: Theme }>`
-	background: ${({ theme }) => theme.colors.light};
+	background: ${({ theme }) =>
+		theme.isDark
+			? rgba(theme.colors.grayLight, 0.7)
+			: rgba(theme.colors.light, 0.7)};
 	border-radius: 100px;
 	max-width: calc(100% - 40px);
 	margin: 20px auto 0;
@@ -21,6 +20,7 @@ const StyledHeader = styled.header<{ theme: Theme }>`
 	top: 20px;
 	z-index: 100;
 	box-shadow: ${({ theme }) => theme.shadows.lg};
+	backdrop-filter: blur(10px);
 
 	${mq("lg")} {
 		margin: 40px auto 0;
@@ -41,8 +41,9 @@ const StyledBg = styled.span<{ theme: Theme }>`
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: -1;
+	z-index: 0;
 	opacity: 0.3;
+	position: none;
 `;
 
 const StyledNav = styled.nav<{ theme: Theme }>`
@@ -56,7 +57,8 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 	vertical-align: middle;
 	text-decoration: none;
 	font-weight: 700;
-	color: ${({ theme }) => theme.colors.primary};
+	color: ${({ theme }) =>
+		theme.isDark ? theme.colors.dark : theme.colors.dark};
 	margin: auto 0;
 	transition: all 0.3s ease;
 
@@ -65,15 +67,33 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 		transition: all 0.3s ease;
 	}
 
+	& .logo {
+		width: 148px;
+		height: auto;
+	}
+
 	@media (hover: hover) {
 		&:hover {
-			color: ${({ theme }) => theme.colors.primaryDark};
+			color: ${({ theme }) =>
+				theme.isDark
+					? theme.colors.primaryLight
+					: theme.colors.primaryDark};
 
-			& svg {
+			& svg:not(.logo) {
 				& path {
-					fill: ${({ theme }) => theme.colors.primaryDark};
+					fill: ${({ theme }) =>
+						theme.isDark
+							? theme.colors.primaryLight
+							: theme.colors.primaryDark};
 				}
 			}
+		}
+	}
+
+	& svg:not(.logo) {
+		& path {
+			fill: ${({ theme }) =>
+				theme.isDark ? theme.colors.dark : theme.colors.primary};
 		}
 	}
 
@@ -92,14 +112,8 @@ function Header() {
 			<StyledHeader>
 				<Container $lgPadding={20}>
 					<Flex $justifyContent="space-between">
-						<StyledLink href="/">
-							<Image
-								src="/logo.svg"
-								alt="Cherry Logo"
-								width={150}
-								height={38}
-								priority
-							/>
+						<StyledLink href="/" aria-label="Cherry Logo">
+							<IconCherry className="logo" />
 						</StyledLink>
 						<StyledNav>
 							<Search />

@@ -19,12 +19,16 @@ const StyledLink = styled.a<IconLinkProps>`
 	justify-content: center;
 	align-items: center;
 	text-decoration: none;
-	color: ${({ theme }) => theme.colors.primary};
+	color: ${({ theme }) =>
+		theme.isDark ? theme.colors.dark : theme.colors.primary};
 	transition: all 0.3s ease;
 
 	@media (hover: hover) {
 		&:hover {
-			color: ${({ theme }) => theme.colors.primaryDark};
+			color: ${({ theme }) =>
+				theme.isDark
+					? theme.colors.primaryLight
+					: theme.colors.primaryDark};
 		}
 	}
 `;
@@ -33,6 +37,7 @@ const StyledIcon = styled.div<IconLinkProps>`
 	width: 52px;
 	height: 52px;
 	border-radius: ${({ theme }) => theme.spacing.radius.lg};
+	border: solid 1px ${({ theme }) => theme.colors.grayLight};
 	background: ${({ $bgColor }) => $bgColor};
 	display: flex;
 	flex-wrap: wrap;
@@ -51,10 +56,6 @@ const StyledIcon = styled.div<IconLinkProps>`
 
 	& svg {
 		margin: auto;
-	}
-
-	& svg:not(.figma) path {
-		fill: ${({ theme }) => theme.colors.light};
 	}
 `;
 
