@@ -112,7 +112,7 @@ function IconCherry({ ...props }: IconProps) {
 						fillRule="evenodd"
 						clipRule="evenodd"
 						d="M20.4808 30.335C20.4808 30.335 15.1511 25.3847 14.3362 24.6943C14.3362 24.6943 13.2266 29.1835 19.164 31.6756C19.164 31.6756 20.1671 31.6042 20.4808 30.335Z"
-						fill={theme.colors.light}
+						fill="#FFFFFF"
 					/>
 				</g>
 				<g filter="url(#filter1_f_2_131)">
@@ -120,7 +120,7 @@ function IconCherry({ ...props }: IconProps) {
 						fillRule="evenodd"
 						clipRule="evenodd"
 						d="M32.9619 34.4399C32.9619 34.4399 27.4505 31.4849 30.8902 30.0137C30.8902 30.0137 37.5448 30.3222 37.2966 35.6453C37.2966 35.6453 37.1774 36.5175 32.9619 34.4399Z"
-						fill={theme.colors.light}
+						fill="#FFFFFF"
 					/>
 				</g>
 			</g>
