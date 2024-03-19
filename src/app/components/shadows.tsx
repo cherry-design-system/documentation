@@ -14,7 +14,8 @@ const StyledShadows = styled.span<ShadowsProps>`
 	min-height: 60px;
 	height: 60px;
 	width: 100%;
-	background: ${({ theme }) => theme.colors.light};
+	background: ${({ theme }) =>
+		theme.isDark ? theme.colors.grayLight : theme.colors.light};
 	border-radius: ${({ theme }) => theme.spacing.radius.xs};
 	box-shadow: ${({ theme, $size }) => theme.shadows[$size]};
 `;
