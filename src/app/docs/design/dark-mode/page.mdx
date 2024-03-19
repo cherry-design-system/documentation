@@ -5,17 +5,19 @@ import { Box } from "@/app/components/box";
 import { IconFigma, IconFile } from "@/app/components/icons";
 
 export const metadata = {
-	title: "Colors - Design - Cherry Design System",
+	title: "Dark Mode - Design - Cherry Design System",
 	openGraph: {
-		title: "Colors - Design - Cherry Design System",
+		title: "Dark Mode - Design - Cherry Design System",
 		images: OG_IMAGE,
 	},
 };
 
-# Colors - Design
+# Dark Mode - Design
 
-Cherry offers a curated set of predefined colors to kickstart your interface design. Depending on your specific requirements, you can always tweak or expand this palette. However, in most scenarios, the default palette of 18 colors should suffice. Below, you’ll find the default values.
+Aside form the main colors, we offer the same variables under the **Color Dark** variable collections. This pallete is usued to create Dark Mode interfaces. Generally you don't need to change all the colors, just make sure there is enough contrast between the text and the background.
+In the example of the Cherry website, we use exactely the same colors with different sets of grays.
 
+![Figma](/variables.jpg)
 <Grid $xsCols={2} $lgCols={3} $xsGap={20}>
 	<PreviewTile
 		$bgColor="#91AEC4"
@@ -64,19 +66,19 @@ Cherry offers a curated set of predefined colors to kickstart your interface des
 	/>
 
 	<PreviewTile
-		$bgColor="#E5E7EB"
+		$bgColor="#1A1A1A"
 		$title="Gray Light"
-		$subTitle="#E5E7EB"
+		$subTitle="#1A1A1A"
 	/>
 	<PreviewTile
-		$bgColor="#9CA3AF"
+		$bgColor="#454444"
 		$title="Gray"
-		$subTitle="#9CA3AF"
+		$subTitle="#454444"
 	/>
 	<PreviewTile
-		$bgColor="#4B5563"
+		$bgColor="#808080"
 		$title="Gray Dark"
-		$subTitle="#4B5563"
+		$subTitle="#808080"
 	/>
 	<PreviewTile
 		$bgColor="#84CC16"

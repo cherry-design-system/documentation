@@ -28,6 +28,11 @@ export const docsFigmaNav = [
 		icon: "",
 	},
 	{
+		title: "Dark Mode",
+		url: "/docs/design/dark-mode",
+		icon: "",
+	},
+	{
 		title: "Typography",
 		url: "/docs/design/typography",
 		icon: "",
