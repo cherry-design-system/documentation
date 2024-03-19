@@ -29,6 +29,7 @@ const StyledHeader = styled.header<{ theme: Theme }>`
 	z-index: 100;
 	box-shadow: ${({ theme }) => theme.shadows.lg};
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 
 	${mq("lg")} {
 		margin: 40px auto 0;
@@ -76,8 +77,12 @@ const StyledLink = styled(Link)<{ theme: Theme }>`
 	}
 
 	& .logo {
-		width: 148px;
+		width: 120px;
 		height: auto;
+
+		${mq("lg")} {
+			width: 148px;
+		}
 	}
 
 	@media (hover: hover) {
@@ -186,7 +191,7 @@ function Header() {
 			<StyledBg />
 			<StyledHeader>
 				<Container $lgPadding={20}>
-					<Flex $justifyContent="space-between">
+					<Flex $justifyContent="space-between" $wrap="nowrap">
 						<StyledLink href="/" aria-label="Cherry Logo">
 							<IconCherry className="logo" />
 						</StyledLink>
