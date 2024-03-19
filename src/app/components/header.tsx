@@ -9,12 +9,12 @@ import {
 	theme as themeLight,
 	resetButton,
 	themeDark,
+	ThemeContext,
 } from "cherry-styled-components/src/lib";
 import { Theme } from "cherry-styled-components/src/lib";
 import { rgba } from "polished";
 import { Search } from "./search";
 import { IconCherry, IconGitHub, IconMoon, IconSun } from "./icons";
-import { ThemeContext } from "./theme-provider";
 
 const StyledHeader = styled.header<{ theme: Theme }>`
 	background: ${({ theme }) =>

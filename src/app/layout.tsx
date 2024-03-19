@@ -3,11 +3,11 @@ import { Header } from "@/app/components/header";
 import { MinHeight } from "@/app/components/min-height";
 import {
 	StyledComponentsRegistry,
+	CherryThemeProvider,
 	themeDark,
 	theme,
 } from "cherry-styled-components/src/lib";
 import Script from "next/script";
-import { CherryThemeProvider } from "./components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -64,7 +64,7 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<StyledComponentsRegistry>
-					<CherryThemeProvider theme={theme}>
+					<CherryThemeProvider theme={theme} themeDark={themeDark}>
 						<MinHeight>
 							<Header />
 							{children}
