@@ -8,7 +8,7 @@ import {
 } from "cherry-styled-components/src/lib";
 import styled from "styled-components";
 import Link from "next/link";
-import { IconLink } from "./icon-link";
+import { StyledIcon } from "./icon-link";
 
 interface StyledBoxProps {
 	$title: string;
@@ -52,10 +52,9 @@ const StyledBox = styled(Link)<StyledBoxProps>`
 `;
 
 const StyledSmallerBox = styled(StyledBox)`
-	padding: 12px 20px 8px 35px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-	margin-left: -20px;
+	padding: 12px 20px 12px 70px;
+	position: relative;
+	overflow: clip;
 `;
 
 const StyledTitle = styled.strong<StyledBoxProps>`
@@ -85,23 +84,31 @@ const StyledText = styled.span<StyledBoxProps>`
 	display: block;
 `;
 
+const StyledIconLocal = styled(StyledIcon)`
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: none;
+	border-radius: 0;
+`;
+
 function Box({ ...props }: StyledBoxProps) {
 	if (props.$iconLink) {
 		return (
 			<Flex $gap="none" $wrap="nowrap">
-				<IconLink
-					href={props.href}
-					target={props.target}
-					$bgColor="#000000"
-				>
-					{props.$iconLink}
-				</IconLink>
 				<StyledSmallerBox
 					href={props.href}
 					target={props.target}
 					$title={props.$title}
 					$text={props.$text}
 				>
+					<StyledIconLocal
+						href={props.href}
+						target={props.target}
+						$bgColor="#000000"
+					>
+						{props.$iconLink}
+					</StyledIconLocal>
 					<StyledSmallerTitle {...props}>
 						{props.$icon && props.$icon}
 						{props.$title}

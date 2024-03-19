@@ -12,32 +12,18 @@ export const metadata = {
 
 # Theme -  Develop
 
-The Cherry theme defines various aspects of your project. Whether you’re working on media queries, spacing sizes, colors, font sizes, or line heights, the Cherry theme has got you covered. Additionally, Cherry offers a Figma plugin to extract design tokens—check out the [Design](/docs/design) documentation for details on that integration.
+The Cherry theme is a TypeScript object that defines various aspects of your project. Whether you’re working on media queries, spacing sizes, colors, font sizes, or line heights, the Cherry theme has got you covered. Additionally, Cherry offers a Figma plugin to extract design tokens—check out the [Design](/docs/design) documentation for details on that integration.
 
 To use the theme correctly make sure you are wrapping your entire application with the **CherryThemeProvider**. This will ensure that all the components in your application have access to the theme.
-This component provides the theme to all React components underneath itself via the context API.
-. 
+This component provides the theme to all React components underneath itself via the context API. Ensure that your theme prop is passed down correctly. 
 
 ```tsx
-import { CherryThemeProvider } from "cherry-styled-components";
+import { CherryThemeProvider, theme } from "cherry-styled-components";
 
-export default function App() {
-  return <CherryThemeProvider>
-    <App />
+export default function App({ Component, pageProps }) {
+  return <CherryThemeProvider theme={theme}>
+    <Component {...pageProps} />
   </CherryThemeProvider>;
-}
-```
-
-Alternatively you can pass the theme object directly to any Cherry component through the **theme** prop.
-
-```tsx
-import React from "react"
-import { theme } from "cherry-styled-components";
-
-export default function Page() {
-  return (
-	<Button theme={theme}>Button</Button>
-  )
 }
 ```
 

@@ -71,6 +71,11 @@ export const docsComponentsNav = [
 		icon: "",
 	},
 	{
+		title: "Dark Mode",
+		url: "/docs/develop/dark-mode",
+		icon: "",
+	},
+	{
 		title: "Global Styles",
 		url: "/docs/develop/global-styles",
 		icon: "",

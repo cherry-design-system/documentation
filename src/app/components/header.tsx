@@ -184,8 +184,8 @@ const StyledThemeToggle = styled.button<{ theme: Theme }>`
 `;
 
 function Header() {
-	const { setTheme } = useContext(ThemeContext);
 	const theme: Theme = useTheme() as Theme;
+	const { setTheme } = useContext(ThemeContext);
 	return (
 		<>
 			<StyledBg />

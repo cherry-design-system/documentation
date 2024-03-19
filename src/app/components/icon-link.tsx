@@ -33,7 +33,7 @@ const StyledLink = styled.a<IconLinkProps>`
 	}
 `;
 
-const StyledIcon = styled.div<IconLinkProps>`
+export const StyledIcon = styled.div<IconLinkProps>`
 	width: 52px;
 	height: 52px;
 	border-radius: ${({ theme }) => theme.spacing.radius.lg};

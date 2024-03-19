@@ -1,0 +1,86 @@
+import { OG_IMAGE } from "@/app/utils/constants";
+import { Box } from "@/app/components/box";
+import { IconFile, IconGitHub } from "@/app/components/icons";
+
+export const metadata = {
+  title: "Dark Mode - Develop - Cherry Design System",
+  openGraph: {
+    title: "Dark Mode - Develop - Cherry Design System",
+    images: OG_IMAGE,
+  },
+};
+
+# Dark Mode - Develop
+
+### Enabling Dark Mode in Cherry
+
+Cherry provides built-in support for dark mode. All you have to do is pass the **themeDark** prop to the **CherryThemeProvider** component.
+
+```tsx
+import {
+  CherryThemeProvider,
+  theme,
+  themeDark,
+} from "cherry-styled-components";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <CherryThemeProvider theme={theme} themeDark={themeDark}>
+      <Component {...pageProps} />
+    </CherryThemeProvider>
+  );
+}
+```
+
+## Automatic Dark Mode Detection
+
+Cherry will automatically check whether your system has dark mode enabled. If dark mode is detected, the default theme will be set to dark. This will happen only if you passed the **themeDark** prop to the **CherryThemeProvider** component.
+
+## Manual Theme Toggle
+
+If you’d like to manually switch themes in Cherry, you can take advantage of **local storage** to remember your last theme selection. Use the **ThemeContext** provided by the Cherry library to switch themes programmatically.
+
+This context gives you access to the current theme and a function to toggle between themes. Follow the example below:
+
+```tsx
+import React from "react";
+import {
+  Theme,
+  ThemeContext,
+  theme as themeLight,
+  themeDark,
+} from "cherry-styled-components";
+import { useTheme } from "styled-components";
+
+export default function Header() {
+  const theme: Theme = useTheme() as Theme;
+  const { setTheme } = useContext(ThemeContext);
+  return (
+    <header>
+      <button
+        onClick={() => {
+          if (theme.isDark) {
+            setTheme(themeLight);
+            localStorage.theme = "light";
+          } else {
+            setTheme(themeDark);
+            localStorage.theme = "dark";
+          }
+        }}
+      >
+        Switch Theme
+      </button>
+    </header>
+  );
+}
+```
+
+Explore the source code on GitHub:
+
+<Box
+  $icon={<IconFile />}
+  $iconLink={<IconGitHub />}
+  $title="CherryThemeProvider"
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/styled-components/theme-provider.tsx"
+  target="_blank"
+/>
