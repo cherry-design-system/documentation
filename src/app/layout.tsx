@@ -64,7 +64,7 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<StyledComponentsRegistry>
-					<CherryThemeProvider theme={themeDark}>
+					<CherryThemeProvider theme={theme}>
 						<MinHeight>
 							<Header />
 							{children}
