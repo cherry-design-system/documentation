@@ -100,7 +100,7 @@ const StyledHr = styled.hr<{ theme: Theme }>`
 	width: 100%;
 	background: ${({ theme }) =>
 		theme.isDark
-			? rgba(theme.colors.grayDark, 0.5)
+			? theme.colors.grayLight
 			: rgba(theme.colors.primaryLight, 0.5)};
 `;
 
