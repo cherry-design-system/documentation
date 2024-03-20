@@ -166,8 +166,9 @@ function Home() {
 				<StyledParagraph>
 					Cherry Design System is a versatile foundation for projects.
 					It offers a white label base, ready-to-use Figma designs,
-					open-source React components, theming support with dark
-					mode. Explore the docs to create delightful user interfaces.
+					open-source React components, built-in support for theming
+					and dark mode. Explore the docs to create delightful user
+					interfaces.
 				</StyledParagraph>
 				<Space $size={40} />
 				<LinkButton href="/docs">Get Started</LinkButton>
