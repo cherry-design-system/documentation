@@ -208,6 +208,7 @@ function Header() {
 								<IconGitHub />
 							</StyledLink>
 							<StyledThemeToggle
+								aria-label="Toggle Theme"
 								onClick={() => {
 									if (theme.isDark) {
 										setTheme(themeLight);
