@@ -33,7 +33,7 @@ const StyledContent = styled.div<ContentProps>`
 				width: 6px;
 				height: 6px;
 				border-radius: 50%;
-				background: ${({ theme }) => theme.colors.primaryLight};
+				background: ${({ theme }) => theme.colors.info};
 				position: absolute;
 				top: 8px;
 				left: 2px;
@@ -58,7 +58,7 @@ const StyledContent = styled.div<ContentProps>`
 				display: inline;
 				margin: 0 4px 0 0;
 				font-weight: 700;
-				color: ${({ theme }) => theme.colors.primaryLight};
+				color: ${({ theme }) => theme.colors.info};
 			}
 		}
 	}
