@@ -1,8 +1,8 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import {
-	Space,
-	Grid,
-	Range,
+  Space,
+  Grid,
+  Range,
 } from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
@@ -10,11 +10,11 @@ import { IconFile, IconGitHub } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Range - Develop - Cherry Design System",
-	openGraph: {
-		title: "Range - Develop - Cherry Design System",
-		images: OG_IMAGE,
-	},
+  title: "Range - Develop - Cherry Design System",
+  openGraph: {
+    title: "Range - Develop - Cherry Design System",
+    images: OG_IMAGE,
+  },
 };
 
 # Range - Develop
@@ -37,7 +37,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Range" $subTitle="Default">
-	<Range />
+  <Range />
 </PreviewTile>
 
 You can add a label by adding a **$label** prop.
@@ -55,11 +55,11 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile
-	$title="Range"
-	$subTitle="Full width with Label"
-	$isLonger
+  $title="Range"
+  $subTitle="Full width with Label"
+  $isLonger
 >
-	<Range $label="Label" $fullWidth />
+  <Range $label="Label" $fullWidth />
 </PreviewTile>
 
 Here is an example of a Range with success and error state.
@@ -80,61 +80,61 @@ export default function Page() {
 <Space $size={20} />
 
 <Grid $gap={20} $lgCols={2}>
-	<PreviewTile
-		$title="Range"
-		$subTitle="Success"
-		$isLonger
-	>
-		<Range $success />
-	</PreviewTile>
-	<PreviewTile
-		$title="Range"
-		$subTitle="Error"
-		$isLonger
-	>
-		<Range $error />
-	</PreviewTile>
+  <PreviewTile
+    $title="Range"
+    $subTitle="Success"
+    $isLonger
+  >
+    <Range $success />
+  </PreviewTile>
+  <PreviewTile
+    $title="Range"
+    $subTitle="Error"
+    $isLonger
+  >
+    <Range $error />
+  </PreviewTile>
 </Grid>
 
 ## Properties
 
 <Table>
-	<TableRow>
-		<TableHead>Property</TableHead>
-		<TableHead>Description</TableHead>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$label?</TableData>
-		<TableData>string</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$size?</TableData>
-		<TableData>"default" | "big"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$error?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$success?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$fullWidth?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>theme?</TableData>
-		<TableData>Theme</TableData>
-	</TableRow>
+  <TableRow>
+    <TableHead>Property</TableHead>
+    <TableHead>Description</TableHead>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$label?</TableData>
+    <TableData>string</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$size?</TableData>
+    <TableData>"default" | "big"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$error?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$success?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$fullWidth?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>theme?</TableData>
+    <TableData>Theme</TableData>
+  </TableRow>
 </Table>
 
 Explore the source code on GitHub:
 
 <Box
-	$icon={<IconFile />}
-	$iconLink={<IconGitHub />}
-	$title="Range"
-	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/range.tsx"
-	target="_blank"
+  $icon={<IconFile />}
+  $iconLink={<IconGitHub />}
+  $title="Range"
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/range.tsx"
+  target="_blank"
 />

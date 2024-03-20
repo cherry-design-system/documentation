@@ -1,8 +1,8 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import {
-	Space,
-	Grid,
-	Textarea,
+  Space,
+  Grid,
+  Textarea,
 } from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
@@ -10,11 +10,11 @@ import { IconFile, IconGitHub } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Textarea - Develop - Cherry Design System",
-	openGraph: {
-		title: "Textarea - Develop - Cherry Design System",
-		images: OG_IMAGE,
-	},
+  title: "Textarea - Develop - Cherry Design System",
+  openGraph: {
+    title: "Textarea - Develop - Cherry Design System",
+    images: OG_IMAGE,
+  },
 };
 
 # Textarea - Develop
@@ -37,7 +37,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Textarea" $subTitle="Default">
-	<Textarea placeholder="Placeholder" />
+  <Textarea placeholder="Placeholder" />
 </PreviewTile>
 
 You can add a label by adding a **$label** prop.
@@ -53,11 +53,11 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile
-	$title="Textarea"
-	$subTitle="Full width with Label"
-	$isLonger
+  $title="Textarea"
+  $subTitle="Full width with Label"
+  $isLonger
 >
-	<Textarea $label="Username" $fullWidth />
+  <Textarea $label="Username" $fullWidth />
 </PreviewTile>
 
 Here is an example of a Textarea with success and error state.
@@ -76,65 +76,65 @@ export default function Page() {
 <Space $size={20} />
 
 <Grid $gap={20} $lgCols={2}>
-	<PreviewTile
-		$title="Textarea"
-		$subTitle="Success"
-		$isLonger
-	>
-		<Textarea $success placeholder="Yay" />
-	</PreviewTile>
-	<PreviewTile
-		$title="Textarea"
-		$subTitle="Error"
-		$isLonger
-	>
-		<Textarea $error placeholder="Ops" />
-	</PreviewTile>
+  <PreviewTile
+    $title="Textarea"
+    $subTitle="Success"
+    $isLonger
+  >
+    <Textarea $success placeholder="Yay" />
+  </PreviewTile>
+  <PreviewTile
+    $title="Textarea"
+    $subTitle="Error"
+    $isLonger
+  >
+    <Textarea $error placeholder="Ops" />
+  </PreviewTile>
 </Grid>
 
 ## Properties
 
 <Table>
-	<TableRow>
-		<TableHead>Property</TableHead>
-		<TableHead>Description</TableHead>
-	</TableRow>
-	<TableRow>
-		<TableData $code>type</TableData>
-		<TableData>"text" | "checkbox" | "radio"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$label?</TableData>
-		<TableData>string</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$size?</TableData>
-		<TableData>"default" | "big"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$error?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$success?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$fullWidth?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>theme?</TableData>
-		<TableData>Theme</TableData>
-	</TableRow>
+  <TableRow>
+    <TableHead>Property</TableHead>
+    <TableHead>Description</TableHead>
+  </TableRow>
+  <TableRow>
+    <TableData $code>type</TableData>
+    <TableData>"text" | "checkbox" | "radio"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$label?</TableData>
+    <TableData>string</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$size?</TableData>
+    <TableData>"default" | "big"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$error?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$success?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$fullWidth?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>theme?</TableData>
+    <TableData>Theme</TableData>
+  </TableRow>
 </Table>
 
 Explore the source code on GitHub:
 
 <Box
-	$icon={<IconFile />}
-	$iconLink={<IconGitHub />}
-	$title="Textarea"
-	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/textarea.tsx"
-	target="_blank"
+  $icon={<IconFile />}
+  $iconLink={<IconGitHub />}
+  $title="Textarea"
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/textarea.tsx"
+  target="_blank"
 />

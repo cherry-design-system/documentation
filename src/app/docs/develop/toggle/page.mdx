@@ -1,8 +1,8 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import {
-	Space,
-	Grid,
-	Toggle,
+  Space,
+  Grid,
+  Toggle,
 } from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
@@ -10,11 +10,11 @@ import { IconFile, IconGitHub } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Toggle - Develop - Cherry Design System",
-	openGraph: {
-		title: "Toggle - Develop - Cherry Design System",
-		images: OG_IMAGE,
-	},
+  title: "Toggle - Develop - Cherry Design System",
+  openGraph: {
+    title: "Toggle - Develop - Cherry Design System",
+    images: OG_IMAGE,
+  },
 };
 
 # Toggle - Develop
@@ -37,7 +37,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Toggle" $subTitle="Default">
-	<Toggle defaultChecked />
+  <Toggle defaultChecked />
 </PreviewTile>
 
 You can add a label by adding a **$label** prop.
@@ -55,11 +55,11 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile
-	$title="Toggle"
-	$subTitle="Full width with Label"
-	$isLonger
+  $title="Toggle"
+  $subTitle="Full width with Label"
+  $isLonger
 >
-	<Toggle $label="Label" $fullWidth />
+  <Toggle $label="Label" $fullWidth />
 </PreviewTile>
 
 Here is an example of a Toggle with success and error state.
@@ -80,61 +80,61 @@ export default function Page() {
 <Space $size={20} />
 
 <Grid $gap={20} $xsCols={2}>
-	<PreviewTile
-		$title="Toggle"
-		$subTitle="Success"
-		$isLonger
-	>
-		<Toggle $success />
-	</PreviewTile>
-	<PreviewTile
-		$title="Toggle"
-		$subTitle="Error"
-		$isLonger
-	>
-		<Toggle $error />
-	</PreviewTile>
+  <PreviewTile
+    $title="Toggle"
+    $subTitle="Success"
+    $isLonger
+  >
+    <Toggle $success />
+  </PreviewTile>
+  <PreviewTile
+    $title="Toggle"
+    $subTitle="Error"
+    $isLonger
+  >
+    <Toggle $error />
+  </PreviewTile>
 </Grid>
 
 ## Properties
 
 <Table>
-	<TableRow>
-		<TableHead>Property</TableHead>
-		<TableHead>Description</TableHead>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$label?</TableData>
-		<TableData>string</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$size?</TableData>
-		<TableData>"default" | "big"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$error?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$success?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$fullWidth?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>theme?</TableData>
-		<TableData>Theme</TableData>
-	</TableRow>
+  <TableRow>
+    <TableHead>Property</TableHead>
+    <TableHead>Description</TableHead>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$label?</TableData>
+    <TableData>string</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$size?</TableData>
+    <TableData>"default" | "big"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$error?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$success?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$fullWidth?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>theme?</TableData>
+    <TableData>Theme</TableData>
+  </TableRow>
 </Table>
 
 Explore the source code on GitHub:
 
 <Box
-	$icon={<IconFile />}
-	$iconLink={<IconGitHub />}
-	$title="Toggle"
-	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toggle.tsx"
-	target="_blank"
+  $icon={<IconFile />}
+  $iconLink={<IconGitHub />}
+  $title="Toggle"
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toggle.tsx"
+  target="_blank"
 />

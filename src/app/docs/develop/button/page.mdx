@@ -1,7 +1,7 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import {
-	Space,
-	Button,
+  Space,
+  Button,
 } from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
@@ -9,11 +9,11 @@ import { IconFile, IconGitHub } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Button - Develop - Cherry Design System",
-	openGraph: {
-		title: "Button - Develop - Cherry Design System",
-		images: OG_IMAGE,
-	},
+  title: "Button - Develop - Cherry Design System",
+  openGraph: {
+    title: "Button - Develop - Cherry Design System",
+    images: OG_IMAGE,
+  },
 };
 
 # Button - Develop
@@ -34,7 +34,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Primary" $subTitle="Default">
-	<Button>Button</Button>
+  <Button>Button</Button>
 </PreviewTile>
 
 You can change the look of your button by adding a **$variant** prop.
@@ -51,7 +51,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Secondary" $subTitle="Default">
-	<Button $variant="secondary">Button</Button>
+  <Button $variant="secondary">Button</Button>
 </PreviewTile>
 
 You can try more variations and props like **$outline**.
@@ -68,48 +68,48 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Tertiary" $subTitle="Outline">
-	<Button $variant="tertiary" $outline>Button</Button>
+  <Button $variant="tertiary" $outline>Button</Button>
 </PreviewTile>
 
 ## Properties
 
 <Table>
-	<TableRow>
-		<TableHead>Property</TableHead>
-		<TableHead>Description</TableHead>
-	</TableRow>
-	<TableRow>
-		<TableData $code>children?</TableData>
-		<TableData>React.ReactNode</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$variant?</TableData>
-		<TableData>"primary" | "secondary" | "tertiary"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$size?</TableData>
-		<TableData>"default" | "big"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$outline?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$fullWidth?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>theme?</TableData>
-		<TableData>Theme</TableData>
-	</TableRow>
+  <TableRow>
+    <TableHead>Property</TableHead>
+    <TableHead>Description</TableHead>
+  </TableRow>
+  <TableRow>
+    <TableData $code>children?</TableData>
+    <TableData>React.ReactNode</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$variant?</TableData>
+    <TableData>"primary" | "secondary" | "tertiary"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$size?</TableData>
+    <TableData>"default" | "big"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$outline?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$fullWidth?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>theme?</TableData>
+    <TableData>Theme</TableData>
+  </TableRow>
 </Table>
 
 Explore the source code on GitHub:
 
 <Box
-	$icon={<IconFile />}
-	$iconLink={<IconGitHub />}
-	$title="Button"
-	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/button.tsx"
-	target="_blank"
+  $icon={<IconFile />}
+  $iconLink={<IconGitHub />}
+  $title="Button"
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/button.tsx"
+  target="_blank"
 />

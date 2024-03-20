@@ -1,8 +1,8 @@
 import { OG_IMAGE } from "@/app/utils/constants";
 import {
-	Space,
-	Grid,
-	Input,
+  Space,
+  Grid,
+  Input,
 } from "cherry-styled-components/src/lib";
 import { PreviewTile } from "@/app/components/preview-tile";
 import { Box } from "@/app/components/box";
@@ -10,11 +10,11 @@ import { IconFile, IconGitHub } from "@/app/components/icons";
 import { Table, TableRow, TableHead, TableData } from "@/app/components/table";
 
 export const metadata = {
-	title: "Input - Develop - Cherry Design System",
-	openGraph: {
-		title: "Input - Develop - Cherry Design System",
-		images: OG_IMAGE,
-	},
+  title: "Input - Develop - Cherry Design System",
+  openGraph: {
+    title: "Input - Develop - Cherry Design System",
+    images: OG_IMAGE,
+  },
 };
 
 # Input - Develop
@@ -39,7 +39,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Text" $subTitle="Default">
-	<Input type="text" placeholder="Placeholder" />
+  <Input type="text" placeholder="Placeholder" />
 </PreviewTile>
 
 You can add a label by adding a **$label** prop.
@@ -55,7 +55,7 @@ export default function Page() {
 <Space $size={20} />
 
 <PreviewTile $title="Text" $subTitle="Full width with Label">
-	<Input type="text" $label="Username" $fullWidth />
+  <Input type="text" $label="Username" $fullWidth />
 </PreviewTile>
 
 Here is an example of a checkbox and a radio:
@@ -75,60 +75,60 @@ export default function Page() {
 <Space $size={20} />
 
 <Grid $gap={20} $lgCols={2}>
-	<PreviewTile
-		$title="Checkbox"
-		$subTitle="defaultChecked"
-	>
-		<Input type="checkbox" defaultChecked />
-	</PreviewTile>
-	<PreviewTile $title="Radio" $subTitle="Default">
-		<Input type="radio" />
-	</PreviewTile>
+  <PreviewTile
+    $title="Checkbox"
+    $subTitle="defaultChecked"
+  >
+    <Input type="checkbox" defaultChecked />
+  </PreviewTile>
+  <PreviewTile $title="Radio" $subTitle="Default">
+    <Input type="radio" />
+  </PreviewTile>
 </Grid>
 
 ## Properties
 
 <Table>
-	<TableRow>
-		<TableHead>Property</TableHead>
-		<TableHead>Description</TableHead>
-	</TableRow>
-	<TableRow>
-		<TableData $code>type</TableData>
-		<TableData>"text" | "checkbox" | "radio"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$label?</TableData>
-		<TableData>string</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$size?</TableData>
-		<TableData>"default" | "big"</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$error?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$success?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>$fullWidth?</TableData>
-		<TableData>boolean</TableData>
-	</TableRow>
-	<TableRow>
-		<TableData $code>theme?</TableData>
-		<TableData>Theme</TableData>
-	</TableRow>
+  <TableRow>
+    <TableHead>Property</TableHead>
+    <TableHead>Description</TableHead>
+  </TableRow>
+  <TableRow>
+    <TableData $code>type</TableData>
+    <TableData>"text" | "checkbox" | "radio"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$label?</TableData>
+    <TableData>string</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$size?</TableData>
+    <TableData>"default" | "big"</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$error?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$success?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>$fullWidth?</TableData>
+    <TableData>boolean</TableData>
+  </TableRow>
+  <TableRow>
+    <TableData $code>theme?</TableData>
+    <TableData>Theme</TableData>
+  </TableRow>
 </Table>
 
 Explore the source code on GitHub:
 
 <Box
-	$icon={<IconFile />}
-	$iconLink={<IconGitHub />}
-	$title="Input"
-	href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx"
-	target="_blank"
+  $icon={<IconFile />}
+  $iconLink={<IconGitHub />}
+  $title="Input"
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx"
+  target="_blank"
 />
