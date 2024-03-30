@@ -31,6 +31,7 @@ import { IconDiscord, IconFigma, IconGitHub, IconReact } from "@/app/components/
 
 export const gridDecoration = css`
   position: relative;
+  display: block;
 
   &::before {
     content: "";
@@ -41,7 +42,7 @@ export const gridDecoration = css`
     background: url("/grid.svg") no-repeat center center;
     ${({ theme }) => theme.isDark && 'background: url("/grid-w.svg") no-repeat center center;'}
 
-    z-index: -1;
+    z-index: 1;
     background-size: 100%;
     height: 357px;
     left: 50%;
@@ -66,7 +67,6 @@ const GridDecoration = styled.span<{ theme: Theme }>`
 
   &::before {
     transform: translate(-50%, -50%) rotate(180deg);
-    left: 0;
   }
 `;
 

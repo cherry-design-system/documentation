@@ -9,6 +9,12 @@ interface CodeProps {
   theme?: Theme;
 }
 
+const CodeWrapper = styled.span`
+  position: relative;
+  z-index: 2;
+  display: block;
+`;
+
 const TopBar = styled.div<CodeProps>`
   background: #0d1117;
   border-top-left-radius: ${({ theme }) => theme.spacing.radius.lg};
@@ -138,14 +144,14 @@ const Body = styled.div<{ theme: Theme }>`
 
 function Code({ children, ...props }: CodeProps) {
   return (
-    <>
+    <CodeWrapper>
       <TopBar {...props}>
         <Dot />
         <Dot />
         <Dot />
       </TopBar>
       <Body>{children}</Body>
-    </>
+    </CodeWrapper>
   );
 }
 
