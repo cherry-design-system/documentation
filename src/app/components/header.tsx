@@ -9,9 +9,10 @@ import {
   theme as themeLight,
   resetButton,
   themeDark,
-  ThemeContext,
 } from "cherry-styled-components/src/lib";
 import { Theme } from "cherry-styled-components/src/lib";
+import { ThemeContext } from "@/app/components/theme-provider";
+
 import { rgba } from "polished";
 import { Search } from "./search";
 import { IconCherry, IconGitHub, IconMoon, IconSun } from "./icons";
@@ -201,9 +202,11 @@ function Header() {
                   if (theme.isDark) {
                     setTheme(themeLight);
                     localStorage.theme = "light";
+                    document.documentElement.setAttribute("data-theme", "light");
                   } else {
                     setTheme(themeDark);
                     localStorage.theme = "dark";
+                    document.documentElement.setAttribute("data-theme", "dark");
                   }
                 }}
               >
