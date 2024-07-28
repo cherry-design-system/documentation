@@ -111,7 +111,7 @@ function Footer() {
             </a>
             .<br />
             Created by{" "}
-            <a href="https://www.threads.net/@luangjokaj?ref=cherry.design" target="_blank">
+            <a href="https://github.com/luangjokaj?ref=cherry.design" target="_blank">
               Luan Gjokaj
             </a>
             .
