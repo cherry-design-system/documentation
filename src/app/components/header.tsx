@@ -11,10 +11,9 @@ import {
   themeDark,
 } from "cherry-styled-components/src/lib";
 import { Theme } from "cherry-styled-components/src/lib";
-import { ThemeContext } from "@/app/components/theme-provider";
-
 import { rgba } from "polished";
-import { Search } from "./search";
+import { ThemeContext } from "@/app/components/theme-provider";
+import { Search } from "@/app/components/search";
 import { IconCherry, IconGitHub, IconMoon, IconSun } from "./icons";
 
 const StyledHeader = styled.header<{ theme: Theme }>`
