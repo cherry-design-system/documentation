@@ -79,6 +79,7 @@ const StyledIconLocal = styled(StyledIcon)`
   left: 0;
   border: none;
   border-radius: 0;
+  border-right: solid 1px ${({ theme }) => theme.colors.grayLight};
 `;
 
 function Box({ ...props }: StyledBoxProps) {

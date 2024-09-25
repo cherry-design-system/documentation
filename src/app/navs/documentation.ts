@@ -53,8 +53,8 @@ export const docsFigmaNav = [
     icon: "",
   },
   {
-    title: "Favicons",
-    url: "/docs/design/favicons",
+    title: "Site Images",
+    url: "/docs/design/site-images",
     icon: "",
   },
 ];
