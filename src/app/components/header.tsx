@@ -25,7 +25,7 @@ const StyledHeader = styled.header<{ theme: Theme }>`
   position: sticky;
   top: 20px;
   z-index: 100;
-  box-shadow: ${({ theme }) => theme.shadows.lg};
+  box-shadow: ${({ theme }) => (theme.isDark ? theme.shadows.xs : theme.shadows.lg)};
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
