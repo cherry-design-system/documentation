@@ -14,7 +14,7 @@ export const metadata = {
 
 ### Enabling Dark Mode in Cherry
 
-Cherry provides built-in support for dark mode. All you have to do is pass the **themeDark** prop to the **CherryThemeProvider** component.
+Cherry provides built-in support for dark mode. All you have to do is pass the <code>themeDark</code> prop to the <code>CherryThemeProvider</code> component.
 
 ```tsx
 import {
@@ -34,11 +34,11 @@ export default function App({ Component, pageProps }) {
 
 ## Automatic Dark Mode Detection
 
-Cherry will automatically check whether your system has dark mode enabled. If dark mode is detected, the default theme will be set to dark. This will happen only if you passed the **themeDark** prop to the **CherryThemeProvider** component.
+Cherry will automatically check whether your system has dark mode enabled. If dark mode is detected, the default theme will be set to dark. This will happen only if you passed the <code>themeDark</code> prop to the <code>CherryThemeProvider</code> component.
 
 ## Manual Theme Toggle
 
-If you’d like to manually switch themes in Cherry, you can take advantage of **local storage** to remember your last theme selection. Use the **ThemeContext** provided by the Cherry library to switch themes programmatically.
+If you’d like to manually switch themes in Cherry, you can take advantage of **local storage** to remember your last theme selection. Use the <code>ThemeContext</code> provided by the Cherry library to switch themes programmatically.
 
 This context gives you access to the current theme and a function to toggle between themes. Follow the example below:
 

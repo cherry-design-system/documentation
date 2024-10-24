@@ -14,7 +14,7 @@ export const metadata = {
 
 The Cherry theme is a TypeScript object that defines various aspects of your project. Whether you’re working on media queries, spacing sizes, colors, font sizes, or line heights, the Cherry theme has got you covered. Additionally, Cherry offers a Figma plugin to extract design tokens—check out the [Design](/docs/design) documentation for details on that integration.
 
-To use the theme correctly make sure you are wrapping your entire application with the **CherryThemeProvider**. This will ensure that all the components in your application have access to the theme.
+To use the theme correctly make sure you are wrapping your entire application with the <code>CherryThemeProvider</code>. This will ensure that all the components in your application have access to the theme.
 This component provides the theme to all React components underneath itself via the context API. Ensure that your theme prop is passed down correctly. 
 
 ```tsx
@@ -334,7 +334,8 @@ export interface Theme {
 
 When extending the Cherry theme, it’s essential to adhere to established patterns. For instance:
 
-We utilize the following size patterns: xs, sm, md, lg, xl, xxl, and xxxl. These patterns define not only media queries but also various other sizes.
+We utilize the following size patterns: <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>xxl</code>, and <code>xxxl</code>. These patterns define not only media queries but also various other sizes.
+
 If you extend the theme, ensure that you add the necessary type definitions to maintain consistency and clarity.
 Happy theming! 🍒🎨
 
