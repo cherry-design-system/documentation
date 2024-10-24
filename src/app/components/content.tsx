@@ -98,7 +98,7 @@ const StyledContent = styled.div<ContentProps>`
   & img {
     max-width: 100%;
     border-radius: ${({ theme }) => theme.spacing.padding.xs};
-    box-shadow: ${({ theme }) => theme.shadows.lg};
+    box-shadow: ${({ theme }) => theme.shadows.xs};
     transition: all 0.3s ease;
   }
 
