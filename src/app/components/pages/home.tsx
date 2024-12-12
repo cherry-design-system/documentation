@@ -318,12 +318,12 @@ function Home() {
         </LinkButton>
         <Space $size={100} />
         <StyledH3>
-          Looking for WordPress
+          Looking for
           <br /> Web Hosting?
         </StyledH3>
         <Space $size={40} />
         <StyledParagraph>
-          Hostbox delivers exceptional WordPress performance through their optimized hosting
+          Hostbox delivers exceptional web hosting performance through their optimized hosting
           platform. By combining SSD storage, advanced server configurations, and powerful caching
           systems, they ensure websites load at blazing speeds. Their fine-tuned infrastructure is
           specifically designed for WordPress, allowing sites to achieve the rapid load times that
