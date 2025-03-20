@@ -1,6 +1,6 @@
 # Cherry Docs
 
-This repository contains the documentation for the Cherry Design System.
+This repository contains the documentation for the [Cherry Design System](https://cherry.al).
 
 ---
 
