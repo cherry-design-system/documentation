@@ -29,7 +29,7 @@ import { IconLink } from "@/app/components/icon-link";
 import { Footer } from "@/app/components/footer";
 import { IconDiscord, IconFigma, IconGitHub, IconReact } from "@/app/components/icons";
 
-export const gridDecoration = css`
+export const gridDecoration = css<{ theme: Theme }>`
   position: relative;
   display: block;
 
