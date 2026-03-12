@@ -1,0 +1,80 @@
+---
+title: "Container"
+description: "Cherry Container component with fluid width, text alignment, and responsive padding."
+date: "2026-02-19"
+category: "Layout"
+categoryOrder: 3
+order: 0
+section: "Code"
+---
+
+# Container
+
+The Container component provides features such as fluid width, text alignment, and padding adjustments based on screen size. Use it to create responsive layouts as a wrapper for other components and content.
+
+```jsx
+import React from "react";
+import { Container } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Container $textAlign="center">
+      Your content goes here!
+    </Container>
+  );
+}
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  Container content.
+</Field>
+
+<Field value="$fluid" type="boolean">
+  Makes the container full-width without max-width constraints.
+</Field>
+
+<Field value="$textAlign" type='"right" | "left" | "center"'>
+  Text alignment within the container.
+</Field>
+
+<Field value="$padding" type='number | "none"'>
+  Base padding value.
+</Field>
+
+<Field value="$xsPadding" type='number | "none"'>
+  Padding at `xs` breakpoint.
+</Field>
+
+<Field value="$smPadding" type='number | "none"'>
+  Padding at `sm` breakpoint.
+</Field>
+
+<Field value="$mdPadding" type='number | "none"'>
+  Padding at `md` breakpoint.
+</Field>
+
+<Field value="$lgPadding" type='number | "none"'>
+  Padding at `lg` breakpoint.
+</Field>
+
+<Field value="$xlPadding" type='number | "none"'>
+  Padding at `xl` breakpoint.
+</Field>
+
+<Field value="$xxlPadding" type='number | "none"'>
+  Padding at `xxl` breakpoint.
+</Field>
+
+<Field value="$xxxlPadding" type='number | "none"'>
+  Padding at `xxxl` breakpoint.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/container.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

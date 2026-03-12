@@ -1,47 +1,46 @@
 ---
 title: "Introduction"
-description: "Doccupine is a free and open-source documentation platform. Write MDX, get a production-ready site with AI chat, built-in components, and an MCP server - in one command."
+description: "Cherry is a design system for the modern web. Designed in Figma, built in React using TypeScript and Styled Components."
 date: "2026-02-19"
 category: "Getting Started"
 categoryOrder: 0
 order: 0
+sectionLabel: "Design"
 ---
-# Welcome to Doccupine
 
-Doccupine turns a folder of MDX files into a beautiful, production-ready documentation website. Write in standard Markdown, use any of the built-in components, and get a fully themed site with AI-powered search and automatic navigation - all from one command.
+# Cherry Design System
 
-```bash
-npx doccupine
-```
+Cherry is a design system for the modern web. Designed in Figma, built in React using TypeScript.
 
-That's it. Doccupine prompts you for a source directory, generates your site, and starts a dev server at `http://localhost:3000`. Every edit rebuilds instantly.
+In the world of design and development, consistency is key. Every page, every component, and every interaction should adhere to a set of fundamental principles. The Cherry Design System is your reliable companion for maintaining harmony between design and development.
+
+## Why a Design System?
+
+1. **Consistency** - A design system ensures that basic elements remain consistent across all pages. Whether it's buttons, typography, or spacing, users should experience a seamless visual language.
+2. **Efficiency** - For meticulously crafted projects, a robust design system streamlines workflows. It bridges the gap between designers and developers, fostering collaboration and efficiency.
+3. **Foundations** - A good design system lays down the groundwork. It establishes rules, guidelines, and best practices, allowing teams to build upon a solid foundation.
+
+## What Cherry Offers
+
+- **Figma Designs** - Meticulously crafted Figma designs for all the design primitives. From buttons to inputs, we've got you covered.
+- **Figma Plugin** - Extract default theme tokens automatically, ensuring consistency across your entire project.
+- **Open Source React Components** - Cherry provides open source React components via `cherry-styled-components` for the default implementation. Meant to be customized and built upon.
 
 <Callout type="info">
-  Want a managed experience instead? The [Doccupine Platform](/platform) gives you a browser-based editor, one-click publishing, custom domains, and team collaboration - no local setup needed.
+  Cherry intentionally focuses on providing the essential building blocks that most interfaces require. Simplicity often leads to elegance.
 </Callout>
 
-## How it works
-
-You write `.mdx` files using Markdown and built-in components like this one. Doccupine watches your files, generates pages, builds the sidebar from your frontmatter, and handles theming, AI chat, and deployment config for you.
-
-Everything on this page - the callout above, the cards below, the code block - is a live example of what your docs can look like out of the box.
-
 <Columns cols={2}>
-  <Card title="Start writing" icon="pencil" href="/components">
-    Rich docs from day one. 14+ components work out of the box - no imports needed.
+  <Card title="Figma" icon="figma" href="/figma">
+    Start with the Figma template and plugin.
   </Card>
-  <Card title="Ship it" icon="rocket" href="/deployment-and-hosting">
-    Deploy to the Doccupine Platform or self-host on any platform that supports Next.js.
+  <Card title="Colors" icon="palette" href="/colors">
+    Explore the color palette for light and dark modes.
+  </Card>
+  <Card title="Typography" icon="type" href="/typography">
+    Typography scales for desktop and mobile.
+  </Card>
+  <Card title="Shadows" icon="layers" href="/shadows">
+    Shadow elevation system for depth and hierarchy.
   </Card>
 </Columns>
-
-## Configure your site
-
-Doccupine works with no configuration, but when you're ready to customize, everything is controlled through simple JSON files in your project root.
-
-- [Global settings](/globals) - Site name, description, favicon, and preview image via `config.json`
-- [Navigation](/navigation) - Override the auto-generated sidebar with `navigation.json`
-- [Theme](/theme) - Colors, logos, and dark mode palette via `theme.json`
-- [Fonts](/fonts) - Google Fonts or local font files via `fonts.json`
-- [AI Assistant](/ai-assistant) - Enable the built-in chat with your own API key
-- [MCP Server](/model-context-protocol) - Let AI tools search your docs through `/api/mcp`

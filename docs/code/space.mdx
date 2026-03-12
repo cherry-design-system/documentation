@@ -1,0 +1,72 @@
+---
+title: "Space"
+description: "Cherry Space component for creating responsive vertical and horizontal spacing between elements."
+date: "2026-02-19"
+category: "Layout"
+categoryOrder: 3
+order: 6
+section: "Code"
+---
+
+# Space
+
+Space is an element that allows you to create spaces between elements. Whether you need horizontal or vertical spacing, the Space component has got you covered. It seamlessly adapts to different media queries.
+
+```jsx
+import React from "react";
+import { Container, Button, Space } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Container>
+      <Button>Button</Button>
+      <Space xs={20} lg={40} />
+      <Button>Button</Button>
+    </Container>
+  );
+}
+```
+
+In the example above, two buttons have a space of 20px on extra small screens and 40px on large screens.
+
+## Properties
+
+<Field value="size" type="number">
+  Space size in pixels.
+</Field>
+
+<Field value="$xs" type="number">
+  Size at `xs` breakpoint.
+</Field>
+
+<Field value="$sm" type="number">
+  Size at `sm` breakpoint.
+</Field>
+
+<Field value="$md" type="number">
+  Size at `md` breakpoint.
+</Field>
+
+<Field value="$lg" type="number">
+  Size at `lg` breakpoint.
+</Field>
+
+<Field value="$xl" type="number">
+  Size at `xl` breakpoint.
+</Field>
+
+<Field value="$xxl" type="number">
+  Size at `xxl` breakpoint.
+</Field>
+
+<Field value="$xxxl" type="number">
+  Size at `xxxl` breakpoint.
+</Field>
+
+<Field value="$horizontal" type="boolean">
+  Creates horizontal spacing instead of vertical.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/space.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

@@ -1,0 +1,66 @@
+---
+title: "Button"
+description: "Cherry Button component with primary, secondary, and tertiary variants, sizes, and outline mode."
+date: "2026-02-19"
+category: "Components"
+categoryOrder: 2
+order: 0
+section: "Code"
+---
+
+# Button
+
+Buttons are essential components in web development, frequently used for user interactions.
+
+Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+```jsx
+import React from "react";
+import { Button } from "cherry-styled-components";
+
+export default function Page() {
+  return <Button>Button</Button>;
+}
+```
+
+You can change the look of your button by adding a `$variant` prop:
+
+```jsx
+<Button $variant="secondary">Button</Button>
+```
+
+You can try more variations and props like `$outline`:
+
+```jsx
+<Button $variant="tertiary" $outline>Button</Button>
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  Button content.
+</Field>
+
+<Field value="$variant" type='"primary" | "secondary" | "tertiary"'>
+  Color variant of the button. Defaults to `"primary"`.
+</Field>
+
+<Field value="$size" type='"default" | "big"'>
+  Size of the button.
+</Field>
+
+<Field value="$outline" type="boolean">
+  Renders the button with an outline style.
+</Field>
+
+<Field value="$fullWidth" type="boolean">
+  Makes the button span the full width of its container.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/button.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

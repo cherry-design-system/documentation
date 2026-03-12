@@ -1,0 +1,98 @@
+---
+title: "Installation"
+description: "Install Cherry Styled Components via npm or by cloning the repository."
+date: "2026-02-19"
+category: "Getting Started"
+categoryOrder: 0
+order: 1
+section: "Code"
+---
+
+# Installation
+
+There are two main ways to install Cherry Styled Components into your project. You can either clone the main repository and customize the components to your liking, or install the library from npm.
+
+## Implementation Options
+
+<Tabs>
+  <TabContent title="NPM">
+
+Install the Cherry library from npm. Import components directly into your project. Perfect for smaller projects or rapid development.
+
+```bash
+npm i cherry-styled-components
+```
+
+  </TabContent>
+  <TabContent title="Repository">
+
+Clone the main Cherry repository. Dive into the components' code and customize to your heart's content. Ideal for extensive modifications.
+
+```bash
+git clone git@github.com:cherry-design-system/styled-components.git
+```
+
+  </TabContent>
+</Tabs>
+
+## Theme Context
+
+Always wrap your application in the `CherryThemeProvider` component. Ensure that your theme prop is passed down correctly:
+
+```tsx
+import { CherryThemeProvider, theme } from "cherry-styled-components";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <CherryThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </CherryThemeProvider>
+  );
+}
+```
+
+## Next.js Integration
+
+When integrating into a Next.js app, first install both dependencies:
+
+```bash
+npm i cherry-styled-components styled-components
+```
+
+Always import uncompiled components from:
+
+```jsx
+"cherry-styled-components/src/lib"
+```
+
+To render the CSS, open your `layout.tsx` and wrap your application:
+
+```tsx
+import {
+  StyledComponentsRegistry,
+  CherryThemeProvider,
+  theme,
+} from "cherry-styled-components/src/lib";
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <StyledComponentsRegistry>
+          <CherryThemeProvider theme={theme}>
+            {children}
+          </CherryThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
+}
+```
+
+<Callout type="info">
+  Next.js requires these additional steps because it uses server-side rendering.
+</Callout>

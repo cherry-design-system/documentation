@@ -1,0 +1,52 @@
+---
+title: "Grid"
+description: "Cherry Grid component for creating responsive CSS grid layouts."
+date: "2026-02-19"
+category: "Layout"
+categoryOrder: 3
+order: 3
+section: "Code"
+---
+
+# Grid
+
+The Cherry Grid system simplifies creating responsive layouts using the modern CSS grid property. It allows you to define the grid structure, including the number of columns and the gaps.
+
+```jsx
+<Container>
+  <Grid $xsCols={1} $lgCols={3}>
+    <Col $lgSpan={3}>
+      <Input type="text" $fullWidth />
+    </Col>
+    <Button $variant="primary">Save</Button>
+    <Button $variant="secondary">Cancel</Button>
+    <Button $outline>Remind Later</Button>
+  </Grid>
+</Container>
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode" required>
+  Grid content.
+</Field>
+
+<Field value="gap" type='number | "none"'>
+  Gap between grid items. Also available as responsive variants: `$xsGap`, `$smGap`, `$mdGap`, `$lgGap`, `$xlGap`, `$xxlGap`, `$xxxlGap`.
+</Field>
+
+<Field value="$cols" type='number | "none"'>
+  Number of columns. Also available as responsive variants: `$xsCols`, `$smCols`, `$mdCols`, `$lgCols`, `$xlCols`, `$xxlCols`, `$xxxlCols`.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Callout type="info">
+  See the [Col](/col) component for controlling how children span across grid columns.
+</Callout>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/grid.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

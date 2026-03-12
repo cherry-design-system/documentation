@@ -2,3 +2,4 @@ node_modules/
 nextjs-app/
 .next/
 .DS_Store
+CLAUDE.md

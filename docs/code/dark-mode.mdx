@@ -1,0 +1,74 @@
+---
+title: "Dark Mode"
+description: "Enable dark mode in Cherry with automatic detection and manual toggle support."
+date: "2026-02-19"
+category: "Configuration"
+categoryOrder: 1
+order: 1
+section: "Code"
+---
+
+# Dark Mode
+
+Cherry provides built-in support for dark mode. Pass the `themeDark` prop to the `CherryThemeProvider` component:
+
+```tsx
+import {
+  CherryThemeProvider,
+  theme,
+  themeDark,
+} from "cherry-styled-components";
+
+export default function App({ Component, pageProps }) {
+  return (
+    <CherryThemeProvider theme={theme} themeDark={themeDark}>
+      <Component {...pageProps} />
+    </CherryThemeProvider>
+  );
+}
+```
+
+## Automatic Detection
+
+Cherry will automatically check whether your system has dark mode enabled. If detected, the default theme will be set to dark. This only happens if you passed the `themeDark` prop to `CherryThemeProvider`.
+
+## Manual Theme Toggle
+
+To manually switch themes, use **local storage** to remember the last selection. The `ThemeContext` provides the current theme and a function to toggle:
+
+```tsx
+import React from "react";
+import {
+  Theme,
+  ThemeContext,
+  theme as themeLight,
+  themeDark,
+} from "cherry-styled-components";
+import { useTheme } from "styled-components";
+
+export default function Header() {
+  const theme: Theme = useTheme() as Theme;
+  const { setTheme } = useContext(ThemeContext);
+  return (
+    <header>
+      <button
+        onClick={() => {
+          if (theme.isDark) {
+            setTheme(themeLight);
+            localStorage.theme = "light";
+          } else {
+            setTheme(themeDark);
+            localStorage.theme = "dark";
+          }
+        }}
+      >
+        Switch Theme
+      </button>
+    </header>
+  );
+}
+```
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/styled-components/theme-provider.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

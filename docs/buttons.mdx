@@ -1,116 +1,70 @@
 ---
 title: "Buttons"
-description: "A flexible action component supporting variants, sizes, icons, and links."
+description: "Cherry button design specifications with three variations, two sizes, outline variants, and all interactive states."
 date: "2026-02-19"
 category: "Components"
-categoryOrder: 1
-order: 7
+categoryOrder: 2
+order: 0
 ---
+
 # Buttons
-A flexible action component supporting variants, sizes, icons, and links.
 
-Buttons help users initiate actions or navigate to other pages. Use variants to convey emphasis, size for hierarchy, and icons to add clarity.
+Cherry offers three variations of buttons, each defining the color of the button. These variations can be customized further to create different visual effects, like outlined. Buttons come in two sizes: default and big.
 
-## Button Usage
-You can use the Button component directly within your MDX files without any import. The following examples show basic usage:
+## States
 
-```mdx
-<Button>Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="tertiary">Tertiary</Button>
-```
+When customizing your designs, consider all the different states that buttons can have:
 
-<Button>Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="tertiary">Tertiary</Button>
+1. **Normal** - The default appearance of the button.
+2. **Hover** `:hover` - When the user hovers the cursor over the button.
+3. **Active** `:active` - When the button is clicked or pressed.
+4. **Focus** `:focus` - When the button gains focus.
+5. **Disabled** - When the button cannot be interacted with.
 
-### Sizes
+<Callout type="warning">
+  Ensure that your designs account for all these states to provide a consistent and user-friendly experience.
+</Callout>
 
-```mdx
-<Button size="default">Default size</Button>
-<Button size="big">Big size</Button>
-```
+## Variations
 
-<Button size="default">Default size</Button>
-<Button size="big">Big size</Button>
+### Primary
 
-### Outline
+| Variant | Size | Outline |
+| --- | --- | --- |
+| Primary | Default | No |
+| Primary | Big | No |
+| Primary | Default | Yes |
+| Primary | Big | Yes |
 
-```mdx
-<Button outline>Outlined</Button>
-```
+### Secondary
 
-<Button outline>Outlined</Button>
+| Variant | Size | Outline |
+| --- | --- | --- |
+| Secondary | Default | No |
+| Secondary | Big | No |
+| Secondary | Default | Yes |
+| Secondary | Big | Yes |
 
-### Full width
+### Tertiary
 
-```mdx
-<Button fullWidth>Full width button</Button>
-```
+| Variant | Size | Outline |
+| --- | --- | --- |
+| Tertiary | Default | No |
+| Tertiary | Big | No |
+| Tertiary | Default | Yes |
+| Tertiary | Big | Yes |
 
-<Button fullWidth>Full width button</Button>
+### Disabled
 
-### With icon
+| Variant | Size |
+| --- | --- |
+| Disabled | Default (Outline) |
+| Disabled | Big |
 
-```mdx
-<Button icon="arrow-right" iconPosition="left">With left icon</Button>
-<Button icon="arrow-right" iconPosition="right">With right icon</Button>
-```
+<Callout type="note">
+  Buttons can be found in the Figma Template in the Buttons page.
+</Callout>
 
-<Button icon="arrow-right" iconPosition="left">With left icon</Button>
-<Button icon="arrow-right" iconPosition="right">With right icon</Button>
-
-### As a link
-Buttons can render as links when you provide an `href`.
-
-```mdx
-<Button href="/">Home</Button>
-```
-
-<Button href="/">Home</Button>
-
-## Properties
-
-<Field value="children" type="node" required>
-  The content of the button.
-</Field>
-
-<Field value="variant" type="string">
-  Controls visual emphasis.
-</Field>
-
-- **primary**
-- **secondary**
-- **tertiary**
-
-<Field value="size" type="string">
-  Controls the size of the button.
-</Field>
-
-- **default**
-- **big**
-
-<Field value="outline" type="boolean">
-  When true, renders the outlined style of the selected variant.
-</Field>
-
-<Field value="fullWidth" type="boolean">
-  When true, the button expands to the full width of its container.
-</Field>
-
-<Field value="icon" type="string">
-  Optional icon to display inside the button.
-</Field>
-
-- [**Lucide icon**](https://lucide.dev/icons) name or icon node
-
-<Field value="iconPosition" type="string">
-  The position of the icon relative to the text.
-</Field>
-
-- **left**
-- **right**
-
-<Field value="href" type="string">
-  When provided, the button renders as a link (`<a>`), enabling navigation.
-</Field>
+<Button href="https://www.figma.com/community/file/943862931766586094/cherry-design-system" icon="figma" iconPosition="left">
+  View in Figma
+</Button>

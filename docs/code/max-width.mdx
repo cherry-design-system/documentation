@@ -1,0 +1,68 @@
+---
+title: "MaxWidth"
+description: "Cherry MaxWidth component for constraining content width with responsive breakpoints."
+date: "2026-02-19"
+category: "Layout"
+categoryOrder: 3
+order: 5
+section: "Code"
+---
+
+# MaxWidth
+
+The MaxWidth component is a container that allows you to set a maximum width for its content. Useful for creating centered layouts with width constraints.
+
+```jsx
+import React from "react";
+import { MaxWidth, Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <MaxWidth $size={150}>
+      <Box>150px</Box>
+    </MaxWidth>
+  );
+}
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  Content to constrain.
+</Field>
+
+<Field value="size" type="number">
+  Maximum width in pixels.
+</Field>
+
+<Field value="$xs" type="number">
+  Max width at `xs` breakpoint.
+</Field>
+
+<Field value="$sm" type="number">
+  Max width at `sm` breakpoint.
+</Field>
+
+<Field value="$md" type="number">
+  Max width at `md` breakpoint.
+</Field>
+
+<Field value="$lg" type="number">
+  Max width at `lg` breakpoint.
+</Field>
+
+<Field value="$xl" type="number">
+  Max width at `xl` breakpoint.
+</Field>
+
+<Field value="$xxl" type="number">
+  Max width at `xxl` breakpoint.
+</Field>
+
+<Field value="$xxxl" type="number">
+  Max width at `xxxl` breakpoint.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/max-width.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

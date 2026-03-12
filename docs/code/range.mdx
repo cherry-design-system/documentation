@@ -1,0 +1,67 @@
+---
+title: "Range"
+description: "Cherry Range slider component with validation states and label support."
+date: "2026-02-19"
+category: "Components"
+categoryOrder: 2
+order: 4
+section: "Code"
+---
+
+# Range
+
+Range inputs share the same properties as the Input component, but allow users to select a value from a range. Range can have error or success states to provide feedback to the user.
+
+Keep in mind that the `<input>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+```jsx
+import React from "react";
+import { Range } from "cherry-styled-components";
+
+export default function Page() {
+  return <Range />;
+}
+```
+
+With a label:
+
+```jsx
+<Range $label="Label" $fullWidth />
+```
+
+With success and error states:
+
+```jsx
+<Range $success />
+<Range $error />
+```
+
+## Properties
+
+<Field value="$label" type="string">
+  Label text displayed above the range.
+</Field>
+
+<Field value="$size" type='"default" | "big"'>
+  Size of the range slider.
+</Field>
+
+<Field value="$error" type="boolean">
+  Shows error state styling.
+</Field>
+
+<Field value="$success" type="boolean">
+  Shows success state styling.
+</Field>
+
+<Field value="$fullWidth" type="boolean">
+  Makes the range span the full width of its container.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/range.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

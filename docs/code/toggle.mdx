@@ -1,0 +1,67 @@
+---
+title: "Toggle"
+description: "Cherry Toggle component - a stylish checkbox/radio alternative with validation states."
+date: "2026-02-19"
+category: "Components"
+categoryOrder: 2
+order: 5
+section: "Code"
+---
+
+# Toggle
+
+The Toggle component is a stylish input checkbox or radio element.
+
+Keep in mind that the `<input>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+```jsx
+import React from "react";
+import { Toggle } from "cherry-styled-components";
+
+export default function Page() {
+  return <Toggle defaultChecked />;
+}
+```
+
+With a label:
+
+```jsx
+<Toggle $label="Label" $fullWidth />
+```
+
+With success and error states:
+
+```jsx
+<Toggle $success />
+<Toggle $error />
+```
+
+## Properties
+
+<Field value="$label" type="string">
+  Label text displayed alongside the toggle.
+</Field>
+
+<Field value="$size" type='"default" | "big"'>
+  Size of the toggle.
+</Field>
+
+<Field value="$error" type="boolean">
+  Shows error state styling.
+</Field>
+
+<Field value="$success" type="boolean">
+  Shows success state styling.
+</Field>
+
+<Field value="$fullWidth" type="boolean">
+  Makes the toggle span the full width of its container.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toggle.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

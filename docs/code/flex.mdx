@@ -1,0 +1,57 @@
+---
+title: "Flex"
+description: "Cherry Flex component for responsive flexbox layouts with gap and alignment control."
+date: "2026-02-19"
+category: "Layout"
+categoryOrder: 3
+order: 2
+section: "Code"
+---
+
+# Flex
+
+The Flex component is a flexible container for creating responsive layouts. It's useful for arranging child elements in a row or column, adjusting the gap between them, and controlling alignment.
+
+## Responsive Props
+
+Flex adapts to different screen sizes with responsive props like `$xsGap` and `$smJustifyContent`. You will see this pattern throughout the Cherry Design System.
+
+```jsx
+import React from "react";
+import { Flex, Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Flex $justifyContent="center">
+      <Box>Box</Box>
+      <Box>Box</Box>
+    </Flex>
+  );
+}
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  Flex container content.
+</Field>
+
+<Field value="$justifyContent" type='"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"'>
+  Justify content alignment. Also available as responsive variants: `$xsJustifyContent`, `$smJustifyContent`, `$mdJustifyContent`, `$lgJustifyContent`, `$xlJustifyContent`, `$xxlJustifyContent`, `$xxxlJustifyContent`.
+</Field>
+
+<Field value="$wrap" type='"wrap" | "nowrap" | "wrap-reverse"'>
+  Flex wrap behavior.
+</Field>
+
+<Field value="$gap" type='number | "none"'>
+  Gap between flex items. Also available as responsive variants: `$xsGap`, `$smGap`, `$mdGap`, `$lgGap`, `$xlGap`, `$xxlGap`, `$xxxlGap`.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/flex.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

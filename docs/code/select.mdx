@@ -1,0 +1,81 @@
+---
+title: "Select"
+description: "Cherry Select component for dropdown menus with validation states."
+date: "2026-02-19"
+category: "Components"
+categoryOrder: 2
+order: 3
+section: "Code"
+---
+
+# Select
+
+Select shares the same properties as the Input component of type text, but allows for selecting from a list instead of typing. Select can have error or success states to provide feedback to the user.
+
+Keep in mind that the `<select>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+```jsx
+import React from "react";
+import { Select } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Select>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+  );
+}
+```
+
+With a label:
+
+```jsx
+<Select $label="Label" $fullWidth>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+With success and error states:
+
+```jsx
+<Select $success>
+  <option value="1">Yay</option>
+</Select>
+<Select $error>
+  <option value="1">Ops</option>
+</Select>
+```
+
+## Properties
+
+<Field value="$label" type="string">
+  Label text displayed above the select.
+</Field>
+
+<Field value="$size" type='"default" | "big"'>
+  Size of the select.
+</Field>
+
+<Field value="$error" type="boolean">
+  Shows error state styling.
+</Field>
+
+<Field value="$success" type="boolean">
+  Shows success state styling.
+</Field>
+
+<Field value="$fullWidth" type="boolean">
+  Makes the select span the full width of its container.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/select.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

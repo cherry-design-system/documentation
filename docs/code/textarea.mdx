@@ -1,0 +1,67 @@
+---
+title: "Textarea"
+description: "Cherry Textarea component for multiline text input with validation states."
+date: "2026-02-19"
+category: "Components"
+categoryOrder: 2
+order: 2
+section: "Code"
+---
+
+# Textarea
+
+Textarea shares the same properties as the Input component of type text, but allows for multiple lines of text. Textareas can have error or success states to provide feedback to the user.
+
+Keep in mind that the `<textarea>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+```jsx
+import React from "react";
+import { Textarea } from "cherry-styled-components";
+
+export default function Page() {
+  return <Textarea placeholder="Placeholder" />;
+}
+```
+
+With a label:
+
+```jsx
+<Textarea $label="Username" $fullWidth />
+```
+
+With success and error states:
+
+```jsx
+<Textarea $success placeholder="Yay" />
+<Textarea $error placeholder="Ops" />
+```
+
+## Properties
+
+<Field value="$label" type="string">
+  Label text displayed above the textarea.
+</Field>
+
+<Field value="$size" type='"default" | "big"'>
+  Size of the textarea.
+</Field>
+
+<Field value="$error" type="boolean">
+  Shows error state styling.
+</Field>
+
+<Field value="$success" type="boolean">
+  Shows success state styling.
+</Field>
+
+<Field value="$fullWidth" type="boolean">
+  Makes the textarea span the full width of its container.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/textarea.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>
