@@ -1,5 +1,6 @@
 {
-  "watchDir": "/Users/luan/Developer/cherry-documentation/docs",
-  "outputDir": "/Users/luan/Developer/cherry-documentation/nextjs-app",
+  "watchDir": "./docs",
+  "outputDir": "./nextjs-app",
   "port": "3000"
 }
+
