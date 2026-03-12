@@ -59,12 +59,6 @@ When integrating into a Next.js app, first install both dependencies:
 npm i cherry-styled-components styled-components
 ```
 
-Always import uncompiled components from:
-
-```jsx
-"cherry-styled-components/src/lib"
-```
-
 To render the CSS, open your `layout.tsx` and wrap your application:
 
 ```tsx
@@ -72,7 +66,7 @@ import {
   StyledComponentsRegistry,
   CherryThemeProvider,
   theme,
-} from "cherry-styled-components/src/lib";
+} from "cherry-styled-components";
 
 export default function RootLayout({
   children,
