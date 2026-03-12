@@ -1,0 +1,7 @@
+{
+  "name": "doccupine",
+  "private": true,
+  "dependencies": {
+    "doccupine": "latest"
+  }
+}
