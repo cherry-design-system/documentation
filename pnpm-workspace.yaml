@@ -1,2 +1,4 @@
+packages:
+  - "nextjs-app"
 ignoredBuiltDependencies:
   - sharp
