@@ -1,4 +1,7 @@
 packages:
   - "nextjs-app"
 ignoredBuiltDependencies:
+  - core-js
+  - protobufjs
   - sharp
+  - unrs-resolver
