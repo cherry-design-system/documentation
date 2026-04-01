@@ -1,7 +1,7 @@
 {
   "default": {
     "primaryLight": "#fb7185",
-    "primary": "#E11D48",
+    "primary": "#BE123C",
     "primaryDark": "#9F1239",
     "secondaryLight": "#c4b5fd",
     "secondary": "#8b5cf6",
@@ -20,9 +20,9 @@
     "light": "#ffffff"
   },
   "dark": {
-    "primaryLight": "#fda4af",
-    "primary": "#fb7185",
-    "primaryDark": "#9F1239",
+    "primaryLight": "#fecdd3",
+    "primary": "#f43f5e",
+    "primaryDark": "#BE123C",
     "secondaryLight": "#ddd6fe",
     "secondary": "#a78bfa",
     "secondaryDark": "#7c3aed",
