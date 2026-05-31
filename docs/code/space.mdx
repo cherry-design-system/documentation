@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <Container>
       <Button>Button</Button>
-      <Space xs={20} lg={40} />
+      <Space $xs={20} $lg={40} />
       <Button>Button</Button>
     </Container>
   );
@@ -30,35 +30,35 @@ In the example above, two buttons have a space of 20px on extra small screens an
 
 ## Properties
 
-<Field value="size" type="number">
+<Field value="$size" type='number | "none"'>
   Space size in pixels.
 </Field>
 
-<Field value="$xs" type="number">
+<Field value="$xs" type='number | "none"'>
   Size at `xs` breakpoint.
 </Field>
 
-<Field value="$sm" type="number">
+<Field value="$sm" type='number | "none"'>
   Size at `sm` breakpoint.
 </Field>
 
-<Field value="$md" type="number">
+<Field value="$md" type='number | "none"'>
   Size at `md` breakpoint.
 </Field>
 
-<Field value="$lg" type="number">
+<Field value="$lg" type='number | "none"'>
   Size at `lg` breakpoint.
 </Field>
 
-<Field value="$xl" type="number">
+<Field value="$xl" type='number | "none"'>
   Size at `xl` breakpoint.
 </Field>
 
-<Field value="$xxl" type="number">
+<Field value="$xxl" type='number | "none"'>
   Size at `xxl` breakpoint.
 </Field>
 
-<Field value="$xxxl" type="number">
+<Field value="$xxxl" type='number | "none"'>
   Size at `xxxl` breakpoint.
 </Field>
 

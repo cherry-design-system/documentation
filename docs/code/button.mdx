@@ -44,7 +44,7 @@ You can try more variations and props like `$outline`:
   Color variant of the button. Defaults to `"primary"`.
 </Field>
 
-<Field value="$size" type='"default" | "big"'>
+<Field value="$size" type='"default" | "big" | "small"'>
   Size of the button.
 </Field>
 
@@ -52,8 +52,20 @@ You can try more variations and props like `$outline`:
   Renders the button with an outline style.
 </Field>
 
+<Field value="$error" type="boolean">
+  Renders the button in the theme's error color.
+</Field>
+
 <Field value="$fullWidth" type="boolean">
   Makes the button span the full width of its container.
+</Field>
+
+<Field value="$icon" type="React.ReactNode">
+  Icon element rendered inside the button.
+</Field>
+
+<Field value="$iconPosition" type='"left" | "right"'>
+  Position of the icon relative to the label. Defaults to `"left"`.
 </Field>
 
 <Field value="theme" type="Theme">

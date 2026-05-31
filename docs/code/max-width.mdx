@@ -30,7 +30,7 @@ export default function Page() {
   Content to constrain.
 </Field>
 
-<Field value="size" type="number">
+<Field value="$size" type="number">
   Maximum width in pixels.
 </Field>
 
@@ -60,6 +60,10 @@ export default function Page() {
 
 <Field value="$xxxl" type="number">
   Max width at `xxxl` breakpoint.
+</Field>
+
+<Field value="$m0" type="boolean">
+  Removes horizontal centering (sets margin to `0` instead of `auto`).
 </Field>
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/max-width.tsx" icon="github" iconPosition="left">

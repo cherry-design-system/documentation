@@ -45,7 +45,7 @@ Checkbox and radio examples:
   Label text displayed above the input.
 </Field>
 
-<Field value="$size" type='"default" | "big"'>
+<Field value="$size" type='"default" | "big" | "small"'>
   Size of the input.
 </Field>
 
@@ -59,6 +59,14 @@ Checkbox and radio examples:
 
 <Field value="$fullWidth" type="boolean">
   Makes the input span the full width of its container.
+</Field>
+
+<Field value="$icon" type="React.ReactNode">
+  Icon element rendered inside the input.
+</Field>
+
+<Field value="$iconPosition" type='"left" | "right"'>
+  Position of the icon relative to the input.
 </Field>
 
 <Field value="theme" type="Theme">
