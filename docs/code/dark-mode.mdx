@@ -1,12 +1,13 @@
 ---
 title: "Dark Mode"
-description: "Enable dark mode in Cherry with automatic detection and manual toggle support."
-date: "2026-02-19"
+description: "Enable dark mode in Cherry with automatic detection, manual toggle support, and flash-free server-side rendering."
+date: "2026-07-02"
 category: "Configuration"
 categoryOrder: 1
 order: 1
 section: "Code"
 ---
+
 # Dark Mode
 
 Cherry provides built-in support for dark mode. Pass the `themeDark` prop to the `CherryThemeProvider` component:
@@ -33,41 +34,131 @@ Cherry will automatically check whether your system has dark mode enabled. If de
 
 ## Manual Theme Toggle
 
-To manually switch themes, use **local storage** to remember the last selection. The `ThemeContext` provides the current theme and a function to toggle:
+The easiest way to let users switch themes is the built-in [ThemeToggle](/code/theme-toggle) component. It calls `toggleTheme()` from `ThemeContext` and persists the choice automatically:
 
 ```tsx
-import React from "react";
-import {
-  Theme,
-  ThemeContext,
-  theme as themeLight,
-  themeDark,
-} from "cherry-styled-components";
-import { useTheme } from "styled-components";
+import { ThemeToggle } from "cherry-styled-components";
 
 export default function Header() {
-  const theme: Theme = useTheme() as Theme;
-  const { setTheme } = useContext(ThemeContext);
   return (
     <header>
-      <button
-        onClick={() => {
-          if (theme.isDark) {
-            setTheme(themeLight);
-            localStorage.theme = "light";
-          } else {
-            setTheme(themeDark);
-            localStorage.theme = "dark";
-          }
-        }}
-      >
-        Switch Theme
-      </button>
+      <ThemeToggle />
     </header>
   );
 }
 ```
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/styled-components/theme-provider.tsx" icon="github" iconPosition="left">
+For a custom control, use `toggleTheme` (or `setTheme`) from `ThemeContext` yourself. Persistence is handled by the provider:
+
+```tsx
+import { ThemeContext } from "cherry-styled-components";
+import { useContext } from "react";
+
+export default function Header() {
+  const { toggleTheme } = useContext(ThemeContext);
+  return (
+    <header>
+      <button onClick={toggleTheme}>Switch Theme</button>
+    </header>
+  );
+}
+```
+
+## Flash-Free Dark Mode with SSR
+
+`CherryThemeProvider` resolves the theme on the client after mount, so in a server-rendered app the first paint is always the light theme, which dark mode users see as a flash. For server-rendered apps (e.g. Next.js App Router), use `ClientThemeProvider` instead:
+
+1. The server reads the `theme` cookie and passes the verdict as `$initial`, so the first paint is already correct.
+2. `themeInitScript`, a blocking script in the document head, seeds the cookie from the OS preference on first visits from browsers without color-scheme client hints (Safari, Firefox) and hides the body until the client has applied the right theme.
+3. On mount, the provider reconciles the server's guess against the cookie and OS preference and swaps the theme in place if needed.
+
+Theme changes persist to the `theme` cookie and `localStorage` directly. No API route is needed.
+
+```tsx
+// app/layout.tsx (server component)
+import { cookies } from "next/headers";
+import {
+  ClientThemeProvider,
+  StyledComponentsRegistry,
+  themeInitScript,
+} from "cherry-styled-components";
+import { theme, themeDark } from "./theme";
+
+export default async function RootLayout({ children }) {
+  const cookieTheme = (await cookies()).get("theme")?.value;
+
+  return (
+    <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body>
+        <StyledComponentsRegistry>
+          <ClientThemeProvider
+            theme={theme}
+            themeDark={themeDark}
+            $initial={cookieTheme === "dark" ? "dark" : "light"}
+          >
+            {children}
+          </ClientThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
+}
+```
+
+For the best first visit in Chrome, opt into color-scheme client hints in your middleware so even the very first server render matches the OS preference:
+
+```ts
+// middleware.ts
+res.headers.set("Accept-CH", "Sec-CH-Prefers-Color-Scheme");
+res.headers.set("Vary", "Sec-CH-Prefers-Color-Scheme");
+res.headers.set("Critical-CH", "Sec-CH-Prefers-Color-Scheme");
+
+const hint = req.headers.get("Sec-CH-Prefers-Color-Scheme");
+if (!req.cookies.get("theme")?.value && hint) {
+  res.cookies.set("theme", hint === "dark" ? "dark" : "light", {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+    sameSite: "lax",
+  });
+}
+```
+
+Server code that needs the active theme object (for example `generateViewport` for the initial `theme-color`) can use the `resolveTheme` helper:
+
+```ts
+import { resolveTheme } from "cherry-styled-components";
+import { theme, themeDark } from "./theme";
+
+const active = resolveTheme(cookieTheme, theme, themeDark);
+```
+
+`ClientThemeProvider` also keeps a `theme-color` meta tag in sync with the active theme so browser chrome (like the iOS Safari status bar) matches the page. Point `$themeColor` at the theme color your page background uses (default `"light"`), or pass `false` to disable:
+
+```tsx
+<ClientThemeProvider
+  theme={theme}
+  themeDark={themeDark}
+  $themeColor="tertiaryLight"
+>
+```
+
+If your app ships its own global styles, pass `$globalStyles={false}` and render them as a child so Cherry's defaults don't compete with yours.
+
+In a client-only app there is no server render to flash, so either provider works. To use `ClientThemeProvider`, resolve the initial theme synchronously (cookie, then `localStorage`, then `matchMedia`) before rendering and pass it as `$initial`.
+
+<Callout type="note">
+  Both providers expose `setTheme` and `toggleTheme` through the same
+  `ThemeContext`, and both work with the `ThemeToggle` component. Existing apps
+  using `CherryThemeProvider` keep working unchanged.
+</Callout>
+
+<Button
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/styled-components/client-theme-provider.tsx"
+  icon="github"
+  iconPosition="left"
+>
   View Source
 </Button>

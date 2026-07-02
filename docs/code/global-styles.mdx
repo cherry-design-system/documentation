@@ -7,9 +7,10 @@ categoryOrder: 1
 order: 2
 section: "Code"
 ---
+
 # Global Styles
 
-Global styles consist of a basic set of CSS rules designed to reset certain browser behaviors. If you're using `CherryThemeProvider`, it will automatically inject the Cherry global styles. Otherwise, include them manually:
+Global styles consist of a basic set of CSS rules designed to reset certain browser behaviors. Both `CherryThemeProvider` and `ClientThemeProvider` inject the Cherry global styles automatically. If your app ships its own global styles, pass `$globalStyles={false}` to `ClientThemeProvider` and render yours as a child instead. Outside the providers, include them manually:
 
 ```jsx
 "use client";
@@ -106,6 +107,10 @@ strong, b { font-weight: 700; }
 export { GlobalStyles };
 ```
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/global.tsx" icon="github" iconPosition="left">
+<Button
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/global.tsx"
+  icon="github"
+  iconPosition="left"
+>
   View Source
 </Button>

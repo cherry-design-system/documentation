@@ -7,6 +7,7 @@ categoryOrder: 0
 order: 1
 section: "Code"
 ---
+
 # Installation
 
 There are two main ways to install Cherry Styled Components into your project. You can either clone the main repository and customize the components to your liking, or install the library from npm.
@@ -36,7 +37,7 @@ git clone git@github.com:cherry-design-system/styled-components.git
 
 ## Theme Context
 
-Always wrap your application in the `CherryThemeProvider` component. Ensure that your theme prop is passed down correctly:
+Always wrap your application in the `CherryThemeProvider` component. Ensure that your theme prop is passed down correctly. For server-rendered apps that need flash-free dark mode, use `ClientThemeProvider` instead - see [Dark Mode](/code/dark-mode).
 
 ```tsx
 import { CherryThemeProvider, theme } from "cherry-styled-components";
@@ -76,9 +77,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
-          <CherryThemeProvider theme={theme}>
-            {children}
-          </CherryThemeProvider>
+          <CherryThemeProvider theme={theme}>{children}</CherryThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

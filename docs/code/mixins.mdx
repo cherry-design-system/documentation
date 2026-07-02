@@ -1,0 +1,72 @@
+---
+title: "Mixins"
+description: "Cherry's reusable CSS mixins: interaction affordances, resets, and form element helpers."
+date: "2026-07-03"
+category: "Configuration"
+categoryOrder: 1
+order: 3
+section: "Code"
+---
+
+# Mixins
+
+Cherry exports the CSS mixins its own components are built from, so custom elements in your app can share the exact same look and behavior. All of them are plain `styled-components` css fragments or helper functions - interpolate them into any styled component.
+
+## interactiveStyles
+
+The hover, focus, and active affordance used for interactive surfaces like cards, tiles, and block-level links: a transparent 1px border that picks up the primary color on hover, plus a soft focus ring. Pair it with `resetButton` for clickable elements that aren't Buttons.
+
+```tsx
+import styled from "styled-components";
+import { interactiveStyles, resetButton } from "cherry-styled-components";
+
+const ClickableCard = styled.button`
+  ${resetButton}
+  ${interactiveStyles}
+  border-radius: 12px;
+  padding: 20px;
+`;
+```
+
+## errorInteractiveStyles
+
+The destructive-action sibling of `interactiveStyles`: identical hover, focus, and active behavior, but in the theme error red (the same red the `$error` Button uses). Use it for delete and remove affordances.
+
+```tsx
+import styled from "styled-components";
+import { errorInteractiveStyles, resetButton } from "cherry-styled-components";
+
+const RemoveTile = styled.button`
+  ${resetButton}
+  ${errorInteractiveStyles}
+  border-radius: 12px;
+  padding: 20px;
+`;
+```
+
+## Resets
+
+- `resetButton` - Strips native button styling (appearance, border, background, padding) and sets `cursor: pointer`. The base of Button, IconButton, and ThemeToggle.
+- `resetInput` - Minimal input reset used by the form components.
+
+## Form helpers
+
+- `fullWidthStyles($fullWidth)` - Returns `width: 100%` when the flag is set. Backs the `$fullWidth` prop across components.
+- `statusBorderStyles($error, $success, theme)` - Border color for error and success validation states.
+- `formElementHeightStyles($size)` - Shared height for form elements in the three sizes (`small`, `default`, `big`).
+
+## Responsive style generators
+
+Used internally by the layout components, and available for custom components that take per-breakpoint props:
+
+- `generateGapStyles`, `generateColsStyles`, `generateColSpanStyles`
+- `generatePaddingStyles`, `generateJustifyContentStyles`
+- `generateAlignItemsStyles`, `generateAlignContentStyles`, `generateDirectionStyles`
+
+<Button
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/mixins.tsx"
+  icon="github"
+  iconPosition="left"
+>
+  View Source
+</Button>

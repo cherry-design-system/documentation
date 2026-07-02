@@ -1,0 +1,52 @@
+---
+title: "ThemeToggle"
+description: "Cherry ThemeToggle component - a pill-shaped sun and moon switch for light and dark mode."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 13
+section: "Code"
+---
+
+# ThemeToggle
+
+<img
+  className="light-only"
+  src="/components/theme-toggle-light.png"
+  alt="Theme toggle"
+/>
+<img
+  className="dark-only"
+  src="/components/theme-toggle-dark.png"
+  alt="Theme toggle"
+/>
+
+The ThemeToggle is a pill-shaped switch for light and dark mode. It shows a sun and a moon side by side, with a soft circular highlight that slides over the active icon when the theme changes.
+
+It works out of the box inside `CherryThemeProvider` or `ClientThemeProvider`: clicking it flips the current theme, persists the choice (to the `theme` cookie and `localStorage` under `ClientThemeProvider`, to `localStorage` under `CherryThemeProvider`), and keeps the `dark` class on the `<html>` element in sync. No wiring is needed. See [Dark Mode](/code/dark-mode) for the flash-free SSR setup.
+
+```jsx
+import React from "react";
+import { ThemeToggle } from "cherry-styled-components";
+
+export default function Page() {
+  return <ThemeToggle />;
+}
+```
+
+Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props. A custom `onClick` runs after the theme switch, which is handy for analytics:
+
+```jsx
+<ThemeToggle onClick={() => trackEvent("theme toggled")} />
+```
+
+Hide it (for example while the theme is still resolving on the server) with the `$hidden` prop:
+
+```jsx
+<ThemeToggle $hidden={!mounted} />
+```
+
+<Callout type="note">
+  ThemeToggle requires a `themeDark` to be passed to the theme provider. Without
+  it there is nothing to switch to, and clicking the button does nothing.
+</Callout>
