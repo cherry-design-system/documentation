@@ -36,7 +36,15 @@ export default function Page() {
 </Field>
 
 <Field value="$justifyContent" type='"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"'>
-  Justify content alignment. Also available as responsive variants: `$xsJustifyContent`, `$smJustifyContent`, `$mdJustifyContent`, `$lgJustifyContent`, `$xlJustifyContent`, `$xxlJustifyContent`, `$xxxlJustifyContent`.
+  Justify content alignment along the main axis. Also available as responsive variants: `$xsJustifyContent`, `$smJustifyContent`, `$mdJustifyContent`, `$lgJustifyContent`, `$xlJustifyContent`, `$xxlJustifyContent`, `$xxxlJustifyContent`.
+</Field>
+
+<Field value="$alignItems" type='"stretch" | "center" | "flex-start" | "flex-end" | "baseline"'>
+  Align items along the cross axis. Defaults to `"stretch"`. Also available as responsive variants: `$xsAlignItems`, `$smAlignItems`, `$mdAlignItems`, `$lgAlignItems`, `$xlAlignItems`, `$xxlAlignItems`, `$xxxlAlignItems`.
+</Field>
+
+<Field value="$alignContent" type='"stretch" | "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"'>
+  Align content distributes wrapped lines along the cross axis. Defaults to `"stretch"`. Also available as responsive variants: `$xsAlignContent`, `$smAlignContent`, `$mdAlignContent`, `$lgAlignContent`, `$xlAlignContent`, `$xxlAlignContent`, `$xxxlAlignContent`.
 </Field>
 
 <Field value="$wrap" type='"wrap" | "nowrap" | "wrap-reverse"'>
@@ -48,7 +56,7 @@ export default function Page() {
 </Field>
 
 <Field value="$direction" type='"row" | "column" | "row-reverse" | "column-reverse"'>
-  Flex direction. Defaults to `"row"`.
+  Flex direction. Defaults to `"row"`. Also available as responsive variants: `$xsDirection`, `$smDirection`, `$mdDirection`, `$lgDirection`, `$xlDirection`, `$xxlDirection`, `$xxxlDirection`.
 </Field>
 
 <Field value="$fullWidth" type="boolean">
