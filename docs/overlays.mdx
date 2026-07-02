@@ -1,0 +1,54 @@
+---
+title: "Overlays"
+description: "Cherry overlay design specifications for modals and toast notifications."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 2
+---
+# Overlays
+
+Overlays sit on top of the page to demand attention or give feedback. Cherry provides two overlay elements: the Modal for blocking dialogs and the Toast for transient notifications.
+
+## Modal
+
+The modal is a centered dialog on a primary-tinted backdrop. It has an optional title with a divider, scrollable content, and a close icon button in the corner.
+
+| Variant       | Included |
+| ------------- | -------- |
+| With title    | Yes      |
+| Without title | Yes      |
+
+When designing modal flows, account for the three ways users dismiss it:
+
+1. **Close button** - The icon button in the top-right corner.
+2. **Escape** - Pressing the Escape key.
+3. **Outside click** - Clicking the backdrop.
+
+## Toast
+
+Toasts are pill-shaped notifications with a semantic status icon, a message, and a close button. They stack vertically and animate in and out.
+
+| Color   | Icon           | Use for                     |
+| ------- | -------------- | --------------------------- |
+| Info    | Info           | Neutral information         |
+| Success | Circle check   | Completed actions           |
+| Error   | Circle x       | Failures                    |
+| Warning | Triangle alert | Situations needing caution  |
+
+<Callout type="warning">
+  Reserve persistent toasts (without auto-hide) for messages that require the
+  user's acknowledgment. Transient confirmations should dismiss themselves.
+</Callout>
+
+<Callout type="note">
+  Modal and Toast can be found in the Figma Template in the Components page.
+</Callout>
+
+<Button
+  href="https://www.figma.com/community/file/943862931766586094/cherry-design-system"
+  icon="pen-tool"
+  iconPosition="left"
+>
+  View in Figma
+</Button>

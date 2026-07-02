@@ -1,0 +1,100 @@
+---
+title: "Dropzone"
+description: "Cherry Dropzone component - a file input drop target with drag & drop, validation, and preview thumbnails."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 11
+section: "Code"
+---
+# Dropzone
+
+The Dropzone component is a file input rendered as a dashed drop target. It supports click-to-browse and drag & drop, validates files against `accept`, `$maxFiles`, and `$maxBytes`, and shows preview thumbnails with remove buttons for the selected files.
+
+The upload itself stays in your hands: the component only manages the file list and hands you `File` objects.
+
+```jsx
+import React from "react";
+import { Dropzone } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Dropzone
+      accept="image/png,image/jpeg,image/webp"
+      multiple
+      $maxFiles={5}
+      $maxBytes={5 * 1024 * 1024}
+      $prompt="Drag images here"
+      $browse="or click to browse"
+      $hint="PNG, JPG or WebP · up to 5MB · max 5 files"
+      $icon="ImageUp"
+      onFilesChange={(files) => console.log(files)}
+      onFilesRejected={(rejections) => console.warn(rejections)}
+    />
+  );
+}
+```
+
+The inline variant is a compact horizontal row with a transparent background for embedding inside forms or modals. Without `multiple`, selecting a new file replaces the current one:
+
+```jsx
+<Dropzone $inline accept="image/*" $prompt="Drag an image here" />
+```
+
+## Properties
+
+<Field value="$prompt" type="string">
+  Bold primary prompt line. Defaults to `"Drag & drop files here"`.
+</Field>
+
+<Field value="$browse" type="string">
+  Optional "or click to browse" sub-line beneath the prompt.
+</Field>
+
+<Field value="$hint" type="string">
+  Optional smaller hint line for accepted types and limits.
+</Field>
+
+<Field value="$icon" type="IconProps">
+  Lucide icon shown in the rounded tile. Defaults to `"FileUp"`.
+</Field>
+
+<Field value="$inline" type="boolean">
+  Compact horizontal variant with a transparent background.
+</Field>
+
+<Field value="$maxFiles" type="number">
+  Maximum number of files kept at once (with `multiple`).
+</Field>
+
+<Field value="$maxBytes" type="number">
+  Maximum size per file in bytes.
+</Field>
+
+<Field value="onFilesChange" type="(files: File[]) => void">
+  Called with the full current file list whenever it changes.
+</Field>
+
+<Field value="onFilesRejected" type="(rejections: DropzoneRejection[]) => void">
+  Called with the rejected files and a typed reason (`"type"`, `"size"`, or
+  `"count"`) so you can surface errors however you like, for example with a
+  Toast.
+</Field>
+
+<Field value="accept" type="string">
+  Native accept filter. Also enforced for dropped files, including `.ext` and
+  `type/*` patterns.
+</Field>
+
+<Field value="multiple" type="boolean">
+  Allows selecting several files. Without it, a new file replaces the current
+  one.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/dropzone.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

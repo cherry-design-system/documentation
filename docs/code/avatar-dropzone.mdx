@@ -1,0 +1,73 @@
+---
+title: "AvatarDropzone"
+description: "Cherry AvatarDropzone component - a circular single-file dropzone for profile pictures in three sizes."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 12
+section: "Code"
+---
+# AvatarDropzone
+
+The AvatarDropzone component is a circular, single-file dropzone for profile pictures. While empty it shows a dashed circle with an icon; a selected image fills the circle and can be removed with the corner button. Selecting a new file replaces the current one.
+
+```jsx
+import React from "react";
+import { AvatarDropzone } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <AvatarDropzone
+      $maxBytes={5 * 1024 * 1024}
+      onFileChange={(file) => console.log(file)}
+      onFileRejected={({ file, reason }) => console.warn(file.name, reason)}
+    />
+  );
+}
+```
+
+With sizes:
+
+```jsx
+<AvatarDropzone $size="small" />
+<AvatarDropzone $size="big" />
+```
+
+## Properties
+
+<Field value="$size" type='"default" | "big" | "small"'>
+  Size of the circle: 64px (small), 96px (default), or 128px (big).
+</Field>
+
+<Field value="$icon" type="IconProps">
+  Lucide icon shown while empty. Defaults to `"User"`.
+</Field>
+
+<Field value="$maxBytes" type="number">
+  Maximum file size in bytes.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible label for the drop target. Defaults to `"Upload profile
+  picture"`.
+</Field>
+
+<Field value="onFileChange" type="(file: File | null) => void">
+  Called with the selected picture, or `null` when it is removed.
+</Field>
+
+<Field value="onFileRejected" type="(rejection: DropzoneRejection) => void">
+  Called when a file is rejected for being the wrong type or too big.
+</Field>
+
+<Field value="accept" type="string">
+  Native accept filter. Defaults to `"image/*"`.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/avatar-dropzone.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

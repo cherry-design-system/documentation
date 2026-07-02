@@ -1,0 +1,91 @@
+---
+title: "Toast"
+description: "Cherry toast notifications - provider, hook, and animated toast stack with semantic colors and auto-hide."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 10
+section: "Code"
+---
+# Toast
+
+Cherry's toast system shows short, animated notifications in a fixed stack. It consists of three parts: a provider that holds the state, a component that renders the stack, and a hook to fire notifications from anywhere in the tree.
+
+Wrap your app with the provider and render the stack once:
+
+```jsx
+"use client";
+import React from "react";
+import {
+  ToastNotifications,
+  ToastNotificationsProvider,
+} from "cherry-styled-components";
+
+export default function App({ children }) {
+  return (
+    <ToastNotificationsProvider>
+      <ToastNotifications />
+      {children}
+    </ToastNotificationsProvider>
+  );
+}
+```
+
+Fire notifications with the `useToastNotifications` hook:
+
+```jsx
+"use client";
+import React from "react";
+import { Button, useToastNotifications } from "cherry-styled-components";
+
+export default function SaveButton() {
+  const { addNotification } = useToastNotifications();
+
+  return (
+    <Button
+      onClick={() =>
+        addNotification("Changes saved successfully.", {
+          color: "success",
+          autoHide: 4000,
+        })
+      }
+    >
+      Save
+    </Button>
+  );
+}
+```
+
+A toast without `autoHide` stays until the user dismisses it with the built-in close button.
+
+## addNotification
+
+<Field value="text" type="string" required>
+  The message to display.
+</Field>
+
+<Field value="config.color" type='"info" | "success" | "error" | "warning"'>
+  Semantic color for the status icon. Defaults to `"info"`.
+</Field>
+
+<Field value="config.autoHide" type="number">
+  Milliseconds before the toast hides itself. Omit to keep it until dismissed.
+</Field>
+
+## ToastNotifications Properties
+
+<Field value="$align" type='"center" | "left" | "right"'>
+  Horizontal position of the stack. Defaults to `"center"`.
+</Field>
+
+<Field value="$bottom" type="boolean">
+  Anchors the stack to the bottom of the viewport instead of the top.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toast.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

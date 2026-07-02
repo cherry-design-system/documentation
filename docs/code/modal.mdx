@@ -1,0 +1,81 @@
+---
+title: "Modal"
+description: "Cherry Modal component - an animated dialog rendered in a portal with Escape and outside-click dismissal."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 9
+section: "Code"
+---
+# Modal
+
+The Modal component renders an animated dialog on top of the page. It portals into `document.body` so the overlay always sits above transformed or clipped ancestors, and it closes on Escape, on a click outside, or with the built-in close button.
+
+The Modal is a controlled component: the parent owns the open state.
+
+```jsx
+"use client";
+import React, { useState } from "react";
+import { Button, Modal } from "cherry-styled-components";
+
+export default function Page() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+      <Modal
+        $isOpen={isOpen}
+        $onClose={() => setIsOpen(false)}
+        $title="Modal Title"
+      >
+        Modal content goes here.
+      </Modal>
+    </>
+  );
+}
+```
+
+With a custom width for larger content:
+
+```jsx
+<Modal $isOpen={isOpen} $onClose={close} $width={800}>
+  Content
+</Modal>
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  The modal content. It scrolls internally when taller than the viewport.
+</Field>
+
+<Field value="$isOpen" type="boolean" required>
+  Whether the modal is visible. The modal animates in and out on change.
+</Field>
+
+<Field value="$onClose" type="() => void" required>
+  Called when the user dismisses the modal (Escape, outside click, or the
+  close button).
+</Field>
+
+<Field value="$title" type="string">
+  Optional title rendered with a divider below it.
+</Field>
+
+<Field value="$width" type="number">
+  Maximum width in pixels on large screens. Defaults to 500.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Callout type="note">
+  The Modal is SSR-safe: it renders nothing on the server and during the first
+  client render, then portals once hydration has completed.
+</Callout>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/modal.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

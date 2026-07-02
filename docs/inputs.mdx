@@ -1,6 +1,6 @@
 ---
 title: "Inputs"
-description: "Cherry input design specifications covering text fields, checkboxes, radios, toggles, and range sliders."
+description: "Cherry input design specifications covering text fields, password fields, checkboxes, radios, toggles, range sliders, and dropzones."
 date: "2026-02-19"
 category: "Components"
 categoryOrder: 2
@@ -34,6 +34,16 @@ When customizing your designs, consider all the different states:
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
 
+## Password
+
+Password fields extend the text input with a reveal toggle pinned inside the field. The revealed state swaps the masked dots for plain text and flips the eye icon.
+
+| Size    | Default | Revealed | Error | Disabled |
+| ------- | ------- | -------- | ----- | -------- |
+| Small   | Yes     | Yes      | Yes   | Yes      |
+| Default | Yes     | Yes      | Yes   | Yes      |
+| Big     | Yes     | Yes      | Yes   | Yes      |
+
 ## Checkbox
 
 | Size    | Default | Success | Error | Disabled |
@@ -66,8 +76,28 @@ When customizing your designs, consider all the different states:
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
 
+## Dropzone
+
+Dropzones are file inputs rendered as dashed drop targets, with a compact inline variant for embedding in forms and modals.
+
+| Variant | Default | Drag Over | Disabled |
+| ------- | ------- | --------- | -------- |
+| Block   | Yes     | Yes       | Yes      |
+| Inline  | Yes     | Yes       | Yes      |
+
+## Avatar Dropzone
+
+Avatar dropzones are circular, single-file dropzones for profile pictures. The circle is dashed while empty and shows the selected picture with a corner remove button once filled.
+
+| Size            | Empty | Filled |
+| --------------- | ----- | ------ |
+| Small (64px)    | Yes   | Yes    |
+| Default (96px)  | Yes   | Yes    |
+| Big (128px)     | Yes   | Yes    |
+
 <Callout type="note">
-  Inputs can be found in the Figma Template in the Inputs page.
+  Inputs can be found in the Figma Template in the Inputs page. Password,
+  Dropzone, and AvatarDropzone live in the Components page as component sets.
 </Callout>
 
 <Button

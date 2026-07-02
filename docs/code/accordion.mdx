@@ -1,0 +1,76 @@
+---
+title: "Accordion"
+description: "Cherry Accordion component - animated disclosure with a card style and an inline variant."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 8
+section: "Code"
+---
+# Accordion
+
+The Accordion component shows and hides content behind a clickable title. It animates open and close, rotates its chevron to match, and respects `prefers-reduced-motion`.
+
+```jsx
+import React from "react";
+import { Accordion } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Accordion title="What is Cherry?">
+      Cherry is a design system for the modern web.
+    </Accordion>
+  );
+}
+```
+
+The inline variant drops the border, radius, and side padding for embedding inside cards or lists:
+
+```jsx
+<Accordion title="Inline accordion" $inline>
+  Content
+</Accordion>
+```
+
+By default the accordion manages its own state. Pass `open` and `onToggle` to control it from the parent:
+
+```jsx
+<Accordion title="Controlled" open={isOpen} onToggle={setIsOpen}>
+  Content
+</Accordion>
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  The collapsible content.
+</Field>
+
+<Field value="title" type="React.ReactNode">
+  The always-visible clickable title.
+</Field>
+
+<Field value="$inline" type="boolean">
+  Removes the border, radius, and side padding for a flush, compact look.
+</Field>
+
+<Field value="defaultOpen" type="boolean">
+  Renders the accordion open initially (uncontrolled mode).
+</Field>
+
+<Field value="open" type="boolean">
+  Controlled open state. When provided, the parent owns open/close; pair it
+  with `onToggle`.
+</Field>
+
+<Field value="onToggle" type="(isOpen: boolean) => void">
+  Called with the next state whenever the title is clicked.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/accordion.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

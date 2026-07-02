@@ -1,0 +1,76 @@
+---
+title: "IconButton"
+description: "Cherry IconButton component - a circular icon-only button with three sizes and an error variant."
+date: "2026-07-02"
+category: "Components"
+categoryOrder: 2
+order: 6
+section: "Code"
+---
+# IconButton
+
+The IconButton component is a circular, icon-only button for compact actions like edit, delete, or settings.
+
+Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+Because the button has no visible text, the `aria-label` property is required.
+
+```jsx
+import React from "react";
+import { Icon, IconButton } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <IconButton aria-label="Settings">
+      <Icon name="Settings" />
+    </IconButton>
+  );
+}
+```
+
+With sizes:
+
+```jsx
+<IconButton $size="small" aria-label="Edit">
+  <Icon name="Pencil" />
+</IconButton>
+<IconButton $size="big" aria-label="Add">
+  <Icon name="Plus" />
+</IconButton>
+```
+
+For destructive actions, use the error variant:
+
+```jsx
+<IconButton $error aria-label="Delete">
+  <Icon name="Trash2" />
+</IconButton>
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  The icon to render, typically a Cherry `Icon`. It is sized automatically per
+  `$size` (12px, 14px, or 16px).
+</Field>
+
+<Field value="aria-label" type="string" required>
+  Accessible label describing the action. Required because the button has no
+  visible text.
+</Field>
+
+<Field value="$size" type='"default" | "big" | "small"'>
+  Size of the button: 24px (small), 28px (default), or 32px (big).
+</Field>
+
+<Field value="$error" type="boolean">
+  Renders the button in the theme's error color for destructive actions.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon-button.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>
