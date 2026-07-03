@@ -1,0 +1,83 @@
+---
+title: "Tabs"
+description: "Cherry Tabs component - accessible tabbed panels with keyboard navigation and controlled or uncontrolled selection."
+date: "2026-07-03"
+category: "Components"
+categoryOrder: 2
+order: 15
+section: "Code"
+---
+# Tabs
+
+<img className="light-only" src="/components/tabs-light.png" alt="Tabs" />
+<img className="dark-only" src="/components/tabs-dark.png" alt="Tabs" />
+
+The Tabs component groups related content into panels behind a horizontal list of triggers. Wrap each panel in a `TabContent` with a `title`; only the active panel is rendered.
+
+Tabs follow the WAI-ARIA tabs pattern: the triggers form a `tablist` with roving tabindex, ArrowLeft and ArrowRight cycle through the tabs (wrapping at the edges), Home and End jump to the first and last tab, and moving focus also selects the tab.
+
+```jsx
+import React from "react";
+import { Tabs, TabContent } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Tabs>
+      <TabContent title="Overview">Overview panel content.</TabContent>
+      <TabContent title="Details">Details panel content.</TabContent>
+      <TabContent title="Settings">Settings panel content.</TabContent>
+    </Tabs>
+  );
+}
+```
+
+By default Tabs manage their own selection, starting at `defaultActiveTab` (index 0 if omitted). Pass `activeTab` to control the selection from the parent, paired with `onTabChange`:
+
+```jsx
+const [tab, setTab] = useState(0);
+
+<Tabs activeTab={tab} onTabChange={setTab}>
+  <TabContent title="Overview">Overview panel content.</TabContent>
+  <TabContent title="Details">Details panel content.</TabContent>
+</Tabs>;
+```
+
+## Properties
+
+### Tabs
+
+<Field value="children" type="React.ReactNode">
+  The panels, as `TabContent` elements. Children that are not `TabContent`
+  elements with a non-empty `title` are ignored.
+</Field>
+
+<Field value="activeTab" type="number">
+  Optional controlled active tab index. When provided the parent owns the
+  selection; pair it with `onTabChange`.
+</Field>
+
+<Field value="defaultActiveTab" type="number">
+  Initial tab index for uncontrolled usage. Defaults to `0`.
+</Field>
+
+<Field value="onTabChange" type="(index: number) => void">
+  Called with the new index whenever a tab is selected, by click or keyboard.
+</Field>
+
+<Field value="theme" type="Theme">
+  Cherry theme object.
+</Field>
+
+### TabContent
+
+<Field value="title" type="string" required>
+  The tab trigger label. Required and must be non-empty.
+</Field>
+
+<Field value="children" type="React.ReactNode">
+  The panel content rendered while this tab is active.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/tabs.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>
