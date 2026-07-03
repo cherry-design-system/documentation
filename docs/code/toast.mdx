@@ -59,7 +59,7 @@ export default function SaveButton() {
 }
 ```
 
-A toast without `autoHide` stays until the user dismisses it with the built-in close button.
+A toast without `autoHide` stays until the user dismisses it with the built-in close button. Either way, once a toast has animated out it is removed from the stack entirely. The stack is an `aria-live="polite"` region, so screen readers announce new toasts as they appear.
 
 ## addNotification
 
@@ -74,6 +74,10 @@ A toast without `autoHide` stays until the user dismisses it with the built-in c
 <Field value="config.autoHide" type="number">
   Milliseconds before the toast hides itself. Omit to keep it until dismissed.
 </Field>
+
+## removeNotification
+
+Also returned by `useToastNotifications`. Removes a toast from the stack immediately by its `id` (each toast in `notifications` carries a unique `id`). You rarely need this yourself: the close button and `autoHide` already remove toasts after their exit animation.
 
 ## ToastNotifications Properties
 

@@ -1,7 +1,7 @@
 ---
 title: "Modal"
 description: "Cherry Modal component - an animated dialog rendered in a portal with Escape and outside-click dismissal."
-date: "2026-07-02"
+date: "2026-07-03"
 category: "Components"
 categoryOrder: 2
 order: 9
@@ -14,7 +14,7 @@ section: "Code"
 
 The Modal component renders an animated dialog on top of the page. It portals into `document.body` so the overlay always sits above transformed or clipped ancestors, and it closes on Escape, on a click outside, or with the built-in close button.
 
-The Modal is a controlled component: the parent owns the open state.
+The Modal is a controlled component: the parent owns the open state. The dialog surface carries `role="dialog"` and `aria-modal="true"`, and takes its accessible name from `$title`.
 
 ```jsx
 "use client";
@@ -47,6 +47,28 @@ With a custom width for larger content:
 </Modal>
 ```
 
+## Restyling
+
+To restyle the modal from your app, pass a `className` (or `style`). Both are applied to the overlay root, and the inner parts expose stable class hooks: `.modal-inner`, `.modal-close`, `.modal-title`, and `.modal-content`.
+
+```jsx
+<Modal $isOpen={isOpen} $onClose={close} className="checkout-modal">
+  Content
+</Modal>
+```
+
+```css
+.checkout-modal .modal-inner {
+  border-radius: 24px;
+}
+```
+
+<Callout type="warning">
+  Wrapping with `styled(Modal)` does not work: styled-components strips
+  transient `$`-props before they reach the wrapped component, so the modal
+  never receives `$isOpen` or `$onClose`. Target a passed class instead.
+</Callout>
+
 ## Properties
 
 <Field value="children" type="React.ReactNode">
@@ -63,11 +85,26 @@ With a custom width for larger content:
 </Field>
 
 <Field value="$title" type="string">
-  Optional title rendered with a divider below it.
+  Optional title rendered with a divider below it. Also used as the dialog's
+  `aria-label`.
 </Field>
 
 <Field value="$width" type="number">
   Maximum width in pixels on large screens. Defaults to 500.
+</Field>
+
+<Field value="$hideCloseButton" type="boolean">
+  Omits the built-in close button in the top-right corner. Escape and outside
+  click still dismiss the modal.
+</Field>
+
+<Field value="className" type="string">
+  Applied to the overlay root, for app-level restyling. See the Restyling
+  section above.
+</Field>
+
+<Field value="style" type="React.CSSProperties">
+  Inline styles applied to the overlay root.
 </Field>
 
 <Field value="theme" type="Theme">
@@ -77,6 +114,12 @@ With a custom width for larger content:
 <Callout type="note">
   The Modal is SSR-safe: it renders nothing on the server and during the first
   client render, then portals once hydration has completed.
+</Callout>
+
+<Callout type="note">
+  The modal unmounts its children once the exit animation finishes, so state
+  inside the modal (such as form inputs) resets between openings. To keep
+  state across openings, lift it into the parent.
 </Callout>
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/modal.tsx" icon="github" iconPosition="left">
