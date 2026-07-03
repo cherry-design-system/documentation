@@ -1,6 +1,6 @@
 ---
 title: "IconButton"
-description: "Cherry IconButton component - a circular icon-only button with three sizes and an error variant."
+description: "Cherry IconButton component - a circular icon-only button with three sizes, an error variant, and an active toggle state."
 date: "2026-07-02"
 category: "Components"
 categoryOrder: 2
@@ -50,6 +50,17 @@ For destructive actions, use the error variant:
 </IconButton>
 ```
 
+For toggle-like actions that stay "on" (a dropzone that is open, a preview
+that is active), use `$active`. The button keeps its primary border with a
+subtle tint, and the state is exposed to assistive technology via
+`aria-pressed` automatically:
+
+```jsx
+<IconButton $active={isPreviewOpen} aria-label="Toggle preview">
+  <Icon name="Eye" />
+</IconButton>
+```
+
 ## Properties
 
 <Field value="children" type="React.ReactNode">
@@ -68,6 +79,13 @@ For destructive actions, use the error variant:
 
 <Field value="$error" type="boolean">
   Renders the button in the theme's error color for destructive actions.
+</Field>
+
+<Field value="$active" type="boolean">
+  Marks the button as being in an "on" state: primary border, tinted
+  background, and primary icon color. When set (true or false), the value is
+  also reflected as `aria-pressed` so screen readers announce the toggle
+  state. Ignored while `disabled`.
 </Field>
 
 <Field value="theme" type="Theme">
