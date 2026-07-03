@@ -40,12 +40,16 @@ Checkbox and radio examples:
 
 ## Properties
 
-<Field value="type" type='"text" | "checkbox" | "radio"' required>
-  The type of input element.
+<Field value="type" type="string">
+  The type of input element. Accepts any native input type, such as `"text"`, `"email"`, `"checkbox"`, or `"radio"`. Date and time types (`"date"`, `"datetime-local"`, `"month"`, `"week"`, `"time"`) automatically render a calendar icon inside the field.
 </Field>
 
 <Field value="$label" type="string">
-  Label text displayed above the input.
+  Label text. Displayed above the input for text-like types; rendered after the control for `checkbox` and `radio`.
+</Field>
+
+<Field value="$wrapperClassName" type="string">
+  Class name applied to the wrapper element around the input, for restyling from the outside.
 </Field>
 
 <Field value="$size" type='"default" | "big" | "small"'>

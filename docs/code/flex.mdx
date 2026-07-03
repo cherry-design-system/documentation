@@ -39,7 +39,7 @@ export default function Page() {
 </Field>
 
 <Field value="$justifyContent" type='"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"'>
-  Justify content alignment along the main axis. Also available as responsive variants: `$xsJustifyContent`, `$smJustifyContent`, `$mdJustifyContent`, `$lgJustifyContent`, `$xlJustifyContent`, `$xxlJustifyContent`, `$xxxlJustifyContent`.
+  Justify content alignment along the main axis. Defaults to `"flex-start"`. Also available as responsive variants: `$xsJustifyContent`, `$smJustifyContent`, `$mdJustifyContent`, `$lgJustifyContent`, `$xlJustifyContent`, `$xxlJustifyContent`, `$xxxlJustifyContent`.
 </Field>
 
 <Field value="$alignItems" type='"stretch" | "center" | "flex-start" | "flex-end" | "baseline"'>
@@ -51,7 +51,7 @@ export default function Page() {
 </Field>
 
 <Field value="$wrap" type='"wrap" | "nowrap" | "wrap-reverse"'>
-  Flex wrap behavior.
+  Flex wrap behavior. Defaults to `"wrap"`.
 </Field>
 
 <Field value="$gap" type='number | "none"'>

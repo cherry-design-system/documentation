@@ -1,0 +1,63 @@
+---
+title: "Hooks"
+description: "Cherry utility hooks - useOnClickOutside for dismissing menus, popovers, and other floating UI."
+date: "2026-07-03"
+category: "Configuration"
+categoryOrder: 1
+order: 4
+section: "Code"
+---
+# Hooks
+
+Cherry exports utility hooks alongside its components.
+
+## useOnClickOutside
+
+Calls a callback when a click lands outside all of the given elements. Useful for dismissing menus, popovers, and other floating UI. Cherry's own Modal uses it to close on outside clicks.
+
+```tsx
+useOnClickOutside(refs: RefObject<HTMLElement | null>[], cb: () => void): void
+```
+
+```jsx
+"use client";
+import React, { useRef, useState } from "react";
+import { useOnClickOutside, Button } from "cherry-styled-components";
+
+export default function Menu() {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useOnClickOutside([menuRef, buttonRef], () => setOpen(false));
+
+  return (
+    <>
+      <Button ref={buttonRef} onClick={() => setOpen(!open)}>
+        Menu
+      </Button>
+      {open && <div ref={menuRef}>...</div>}
+    </>
+  );
+}
+```
+
+Behavior details:
+
+- Listens for `mousedown` on the document and fires the callback when the click target is inside none of the passed refs.
+- Unattached refs (with a `null` current value) are ignored: a click counts as outside unless it lands inside a currently mounted ref target.
+- The document listener is subscribed once per mount. You can safely pass inline arrays and inline callbacks; the hook keeps the latest values in a ref instead of re-subscribing on every render.
+
+## Properties
+
+<Field value="refs" type="RefObject<HTMLElement | null>[]" required>
+  Refs to the elements that count as "inside". Clicks within any of them do not trigger the callback.
+</Field>
+
+<Field value="cb" type="() => void" required>
+  Callback invoked when a click lands outside all ref targets.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/use-on-click-outside.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>

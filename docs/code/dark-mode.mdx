@@ -108,6 +108,14 @@ export default async function RootLayout({ children }) {
 }
 ```
 
+`themeInitScript` hides the body behind a black (`#000`) background while it waits. If your dark theme uses a different page background, build the script with `createThemeInitScript` instead, so the brief pre-hydration frame matches it:
+
+```tsx
+import { createThemeInitScript } from "cherry-styled-components";
+
+const themeInitScript = createThemeInitScript("#0a0a0f");
+```
+
 For the best first visit in Chrome, opt into color-scheme client hints in your middleware so even the very first server render matches the OS preference:
 
 ```ts

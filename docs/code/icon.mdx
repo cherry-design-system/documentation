@@ -1,0 +1,55 @@
+---
+title: "Icon"
+description: "Cherry Icon component - renders any Lucide icon by name with color, size, and accessibility control."
+date: "2026-07-03"
+category: "Components"
+categoryOrder: 2
+order: 14
+section: "Code"
+---
+# Icon
+
+The Icon component renders any icon from the [Lucide](https://lucide.dev) icon set by name. It is the same component Cherry uses internally (for example in Dropzone tiles and the Modal close button), and it powers the `$icon` props on components like Dropzone and AvatarDropzone.
+
+```jsx
+import React from "react";
+import { Icon } from "cherry-styled-components";
+
+export default function Page() {
+  return <Icon name="Cherry" size={24} />;
+}
+```
+
+Icons are decorative by default: without an `aria-label` they render with `aria-hidden`, so screen readers skip them. Pass an `aria-label` to make an icon meaningful; it then gets `role="img"` and the label is announced:
+
+```jsx
+<Icon name="TriangleAlert" color="#ef4444" aria-label="Warning" />
+```
+
+If the given name does not match a Lucide icon, the component renders nothing.
+
+## Properties
+
+<Field value="name" type="IconProps" required>
+  Name of the Lucide icon to render, e.g. `"Cherry"` or `"FileUp"`. The exported `IconProps` type is the string union of all Lucide icon names.
+</Field>
+
+<Field value="color" type="string">
+  Icon color. Defaults to the inherited text color.
+</Field>
+
+<Field value="size" type="number">
+  Icon size in pixels.
+</Field>
+
+<Field value="className" type="string">
+  Class name applied to the rendered SVG.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible label. When set, the icon gets `role="img"` and is announced by screen readers; when omitted, the icon is `aria-hidden`.
+</Field>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon.tsx" icon="github" iconPosition="left">
+  View Source
+</Button>
