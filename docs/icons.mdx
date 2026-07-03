@@ -1,0 +1,43 @@
+---
+title: "Icons"
+description: "Cherry uses the Lucide icon set - over 1,500 consistent, open-source icons available in every component."
+date: "2026-07-03"
+category: "Foundations"
+categoryOrder: 1
+order: 3
+---
+# Icons
+
+Cherry uses [Lucide](https://lucide.dev), an open-source icon set with over 1,500 icons drawn on a consistent 24x24 grid with a 2px rounded stroke. Sticking to a single set keeps iconography coherent across your interface, and the outline style pairs naturally with Cherry's borders and typography.
+
+Icons inherit the current text color, so they adapt to light and dark mode automatically along with the component they sit in.
+
+## Where icons appear
+
+Several Cherry components ship with built-in Lucide icons:
+
+- **Accordion** - the rotating chevron (`ChevronDown`)
+- **Modal** - the close button (`X`)
+- **Toast** - the dismiss button (`X`)
+- **Password** - the visibility toggle (`Eye`, `EyeOff`)
+- **ThemeToggle** - the sun and moon (`Sun`, `MoonStar`)
+- **Dropzone / AvatarDropzone** - the upload glyphs, customizable via the `$icon` prop
+- **IconButton** - accepts any icon as its content
+
+## Choosing icons
+
+Browse the full set at [lucide.dev/icons](https://lucide.dev/icons). Icons are referenced by their PascalCase name (for example `Settings`, `Trash2`, `ImageUp`). In code, render them with the [Icon](/code/icon) component; designers can use the official [Lucide Figma plugin](https://www.figma.com/community/plugin/939567362549682242/lucide-icons) to place the same icons in mockups.
+
+<Callout type="note">
+  Keep icon usage purposeful: prefer familiar glyphs for common actions
+  (pencil for edit, trash for delete) and pair less obvious icons with a
+  visible label.
+</Callout>
+
+<Button
+  href="https://lucide.dev/icons"
+  icon="pen-tool"
+  iconPosition="left"
+>
+  Browse Lucide Icons
+</Button>
