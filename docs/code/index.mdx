@@ -18,37 +18,100 @@ npm i cherry-styled-components
 
 ## Components
 
-- **Accordion** - Show and hide content behind a clickable, animated title.
-- **AvatarDropzone** - Circular single-file dropzone for profile pictures.
-- **Box** - The versatile container that adapts to your needs. Use it for layout, spacing, or as a wrapper.
-- **Button** - The gateway to interaction. Choose from various styles and states.
-- **Container** - A container for your content.
-- **Dropzone** - File input drop target with drag & drop, validation, and previews.
-- **Flex** - Flexibility at its best. Arrange items horizontally or vertically.
-- **Grid** - Build grids effortlessly using CSS grid.
-- **Col** - Create responsive column layouts with ease.
-- **Icon** - Render any Lucide icon by name.
-- **IconButton** - Circular icon-only button for compact actions.
-- **Input** - Text fields, checkboxes, radio buttons - everything input-related.
-- **MaxWidth** - Control the maximum width of your content.
-- **Modal** - Animated dialog with Escape and outside-click dismissal.
-- **Password** - Password input with a built-in show/hide reveal toggle.
-- **Range** - Sliders for numeric input.
-- **Select** - Dropdown menus for options.
-- **Space** - Responsive vertical or horizontal spacing between elements.
-- **Textarea** - Multiline text input for longer messages.
-- **ThemeToggle** - Pill-shaped sun/moon switch for light and dark mode.
-- **Toast** - Transient notifications with semantic colors and auto-hide.
-- **Toggle** - Simplify binary choices.
+<Columns cols={2}>
+  <Card title="Accordion" icon="chevrons-down" href="/code/accordion">
+    Show and hide content behind a clickable, animated title.
+  </Card>
+  <Card title="AvatarDropzone" icon="circle-user" href="/code/avatar-dropzone">
+    Circular single-file dropzone for profile pictures.
+  </Card>
+  <Card title="Box" icon="box" href="/code/box">
+    The versatile container for layout, spacing, or as a wrapper.
+  </Card>
+  <Card title="Button" icon="mouse-pointer-click" href="/code/button">
+    The gateway to interaction. Various styles and states.
+  </Card>
+  <Card title="Col" icon="columns-3" href="/code/col">
+    Create responsive column layouts with ease.
+  </Card>
+  <Card title="Container" icon="frame" href="/code/container">
+    A container for your content.
+  </Card>
+  <Card title="Dropzone" icon="upload" href="/code/dropzone">
+    File drop target with drag & drop, validation, and previews.
+  </Card>
+  <Card title="Flex" icon="stretch-horizontal" href="/code/flex">
+    Arrange items horizontally or vertically.
+  </Card>
+  <Card title="Grid" icon="layout-grid" href="/code/grid">
+    Build grids effortlessly using CSS grid.
+  </Card>
+  <Card title="Icon" icon="smile" href="/code/icon">
+    Render any Lucide icon by name.
+  </Card>
+  <Card title="IconButton" icon="circle-plus" href="/code/icon-button">
+    Circular icon-only button for compact actions.
+  </Card>
+  <Card title="Input" icon="text-cursor-input" href="/code/input">
+    Text fields, checkboxes, radio buttons - everything input-related.
+  </Card>
+  <Card title="MaxWidth" icon="move-horizontal" href="/code/max-width">
+    Control the maximum width of your content.
+  </Card>
+  <Card title="Modal" icon="app-window" href="/code/modal">
+    Animated dialog with Escape and outside-click dismissal.
+  </Card>
+  <Card title="Password" icon="lock" href="/code/password">
+    Password input with a built-in show/hide reveal toggle.
+  </Card>
+  <Card title="Range" icon="sliders-horizontal" href="/code/range">
+    Sliders for numeric input.
+  </Card>
+  <Card title="Select" icon="chevrons-up-down" href="/code/select">
+    Dropdown menus for options.
+  </Card>
+  <Card title="Space" icon="move-vertical" href="/code/space">
+    Responsive vertical or horizontal spacing between elements.
+  </Card>
+  <Card title="Tabs" icon="panel-top" href="/code/tabs">
+    Accessible tabbed panels with keyboard navigation.
+  </Card>
+  <Card title="Textarea" icon="text-align-start" href="/code/textarea">
+    Multiline text input for longer messages.
+  </Card>
+  <Card title="ThemeToggle" icon="sun-moon" href="/code/theme-toggle">
+    Pill-shaped sun/moon switch for light and dark mode.
+  </Card>
+  <Card title="Toast" icon="bell" href="/code/toast">
+    Transient notifications with semantic colors and auto-hide.
+  </Card>
+  <Card title="Toggle" icon="toggle-left" href="/code/toggle">
+    Simplify binary choices.
+  </Card>
+</Columns>
 
 ## Cherry Helpers
 
-- **Global Styles** - Consistency across your app. Define global rules here.
-- **Hooks** - Utility hooks like `useOnClickOutside` for dismissing floating UI.
-- **Icons** - Basic icons for elements like checkbox and dropdown arrow.
-- **Mixins** - Reusable code snippets. Efficiency meets elegance.
-- **Theme** - Set the tone for your entire application. Define spacings, colors, typography, and more.
-- **Typography** - Text matters. Set font styles and sizes effortlessly.
+<Columns cols={2}>
+  <Card title="Global Styles" icon="globe" href="/code/global-styles">
+    Consistency across your app. Define global rules here.
+  </Card>
+  <Card title="Hooks" icon="webhook" href="/code/hooks">
+    Utility hooks like `useOnClickOutside` for floating UI.
+  </Card>
+  <Card title="Mixins" icon="puzzle" href="/code/mixins">
+    Reusable code snippets. Efficiency meets elegance.
+  </Card>
+  <Card title="Theme" icon="palette" href="/code/theme">
+    Define spacings, colors, typography, and more.
+  </Card>
+  <Card title="Icons" icon="shapes">
+    Basic icons for elements like checkbox and dropdown arrow.
+  </Card>
+  <Card title="Typography" icon="type">
+    Text matters. Set font styles and sizes effortlessly.
+  </Card>
+</Columns>
 
 ## Styled Components Helpers
 
@@ -59,10 +122,16 @@ npm i cherry-styled-components
 - **resolveTheme** - Resolve the `theme` cookie to a theme object in server code.
 
 <Columns cols={2}>
+  <Card title="Live Demo" icon="play" href="https://demo.cherry.al/">
+    See every component in one interactive playground.
+  </Card>
   <Card title="Installation" icon="download" href="/code/installation">
     Get started with development.
   </Card>
   <Card title="Theme" icon="palette" href="/code/theme">
     Configure and customize the theme.
+  </Card>
+  <Card title="Dark Mode" icon="moon" href="/code/dark-mode">
+    Flash-free dark mode with SSR support.
   </Card>
 </Columns>
