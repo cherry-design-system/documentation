@@ -1,7 +1,7 @@
 ---
 title: "Figma"
 description: "Get started with the Cherry Design System Figma template and plugin for extracting design tokens."
-date: "2026-02-19"
+date: "2026-07-04"
 category: "Getting Started"
 categoryOrder: 0
 order: 1
@@ -18,52 +18,41 @@ Begin by obtaining the Cherry template from Figma Community. This serves as your
   Figma Template
 </Button>
 
-## 2. Working Areas: Sections
+## 2. File Structure: Pages
 
-Figma's working areas are organized into Sections:
+The template is organized into four pages:
 
-- **Site Images** - Icons associated with a website or application. Favicons, open graph images, etc.
-- **Web** - Overall web design, including a sample page composed entirely of Cherry components, shown side by side in light and dark mode.
-- **Components** - Reusable design elements that streamline your workflow. Every component is a variant set bound to the Figma variables, so all of them adapt to dark mode automatically: Button, IconButton, Input, Password, Textarea, Select, Checkbox, Radio, Toggle, Range, Modal, Toast, Accordion, Tabs, Dropzone, and AvatarDropzone.
+- **🎨 Foundations** - The design primitives, grouped into sections: **Color** (the full palette previewed in light and dark mode), **Typography** (heading and body styles at desktop and mobile sizes), and **Elevation** (shadow styles).
+- **🧩 Components** - Reusable design elements that streamline your workflow. Every component is a variant set bound to the Figma variables, so all of them adapt to dark mode automatically: Button, IconButton, Input, Password, Textarea, Select, Checkbox, Radio, Toggle, Range, ThemeToggle, Modal, Toast, Accordion, Tabs, Dropzone, and AvatarDropzone. The section also includes the assembled Tabs component and a Box helper.
+- **🌍 Examples** - A sample landing page composed entirely of Cherry components, provided in light and dark mode.
+- **🌐 Assets** - Icons associated with a website or application: favicons, Apple touch icons, Google manifest icons, and the Open Graph social image.
 
 ## 3. Figma Variables
 
-Cherry uses Figma variables to store design values. These values create design tokens. Variables are organized into groups:
+Cherry uses Figma variables to store design values. These values create design tokens. Variables are organized into collections:
 
-| Variable Group | Purpose |
+| Variable Collection | Purpose |
 | --- | --- |
-| **Colors** | Color values for dark and light themes |
+| **Colors** | Color values grouped into Primary, Secondary, Tertiary, Gray, and UI, with a Light Mode and a Dark Mode |
 | **Font Family** | Font families for text, headings, and monospace |
-| **Font Sizes** | Font size definitions for mobile and desktop |
+| **Font Sizes** | Font size definitions with `lg` (desktop) and `xs` (mobile) modes |
 | **Font Weights** | Font weights for text, headings, and buttons |
-| **Grid Gaps** | Grid gaps for visually appealing layouts |
-| **Line Heights** | Line height definitions for mobile and desktop |
+| **Grid Gap** | Grid gaps for visually appealing layouts |
+| **Line Heights** | Line height definitions with `lg` (desktop) and `xs` (mobile) modes |
 | **Max Width** | Max width values for `xs` and `xxl` |
 | **Media Queries** | Breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl` |
 | **Padding** | Padding sizes for `xs` and `lg` |
 | **Radius** | Border radius for `xs`, `lg`, and `xl` |
 
-## 4. Text Styles
+## 4. Typography
 
-Adjust typography definitions from Figma variables. You'll see a live preview on the Typography page.
+Typography is driven entirely by the Font Family, Font Sizes, Font Weights, and Line Heights variables. Adjust the definitions there and you'll see a live preview in the Typography section of the Foundations page.
 
 ## 5. Local Styles
 
-Local styles are only used for shadows. There are two sets: one for dark mode and one for light mode.
+Local styles are only used for shadows. There are two sets of five elevations (`XS` to `XL`): one for light mode and one for dark mode (`Dark/XS` to `Dark/XL`). They are previewed in the Elevation section of the Foundations page.
 
-## 6. Preview Pages
-
-Beyond the working areas, you'll find specific preview pages:
-
-- **Colors** - Preview color variations
-- **Typography** - Explore different text styles
-- **Buttons** - Button variations and states
-- **Inputs** - Input variations and states
-- **Shadows** - Various shadow elevation styles
-
-Overlay and utility components (IconButton, Password, Modal, Toast, Accordion, Tabs, Dropzone, AvatarDropzone) are previewed directly in the Components page and composed together on the Web page's sample screens.
-
-## 7. Extract Design Tokens
+## 6. Extract Design Tokens
 
 Cherry has its own **Figma Plugin** to extract design tokens automatically. The plugin gives you the theme file - just copy and paste.
 
