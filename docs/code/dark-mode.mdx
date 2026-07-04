@@ -19,10 +19,10 @@ import {
   themeDark,
 } from "cherry-styled-components";
 
-export default function App({ Component, pageProps }) {
+export default function App({ children }) {
   return (
     <CherryThemeProvider theme={theme} themeDark={themeDark}>
-      <Component {...pageProps} />
+      {children}
     </CherryThemeProvider>
   );
 }
@@ -74,8 +74,7 @@ export default function Header() {
 
 Theme changes persist to the `theme` cookie and `localStorage` directly. No API route is needed.
 
-```tsx
-// app/layout.tsx (server component)
+<Code title="app/layout.tsx" language="tsx" code={`// Server component
 import { cookies } from "next/headers";
 import {
   ClientThemeProvider,
@@ -105,8 +104,7 @@ export default async function RootLayout({ children }) {
       </body>
     </html>
   );
-}
-```
+}`} />
 
 `themeInitScript` hides the body behind a black (`#000`) background while it waits. If your dark theme uses a different page background, build the script with `createThemeInitScript` instead, so the brief pre-hydration frame matches it:
 
@@ -118,9 +116,7 @@ const themeInitScript = createThemeInitScript("#0a0a0f");
 
 For the best first visit in Chrome, opt into color-scheme client hints in your middleware so even the very first server render matches the OS preference:
 
-```ts
-// middleware.ts
-res.headers.set("Accept-CH", "Sec-CH-Prefers-Color-Scheme");
+<Code title="middleware.ts" language="ts" code={`res.headers.set("Accept-CH", "Sec-CH-Prefers-Color-Scheme");
 res.headers.set("Vary", "Sec-CH-Prefers-Color-Scheme");
 res.headers.set("Critical-CH", "Sec-CH-Prefers-Color-Scheme");
 
@@ -131,8 +127,7 @@ if (!req.cookies.get("theme")?.value && hint) {
     maxAge: 60 * 60 * 24 * 365,
     sameSite: "lax",
   });
-}
-```
+}`} />
 
 Server code that needs the active theme object (for example `generateViewport` for the initial `theme-color`) can use the `resolveTheme` helper:
 

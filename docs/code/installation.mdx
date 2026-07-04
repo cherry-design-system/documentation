@@ -19,7 +19,7 @@ There are two main ways to install Cherry Styled Components into your project. Y
 
 Install the Cherry library from npm. Import components directly into your project. Perfect for smaller projects or rapid development.
 
-<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components styled-components" }]} />
 
   </TabContent>
   <TabContent title="Repository">
@@ -40,12 +40,8 @@ Always wrap your application in the `CherryThemeProvider` component. Ensure that
 ```tsx
 import { CherryThemeProvider, theme } from "cherry-styled-components";
 
-export default function App({ Component, pageProps }) {
-  return (
-    <CherryThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </CherryThemeProvider>
-  );
+export default function App({ children }) {
+  return <CherryThemeProvider theme={theme}>{children}</CherryThemeProvider>;
 }
 ```
 
@@ -57,8 +53,7 @@ When integrating into a Next.js app, first install both dependencies:
 
 To render the CSS, open your `layout.tsx` and wrap your application:
 
-```tsx
-import {
+<Code title="app/layout.tsx" language="tsx" code={`import {
   StyledComponentsRegistry,
   CherryThemeProvider,
   theme,
@@ -78,8 +73,7 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
-```
+}`} />
 
 <Callout type="info">
   Next.js requires these additional steps because it uses server-side rendering.
