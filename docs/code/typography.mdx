@@ -1,0 +1,94 @@
+---
+title: "Typography"
+description: "Cherry typography helpers - CSS mixins for every text style in the type scale."
+date: "2026-07-04"
+category: "Utilities"
+categoryOrder: 4
+order: 1
+section: "Code"
+---
+# Typography
+
+Every text style in the Cherry type scale is available as a CSS mixin. Each helper takes the theme and returns the responsive `font-size` and `line-height` for its style: the mobile (`xs`) values apply as the base, and the desktop (`lg`) values kick in from the `lg` breakpoint (992px by default) via the `mq()` media query helper. Interpolate a helper into any styled component to give one element the type of another - the classic case is an `h2` that should look like an `h1`:
+
+```tsx
+import styled from "styled-components";
+import { styledH1 } from "cherry-styled-components";
+
+const SectionTitle = styled.h2`
+  ${({ theme }) => styledH1(theme)}
+`;
+```
+
+The values are read from `theme.fontSizes` and `theme.lineHeights`, so any overrides in a custom [Theme](/code/theme) flow through automatically. The full scale with design specs lives on the [Typography](/typography) page.
+
+## Helpers
+
+Sizes below are shown as font-size / line-height for the `xs` and `lg` values of the default theme.
+
+### Hero
+
+| Helper | Theme key | XS | LG |
+| --- | --- | --- | --- |
+| `styledHero1` | `hero1` | 72px / 1.10 | 128px / 1.10 |
+| `styledHero2` | `hero2` | 60px / 1.10 | 96px / 1.10 |
+| `styledHero3` | `hero3` | 36px / 1.20 | 72px / 1.10 |
+
+### Headings
+
+| Helper | Theme key | XS | LG |
+| --- | --- | --- | --- |
+| `styledH1` | `h1` | 40px / 1.50 | 60px / 1.40 |
+| `styledH2` | `h2` | 30px / 1.50 | 36px / 1.50 |
+| `styledH3` | `h3` | 28px / 1.30 | 30px / 1.50 |
+| `styledH4` | `h4` | 26px / 1.30 | 24px / 1.50 |
+| `styledH5` | `h5` | 18px / 1.60 | 20px / 1.50 |
+| `styledH6` | `h6` | 16px / 1.60 | 18px / 1.60 |
+
+### Text
+
+| Helper | Theme key | XS | LG |
+| --- | --- | --- | --- |
+| `styledText` | `text` | 14px / 1.70 | 16px / 1.70 |
+| `styledStrong` | `strong` | 14px / 1.70 | 16px / 1.70 |
+| `styledSmall` | `small` | 12px / 1.70 | 14px / 1.70 |
+| `styledBlockquote` | `blockquote` | 16px / 1.70 | 18px / 1.70 |
+| `styledCode` | `code` | 14px / 1.70 | 16px / 1.70 |
+
+### Controls
+
+| Helper | Theme key | XS | LG |
+| --- | --- | --- | --- |
+| `styledButton` | `button` | 16px / 1.00 | 16px / 1.00 |
+| `styledButtonBig` | `buttonBig` | 18px / 1.00 | 18px / 1.00 |
+| `styledInput` | `input` | 16px / 1.00 | 16px / 1.00 |
+| `styledInputBig` | `inputBig` | 18px / 1.00 | 18px / 1.00 |
+
+<Callout type="note">
+  The helpers set only `font-size` and `line-height`. Font-weight and
+  font-family are not included, so heading weights come from the browser's bold
+  defaults for `h1` to `h6` unless you set `font-weight` yourself.
+</Callout>
+
+## createTypographyStyle
+
+All of the helpers above are built with the `createTypographyStyle` factory. It takes a key of the theme's `FontSizes` interface and returns a `(theme: Theme) => css` function that outputs the responsive declarations for that key. The theme scale also includes `buttonSmall` and `inputSmall` keys that have no prebuilt helper - use the factory to cover those:
+
+```tsx
+import styled from "styled-components";
+import { createTypographyStyle } from "cherry-styled-components";
+
+const styledButtonSmall = createTypographyStyle("buttonSmall");
+
+const TinyLabel = styled.span`
+  ${({ theme }) => styledButtonSmall(theme)}
+`;
+```
+
+<Button
+  href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/typography.tsx"
+  icon="code"
+  iconPosition="left"
+>
+  View Source
+</Button>

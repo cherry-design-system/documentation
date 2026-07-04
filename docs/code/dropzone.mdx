@@ -4,7 +4,7 @@ description: "Cherry Dropzone component - a file input drop target with drag & d
 date: "2026-07-02"
 category: "Components"
 categoryOrder: 2
-order: 11
+order: 8
 section: "Code"
 ---
 # Dropzone
@@ -18,6 +18,8 @@ section: "Code"
 The Dropzone component is a file input rendered as a dashed drop target. It supports click-to-browse and drag & drop, validates files against `accept`, `$maxFiles`, and `$maxBytes`, and shows preview thumbnails with remove buttons for the selected files.
 
 The upload itself stays in your hands: the component only manages the file list and hands you `File` objects.
+
+For design guidelines and all interactive states, see the [Inputs](/inputs) design page.
 
 ```jsx
 import React from "react";
@@ -97,6 +99,29 @@ The inline variant is a compact horizontal row with a transparent background for
   one.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/dropzone.tsx" icon="github" iconPosition="left">
+<Field value="disabled" type="boolean">
+  Disables the whole control: click-to-browse, drag & drop, and the thumbnail
+  remove buttons stop working, and the drop target gets disabled styling. The
+  drop target also disables itself once the file limit is reached.
+</Field>
+
+All other native input attributes (`name`, `id`, `form`, `required`, and so
+on) are passed through to the hidden `<input type="file" />`, and a `ref` is
+forwarded to that same input.
+
+## matchesAccept
+
+The `matchesAccept(file, accept?)` helper the component uses to validate
+dropped files is also exported. It checks a `File` against a comma-separated
+`accept` string, supporting `.ext` suffixes, `type/*` wildcards, and exact MIME
+types, and returns `true` when no `accept` string is given:
+
+```jsx
+import { matchesAccept } from "cherry-styled-components";
+
+matchesAccept(file, ".pdf,image/*"); // true for report.pdf or photo.png
+```
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/dropzone.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

@@ -8,7 +8,7 @@ order: 1
 ---
 # Typography
 
-Cherry offers two distinct sets of typography definitions: one for desktop and another for mobile. These comprehensive definitions ensure that type displays correctly on screens of all sizes.
+Cherry offers two distinct sets of typography definitions: one for desktop and another for mobile. These comprehensive definitions ensure that type displays correctly on screens of all sizes. The **Desktop (LG)** values apply from the `lg` breakpoint (992px) and up, while the **Mobile (XS)** values are the base scale used on narrower screens.
 
 <Tabs>
   <TabContent title="Desktop (LG)">
@@ -64,6 +64,33 @@ Cherry offers two distinct sets of typography definitions: one for desktop and a
 
   </TabContent>
 </Tabs>
+
+<Callout type="note">
+  The Weight column is part of the design spec. In code, the typography mixins
+  only set `font-size` and `line-height`, so heading weights come from the
+  browser's bold defaults for `h1` to `h6` unless you set `font-weight`
+  yourself. The Button (600) and Input (400) components set their own weights.
+</Callout>
+
+## Usage
+
+Nearly every style above is available as a ready-made CSS mixin exported from `cherry-styled-components`: `styledHero1`, `styledHero2`, `styledHero3`, `styledH1` through `styledH6`, `styledText`, `styledStrong`, `styledSmall`, `styledBlockquote`, `styledCode`, `styledButton`, `styledButtonBig`, `styledInput`, and `styledInputBig`. Each mixin takes the theme and returns the responsive `font-size` and `line-height`, switching from the mobile to the desktop values at the `lg` breakpoint:
+
+```tsx
+import styled from "styled-components";
+import { styledH1 } from "cherry-styled-components";
+
+const Title = styled.h2`
+  ${({ theme }) => styledH1(theme)}
+`;
+```
+
+For scales without a dedicated mixin (like Button Small and Input Small) or for custom theme keys, use the `createTypographyStyle` factory, e.g. `createTypographyStyle("buttonSmall")`.
+
+<Callout type="info">
+  To apply these styles in code, use the exported [typography
+  helpers](/code/typography), and see [Theme](/code/theme) for font tokens.
+</Callout>
 
 <Callout type="note">
   Styles can be found in the Figma Template in the Typography section of the

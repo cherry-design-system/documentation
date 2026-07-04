@@ -4,7 +4,7 @@ description: "Cherry Modal component - an animated dialog rendered in a portal w
 date: "2026-07-03"
 category: "Components"
 categoryOrder: 2
-order: 9
+order: 10
 section: "Code"
 ---
 # Modal
@@ -15,6 +15,8 @@ section: "Code"
 The Modal component renders an animated dialog on top of the page. It portals into `document.body` so the overlay always sits above transformed or clipped ancestors, and it closes on Escape, on a click outside, or with the built-in close button.
 
 The Modal is a controlled component: the parent owns the open state. The dialog surface carries `role="dialog"` and `aria-modal="true"`, and takes its accessible name from `$title`.
+
+For design guidelines and all interactive states, see the [Overlays](/overlays) design page.
 
 ```jsx
 "use client";
@@ -118,6 +120,6 @@ To restyle the modal from your app, pass a `className` (or `style`). Both are ap
   state across openings, lift it into the parent.
 </Callout>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/modal.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/modal.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

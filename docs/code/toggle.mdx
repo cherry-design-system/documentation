@@ -4,7 +4,7 @@ description: "Cherry Toggle component - a stylish checkbox/radio alternative wit
 date: "2026-02-19"
 category: "Components"
 categoryOrder: 2
-order: 5
+order: 6
 section: "Code"
 ---
 # Toggle
@@ -16,6 +16,8 @@ The Toggle component is a stylish input checkbox or radio element.
 
 Keep in mind that the `<input>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
 
+For design guidelines and all interactive states, see the [Inputs](/inputs) design page.
+
 ```jsx
 import React from "react";
 import { Toggle } from "cherry-styled-components";
@@ -25,10 +27,10 @@ export default function Page() {
 }
 ```
 
-With a label:
+With a label. Pass an `id` so the label is associated with the input; without it, clicking the label won't toggle the switch:
 
 ```jsx
-<Toggle $label="Label" $fullWidth />
+<Toggle id="newsletter" $label="Label" $fullWidth />
 ```
 
 With success and error states:
@@ -38,6 +40,14 @@ With success and error states:
 <Toggle $error />
 ```
 
+Disabled toggles get built-in styling with a `not-allowed` cursor and gray colors:
+
+```jsx
+<Toggle disabled />
+```
+
+The underlying input always renders with `role="switch"`, so assistive technologies announce it as a switch.
+
 ## Properties
 
 <Field value="type" type='"checkbox" | "radio"'>
@@ -45,7 +55,7 @@ With success and error states:
 </Field>
 
 <Field value="$label" type="string">
-  Label text displayed alongside the toggle.
+  Label text displayed alongside the toggle. Requires an `id` on the toggle so the label's `htmlFor` points to the input; otherwise label clicks won't toggle it.
 </Field>
 
 <Field value="$size" type='"default" | "big" | "small"'>
@@ -68,6 +78,6 @@ With success and error states:
   Class name applied to the wrapper element around the toggle, for restyling from the outside.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toggle.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toggle.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

@@ -7,7 +7,6 @@ categoryOrder: 0
 order: 1
 section: "Code"
 ---
-
 # Installation
 
 There are two main ways to install Cherry Styled Components into your project. You can either clone the main repository and customize the components to your liking, or install the library from npm.
@@ -17,9 +16,9 @@ There are two main ways to install Cherry Styled Components into your project. Y
 <Tabs>
   <TabContent title="NPM">
 
-Install the Cherry library from npm. Import components directly into your project. Perfect for smaller projects or rapid development.
+Install the Cherry library from npm along with its peer dependencies. Import components directly into your project. Perfect for smaller projects or rapid development. The library requires `react` and `react-dom` (^18 or ^19) and `styled-components` (^6) as peer dependencies.
 
-<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components styled-components" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components react react-dom styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components react react-dom styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components react react-dom styled-components" }]} />
 
   </TabContent>
   <TabContent title="Repository">
@@ -47,11 +46,23 @@ export default function App({ children }) {
 
 ## Next.js Integration
 
-When integrating into a Next.js app, first install both dependencies:
+When integrating into a Next.js app, first install the dependencies:
 
-<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components styled-components" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components react react-dom styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components react react-dom styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components react react-dom styled-components" }]} />
 
-To render the CSS, open your `layout.tsx` and wrap your application:
+Next, enable the styled-components compiler in your `next.config.ts`. This keeps class names deterministic between server and client renders and avoids hydration mismatches:
+
+<Code title="next.config.ts" language="ts" code={`import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  compiler: {
+    styledComponents: true,
+  },
+};
+
+export default nextConfig;`} />
+
+To render the CSS, open your `layout.tsx` and wrap your application. The `StyledComponentsRegistry` component injects the server-rendered styles into the HTML via `useServerInsertedHTML`, so styled-components work with server-side rendering and the App Router:
 
 <Code title="app/layout.tsx" language="tsx" code={`import {
   StyledComponentsRegistry,

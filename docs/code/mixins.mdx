@@ -2,12 +2,11 @@
 title: "Mixins"
 description: "Cherry's reusable CSS mixins: interaction affordances, resets, and form element helpers."
 date: "2026-07-03"
-category: "Configuration"
-categoryOrder: 1
-order: 3
+category: "Utilities"
+categoryOrder: 4
+order: 0
 section: "Code"
 ---
-
 # Mixins
 
 Cherry exports the CSS mixins its own components are built from, so custom elements in your app can share the exact same look and behavior. All of them are plain `styled-components` css fragments or helper functions - interpolate them into any styled component.
@@ -46,12 +45,12 @@ const RemoveTile = styled.button`
 
 ## Resets
 
-- `resetButton` - Strips native button styling (appearance, border, background, padding) and sets `cursor: pointer`. The base of Button, IconButton, and ThemeToggle.
+- `resetButton` - Strips native button styling (appearance, border, background, padding, margin) and sets `box-sizing: border-box`, `cursor: pointer`, and `outline: none`. Since the focus outline is removed, pair it with `interactiveStyles` or provide your own focus style. The base of Button, IconButton, and ThemeToggle.
 - `resetInput` - Minimal input reset used by the form components.
 
 ## Form helpers
 
-- `fullWidthStyles($fullWidth)` - Returns `width: 100%` when the flag is set. Backs the `$fullWidth` prop across components.
+- `fullWidthStyles(fullWidth)` - Returns `width: 100%` when the flag is set. Backs the `$fullWidth` prop across components. Unlike the other two helpers, its parameter has no `$` sigil.
 - `statusBorderStyles($error, $success, theme)` - Border color for error and success validation states.
 - `formElementHeightStyles($size)` - Shared height for form elements in the three sizes (`small`, `default`, `big`).
 
@@ -63,9 +62,29 @@ Used internally by the layout components, and available for custom components th
 - `generatePaddingStyles`, `generateJustifyContentStyles`
 - `generateAlignItemsStyles`, `generateAlignContentStyles`, `generateDirectionStyles`
 
+Each takes `(size: keyof Breakpoints<number>, value)` and returns the declaration wrapped in the `mq(size)` min-width media query for that breakpoint (`xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`):
+
+```tsx
+import styled from "styled-components";
+import {
+  generateGapStyles,
+  generateDirectionStyles,
+} from "cherry-styled-components";
+
+const Toolbar = styled.div`
+  display: flex;
+  ${generateGapStyles("xs", 10)}
+  ${generateGapStyles("lg", 20)}
+  ${generateDirectionStyles("xs", "column")}
+  ${generateDirectionStyles("lg", "row")}
+`;
+```
+
+The component style mixins `buttonStyles` and `iconButtonStyles` are documented on the [Button](/code/button) and [IconButton](/code/icon-button) pages.
+
 <Button
   href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/mixins.tsx"
-  icon="github"
+  icon="code"
   iconPosition="left"
 >
   View Source

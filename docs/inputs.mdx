@@ -37,6 +37,8 @@ When customizing your designs, consider all the different states:
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
 
+Implementation: [Input](/code/input)
+
 ## Password
 
 Password fields extend the text input with a reveal toggle pinned inside the field. The revealed state swaps the masked dots for plain text and flips the eye icon.
@@ -44,11 +46,43 @@ Password fields extend the text input with a reveal toggle pinned inside the fie
 <iframe className="light-only" src="https://demo.cherry.al/preview/password?theme=light" title="Password field" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/password?theme=dark" title="Password field" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-| Size    | Default | Revealed | Error | Disabled |
-| ------- | ------- | -------- | ----- | -------- |
-| Small   | Yes     | Yes      | Yes   | Yes      |
-| Default | Yes     | Yes      | Yes   | Yes      |
-| Big     | Yes     | Yes      | Yes   | Yes      |
+| Size    | Default | Revealed | Success | Error | Disabled |
+| ------- | ------- | -------- | ------- | ----- | -------- |
+| Small   | Yes     | Yes      | Yes     | Yes   | Yes      |
+| Default | Yes     | Yes      | Yes     | Yes   | Yes      |
+| Big     | Yes     | Yes      | Yes     | Yes   | Yes      |
+
+Implementation: [Password](/code/password)
+
+## Textarea
+
+Textareas are multi-line text fields for longer content. They share the text input's border, focus ring, and status states.
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/textarea?theme=light" title="Textarea" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/textarea?theme=dark" title="Textarea" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+| Size    | Default | Success | Error | Disabled |
+| ------- | ------- | ------- | ----- | -------- |
+| Small   | Yes     | Yes     | Yes   | Yes      |
+| Default | Yes     | Yes     | Yes   | Yes      |
+| Big     | Yes     | Yes     | Yes   | Yes      |
+
+Implementation: [Textarea](/code/textarea)
+
+## Select
+
+Selects are dropdown pickers styled to match the text input, with an arrow indicator that flips while the select is focused or open.
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/select?theme=light" title="Select" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/select?theme=dark" title="Select" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+| Size    | Default | Success | Error | Disabled |
+| ------- | ------- | ------- | ----- | -------- |
+| Small   | Yes     | Yes     | Yes   | Yes      |
+| Default | Yes     | Yes     | Yes   | Yes      |
+| Big     | Yes     | Yes     | Yes   | Yes      |
+
+Implementation: [Select](/code/select)
 
 ## Checkbox
 
@@ -61,6 +95,8 @@ Password fields extend the text input with a reveal toggle pinned inside the fie
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
 
+Implementation: [Input](/code/input)
+
 ## Radio
 
 <iframe className="light-only" src="https://demo.cherry.al/preview/radio?theme=light" title="Radio button" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
@@ -71,6 +107,8 @@ Password fields extend the text input with a reveal toggle pinned inside the fie
 | Small   | Yes     | Yes     | Yes   | Yes      |
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
+
+Implementation: [Input](/code/input)
 
 ## Toggle
 
@@ -83,6 +121,8 @@ Password fields extend the text input with a reveal toggle pinned inside the fie
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
 
+Implementation: [Toggle](/code/toggle)
+
 ## Range
 
 <iframe className="light-only" src="https://demo.cherry.al/preview/range?theme=light" title="Range slider" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
@@ -93,6 +133,8 @@ Password fields extend the text input with a reveal toggle pinned inside the fie
 | Small   | Yes     | Yes     | Yes   | Yes      |
 | Default | Yes     | Yes     | Yes   | Yes      |
 | Big     | Yes     | Yes     | Yes   | Yes      |
+
+Implementation: [Range](/code/range)
 
 ## Dropzone
 
@@ -109,6 +151,8 @@ Dropzones are file inputs rendered as dashed drop targets, with a compact inline
 | Block   | Yes     | Yes       | Yes      |
 | Inline  | Yes     | Yes       | Yes      |
 
+Implementation: [Dropzone](/code/dropzone)
+
 ## Avatar Dropzone
 
 Avatar dropzones are circular, single-file dropzones for profile pictures. The circle is dashed while empty and shows the selected picture with a corner remove button once filled.
@@ -116,11 +160,13 @@ Avatar dropzones are circular, single-file dropzones for profile pictures. The c
 <iframe className="light-only" src="https://demo.cherry.al/preview/avatar-dropzone?theme=light" title="Avatar dropzone" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/avatar-dropzone?theme=dark" title="Avatar dropzone" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-| Size            | Empty | Filled |
-| --------------- | ----- | ------ |
-| Small (64px)    | Yes   | Yes    |
-| Default (96px)  | Yes   | Yes    |
-| Big (128px)     | Yes   | Yes    |
+| Size            | Empty | Filled | Drag Over | Disabled |
+| --------------- | ----- | ------ | --------- | -------- |
+| Small (64px)    | Yes   | Yes    | Yes       | Yes      |
+| Default (96px)  | Yes   | Yes    | Yes       | Yes      |
+| Big (128px)     | Yes   | Yes    | Yes       | Yes      |
+
+Implementation: [AvatarDropzone](/code/avatar-dropzone)
 
 <Callout type="note">
   Inputs can be found in the Figma Template in the Components page, alongside

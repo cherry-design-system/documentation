@@ -1,10 +1,10 @@
 ---
 title: "Grid"
-description: "Cherry Grid component for creating responsive CSS grid layouts."
+description: "Cherry Grid component - responsive CSS grid layouts."
 date: "2026-02-19"
 category: "Layout"
 categoryOrder: 3
-order: 3
+order: 4
 section: "Code"
 ---
 # Grid
@@ -15,16 +15,29 @@ section: "Code"
 The Cherry Grid system simplifies creating responsive layouts using the modern CSS grid property. It allows you to define the grid structure, including the number of columns and the gaps.
 
 ```jsx
-<Container>
-  <Grid $xsCols={1} $lgCols={3}>
-    <Col $lgSpan={3}>
-      <Input type="text" $fullWidth />
-    </Col>
-    <Button $variant="primary">Save</Button>
-    <Button $variant="secondary">Cancel</Button>
-    <Button $outline>Remind Later</Button>
-  </Grid>
-</Container>
+import React from "react";
+import {
+  Container,
+  Grid,
+  Col,
+  Input,
+  Button,
+} from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Container>
+      <Grid $xsCols={1} $lgCols={3}>
+        <Col $lgSpan={3}>
+          <Input type="text" $fullWidth />
+        </Col>
+        <Button $variant="primary">Save</Button>
+        <Button $variant="secondary">Cancel</Button>
+        <Button $outline>Remind Later</Button>
+      </Grid>
+    </Container>
+  );
+}
 ```
 
 ## Properties
@@ -34,7 +47,7 @@ The Cherry Grid system simplifies creating responsive layouts using the modern C
 </Field>
 
 <Field value="$gap" type='number | "none"'>
-  Gap between grid items. Also available as responsive variants: `$xsGap`, `$smGap`, `$mdGap`, `$lgGap`, `$xlGap`, `$xxlGap`, `$xxxlGap`.
+  Gap between grid items in pixels. Defaults to the theme's `gridGap` (`20px` below the `lg` breakpoint, `40px` from `lg` up). Also available as responsive variants: `$xsGap`, `$smGap`, `$mdGap`, `$lgGap`, `$xlGap`, `$xxlGap`, `$xxxlGap`. Note that `"none"` only maps to `0` on the responsive variants; on the base `$gap` prop it falls back to the theme default, so use `$gap={0}` to remove the gap at all sizes.
 </Field>
 
 <Field value="$cols" type="number">
@@ -45,6 +58,6 @@ The Cherry Grid system simplifies creating responsive layouts using the modern C
   See the [Col](/code/col) component for controlling how children span across grid columns.
 </Callout>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/grid.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/grid.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

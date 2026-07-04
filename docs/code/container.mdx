@@ -1,6 +1,6 @@
 ---
 title: "Container"
-description: "Cherry Container component with fluid width, text alignment, and responsive padding."
+description: "Cherry Container component - fluid width, text alignment, and responsive padding."
 date: "2026-02-19"
 category: "Layout"
 categoryOrder: 3
@@ -9,7 +9,7 @@ section: "Code"
 ---
 # Container
 
-The Container component provides features such as fluid width, text alignment, and padding adjustments based on screen size. Use it to create responsive layouts as a wrapper for other components and content.
+The Container component provides features such as fluid width, text alignment, and padding adjustments based on screen size. Use it to create responsive layouts as a wrapper for other components and content. By default the container is centered with a max-width of 1280px (1440px from the `xxxl` breakpoint) and 20px padding (40px from the `lg` breakpoint).
 
 ```jsx
 import React from "react";
@@ -30,6 +30,10 @@ export default function Page() {
   Container content.
 </Field>
 
+<Field value="className" type="string">
+  Class name applied to the container element.
+</Field>
+
 <Field value="$fluid" type="boolean">
   Makes the container full-width without max-width constraints.
 </Field>
@@ -39,7 +43,7 @@ export default function Page() {
 </Field>
 
 <Field value="$padding" type='number | "none"'>
-  Base padding value.
+  Base padding value in pixels. Replaces both the 20px default and the 40px `lg`-breakpoint default. Pass a number here: `"none"` is only handled by the breakpoint-specific props and produces invalid CSS on `$padding`, so use `$xsPadding="none"` to remove padding instead.
 </Field>
 
 <Field value="$xsPadding" type='number | "none"'>
@@ -70,6 +74,8 @@ export default function Page() {
   Padding at `xxxl` breakpoint.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/container.tsx" icon="github" iconPosition="left">
+The Container also accepts all standard HTML `div` attributes and forwards its `ref` to the underlying `div` element.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/container.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

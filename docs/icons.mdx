@@ -8,9 +8,9 @@ order: 3
 ---
 # Icons
 
-Cherry uses [Lucide](https://lucide.dev), an open-source icon set with over 1,500 icons drawn on a consistent 24x24 grid with a 2px rounded stroke. Sticking to a single set keeps iconography coherent across your interface, and the outline style pairs naturally with Cherry's borders and typography.
+Cherry uses [Lucide](https://lucide.dev), an open-source icon set with over 1,500 icons drawn on a consistent 24x24 grid with a 2px rounded stroke, plus a small set of custom utility icons for form controls. Leaning on one primary set keeps iconography coherent across your interface, and the outline style pairs naturally with Cherry's borders and typography.
 
-Icons inherit the current text color, so they adapt to light and dark mode automatically along with the component they sit in.
+Lucide icons inherit the current text color, so they adapt to light and dark mode automatically along with the component they sit in. The custom utility icons are the exception; see below.
 
 ## Where icons appear
 
@@ -18,15 +18,25 @@ Several Cherry components ship with built-in Lucide icons:
 
 - **Accordion** - the rotating chevron (`ChevronDown`)
 - **Modal** - the close button (`X`)
-- **Toast** - the dismiss button (`X`)
+- **Toast** - a per-status icon (`CircleCheck`, `CircleX`, `TriangleAlert`, `Info`) plus the dismiss button (`X`)
 - **Password** - the visibility toggle (`Eye`, `EyeOff`)
 - **ThemeToggle** - the sun and moon (`Sun`, `MoonStar`)
-- **Dropzone / AvatarDropzone** - the upload glyphs, customizable via the `$icon` prop
+- **Dropzone / AvatarDropzone** - the drop-area glyph, customizable via the `$icon` prop (Dropzone defaults to `FileUp`, AvatarDropzone to `User`); Dropzone's file thumbnails also use `File` and `X`
 - **IconButton** - accepts any icon as its content
+
+## Utility icons
+
+Alongside Lucide, Cherry exports three custom SVG icons from `cherry-styled-components`: `IconCheck`, `IconArrow`, and `IconCalendar`. They render inside form controls - the checkbox check mark (`IconCheck`), the Select dropdown arrow (`IconArrow`), and the calendar glyph on date and time inputs (`IconCalendar`). Unlike Lucide icons they do not inherit the text color: they are stroked with `theme.colors.primary`, so they still follow the active palette in light and dark mode, just not via `currentColor`.
 
 ## Choosing icons
 
 Browse the full set at [lucide.dev/icons](https://lucide.dev/icons). Icons are referenced by their PascalCase name (for example `Settings`, `Trash2`, `ImageUp`). In code, render them with the [Icon](/code/icon) component; designers can use the official [Lucide Figma plugin](https://www.figma.com/community/plugin/939567362549682242/lucide-icons) to place the same icons in mockups.
+
+```jsx
+import { Icon } from "cherry-styled-components";
+
+<Icon name="Heart" />;
+```
 
 <Callout type="note">
   Keep icon usage purposeful: prefer familiar glyphs for common actions
@@ -36,7 +46,7 @@ Browse the full set at [lucide.dev/icons](https://lucide.dev/icons). Icons are r
 
 <Button
   href="https://lucide.dev/icons"
-  icon="pen-tool"
+  icon="external-link"
   iconPosition="left"
 >
   Browse Lucide Icons

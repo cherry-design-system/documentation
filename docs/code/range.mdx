@@ -1,10 +1,10 @@
 ---
 title: "Range"
-description: "Cherry Range slider component with validation states and label support."
+description: "Cherry Range component - validation states and label support."
 date: "2026-02-19"
 category: "Components"
 categoryOrder: 2
-order: 4
+order: 7
 section: "Code"
 ---
 # Range
@@ -12,9 +12,11 @@ section: "Code"
 <iframe className="light-only" src="https://demo.cherry.al/preview/range?theme=light" title="Range" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/range?theme=dark" title="Range" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-Range inputs share the same properties as the Input component, but allow users to select a value from a range. Range can have error or success states to provide feedback to the user.
+Range inputs allow users to select a value from a range. Range accepts the `$label`, `$size`, `$error`, `$success`, `$fullWidth`, and `$wrapperClassName` properties also found on the Input component, but not `$icon` or `$iconPosition`, and the native `size` attribute is omitted. Range can have error or success states to provide feedback to the user.
 
-Keep in mind that the `<input>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+Keep in mind that the `<input>` element inherently includes native browser properties like `min`, `max`, `step`, and `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props. Range also forwards its `ref` to the underlying `<input type="range">` element.
+
+For design guidelines and all interactive states, see the [Inputs](/inputs) design page.
 
 ```jsx
 import React from "react";
@@ -28,7 +30,30 @@ export default function Page() {
 With a label:
 
 ```jsx
-<Range $label="Label" $fullWidth />
+<Range id="volume" $label="Label" $fullWidth />
+```
+
+The label is only associated with the input when an `id` is passed, so include one whenever you use `$label`.
+
+With native `min`, `max`, and `step` attributes and a controlled value:
+
+```jsx
+const [value, setValue] = React.useState(50);
+
+<Range
+  min={0}
+  max={100}
+  step={5}
+  value={value}
+  onChange={(e) => setValue(Number(e.target.value))}
+/>;
+```
+
+With different sizes:
+
+```jsx
+<Range $size="small" />
+<Range $size="big" />
 ```
 
 With success and error states:
@@ -38,10 +63,17 @@ With success and error states:
 <Range $error />
 ```
 
+Disabled ranges get dedicated styling with a gray track and thumb and a `not-allowed` cursor:
+
+```jsx
+<Range disabled />
+```
+
 ## Properties
 
 <Field value="$label" type="string">
-  Label text displayed above the range.
+  Label text displayed above the range. Pass an `id` on the Range so the label
+  is associated with the input.
 </Field>
 
 <Field value="$size" type='"default" | "big" | "small"'>
@@ -49,7 +81,7 @@ With success and error states:
 </Field>
 
 <Field value="$error" type="boolean">
-  Shows error state styling.
+  Shows error state styling and sets `aria-invalid` on the input.
 </Field>
 
 <Field value="$success" type="boolean">
@@ -64,6 +96,6 @@ With success and error states:
   Class name applied to the wrapper element around the range slider, for restyling from the outside.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/range.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/range.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

@@ -14,20 +14,26 @@ The Cherry theme is a TypeScript object that defines various aspects of your pro
 Wrap your entire application with `CherryThemeProvider` to ensure all components have access to the theme:
 
 ```tsx
-import { CherryThemeProvider, theme } from "cherry-styled-components";
+import {
+  CherryThemeProvider,
+  theme,
+  themeDark,
+} from "cherry-styled-components";
 
 export default function App({ Component, pageProps }) {
   return (
-    <CherryThemeProvider theme={theme}>
+    <CherryThemeProvider theme={theme} themeDark={themeDark}>
       <Component {...pageProps} />
     </CherryThemeProvider>
   );
 }
 ```
 
+Cherry exports two ready-made theme objects to start from: `theme` (light) and `themeDark` (dark). `CherryThemeProvider` accepts an optional `themeDark` prop - dark mode switching only happens when you pass it. The provider also exports a `ThemeContext` that gives you `setTheme` and `toggleTheme` for switching themes programmatically. See the [Dark Mode](/code/dark-mode) documentation for details.
+
 ## Theme Object
 
-The theme object is type safe and uses TypeScript. It is divided into the following sections:
+The theme object is type safe and uses TypeScript. The `Theme` interface has eight keys: the seven sections below plus an `isDark` boolean that marks a theme as a dark variant:
 
 <Accordion title="1. Breakpoints">
 
@@ -45,6 +51,21 @@ export const breakpoints: Breakpoints = {
 export function mq(minWidth: keyof Breakpoints) {
   return `@media screen and (min-width: ${breakpoints[minWidth]}px)`;
 }
+```
+
+The `mq()` helper turns a breakpoint key into a min-width media query. Use it inside your styled components to apply styles from that breakpoint upwards:
+
+```tsx
+import styled from "styled-components";
+import { mq } from "cherry-styled-components";
+
+const Wrapper = styled.div`
+  padding: 20px;
+
+  ${mq("lg")} {
+    padding: 40px;
+  }
+`;
 ```
 
 </Accordion>
@@ -210,9 +231,35 @@ export const lineHeights: LineHeights = {
 
 </Accordion>
 
+These sections, together with the `isDark` flag, make up the exported `theme` and `themeDark` objects:
+
+```tsx
+export const theme: Theme = {
+  breakpoints,
+  spacing,
+  colors,
+  shadows,
+  fonts,
+  fontSizes,
+  lineHeights,
+  isDark: false,
+};
+
+export const themeDark: Theme = {
+  breakpoints,
+  spacing,
+  colors: colorsDark,
+  shadows: shadowsDark,
+  fonts,
+  fontSizes,
+  lineHeights,
+  isDark: true,
+};
+```
+
 ## Using Shadows
 
-Every theme ships five shadow levels (`xs`, `sm`, `md`, `lg`, `xl`) under `theme.shadows`. Reference them in your styled components to add elevation that automatically adapts to light and dark mode:
+Every theme ships five shadow levels (`xs`, `sm`, `md`, `lg`, `xl`) under `theme.shadows`. Reference them in your styled components to add elevation. When you pass `themeDark` to `CherryThemeProvider`, the dark theme swaps in `shadowsDark`, so elevation adapts to light and dark mode automatically:
 
 ```tsx
 import styled from "styled-components";
@@ -233,8 +280,8 @@ See the [Shadows](/shadows) foundation page for the full list of values.
 
 When extending the Cherry theme, adhere to established patterns. Cherry uses the following size patterns: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, and `xxxl`. These patterns define not only media queries but also various other sizes.
 
-If you extend the theme, ensure that you add the necessary type definitions to maintain consistency.
+If you extend the theme, ensure that you add the necessary type definitions to maintain consistency. All theme section interfaces (`Theme`, `Breakpoints`, `Spacing`, `Colors`, `Shadows`, `Fonts`, `FontSizes`, `LineHeights`) are exported, so you can extend them in TypeScript.
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/theme.ts" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/theme.ts" icon="code" iconPosition="left">
   View Source
 </Button>

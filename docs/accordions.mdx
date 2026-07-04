@@ -4,13 +4,27 @@ description: "Cherry accordion design specifications with card and inline varian
 date: "2026-07-02"
 category: "Components"
 categoryOrder: 2
-order: 3
+order: 2
 ---
 # Accordions
 
 Accordions show and hide content behind a clickable title, keeping dense pages scannable. The chevron rotates to mirror the open state, and the open and close motion is animated.
 
-## Variants
+## States
+
+When customizing your designs, consider all the different states that accordions can have:
+
+1. **Normal** - The default appearance of the accordion.
+2. **Hover** `:hover` - When the user hovers the cursor over the title.
+3. **Focus** - When the accordion title gains focus.
+4. **Open / Closed** - The content expands or collapses, and the chevron rotates to match.
+
+<Callout type="warning">
+  Ensure that your designs account for all these states to provide a consistent
+  and user-friendly experience.
+</Callout>
+
+## Variations
 
 <iframe className="light-only" src="https://demo.cherry.al/preview/accordion?theme=light" title="Card accordion" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/accordion?theme=dark" title="Card accordion" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
@@ -18,13 +32,28 @@ Accordions show and hide content behind a clickable title, keeping dense pages s
 <iframe className="light-only" src="https://demo.cherry.al/preview/accordion-inline?theme=light" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/accordion-inline?theme=dark" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-| Variant | Open | Closed |
-| ------- | ---- | ------ |
-| Card    | Yes  | Yes    |
-| Inline  | Yes  | Yes    |
+| Variation | Open | Closed |
+| --------- | ---- | ------ |
+| Card      | Yes  | Yes    |
+| Inline    | Yes  | Yes    |
 
 - **Card** - A bordered, rounded surface with generous padding. Use it when the accordion stands on its own.
-- **Inline** - No border, radius, or side padding. Use it inside cards, lists, or other surfaces that already provide their own container.
+- **Inline** - No border, radius, or side padding. Use it inside cards, lists, or other surfaces that already provide their own container. Enabled in code with the `$inline` prop.
+
+In code, both variations use the same `Accordion` component:
+
+```jsx
+import { Accordion } from "cherry-styled-components";
+
+<Accordion title="Title">Content</Accordion>;
+```
+
+The accordion manages its own open state and starts closed; use `defaultOpen` to start it open, or pass `open` together with `onToggle` to control it from the parent.
+
+<Callout type="info">
+  Ready to build? See the [Accordion](/code/accordion) component docs for props
+  and usage examples.
+</Callout>
 
 <Callout type="note">
   Accordions can be found in the Figma Template in the Components page.

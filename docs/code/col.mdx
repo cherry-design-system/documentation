@@ -1,32 +1,41 @@
 ---
 title: "Col"
-description: "Cherry Col component for responsive column spans within Grid layouts."
+description: "Cherry Col component - responsive column spans within Grid layouts."
 date: "2026-02-19"
 category: "Layout"
 categoryOrder: 3
-order: 4
+order: 5
 section: "Code"
 ---
 # Col
 
-The Col component complements the Grid component by allowing you to create responsive column layouts. Specify the number of columns a child element should occupy:
+The Col component complements the Grid component by allowing you to create responsive column layouts. Specify the number of columns a child element should occupy.
+
+The example below assumes the Cherry theme provider from [Installation](/code/installation) is already set up.
 
 ```jsx
-<Container>
-  <Grid $xsCols={1} $lgCols={3}>
-    <Col $lgSpan={3}>
-      <Input type="text" $fullWidth />
-    </Col>
-    <Button $variant="primary">Save</Button>
-    <Button $variant="secondary">Cancel</Button>
-    <Button $outline>Remind Later</Button>
-  </Grid>
-</Container>
+import React from "react";
+import { Container, Grid, Col, Input, Button } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Container>
+      <Grid $xsCols={1} $lgCols={3}>
+        <Col $lgSpan={3}>
+          <Input type="text" $fullWidth />
+        </Col>
+        <Button $variant="primary">Save</Button>
+        <Button $variant="secondary">Cancel</Button>
+        <Button $outline>Remind Later</Button>
+      </Grid>
+    </Container>
+  );
+}
 ```
 
 In this example:
-- The first column spans 1 column on `xs` screens and 3 columns on `lg` screens.
-- The second and third columns span 1 column at all breakpoints.
+- The Col wrapping the Input spans 1 column on `xs` screens and all 3 columns on `lg` screens.
+- The three Buttons each span 1 column at all breakpoints.
 
 ## Properties
 
@@ -42,6 +51,6 @@ In this example:
   See the [Grid](/code/grid) component for defining the grid structure.
 </Callout>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/col.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/col.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

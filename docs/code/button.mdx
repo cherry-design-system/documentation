@@ -1,6 +1,6 @@
 ---
 title: "Button"
-description: "Cherry Button component with primary, secondary, and tertiary variants, sizes, and outline mode."
+description: "Cherry Button component - primary, secondary, and tertiary variants, sizes, and outline mode."
 date: "2026-02-19"
 category: "Components"
 categoryOrder: 2
@@ -15,6 +15,10 @@ section: "Code"
 Buttons are essential components in web development, frequently used for user interactions.
 
 Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+For design guidelines and all interactive states, see the [Buttons](/buttons) design page.
+
+The examples below assume the Cherry theme provider from [Installation](/code/installation) is already set up.
 
 ```jsx
 import React from "react";
@@ -71,6 +75,25 @@ You can try more variations and props like `$outline`:
   Position of the icon relative to the label. Defaults to `"left"`.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/button.tsx" icon="github" iconPosition="left">
+<Field value="disabled" type="boolean">
+  Native attribute. While disabled the button turns gray (`grayLight` background and border, `gray` text), shows `cursor: not-allowed`, and all `$variant` and `$error` styles are suppressed.
+</Field>
+
+Button forwards its ref to the underlying `HTMLButtonElement`, and any remaining native `<button>` attributes pass through. The props above are typed by the exported `ButtonProps` interface.
+
+## buttonStyles
+
+Button's CSS is also exported as the `buttonStyles(theme, $variant, $size, $outline, $fullWidth, $error, disabled)` helper, so you can style other elements to look like a Button, like a styled link:
+
+```tsx
+import styled from "styled-components";
+import { buttonStyles } from "cherry-styled-components";
+
+const ButtonLink = styled.a`
+  ${({ theme }) => buttonStyles(theme, "primary")}
+`;
+```
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/button.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

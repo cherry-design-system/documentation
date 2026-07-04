@@ -1,10 +1,10 @@
 ---
 title: "Textarea"
-description: "Cherry Textarea component for multiline text input with validation states."
+description: "Cherry Textarea component - multiline text input with validation states."
 date: "2026-02-19"
 category: "Components"
 categoryOrder: 2
-order: 2
+order: 3
 section: "Code"
 ---
 # Textarea
@@ -12,9 +12,11 @@ section: "Code"
 <iframe className="light-only" src="https://demo.cherry.al/preview/textarea?theme=light" title="Textarea" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/textarea?theme=dark" title="Textarea" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-Textarea shares the same properties as the Input component of type text, but allows for multiple lines of text. Textareas can have error or success states to provide feedback to the user.
+Textarea allows for multiple lines of text and shares most of the [Input](/code/input) component's properties: `$label`, `$size`, `$error`, `$success`, `$fullWidth`, and `$wrapperClassName`. Unlike Input, it does not support `$icon` or `$iconPosition`. Textareas can have error or success states to provide feedback to the user.
 
-Keep in mind that the `<textarea>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+Keep in mind that the `<textarea>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props. To pre-fill the content, use the native `value` or `defaultValue` attributes rather than passing children.
+
+For design guidelines and all interactive states, see the [Inputs](/inputs) design page.
 
 ```jsx
 import React from "react";
@@ -68,6 +70,6 @@ With success and error states:
   Class name applied to the wrapper element around the textarea, for restyling from the outside.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/textarea.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/textarea.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

@@ -4,7 +4,7 @@ description: "Cherry IconButton component - a circular icon-only button with thr
 date: "2026-07-02"
 category: "Components"
 categoryOrder: 2
-order: 6
+order: 1
 section: "Code"
 ---
 # IconButton
@@ -17,6 +17,8 @@ The IconButton component is a circular, icon-only button for compact actions lik
 Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
 
 Because the button has no visible text, the `aria-label` property is required.
+
+For design guidelines and all interactive states, see the [Buttons](/buttons) design page.
 
 ```jsx
 import React from "react";
@@ -73,6 +75,11 @@ subtle tint, and the state is exposed to assistive technology via
   visible text.
 </Field>
 
+<Field value="type" type='"button" | "submit" | "reset"'>
+  Defaults to `"button"` (instead of the native `"submit"`) so the button does
+  not accidentally submit a surrounding form. Pass `type="submit"` to override.
+</Field>
+
 <Field value="$size" type='"default" | "big" | "small"'>
   Size of the button: 24px (small), 28px (default), or 32px (big).
 </Field>
@@ -85,9 +92,25 @@ subtle tint, and the state is exposed to assistive technology via
   Marks the button as being in an "on" state: primary border, tinted
   background, and primary icon color. When set (true or false), the value is
   also reflected as `aria-pressed` so screen readers announce the toggle
-  state. Ignored while `disabled`.
+  state. The active styling is ignored while `disabled`, but `aria-pressed`
+  is still emitted.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon-button.tsx" icon="github" iconPosition="left">
+## iconButtonStyles
+
+The css helper behind the component is also exported as
+`iconButtonStyles(theme, $size, $error, disabled, $active)`. Use it to apply
+the exact IconButton look to a custom styled component:
+
+```tsx
+import styled from "styled-components";
+import { iconButtonStyles } from "cherry-styled-components";
+
+const RoundLink = styled.a`
+  ${({ theme }) => iconButtonStyles(theme, "big")};
+`;
+```
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon-button.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

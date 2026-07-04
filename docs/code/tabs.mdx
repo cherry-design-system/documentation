@@ -4,7 +4,7 @@ description: "Cherry Tabs component - accessible tabbed panels with keyboard nav
 date: "2026-07-03"
 category: "Components"
 categoryOrder: 2
-order: 15
+order: 13
 section: "Code"
 ---
 # Tabs
@@ -15,6 +15,8 @@ section: "Code"
 The Tabs component groups related content into panels behind a horizontal list of triggers. Wrap each panel in a `TabContent` with a `title`; only the active panel is rendered.
 
 Tabs follow the WAI-ARIA tabs pattern: the triggers form a `tablist` with roving tabindex, ArrowLeft and ArrowRight cycle through the tabs (wrapping at the edges), Home and End jump to the first and last tab, and moving focus also selects the tab.
+
+For design guidelines and all interactive states, see the [Tabs](/tabs) design page.
 
 ```jsx
 import React from "react";
@@ -47,8 +49,9 @@ const [tab, setTab] = useState(0);
 ### Tabs
 
 <Field value="children" type="React.ReactNode">
-  The panels, as `TabContent` elements. Children that are not `TabContent`
-  elements with a non-empty `title` are ignored.
+  The panels, typically `TabContent` elements. Any valid React element with a
+  non-empty string `title` prop becomes a tab (the element type itself is not
+  checked); children without one are ignored.
 </Field>
 
 <Field value="activeTab" type="number">
@@ -64,6 +67,10 @@ const [tab, setTab] = useState(0);
   Called with the new index whenever a tab is selected, by click or keyboard.
 </Field>
 
+All other standard `div` attributes (`className`, `id`, `style`, `aria-*`, and
+so on) are passed through to the root element; only the native `onChange`
+attribute is excluded.
+
 ### TabContent
 
 <Field value="title" type="string" required>
@@ -74,6 +81,6 @@ const [tab, setTab] = useState(0);
   The panel content rendered while this tab is active.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/tabs.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/tabs.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

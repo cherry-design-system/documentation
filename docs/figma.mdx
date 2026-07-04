@@ -36,17 +36,17 @@ Cherry uses Figma variables to store design values. These values create design t
 | **Colors** | Color values grouped into Primary, Secondary, Tertiary, Gray, and UI, with a Light Mode and a Dark Mode |
 | **Font Family** | Font families for text, headings, and monospace |
 | **Font Sizes** | Font size definitions with `lg` (desktop) and `xs` (mobile) modes |
-| **Font Weights** | Font weights for text, headings, and buttons |
+| **Font Weights** | Font weights for text, headings, and buttons (Figma preview only - the extracted theme file has no font-weight tokens) |
 | **Grid Gap** | Grid gaps for visually appealing layouts |
 | **Line Heights** | Line height definitions with `lg` (desktop) and `xs` (mobile) modes |
-| **Max Width** | Max width values for `xs` and `xxl` |
+| **Max Width** | Max width values for `xs` and `xxxl` |
 | **Media Queries** | Breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl` |
 | **Padding** | Padding sizes for `xs` and `lg` |
 | **Radius** | Border radius for `xs`, `lg`, and `xl` |
 
 ## 4. Typography
 
-Typography is driven entirely by the Font Family, Font Sizes, Font Weights, and Line Heights variables. Adjust the definitions there and you'll see a live preview in the Typography section of the Foundations page.
+Inside Figma, typography is driven by the Font Family, Font Sizes, Font Weights, and Line Heights variables. Adjust the definitions there and you'll see a live preview in the Typography section of the Foundations page. Keep in mind that Font Weights only affect the Figma preview: the theme file has no font-weight tokens, since weights are set directly in each component's CSS.
 
 ## 5. Local Styles
 
@@ -54,7 +54,7 @@ Local styles are only used for shadows. There are two sets of five elevations (`
 
 ## 6. Extract Design Tokens
 
-Cherry has its own **Figma Plugin** to extract design tokens automatically. The plugin gives you the theme file - just copy and paste.
+Cherry has its own **Figma Plugin** to extract design tokens automatically. The plugin gives you the theme file - copy it into your app's theme file (for example `app/theme.ts`) and pass it to the theme provider. See the [Theme](/code/theme) page for how to consume a custom theme object.
 
 <Button href="https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator" icon="puzzle" iconPosition="left">
   Figma Plugin

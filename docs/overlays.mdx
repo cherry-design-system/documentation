@@ -4,11 +4,25 @@ description: "Cherry overlay design specifications for modals and toast notifica
 date: "2026-07-02"
 category: "Components"
 categoryOrder: 2
-order: 2
+order: 4
 ---
 # Overlays
 
 Overlays sit on top of the page to demand attention or give feedback. Cherry provides two overlay elements: the Modal for blocking dialogs and the Toast for transient notifications.
+
+## States
+
+Both overlays are dismissed through an icon button: the close button on the Modal and the dismiss button on the Toast. When customizing your designs, consider all the different states these controls can have:
+
+1. **Normal** - The default appearance of the control.
+2. **Hover** `:hover` - When the user hovers the cursor over the control.
+3. **Active** `:active` - When the control is clicked or pressed.
+4. **Focus** `:focus` - When the control gains focus.
+
+<Callout type="warning">
+  Ensure that your designs account for all these states to provide a consistent
+  and user-friendly experience.
+</Callout>
 
 ## Modal
 
@@ -22,7 +36,9 @@ The modal is a centered dialog on a primary-tinted backdrop. It has an optional 
 | With title    | Yes      |
 | Without title | Yes      |
 
-When designing modal flows, account for the three ways users dismiss it:
+The dialog caps at 500px wide on large screens; a custom width (`$width`) overrides that cap. The close button can be hidden (`$hideCloseButton`) when the flow should own dismissal. For app-level restyling, the overlay accepts `className` and `style`, and the inner parts expose stable class hooks: `.modal-inner`, `.modal-close`, `.modal-title`, and `.modal-content`.
+
+When designing modal flows, account for the three ways users dismiss it (two when the close button is hidden):
 
 1. **Close button** - The icon button in the top-right corner.
 2. **Escape** - Pressing the Escape key.
@@ -42,9 +58,20 @@ Toasts are pill-shaped notifications with a semantic status icon, a message, and
 | Error   | Circle x       | Failures                    |
 | Warning | Triangle alert | Situations needing caution  |
 
+By default the stack is anchored to the top of the viewport and centered horizontally. It can be aligned left, center, or right (`$align`) and anchored to the bottom instead (`$bottom`); toasts slide in from the edge the stack is anchored to. When no color is given, a toast defaults to Info.
+
+Toasts are persistent by default: auto-hide (`autoHide`) is a duration in milliseconds that defaults to 0, meaning off, so a toast stays on screen until the user dismisses it. Pass a duration to have the toast dismiss itself.
+
 <Callout type="warning">
   Reserve persistent toasts (without auto-hide) for messages that require the
   user's acknowledgment. Transient confirmations should dismiss themselves.
+</Callout>
+
+In code, the Modal is controlled through its `$isOpen` and `$onClose` props. Toast is context-driven: wrap the app in `ToastNotificationsProvider`, render the `ToastNotifications` outlet once, and push messages with `useToastNotifications().addNotification`.
+
+<Callout type="info">
+  Ready to build? See the [Modal](/code/modal) and [Toast](/code/toast)
+  component docs for props and usage examples.
 </Callout>
 
 <Callout type="note">

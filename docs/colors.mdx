@@ -69,9 +69,9 @@ In addition to the primary color palette, Cherry provides the same variables for
 ### Primary
 
 <ColorSwatchGroup>
-  <ColorSwatch token="primaryLight" value="#91AEC4" />
-  <ColorSwatch token="primary" value="#4D6F8B" />
-  <ColorSwatch token="primaryDark" value="#194569" />
+  <ColorSwatch token="primaryLight" value="#79C5FF" />
+  <ColorSwatch token="primary" value="#6198C6" />
+  <ColorSwatch token="primaryDark" value="#339DF4" />
 </ColorSwatchGroup>
 
 ### Secondary
@@ -110,12 +110,26 @@ In addition to the primary color palette, Cherry provides the same variables for
 ### Neutrals (Inverted)
 
 <ColorSwatchGroup>
-  <ColorSwatch token="dark" value="#000000" />
-  <ColorSwatch token="light" value="#FFFFFF" />
+  <ColorSwatch token="dark" value="#FFFFFF" />
+  <ColorSwatch token="light" value="#000000" />
 </ColorSwatchGroup>
 
   </TabContent>
 </Tabs>
+
+## Using the tokens
+
+Every color above is available as a token on the theme object, so you can reference it by name in any styled-component:
+
+```tsx
+const Title = styled.h2`
+  color: ${({ theme }) => theme.colors.primary};
+`;
+```
+
+<Callout type="info">
+  To use these colors in code, see the [Theme](/code/theme) and [Dark Mode](/code/dark-mode) pages.
+</Callout>
 
 <Callout type="note">
   Colors can be found in the Figma Template in the Color section of the

@@ -1,10 +1,10 @@
 ---
 title: "Input"
-description: "Cherry Input component for text fields, checkboxes, and radio buttons with validation states."
+description: "Cherry Input component - text fields, checkboxes, and radio buttons with validation states."
 date: "2026-02-19"
 category: "Components"
 categoryOrder: 2
-order: 1
+order: 2
 section: "Code"
 ---
 # Input
@@ -12,9 +12,11 @@ section: "Code"
 <iframe className="light-only" src="https://demo.cherry.al/preview/input?theme=light" title="Input" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/input?theme=dark" title="Input" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-The Input component encompasses various text input types, including radio buttons and checkboxes. Inputs can have error or success states to provide feedback to the user.
+The Input component encompasses various text input types, including radio buttons and checkboxes. Inputs can have error or success states to provide feedback to the user. Disabled inputs also get dedicated styling with a `not-allowed` cursor and grayed-out colors, and a disabled checkbox renders a dot instead of the check icon when checked.
 
 Keep in mind that the `<input>` element inherently includes native browser properties like `onChange`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+For design guidelines and all interactive states, see the [Inputs](/inputs) design page.
 
 ```jsx
 import React from "react";
@@ -45,7 +47,7 @@ Checkbox and radio examples:
 </Field>
 
 <Field value="$label" type="string">
-  Label text. Displayed above the input for text-like types; rendered after the control for `checkbox` and `radio`.
+  Label text. For text-like types the label sits inline before the input and stacks above it when the wrapper wraps, for example with `$fullWidth`; rendered after the control for `checkbox` and `radio`.
 </Field>
 
 <Field value="$wrapperClassName" type="string">
@@ -57,7 +59,7 @@ Checkbox and radio examples:
 </Field>
 
 <Field value="$error" type="boolean">
-  Shows error state styling.
+  Shows error state styling. Also sets `aria-invalid` on the input element automatically.
 </Field>
 
 <Field value="$success" type="boolean">
@@ -76,6 +78,14 @@ Checkbox and radio examples:
   Position of the icon relative to the input.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx" icon="github" iconPosition="left">
+## Building blocks
+
+Besides the `Input` component itself, the module exports a few pieces for composing custom fields:
+
+- `InputProps` is the TypeScript interface for all Input props, extending the native `<input>` attributes.
+- `StyledInputWrapper` is the flex wrapper element rendered around the label and input.
+- `StyledLabel` is the styled `<label>` element used to render the `$label` text.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/input.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

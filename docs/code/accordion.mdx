@@ -4,7 +4,7 @@ description: "Cherry Accordion component - animated disclosure with a card style
 date: "2026-07-02"
 category: "Components"
 categoryOrder: 2
-order: 8
+order: 12
 section: "Code"
 ---
 # Accordion
@@ -16,6 +16,8 @@ section: "Code"
 <iframe className="dark-only" src="https://demo.cherry.al/preview/accordion-inline?theme=dark" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
 The Accordion component shows and hides content behind a clickable title. It animates open and close, rotates its chevron to match, and respects `prefers-reduced-motion`.
+
+For design guidelines and all interactive states, see the [Accordions](/accordions) design page.
 
 ```jsx
 import React from "react";
@@ -48,11 +50,11 @@ By default the accordion manages its own state. Pass `open` and `onToggle` to co
 
 ## Properties
 
-<Field value="children" type="React.ReactNode">
+<Field value="children" type="React.ReactNode" required>
   The collapsible content.
 </Field>
 
-<Field value="title" type="React.ReactNode">
+<Field value="title" type="React.ReactNode" required>
   The always-visible clickable title.
 </Field>
 
@@ -73,6 +75,10 @@ By default the accordion manages its own state. Pass `open` and `onToggle` to co
   Called with the next state whenever the title is clicked.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/accordion.tsx" icon="github" iconPosition="left">
+All other standard `div` attributes (`className`, `id`, `style`, `aria-*`, and
+so on) are passed through to the root element; the native `title` and
+`onToggle` attributes are replaced by the props above.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/accordion.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

@@ -40,6 +40,24 @@ There are two sets of shadows, one for dark mode and one for light mode.
   </TabContent>
 </Tabs>
 
+## Usage
+
+Shadows live on the theme object under `theme.shadows`, keyed by level (`xs`, `sm`, `md`, `lg`, `xl`). Reference them in your styled components and the matching set is applied automatically in light and dark mode:
+
+```tsx
+import styled from "styled-components";
+
+const Card = styled.div`
+  box-shadow: ${({ theme }) => theme.shadows.md};
+`;
+```
+
+The raw values are also exported as `shadows` and `shadowsDark` from `cherry-styled-components` if you need them outside the theme.
+
+<Callout type="info">
+  Shadow tokens live on the theme object; see [Theme](/code/theme) for setup.
+</Callout>
+
 <Callout type="note">
   Shadows can be found in the Figma Template in the Elevation section of the
   Foundations page.

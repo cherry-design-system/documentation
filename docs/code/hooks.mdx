@@ -2,9 +2,9 @@
 title: "Hooks"
 description: "Cherry utility hooks - useOnClickOutside for dismissing menus, popovers, and other floating UI."
 date: "2026-07-03"
-category: "Configuration"
-categoryOrder: 1
-order: 4
+category: "Utilities"
+categoryOrder: 4
+order: 2
 section: "Code"
 ---
 # Hooks
@@ -48,7 +48,7 @@ Behavior details:
 - Unattached refs (with a `null` current value) are ignored: a click counts as outside unless it lands inside a currently mounted ref target.
 - The document listener is subscribed once per mount. You can safely pass inline arrays and inline callbacks; the hook keeps the latest values in a ref instead of re-subscribing on every render.
 
-## Properties
+## Parameters
 
 <Field value="refs" type="RefObject<HTMLElement | null>[]" required>
   Refs to the elements that count as "inside". Clicks within any of them do not trigger the callback.
@@ -58,6 +58,6 @@ Behavior details:
   Callback invoked when a click lands outside all ref targets.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/use-on-click-outside.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/use-on-click-outside.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

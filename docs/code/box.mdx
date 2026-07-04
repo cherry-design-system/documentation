@@ -12,7 +12,7 @@ section: "Code"
 <iframe className="light-only" src="https://demo.cherry.al/preview/box?theme=light" title="Box" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/box?theme=dark" title="Box" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-The Box component extends the functionality of the Container component. It inherits the same props and adds additional styling properties. Use it to create visually appealing boxes, tiles, or containers within your applications.
+The Box component is a styled variant of the Container component. It accepts exactly the same props and adds no new ones; the only difference is visual styling: a `theme.colors.light` background, rounded corners from `theme.spacing.radius.lg` (12px by default), and a 1px `theme.colors.grayLight` border. Use it to create visually appealing boxes, tiles, or containers within your applications.
 
 ```jsx
 import React from "react";
@@ -31,6 +31,10 @@ export default function Page() {
 
 <Field value="children" type="React.ReactNode">
   Box content.
+</Field>
+
+<Field value="className" type="string">
+  Additional CSS class for the box.
 </Field>
 
 <Field value="$fluid" type="boolean">
@@ -73,6 +77,6 @@ export default function Page() {
   Padding at `xxxl` breakpoint.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/box.tsx" icon="github" iconPosition="left">
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/box.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

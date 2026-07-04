@@ -9,7 +9,12 @@ section: "Code"
 ---
 # Icon
 
+<iframe className="light-only" src="https://demo.cherry.al/preview/icon?theme=light" title="Icon" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/icon?theme=dark" title="Icon" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
 The Icon component renders any icon from the [Lucide](https://lucide.dev) icon set by name. It is the same component Cherry uses internally (for example in Dropzone tiles and the Modal close button), and it powers the `$icon` props on components like Dropzone and AvatarDropzone.
+
+For design guidelines and all interactive states, see the [Icons](/icons) design page.
 
 ```jsx
 import React from "react";
@@ -39,7 +44,7 @@ If the given name does not match a Lucide icon, the component renders nothing.
 </Field>
 
 <Field value="size" type="number">
-  Icon size in pixels.
+  Icon size in pixels. Defaults to `24`, from Lucide's default attributes.
 </Field>
 
 <Field value="className" type="string">
@@ -50,6 +55,22 @@ If the given name does not match a Lucide icon, the component renders nothing.
   Accessible label. When set, the icon gets `role="img"` and is announced by screen readers; when omitted, the icon is `aria-hidden`.
 </Field>
 
-<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon.tsx" icon="github" iconPosition="left">
+## Utility icons
+
+Alongside the Lucide-based Icon component, `cherry-styled-components` exports three small custom SVG icons: `IconCheck`, `IconArrow`, and `IconCalendar`. Cherry uses them inside its form controls: the checkbox check mark in [Input](/code/input), the dropdown arrow in [Select](/code/select), and the calendar glyph on date and time inputs. They read `theme.colors.primary` from the theme via `useTheme`, so they need the Cherry theme provider and follow the active palette instead of inheriting the text color. All three accept standard SVG props.
+
+```jsx
+import {
+  IconCheck,
+  IconArrow,
+  IconCalendar,
+} from "cherry-styled-components";
+
+<IconCheck />
+<IconArrow />
+<IconCalendar />
+```
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon.tsx" icon="code" iconPosition="left">
   View Source
 </Button>

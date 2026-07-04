@@ -7,12 +7,11 @@ categoryOrder: 0
 order: 0
 section: "Code"
 ---
-
 # Develop
 
 Every component in the **Cherry Design System** is meticulously crafted using **React** and **Styled Components**. These building blocks empower you to create delightful user interfaces.
 
-<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components styled-components" }]} />
 
 ## Components
 
@@ -23,26 +22,11 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   <Card title="AvatarDropzone" icon="circle-user" href="/code/avatar-dropzone">
     Circular single-file dropzone for profile pictures.
   </Card>
-  <Card title="Box" icon="box" href="/code/box">
-    The versatile container for layout, spacing, or as a wrapper.
-  </Card>
   <Card title="Button" icon="mouse-pointer-click" href="/code/button">
     The gateway to interaction. Various styles and states.
   </Card>
-  <Card title="Col" icon="columns-3" href="/code/col">
-    Create responsive column layouts with ease.
-  </Card>
-  <Card title="Container" icon="frame" href="/code/container">
-    A container for your content.
-  </Card>
   <Card title="Dropzone" icon="upload" href="/code/dropzone">
     File drop target with drag & drop, validation, and previews.
-  </Card>
-  <Card title="Flex" icon="stretch-horizontal" href="/code/flex">
-    Arrange items horizontally or vertically.
-  </Card>
-  <Card title="Grid" icon="layout-grid" href="/code/grid">
-    Build grids effortlessly using CSS grid.
   </Card>
   <Card title="Icon" icon="smile" href="/code/icon">
     Render any Lucide icon by name.
@@ -52,9 +36,6 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   </Card>
   <Card title="Input" icon="text-cursor-input" href="/code/input">
     Text fields, checkboxes, radio buttons - everything input-related.
-  </Card>
-  <Card title="MaxWidth" icon="move-horizontal" href="/code/max-width">
-    Control the maximum width of your content.
   </Card>
   <Card title="Modal" icon="app-window" href="/code/modal">
     Animated dialog with Escape and outside-click dismissal.
@@ -67,9 +48,6 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   </Card>
   <Card title="Select" icon="chevrons-up-down" href="/code/select">
     Dropdown menus for options.
-  </Card>
-  <Card title="Space" icon="move-vertical" href="/code/space">
-    Responsive vertical or horizontal spacing between elements.
   </Card>
   <Card title="Tabs" icon="panel-top" href="/code/tabs">
     Accessible tabbed panels with keyboard navigation.
@@ -88,6 +66,32 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   </Card>
 </Columns>
 
+## Layout
+
+<Columns cols={2}>
+  <Card title="Box" icon="box" href="/code/box">
+    The versatile container for layout, spacing, or as a wrapper.
+  </Card>
+  <Card title="Col" icon="columns-3" href="/code/col">
+    Create responsive column layouts with ease.
+  </Card>
+  <Card title="Container" icon="frame" href="/code/container">
+    A container for your content.
+  </Card>
+  <Card title="Flex" icon="stretch-horizontal" href="/code/flex">
+    Arrange items horizontally or vertically.
+  </Card>
+  <Card title="Grid" icon="layout-grid" href="/code/grid">
+    Build grids effortlessly using CSS grid.
+  </Card>
+  <Card title="MaxWidth" icon="move-horizontal" href="/code/max-width">
+    Control the maximum width of your content.
+  </Card>
+  <Card title="Space" icon="move-vertical" href="/code/space">
+    Responsive vertical or horizontal spacing between elements.
+  </Card>
+</Columns>
+
 ## Cherry Helpers
 
 <Columns cols={2}>
@@ -103,21 +107,24 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   <Card title="Theme" icon="palette" href="/code/theme">
     Define spacings, colors, typography, and more.
   </Card>
-  <Card title="Icons" icon="shapes">
+  <Card title="Icons" icon="shapes" href="/code/icon">
     Basic icons for elements like checkbox and dropdown arrow.
   </Card>
-  <Card title="Typography" icon="type">
+  <Card title="Typography" icon="type" href="/code/typography">
     Text matters. Set font styles and sizes effortlessly.
   </Card>
 </Columns>
 
 ## Styled Components Helpers
 
-- **StyledComponentsRegistry** - Renders CSS in your Next.js app.
-- **CherryThemeProvider** - Wrap your app with the Cherry Theme context.
-- **ClientThemeProvider** - SSR-aware theme provider for flash-free dark mode.
-- **themeInitScript / createThemeInitScript** - Blocking head script that prevents the dark-mode flash.
-- **resolveTheme** - Resolve the `theme` cookie to a theme object in server code.
+- **[StyledComponentsRegistry](/code/installation)** - Renders CSS in your Next.js app.
+- **[CherryThemeProvider](/code/installation)** - Wrap your app with the Cherry Theme context.
+- **[ClientThemeProvider](/code/dark-mode)** - SSR-aware theme provider for flash-free dark mode.
+- **[themeInitScript / createThemeInitScript](/code/dark-mode)** - Blocking head script that prevents the dark-mode flash.
+- **[resolveTheme](/code/dark-mode)** - Resolve the `theme` cookie to a theme object in server code.
+- **[ThemeContext](/code/dark-mode)** - Access `setTheme` and `toggleTheme` for custom theme controls.
+
+## Next Steps
 
 <Columns cols={2}>
   <Card title="Live Demo" icon="play" href="https://demo.cherry.al/">
@@ -126,10 +133,10 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   <Card title="Installation" icon="download" href="/code/installation">
     Get started with development.
   </Card>
-  <Card title="Theme" icon="palette" href="/code/theme">
-    Configure and customize the theme.
-  </Card>
   <Card title="Dark Mode" icon="moon" href="/code/dark-mode">
     Flash-free dark mode with SSR support.
+  </Card>
+  <Card title="Changelog" icon="list-ordered" href="/code/changelog">
+    Release notes for every version.
   </Card>
 </Columns>

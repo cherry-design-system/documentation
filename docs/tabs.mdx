@@ -4,23 +4,33 @@ description: "Cherry tabs design specifications with tab states and panel stylin
 date: "2026-07-03"
 category: "Components"
 categoryOrder: 2
-order: 4
+order: 3
 ---
 # Tabs
 
 Tabs group related content into panels behind a horizontal list of triggers. The active tab is highlighted with the primary color and a bottom indicator, and the panel below shares the same bordered, rounded surface as cards and accordions.
 
-<iframe className="light-only" src="https://demo.cherry.al/preview/tabs?theme=light" title="Tabs" loading="lazy" style={{ width: "100%", height: "360px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://demo.cherry.al/preview/tabs?theme=dark" title="Tabs" loading="lazy" style={{ width: "100%", height: "360px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
 ## States
 
 When customizing your designs, consider all the different states that a tab trigger can have:
 
-1. **Default** - The resting appearance of an unselected tab.
+1. **Normal** - The resting appearance of an unselected tab.
 2. **Hover** `:hover` - The label turns primary over a subtle primary tint.
-3. **Focus** `:focus-visible` - A rounded primary outline inset within the tab for keyboard users.
+3. **Focus** `:focus-visible` - A rounded primary outline inset within the tab for keyboard users. While a tab is focused, the ring replaces the selected tab's bottom indicator.
 4. **Selected** - Primary label with a 3px primary bottom indicator.
+
+<Callout type="warning">
+  Ensure that your designs account for all these states to provide a consistent
+  and user-friendly experience.
+</Callout>
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/tabs?theme=light" title="Tabs" loading="lazy" style={{ width: "100%", height: "360px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/tabs?theme=dark" title="Tabs" loading="lazy" style={{ width: "100%", height: "360px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+<Callout type="info">
+  Ready to build? See the [Tabs](/code/tabs) component docs for props and usage
+  examples.
+</Callout>
 
 <Callout type="note">
   Tabs can be found in the Figma Template in the Components page as the Tab

@@ -7,7 +7,6 @@ categoryOrder: 1
 order: 1
 section: "Code"
 ---
-
 # Dark Mode
 
 Cherry provides built-in support for dark mode. Pass the `themeDark` prop to the `CherryThemeProvider` component:
@@ -48,7 +47,7 @@ export default function Header() {
 }
 ```
 
-For a custom control, use `toggleTheme` (or `setTheme`) from `ThemeContext` yourself. Persistence is handled by the provider:
+For a custom control, call `toggleTheme` from `ThemeContext` yourself. It persists the choice to `localStorage` and keeps the html `dark` class in sync. Under `CherryThemeProvider`, `setTheme` is the raw state setter and does neither, so the choice is lost on reload; under `ClientThemeProvider` (covered below), `setTheme` also persists:
 
 ```tsx
 import { ThemeContext } from "cherry-styled-components";
@@ -72,7 +71,7 @@ export default function Header() {
 2. `themeInitScript`, a blocking script in the document head, seeds the cookie from the OS preference on first visits from browsers without color-scheme client hints (Safari, Firefox) and hides the body until the client has applied the right theme.
 3. On mount, the provider reconciles the server's guess against the cookie and OS preference and swaps the theme in place if needed.
 
-Theme changes persist to the `theme` cookie and `localStorage` directly. No API route is needed.
+Theme changes persist to the `theme` cookie and `localStorage` directly. No API route is needed. The layout below also wraps the app in `StyledComponentsRegistry`, the SSR style registry introduced in [Installation](/code/installation):
 
 <Code title="app/layout.tsx" language="tsx" code={`// Server component
 import { cookies } from "next/headers";
@@ -160,7 +159,7 @@ In a client-only app there is no server render to flash, so either provider work
 
 <Button
   href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/styled-components/client-theme-provider.tsx"
-  icon="github"
+  icon="code"
   iconPosition="left"
 >
   View Source

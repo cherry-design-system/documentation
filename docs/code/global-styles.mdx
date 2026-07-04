@@ -7,18 +7,23 @@ categoryOrder: 1
 order: 2
 section: "Code"
 ---
-
 # Global Styles
 
 Global styles consist of a basic set of CSS rules designed to reset certain browser behaviors. Both `CherryThemeProvider` and `ClientThemeProvider` inject the Cherry global styles automatically. If your app ships its own global styles, pass `$globalStyles={false}` to `ClientThemeProvider` and render yours as a child instead. Outside the providers, include them manually:
 
-```jsx
+```tsx
+import { GlobalStyles } from "cherry-styled-components";
+```
+
+`GlobalStyles` is a function that takes a `Theme` and returns a global-style component built with `createGlobalStyle`. Call it with your theme and render the result, as in this minimal wrapper. Unlike the real `CherryThemeProvider`, it skips the dark theme handling and toggle context:
+
+```tsx
 "use client";
 import React from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { GlobalStyles, Theme } from "../utils";
+import { GlobalStyles, Theme } from "cherry-styled-components";
 
-function CherryThemeProvider({
+function ManualThemeProvider({
   children,
   theme,
 }: {
@@ -35,87 +40,112 @@ function CherryThemeProvider({
   );
 }
 
-export { CherryThemeProvider };
+export { ManualThemeProvider };
 ```
 
 ## The Actual Global Styles
 
 Adjust the global styles according to your project's requirements:
 
-```jsx
-"use client";
+<Code title="src/lib/utils/global.tsx" language="tsx" code={`"use client";
 import { createGlobalStyle } from "styled-components";
 import { Theme } from "./theme";
 
-const GlobalStyles = (theme: Theme) => createGlobalStyle`
+const GlobalStyles = (theme: Theme) => createGlobalStyle\`
 html,
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  scroll-behavior: smooth;
-  background-color: ${theme.colors.light};
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	scroll-behavior: smooth;
+	background-color: \${theme.colors.light};
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
+	font-family: "Inter", sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
 }
 
 * {
-  box-sizing: border-box;
-  min-width: 0;
+	box-sizing: border-box;
+	min-width: 0;
 }
 
-pre, code, kbd, samp {
-  font-family: monospace, monospace;
+pre,
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
 }
 
-pre, code, kbd, samp, blockquote, p, a,
-h1, h2, h3, h4, h5, h6, ul li, ol li {
-  margin: 0;
-  padding: 0;
-  color: ${theme.colors.dark};
+pre,
+code,
+kbd,
+samp,
+blockquote,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul li,
+ol li {
+	margin: 0;
+	padding: 0;
+	color: \${theme.colors.dark};
 }
 
 a {
-  color: ${theme.isDark ? theme.colors.dark : theme.colors.primary};
+	color: \${theme.isDark ? theme.colors.dark : theme.colors.primary};
 }
 
-ol, ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+ol,
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
-figure { margin: 0; }
+figure {
+	margin: 0;
+}
 
 fieldset {
-  appearance: none;
-  border: none;
+	appearance: none;
+	border: none;
 }
 
-button, input, a, img, svg, svg * {
-  transition: all 0.3s ease;
+button,
+input,
+a,
+img,
+svg,
+svg * {
+	transition: all 0.3s ease;
 }
 
-strong, b { font-weight: 700; }
+strong,
+b {
+	font-weight: 700;
+}
 
 hr {
   margin: 20px 0;
   border: none;
-  border-bottom: 1px solid ${theme.colors.grayLight};
+  border-bottom: 1px solid \${theme.colors.grayLight};
 }
-`;
+\`;
 
-export { GlobalStyles };
-```
+export { GlobalStyles };`} />
 
 <Button
   href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/global.tsx"
-  icon="github"
+  icon="code"
   iconPosition="left"
 >
   View Source
