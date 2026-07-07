@@ -4,7 +4,7 @@ description: "Release notes for every cherry-styled-components version."
 date: "2026-07-06"
 category: "Getting Started"
 categoryOrder: 0
-order: 2
+order: 3
 navIcon: "history"
 section: "Code"
 ---
@@ -13,6 +13,10 @@ section: "Code"
 Cherry Styled Components is currently at version `0.2.9`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <Update label="0.2.9" description="2026-07-06">
+
+### Added
+
+- AI assistant skill in `skills/cherry-design-system/`: a [Claude Agent Skill](https://docs.claude.com/en/docs/claude-code/skills) (`SKILL.md` plus `references/` covering setup, theme tokens, the full component API, and recipes) that teaches LLMs to build with Cherry correctly, always using Cherry components for buttons and form controls, reading design values from the theme, and wiring the provider. Includes a portable `AGENTS.md` for other agents and points at the live docs (`cherry.al/llms.txt` and per-page `.md`). Documentation only, not part of the published npm package; install with `npx skills add cherry-design-system/styled-components`
 
 ### Changed
 
