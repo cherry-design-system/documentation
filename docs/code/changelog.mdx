@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release notes for every cherry-styled-components version."
-date: "2026-07-06"
+date: "2026-07-08"
 category: "Getting Started"
 categoryOrder: 0
 order: 3
@@ -10,7 +10,15 @@ section: "Code"
 ---
 # Changelog
 
-Cherry Styled Components is currently at version `0.2.9`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Cherry Styled Components is currently at version `0.2.10`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+<Update label="0.2.10" description="2026-07-08">
+
+**Removed**
+
+- **Breaking:** removed the custom `IconCheck`, `IconArrow`, and `IconCalendar` exports. They were hand-rolled SVGs duplicating existing Lucide glyphs. The form controls that used them now render the built-in `Icon` component instead: the checkbox check mark uses `Check`, the `Select` dropdown arrow uses `ChevronDown`, and the date/time calendar glyph uses `CalendarDays`. These icons now take their color from `currentColor` (the theme's primary color, applied via CSS) rather than a hard-coded stroke. The checkbox check mark renders with a 6px stroke, and the `Select` arrow now sizes to 24px to match the date/time calendar glyph. Replace any direct usage with `<Icon name="Check" />`, `<Icon name="ChevronDown" />`, or `<Icon name="CalendarDays" />`
+
+</Update>
 
 <Update label="0.2.9" description="2026-07-06">
 

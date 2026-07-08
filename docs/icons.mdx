@@ -9,9 +9,9 @@ navIcon: "smile"
 ---
 # Icons
 
-Cherry uses [Lucide](https://lucide.dev), an open-source icon set with over 1,500 icons drawn on a consistent 24x24 grid with a 2px rounded stroke, plus a small set of custom utility icons for form controls. Leaning on one primary set keeps iconography coherent across your interface, and the outline style pairs naturally with Cherry's borders and typography.
+Cherry uses [Lucide](https://lucide.dev), an open-source icon set with over 1,500 icons drawn on a consistent 24x24 grid with a 2px rounded stroke. Leaning on one primary set keeps iconography coherent across your interface, and the outline style pairs naturally with Cherry's borders and typography.
 
-Lucide icons inherit the current text color, so they adapt to light and dark mode automatically along with the component they sit in. The custom utility icons are the exception; see below.
+Lucide icons inherit the current text color, so they adapt to light and dark mode automatically along with the component they sit in.
 
 ## Where icons appear
 
@@ -23,11 +23,9 @@ Several Cherry components ship with built-in Lucide icons:
 - **Password** - the visibility toggle (`Eye`, `EyeOff`)
 - **ThemeToggle** - the sun and moon (`Sun`, `MoonStar`)
 - **Dropzone / AvatarDropzone** - the drop-area glyph, customizable via the `$icon` prop (Dropzone defaults to `FileUp`, AvatarDropzone to `User`); Dropzone's file thumbnails also use `File` and `X`
+- **Input** - the checkbox check mark (`Check`) and the calendar glyph on date and time inputs (`CalendarDays`)
+- **Select** - the dropdown arrow (`ChevronDown`)
 - **IconButton** - accepts any icon as its content
-
-## Utility icons
-
-Alongside Lucide, Cherry exports three custom SVG icons from `cherry-styled-components`: `IconCheck`, `IconArrow`, and `IconCalendar`. They render inside form controls - the checkbox check mark (`IconCheck`), the Select dropdown arrow (`IconArrow`), and the calendar glyph on date and time inputs (`IconCalendar`). Unlike Lucide icons they do not inherit the text color: they are stroked with `theme.colors.primary`, so they still follow the active palette in light and dark mode, just not via `currentColor`.
 
 ## Choosing icons
 

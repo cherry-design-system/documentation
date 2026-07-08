@@ -53,21 +53,9 @@ If the given name does not match a Lucide icon, the component renders nothing.
   Accessible label. When set, the icon gets `role="img"` and is announced by screen readers; when omitted, the icon is `aria-hidden`.
 </Field>
 
-## Utility icons
+## Internal usage
 
-Alongside the Lucide-based Icon component, `cherry-styled-components` exports three small custom SVG icons: `IconCheck`, `IconArrow`, and `IconCalendar`. Cherry uses them inside its form controls: the checkbox check mark in [Input](/code/input), the dropdown arrow in [Select](/code/select), and the calendar glyph on date and time inputs. They read `theme.colors.primary` from the theme via `useTheme`, so they need the Cherry theme provider and follow the active palette instead of inheriting the text color. All three accept standard SVG props.
-
-```jsx
-import {
-  IconCheck,
-  IconArrow,
-  IconCalendar,
-} from "cherry-styled-components";
-
-<IconCheck />
-<IconArrow />
-<IconCalendar />
-```
+Cherry renders this same `Icon` component inside its own form controls, so their glyphs stay consistent with any icons you add yourself: the checkbox check mark in [Input](/code/input) uses `Check`, the dropdown arrow in [Select](/code/select) uses `ChevronDown`, and the calendar glyph on date and time inputs uses `CalendarDays`. These are colored with the theme's primary color through CSS (`currentColor`), so they follow the active palette in light and dark mode.
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/icon.tsx" icon="code" iconPosition="left">
   View Source
