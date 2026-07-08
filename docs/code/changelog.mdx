@@ -14,11 +14,11 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.9" description="2026-07-06">
 
-### Added
+**Added**
 
 - AI assistant skill in `skills/cherry-design-system/`: a [Claude Agent Skill](https://docs.claude.com/en/docs/claude-code/skills) (`SKILL.md` plus `references/` covering setup, theme tokens, the full component API, and recipes) that teaches LLMs to build with Cherry correctly, always using Cherry components for buttons and form controls, reading design values from the theme, and wiring the provider. Includes a portable `AGENTS.md` for other agents and points at the live docs (`cherry.al/llms.txt` and per-page `.md`). Documentation only, not part of the published npm package; install with `npx skills add cherry-design-system/styled-components`
 
-### Changed
+**Changed**
 
 - `Accordion`: the clickable title is now a native `<button type="button">` (with a button reset) instead of an `<h3 role="button">`, so it is keyboard-focusable and Enter/Space-activatable natively; `aria-expanded` is preserved, and a `:focus-visible` outline in the primary color was added for keyboard users
 - `Tabs`: tab labels bumped to `font-weight: 700` (was 600); the `:focus-visible` ring was retuned (corner `radius.xs` → `radius.lg`, inset `-4px` → `-2px`)
@@ -28,7 +28,7 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.8" description="2026-07-04">
 
-### Fixed
+**Fixed**
 
 - `Input`: small-size date and time inputs now render the calendar icon at 18px instead of the default 24px, with the native `::-webkit-calendar-picker-indicator` click target repositioned to stay aligned with the visible icon
 
@@ -36,7 +36,7 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.7" description="2026-07-04">
 
-### Fixed
+**Fixed**
 
 - `Dropzone` / `AvatarDropzone`: text now inherits the surrounding font family instead of pinning the theme's `fonts.text`, matching the `font-family: inherit` convention used by Button, Input, Select, and Textarea. The root `<button>` elements set `font-family: inherit` explicitly, since buttons don't inherit fonts by default
 
@@ -44,7 +44,7 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.6" description="2026-07-04">
 
-### Fixed
+**Fixed**
 
 - `Toast`: centered stacks no longer wrap their text prematurely. The notifications list is now a full-width strip (20px side margins) for every alignment instead of being anchored at `left: 50%`, which capped its shrink-to-fit width at about half the viewport, most visibly on mobile
 - `Toast`: the notification strip and rows no longer swallow clicks on page content beside them; `pointer-events` is re-enabled only on the visible pill itself
@@ -53,7 +53,7 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.5" description="2026-07-03">
 
-### Changed
+**Changed**
 
 - Hover styles apply on all devices again: removed the `@media (hover: hover)` guards around `&:hover` rules in `interactiveStyles`, `errorInteractiveStyles`, `Dropzone`, `AvatarDropzone`, `Tabs`, and `ThemeToggle`
 
@@ -61,12 +61,12 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.4" description="2026-07-03">
 
-### Added
+**Added**
 
 - `Tabs` / `TabContent`: new tabbed-panels component with tablist/tab/tabpanel ARIA semantics, roving-tabindex arrow-key navigation (ArrowLeft/ArrowRight cycle, Home/End jump), and optional controlled selection via `activeTab` + `onTabChange` (`defaultActiveTab` for uncontrolled use)
 - `IconButton`: `$active` prop for a toggle-like "on" state (primary border, translucent primary background); reflected as `aria-pressed` when set
 
-### Changed
+**Changed**
 
 - `ThemeToggle`: swapped the scale hover/press effects for the shared `interactiveStyles` hover border + focus ring, and aligned the sun/moon icons exactly with the sliding knob
 
@@ -74,11 +74,11 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.3" description="2026-07-03">
 
-### Added
+**Added**
 
 - `Modal`: `style` passthrough on the overlay root, complementing `className` for app-level restyling
 
-### Fixed
+**Fixed**
 
 - `Modal`: corrected the restyling guidance in the prop docs. `styled(Modal)` cannot forward the `$`-props API, since styled-components strips transient props before they reach the wrapped component; restyle by passing a `className` and targeting the class hooks instead
 
@@ -86,18 +86,18 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.2" description="2026-07-03">
 
-### Added
+**Added**
 
 - `Modal`: `$hideCloseButton` prop to omit the built-in close button
 - `Modal`: `className` passthrough on the overlay root for app-level restyling; inner parts expose stable class hooks (`.modal-inner`, `.modal-close`, `.modal-title`, `.modal-content`)
 - `Modal`: `role="dialog"`, `aria-modal="true"`, and `aria-label` (from `$title`) on the dialog surface
 
-### Changed
+**Changed**
 
 - **Breaking-ish:** `Modal` now unmounts its children once the exit animation finishes instead of keeping them mounted (hidden) while closed. Children such as forms reset their state between openings. The enter/exit motion is unchanged visually (fade + 40px rise) but is now driven by keyframes instead of transitions
 - `useOnClickOutside` subscribes its document listener once per mount (latest-ref pattern) instead of re-subscribing whenever callers pass inline ref arrays or callbacks
 
-### Fixed
+**Fixed**
 
 - `useOnClickOutside` ignores unattached (null) refs instead of suppressing the callback entirely when any ref in the array is not mounted
 
@@ -105,17 +105,17 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.1" description="2026-07-03">
 
-### Added
+**Added**
 
 - `removeNotification(id)` on the toast context, returned by `useToastNotifications` alongside `addNotification`; each toast in `notifications` now carries a unique `id`
 - Toast stack is an `aria-live="polite"` region, so screen readers announce new toasts
 
-### Changed
+**Changed**
 
 - Toast internals reworked: state and variants are typed `$` props on a new `StyledNotificationItem` instead of className strings, each toast manages its own enter/exit lifecycle, and the space collapse animates the toast's real height via `grid-template-rows` instead of a `max-height` guess, so entering and exiting toasts glide instead of snapping
 - Bottom-anchored toasts (`$bottom`) slide up from below instead of dropping down from above
 
-### Fixed
+**Fixed**
 
 - Dismissed and auto-hidden toasts are removed from state and the DOM after their exit animation instead of accumulating invisibly forever
 
@@ -123,7 +123,7 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.2.0" description="2026-07-03">
 
-### Added
+**Added**
 
 - `ThemeToggle` component: a pill-shaped sun/moon switch for light and dark mode
 - `ClientThemeProvider`: SSR-aware theme provider with flash-free dark mode. Renders the server-resolved theme on first paint, reconciles against the `theme` cookie and OS preference on mount, persists changes to cookie and localStorage (no API route needed), migrates legacy localStorage-only preferences, and keeps the html `dark` class and `theme-color` meta tag in sync. Supports `$initial`, `$themeColor`, and `$globalStyles` props
@@ -134,9 +134,9 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 </Update>
 
-<Update label="0.1.19" description="Released">
+<Update label="0.1.19" description="2026-07-02">
 
-### Added
+**Added**
 
 - `IconButton` component for icon-only actions
 - `Password` component with visibility toggle
@@ -149,13 +149,13 @@ Cherry Styled Components is currently at version `0.2.9`. The entries below are 
 
 <Update label="0.1.18" description="2026-06-28">
 
-### Added
+**Added**
 
 - Responsive `$alignItems`, `$alignContent`, and per-breakpoint `$direction` props on `Flex`, backed by new `generateAlignItemsStyles`, `generateAlignContentStyles`, and `generateDirectionStyles` mixins
 
 </Update>
 
-## 0.1.17 and earlier
+# 0.1.17 and earlier
 
 Changes prior to 0.1.18 were not tracked in this changelog. See the [git history](https://github.com/cherry-design-system/styled-components/commits/main) for details.
 
