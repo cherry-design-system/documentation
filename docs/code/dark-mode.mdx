@@ -140,7 +140,7 @@ const active = resolveTheme(cookieTheme, theme, themeDark);
 
 `ClientThemeProvider` also keeps a `theme-color` meta tag in sync with the active theme so browser chrome (like the iOS Safari status bar) matches the page. Point `$themeColor` at the theme color your page background uses (default `"light"`), or pass `false` to disable:
 
-```tsx
+```html
 <ClientThemeProvider
   theme={theme}
   themeDark={themeDark}

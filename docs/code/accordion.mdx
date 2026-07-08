@@ -35,7 +35,7 @@ export default function Page() {
 
 The inline variant drops the border, radius, and side padding for embedding inside cards or lists:
 
-```jsx
+```html
 <Accordion title="Inline accordion" $inline>
   Content
 </Accordion>
@@ -43,7 +43,7 @@ The inline variant drops the border, radius, and side padding for embedding insi
 
 By default the accordion manages its own state. Pass `open` and `onToggle` to control it from the parent:
 
-```jsx
+```html
 <Accordion title="Controlled" open={isOpen} onToggle={setIsOpen}>
   Content
 </Accordion>

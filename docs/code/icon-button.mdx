@@ -36,7 +36,7 @@ export default function Page() {
 
 With sizes:
 
-```jsx
+```html
 <IconButton $size="small" aria-label="Edit">
   <Icon name="Pencil" />
 </IconButton>
@@ -47,7 +47,7 @@ With sizes:
 
 For destructive actions, use the error variant:
 
-```jsx
+```html
 <IconButton $error aria-label="Delete">
   <Icon name="Trash2" />
 </IconButton>
@@ -58,7 +58,7 @@ that is active), use `$active`. The button keeps its primary border with a
 subtle tint, and the state is exposed to assistive technology via
 `aria-pressed` automatically:
 
-```jsx
+```html
 <IconButton $active={isPreviewOpen} aria-label="Toggle preview">
   <Icon name="Eye" />
 </IconButton>

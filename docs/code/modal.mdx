@@ -44,7 +44,7 @@ export default function Page() {
 
 With a custom width for larger content:
 
-```jsx
+```html
 <Modal $isOpen={isOpen} $onClose={close} $width={800}>
   Content
 </Modal>
@@ -54,7 +54,7 @@ With a custom width for larger content:
 
 To restyle the modal from your app, pass a `className` (or `style`). Both are applied to the overlay root, and the inner parts expose stable class hooks: `.modal-inner`, `.modal-close`, `.modal-title`, and `.modal-content`.
 
-```jsx
+```html
 <Modal $isOpen={isOpen} $onClose={close} className="checkout-modal">
   Content
 </Modal>

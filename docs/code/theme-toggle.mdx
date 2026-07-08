@@ -32,13 +32,13 @@ export default function Page() {
 
 A custom `onClick` runs after the theme switch, which is handy for analytics:
 
-```jsx
+```html
 <ThemeToggle onClick={() => trackEvent("theme toggled")} />
 ```
 
 Hide it (for example while the theme is still resolving on the server) with the `$hidden` prop:
 
-```jsx
+```html
 <ThemeToggle $hidden={!mounted} />
 ```
 

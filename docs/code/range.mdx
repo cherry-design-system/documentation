@@ -30,7 +30,7 @@ export default function Page() {
 
 With a label:
 
-```jsx
+```html
 <Range id="volume" $label="Label" $fullWidth />
 ```
 
@@ -52,21 +52,21 @@ const [value, setValue] = React.useState(50);
 
 With different sizes:
 
-```jsx
+```html
 <Range $size="small" />
 <Range $size="big" />
 ```
 
 With success and error states:
 
-```jsx
+```html
 <Range $success />
 <Range $error />
 ```
 
 Disabled ranges get dedicated styling with a gray track and thumb and a `not-allowed` cursor:
 
-```jsx
+```html
 <Range disabled />
 ```
 
