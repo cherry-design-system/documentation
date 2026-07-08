@@ -55,37 +55,37 @@ Next, enable the styled-components compiler in your `next.config.ts`. This keeps
 
 <Code title="next.config.ts" language="ts" code={`import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  compiler: {
-    styledComponents: true,
-  },
-};
+  const nextConfig: NextConfig = {
+    compiler: {
+      styledComponents: true,
+    },
+  };
 
-export default nextConfig;`} />
+  export default nextConfig;`} />
 
 To render the CSS, open your `layout.tsx` and wrap your application. The `StyledComponentsRegistry` component injects the server-rendered styles into the HTML via `useServerInsertedHTML`, so styled-components work with server-side rendering and the App Router:
 
 <Code title="app/layout.tsx" language="tsx" code={`import {
-  StyledComponentsRegistry,
-  CherryThemeProvider,
-  theme,
-} from "cherry-styled-components";
+    StyledComponentsRegistry,
+    CherryThemeProvider,
+    theme,
+  } from "cherry-styled-components";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body>
-        <StyledComponentsRegistry>
-          <CherryThemeProvider theme={theme}>{children}</CherryThemeProvider>
-        </StyledComponentsRegistry>
-      </body>
-    </html>
-  );
-}`} />
+  export default function RootLayout({
+    children,
+  }: Readonly<{
+    children: React.ReactNode;
+  }>) {
+    return (
+      <html lang="en">
+        <body>
+          <StyledComponentsRegistry>
+            <CherryThemeProvider theme={theme}>{children}</CherryThemeProvider>
+          </StyledComponentsRegistry>
+        </body>
+      </html>
+    );
+  }`} />
 
 <Callout type="info">
   Next.js requires these additional steps because it uses server-side rendering.

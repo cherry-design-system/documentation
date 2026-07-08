@@ -75,36 +75,36 @@ export default function Header() {
 Theme changes persist to the `theme` cookie and `localStorage` directly. No API route is needed. The layout below also wraps the app in `StyledComponentsRegistry`, the SSR style registry introduced in [Installation](/code/installation):
 
 <Code title="app/layout.tsx" language="tsx" code={`// Server component
-import { cookies } from "next/headers";
-import {
-  ClientThemeProvider,
-  StyledComponentsRegistry,
-  themeInitScript,
-} from "cherry-styled-components";
-import { theme, themeDark } from "./theme";
+  import { cookies } from "next/headers";
+  import {
+    ClientThemeProvider,
+    StyledComponentsRegistry,
+    themeInitScript,
+  } from "cherry-styled-components";
+  import { theme, themeDark } from "./theme";
 
-export default async function RootLayout({ children }) {
-  const cookieTheme = (await cookies()).get("theme")?.value;
+  export default async function RootLayout({ children }) {
+    const cookieTheme = (await cookies()).get("theme")?.value;
 
-  return (
-    <html lang="en">
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
-      <body>
-        <StyledComponentsRegistry>
-          <ClientThemeProvider
-            theme={theme}
-            themeDark={themeDark}
-            $initial={cookieTheme === "dark" ? "dark" : "light"}
-          >
-            {children}
-          </ClientThemeProvider>
-        </StyledComponentsRegistry>
-      </body>
-    </html>
-  );
-}`} />
+    return (
+      <html lang="en">
+        <head>
+          <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        </head>
+        <body>
+          <StyledComponentsRegistry>
+            <ClientThemeProvider
+              theme={theme}
+              themeDark={themeDark}
+              $initial={cookieTheme === "dark" ? "dark" : "light"}
+            >
+              {children}
+            </ClientThemeProvider>
+          </StyledComponentsRegistry>
+        </body>
+      </html>
+    );
+  }`} />
 
 `themeInitScript` hides the body behind a black (`#000`) background while it waits. If your dark theme uses a different page background, build the script with `createThemeInitScript` instead, so the brief pre-hydration frame matches it:
 
