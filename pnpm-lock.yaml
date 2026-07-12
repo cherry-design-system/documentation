@@ -10,7 +10,7 @@ importers:
     dependencies:
       doccupine:
         specifier: latest
-        version: 0.0.124
+        version: 0.0.125
 
 packages:
 
@@ -258,8 +258,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  doccupine@0.0.124:
-    resolution: {integrity: sha512-agg8P5VoG7iEA3UV0yYdglhktPtE8FGFVO+OlnLGTakwyEreRJ/+8LQVhEvymuwcjPuD0/EYocr7l573ovwOcw==}
+  doccupine@0.0.125:
+    resolution: {integrity: sha512-toJg+NFqM5ajc1vBRPYHbygL1z9OBr4Z1c68wh2whv7+KiDFRwfwggNdMEek/jSIdmNtVoTf3aIGdmdOfC3L9Q==}
     hasBin: true
 
   esprima@4.0.1:
@@ -556,7 +556,7 @@ snapshots:
   detect-libc@2.1.2:
     optional: true
 
-  doccupine@0.0.124:
+  doccupine@0.0.125:
     dependencies:
       chalk: 5.6.2
       chokidar: 5.0.0
