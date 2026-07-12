@@ -48,6 +48,12 @@ export default function Header() {
 }
 ```
 
+To add a keyboard shortcut, set the `$shortcut` prop. While the toggle is mounted, **Cmd/Ctrl+Shift+L** flips the theme, using the same `toggleTheme` and persistence as a click:
+
+```tsx
+<ThemeToggle $shortcut />
+```
+
 For a custom control, call `toggleTheme` from `ThemeContext` yourself. It persists the choice to `localStorage` and keeps the html `dark` class in sync. Under `CherryThemeProvider`, `setTheme` is the raw state setter and does neither, so the choice is lost on reload; under `ClientThemeProvider` (covered below), `setTheme` also persists:
 
 ```tsx

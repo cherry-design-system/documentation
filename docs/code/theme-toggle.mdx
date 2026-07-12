@@ -42,6 +42,16 @@ Hide it (for example while the theme is still resolving on the server) with the 
 <ThemeToggle $hidden={!mounted} />
 ```
 
+## Keyboard Shortcut
+
+Bind the **Cmd/Ctrl+Shift+L** shortcut with the `$shortcut` prop. While the toggle is mounted, pressing it flips the theme without a click:
+
+```html
+<ThemeToggle $shortcut />
+```
+
+The shortcut listens on `window`, is removed when the toggle unmounts, and calls the same `toggleTheme` as a click, so the choice is persisted the same way. It requires Shift and ignores Alt so it stays clear of the browser's Cmd/Ctrl+L address-bar shortcut. Like clicking, it does nothing until a `themeDark` is passed to the provider.
+
 <Callout type="note">
   ThemeToggle requires a `themeDark` to be passed to the theme provider. Without
   it there is nothing to switch to, and clicking the button does nothing.
@@ -52,6 +62,11 @@ Hide it (for example while the theme is still resolving on the server) with the 
 <Field value="$hidden" type="boolean">
   Hides the toggle with `display: none`, for example while the theme is still
   resolving on the server.
+</Field>
+
+<Field value="$shortcut" type="boolean">
+  Binds the Cmd/Ctrl+Shift+L keyboard shortcut while the toggle is mounted,
+  flipping the theme without a click. Off by default.
 </Field>
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/theme-toggle.tsx" icon="code" iconPosition="left">
