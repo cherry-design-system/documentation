@@ -78,6 +78,19 @@ export default function Header() {
 2. `themeInitScript`, a blocking script in the document head, seeds the cookie from the OS preference on first visits from browsers without color-scheme client hints (Safari, Firefox) and hides the body until the client has applied the right theme.
 3. On mount, the provider reconciles the server's guess against the cookie and OS preference and swaps the theme in place if needed.
 
+```mermaid
+sequenceDiagram
+  participant Browser
+  participant Server
+  participant Provider as ClientThemeProvider
+  Browser->>Server: Request page with the theme cookie, if set
+  Server-->>Browser: HTML rendered in the right theme ($initial from the cookie)
+  Note over Browser: First visit without a cookie? themeInitScript seeds it from the OS preference and hides the body until the theme is applied
+  Browser->>Provider: Mount
+  Provider->>Provider: Reconcile the cookie and OS preference
+  Provider-->>Browser: Swap the theme in place only if the first paint was wrong
+```
+
 Theme changes persist to the `theme` cookie and `localStorage` directly. No API route is needed. The layout below also wraps the app in `StyledComponentsRegistry`, the SSR style registry introduced in [Installation](/code/installation):
 
 <Code title="app/layout.tsx" language="tsx" code={`// Server component

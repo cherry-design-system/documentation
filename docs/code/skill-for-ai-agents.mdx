@@ -14,6 +14,20 @@ Cherry ships an official AI-assistant skill that teaches Claude and other coding
 
 It is a [Claude Agent Skill](https://docs.claude.com/en/docs/claude-code/skills) - a `SKILL.md` plus on-demand `references/` covering setup, theme tokens, the full component API, and recipes - and it lives in the [`skills/cherry-design-system`](https://github.com/cherry-design-system/styled-components/tree/main/skills/cherry-design-system) folder of the library repo.
 
+<FileTree>
+
+- cherry-design-system/
+  - SKILL.md
+  - AGENTS.md
+  - README.md
+  - references/
+    - setup.md
+    - theme.md
+    - components.md
+    - recipes.md
+
+</FileTree>
+
 ## Install
 
 <Tabs>
@@ -63,6 +77,19 @@ The bundled references are an offline snapshot. This site is the live source of 
 - **Index of every page:** [`cherry.al/llms.txt`](https://cherry.al/llms.txt)
 - **All docs in one file:** [`cherry.al/llms-full.txt`](https://cherry.al/llms-full.txt)
 - **Any page as markdown:** append `.md` to its URL, e.g. [`cherry.al/code/button.md`](https://cherry.al/code/button.md)
+
+No skill installed? Paste this prompt into your assistant to get the same behavior on demand:
+
+<Prompt description="Build with Cherry using the live docs." icon="sparkles">
+
+You are building with cherry-styled-components, the Cherry Design System.
+
+- Use a Cherry component for every button and form control, never a raw HTML element or another library.
+- Read colors, spacing, radii, shadows, and font sizes from the theme instead of hardcoding values.
+- Wrap the app in a Cherry theme provider and keep styling props `$`-prefixed.
+- Fetch https://cherry.al/llms.txt for an index of the docs, and append `.md` to any page URL for its markdown.
+
+</Prompt>
 
 <Callout type="info">
   The skill is documentation only. It contains no runtime code and is not part of the published npm package.
