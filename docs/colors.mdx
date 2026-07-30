@@ -129,8 +129,27 @@ const Title = styled.h2`
 `;
 ```
 
+## Deriving shades
+
+When you need a variation the palette does not cover, such as a hover state or a soft tinted background, derive it from a token rather than inventing a new hex value. Cherry exports three helpers for this, each taking a color and a percentage:
+
+```tsx
+import { alpha, shade, tint } from "cherry-styled-components";
+
+const Callout = styled.div`
+  background: ${({ theme }) => tint(theme.colors.primary, 90)};
+  border: solid 1px ${({ theme }) => alpha(theme.colors.primary, 40)};
+
+  &:hover {
+    border-color: ${({ theme }) => shade(theme.colors.primary, 10)};
+  }
+`;
+```
+
+`alpha` fades to the given opacity, `shade` darkens toward black, and `tint` lightens toward white. Because they build on native CSS `color-mix()`, the derived color tracks whatever the token resolves to, so it follows your palette into dark mode and keeps working if you white-label the theme through CSS custom properties.
+
 <Callout type="info">
-  To use these colors in code, see the [Theme](/code/theme) and [Dark Mode](/code/dark-mode) pages.
+  To use these colors in code, see the [Theme](/code/theme), [Mixins](/code/mixins), and [Dark Mode](/code/dark-mode) pages.
 </Callout>
 
 <Callout type="note">

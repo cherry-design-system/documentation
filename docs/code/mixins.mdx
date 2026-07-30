@@ -45,6 +45,34 @@ const RemoveTile = styled.button`
 `;
 ```
 
+## Color helpers
+
+Three functions for deriving a shade from a token instead of hardcoding a second hex value. Each takes a CSS color and a percentage:
+
+- `alpha(color, percent)` - Fades the color to `percent` opacity.
+- `shade(color, percent)` - Darkens the color by `percent` toward black.
+- `tint(color, percent)` - Lightens the color by `percent` toward white.
+
+```tsx
+import styled from "styled-components";
+import { alpha, shade, tint } from "cherry-styled-components";
+
+const DangerZone = styled.div`
+  background: ${({ theme }) => tint(theme.colors.error, 90)};
+  border: solid 1px ${({ theme }) => alpha(theme.colors.error, 40)};
+  color: ${({ theme }) => shade(theme.colors.error, 20)};
+`;
+```
+
+They return a native CSS `color-mix(in srgb, ...)` string rather than a computed value, which means the browser does the math at paint time. Two consequences worth knowing:
+
+- The input can be any valid CSS color, including a `var(--token)` reference. If you white-label Cherry through CSS custom properties, the helpers keep working, where a JavaScript color library would choke on the unresolved `var()`.
+- The output is a CSS string, not a hex value. Interpolate it into a style declaration; do not try to parse it or feed it to something expecting `#rrggbb`.
+
+<Callout type="info">
+  `color-mix()` is supported in all current browsers (Chrome 111+, Safari 16.2+, Firefox 113+). Cherry uses these helpers internally for its own hover and focus states, so the same baseline applies to the library as a whole.
+</Callout>
+
 ## Resets
 
 - `resetButton` - Strips native button styling (appearance, border, background, padding, margin) and sets `box-sizing: border-box`, `cursor: pointer`, and `outline: none`. Since the focus outline is removed, pair it with `interactiveStyles` or provide your own focus style. The base of Button, IconButton, and ThemeToggle.
