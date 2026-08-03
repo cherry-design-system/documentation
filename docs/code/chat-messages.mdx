@@ -1,0 +1,105 @@
+---
+title: "Chat Messages"
+description: "Cherry chat transcript components - ChatMessageList, ChatMessage, ChatTyping, and ChatSources."
+date: "2026-08-03"
+category: "Chat"
+categoryOrder: 3
+order: 2
+navIcon: "messages-square"
+section: "Code"
+---
+# Chat Messages
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/chat-message?theme=light" title="Chat messages" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/chat-message?theme=dark" title="Chat messages" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Four components render the [chat kit](/code/chat)'s transcript: the scrolling list, the message rows, the typing indicator, and the source chips under an answer.
+
+```jsx
+import {
+  Avatar,
+  ChatMessage,
+  ChatMessageList,
+  ChatSource,
+  ChatSources,
+  ChatTyping,
+  useChat,
+} from "cherry-styled-components";
+
+function Transcript() {
+  const { messages, loading } = useChat();
+
+  return (
+    <ChatMessageList>
+      {messages.map((message) => (
+        <ChatMessage
+          key={message.id}
+          $role={message.role}
+          $avatar={
+            message.role === "assistant" ? <Avatar $icon="Bot" /> : undefined
+          }
+        >
+          {message.content}
+          {message.sources && (
+            <ChatSources>
+              {message.sources.map((source) => (
+                <ChatSource key={source.id} href={source.href}>
+                  {source.label}
+                </ChatSource>
+              ))}
+            </ChatSources>
+          )}
+        </ChatMessage>
+      ))}
+      {loading && <ChatTyping />}
+    </ChatMessageList>
+  );
+}
+```
+
+## ChatMessageList
+
+The scroll container (`role="log"`) with stick-to-bottom behavior. New content keeps the view pinned to the last message; scrolling up more than 15% of a viewport releases the follow, and returning near the bottom - or sending a new question - re-engages it. Scrolling is smooth for discrete messages but jumps instantly while streaming, when the panel opens, and under reduced motion, so a streaming reply never fights the animation.
+
+<Field value="$streaming" type="boolean">
+  Forces the instant-scroll mode. Defaults to the provider's `loading` state, so you only need it outside a `ChatProvider`.
+</Field>
+
+## ChatMessage
+
+One transcript row. User messages render as a right-aligned pill filled with the primary color; assistant messages read as a document - full width on the panel background, made for a [`<Prose $compact>`](/code/prose) child when the reply is markdown.
+
+<Field value="$role" type='"user" | "assistant"'>
+  Who is speaking. Defaults to `"assistant"`.
+</Field>
+
+<Field value="$avatar" type="React.ReactNode">
+  Rendered beside the message, typically an [Avatar](/code/avatar). It centers on the message's last line; while a long assistant reply is taller than the scrollport, it rides the visible bottom edge so the reply stays attributed as you read.
+</Field>
+
+## ChatTyping
+
+The three-dot typing indicator (`role="status"`), shown while a reply is on its way.
+
+<Field value="children" type="React.ReactNode">
+  The label before the dots. Defaults to `"Answering"`. The dots themselves are decorative and hidden from screen readers, and stop animating under reduced motion.
+</Field>
+
+## ChatSources / ChatSource
+
+A wrapping row of source chips that link an answer back to where it came from. `ChatSource` renders a plain anchor so the library stays router-agnostic; pass `as={Link}` to render through your framework's link component.
+
+```jsx
+<ChatSources>
+  <ChatSource href="/docs/theming">Theming</ChatSource>
+  <ChatSource as={Link} href="/docs/chat">Chat Kit</ChatSource>
+</ChatSources>
+```
+
+## Exports
+
+The library also exports the types `ChatMessageRole`, `ChatMessageListProps`, `ChatMessageProps`, `ChatTypingProps`, `ChatSourcesProps`, and `ChatSourceProps`, plus the `chatTextStyles(theme)` mixin - the chat type scale, one step tighter than body text - for custom elements that should match the transcript's density.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/chat-message.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

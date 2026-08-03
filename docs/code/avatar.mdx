@@ -1,0 +1,71 @@
+---
+title: "Avatar"
+description: "Cherry Avatar component - a circular identity badge with image, initials, and icon fallbacks in three sizes."
+date: "2026-08-03"
+category: "Components"
+categoryOrder: 2
+order: 16
+navIcon: "circle-user"
+section: "Code"
+---
+# Avatar
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/avatar?theme=light" title="Avatar" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/avatar?theme=dark" title="Avatar" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+The Avatar component renders a circular identity badge for a person or an assistant. It resolves its content through a fallback chain: an image when `$src` is set, otherwise initials derived from `$name`, otherwise an icon.
+
+Initials are the first letters of the first two words of `$name`, uppercased: "Ada Lovelace" becomes "AL", "cherry" becomes "C".
+
+```jsx
+import React from "react";
+import { Avatar } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <>
+      <Avatar $src="/ada.jpg" $alt="Ada Lovelace" />
+      <Avatar $name="Ada Lovelace" />
+      <Avatar $icon="Bot" $alt="Assistant" $color="tertiary" />
+    </>
+  );
+}
+```
+
+In the [chat kit](/code/chat), pass it to a message's `$avatar` slot to attribute the bubble to its author.
+
+## Properties
+
+<Field value="$size" type='"small" | "default" | "big"'>
+  Diameter of the badge: 28px, 36px, or 48px. Defaults to `"default"`. The font size of the initials and the size of the fallback icon scale with it.
+</Field>
+
+<Field value="$src" type="string">
+  Image URL. The image covers the circle with `object-fit: cover`.
+</Field>
+
+<Field value="$alt" type="string">
+  Alt text for the image, and the accessible label when the icon fallback renders. Falls back to `$name`.
+</Field>
+
+<Field value="$name" type="string">
+  Full name or label. Shown as initials when there is no image.
+</Field>
+
+<Field value="$icon" type="IconProps">
+  Lucide icon name used when there is no image and no name. Defaults to `"User"`.
+</Field>
+
+<Field value="$color" type='"primary" | "secondary" | "tertiary" | "gray"'>
+  Background color, read from the theme (`gray` uses `colors.grayDark`). Defaults to `"primary"`. The initials and icon take the palette's contrasting end automatically, in both light and dark mode.
+</Field>
+
+<Callout type="note">
+  Accessibility is handled by the fallback chain: an image carries its own `alt`, initials are visible text, and the icon fallback gets `role="img"` with an `aria-label` from `$alt` or `$name`.
+</Callout>
+
+The component also accepts all native `<span>` attributes and forwards its ref to the root element. The library exports the types `AvatarSize` and `AvatarColor`.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/avatar.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

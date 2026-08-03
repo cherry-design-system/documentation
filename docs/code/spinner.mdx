@@ -1,0 +1,53 @@
+---
+title: "Spinner"
+description: "Cherry Spinner component - a rotating loading indicator built on the Icon component with theme-aware color."
+date: "2026-08-03"
+category: "Components"
+categoryOrder: 2
+order: 19
+navIcon: "loader-circle"
+section: "Code"
+---
+# Spinner
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/spinner?theme=light" title="Spinner" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/spinner?theme=dark" title="Spinner" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+The Spinner component is a rotating loading indicator: a Lucide icon spinning once per second. It is built on the [Icon](/code/icon) component, so any Lucide glyph can spin, and it accepts Icon's props unchanged - note that, as with Icon, they are not `$`-prefixed.
+
+```jsx
+import React from "react";
+import { Spinner } from "cherry-styled-components";
+
+export default function Loading() {
+  return <Spinner aria-label="Loading" />;
+}
+```
+
+The [chat kit](/code/chat)'s send button swaps its arrow for a Spinner while a reply is streaming.
+
+## Properties
+
+<Field value="name" type="IconProps">
+  The Lucide icon to rotate. Defaults to `"LoaderCircle"`.
+</Field>
+
+<Field value="color" type="string">
+  Stroke color. By default the spinner resolves its color from the theme (`colors.dark`) rather than inheriting, so it stays visible on either mode's surface.
+</Field>
+
+<Field value="size" type="number">
+  Size in pixels, applied to both width and height. Defaults to Icon's 24px.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible label. Without one the icon is decorative (`aria-hidden`), so add a label when the spinner is the only loading signal.
+</Field>
+
+<Callout type="note">
+  Under `prefers-reduced-motion: reduce` the rotation is disabled and the icon renders static.
+</Callout>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/spinner.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

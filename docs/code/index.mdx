@@ -21,11 +21,17 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   <Card title="Accordion" icon="chevrons-up-down" href="/code/accordion">
     Show and hide content behind a clickable, animated title.
   </Card>
+  <Card title="Avatar" icon="circle-user" href="/code/avatar">
+    Circular identity badge with image, initials, and icon fallbacks.
+  </Card>
   <Card title="AvatarDropzone" icon="circle-user-round" href="/code/avatar-dropzone">
     Circular single-file dropzone for profile pictures.
   </Card>
   <Card title="Button" icon="mouse-pointer-click" href="/code/button">
     The gateway to interaction. Various styles and states.
+  </Card>
+  <Card title="Callout" icon="message-square-warning" href="/code/callout">
+    Tinted admonition boxes with five semantic intents.
   </Card>
   <Card title="Dropzone" icon="upload" href="/code/dropzone">
     File drop target with drag & drop, validation, and previews.
@@ -45,11 +51,17 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   <Card title="Password" icon="key-round" href="/code/password">
     Password input with a built-in show/hide reveal toggle.
   </Card>
+  <Card title="Prose" icon="pilcrow" href="/code/prose">
+    Cherry typography for rendered markdown and long-form content.
+  </Card>
   <Card title="Range" icon="sliders-horizontal" href="/code/range">
     Sliders for numeric input.
   </Card>
   <Card title="Select" icon="chevron-down" href="/code/select">
     Dropdown menus for options.
+  </Card>
+  <Card title="Spinner" icon="loader-circle" href="/code/spinner">
+    Rotating loading indicator with theme-aware color.
   </Card>
   <Card title="Tabs" icon="panels-top-left" href="/code/tabs">
     Accessible tabbed panels with keyboard navigation.
@@ -65,6 +77,28 @@ Every component in the **Cherry Design System** is meticulously crafted using **
   </Card>
   <Card title="Toggle" icon="toggle-right" href="/code/toggle">
     Simplify binary choices.
+  </Card>
+</Columns>
+
+## Chat Kit
+
+Everything needed to build an AI-assistant chat UI: a headless provider that owns the transcript and streaming bookkeeping, plus presentational components. You bring the transport.
+
+<Columns cols={2}>
+  <Card title="Chat Kit & ChatProvider" icon="bot-message-square" href="/code/chat">
+    Architecture, the provider, the useChat hook, and showcase mode.
+  </Card>
+  <Card title="ChatPanel" icon="panel-right" href="/code/chat-panel">
+    The shell: side drawer, inline container, or fullscreen dialog.
+  </Card>
+  <Card title="Chat Messages" icon="messages-square" href="/code/chat-messages">
+    Transcript list, message bubbles, typing indicator, source chips.
+  </Card>
+  <Card title="ChatInput" icon="send" href="/code/chat-input">
+    Auto-growing composer with an optional rainbow glow.
+  </Card>
+  <Card title="ChatLauncher" icon="sparkles" href="/code/chat-launcher">
+    The "Ask AI" pill that toggles the panel.
   </Card>
 </Columns>
 
@@ -101,7 +135,7 @@ Every component in the **Cherry Design System** is meticulously crafted using **
     Consistency across your app. Define global rules here.
   </Card>
   <Card title="Hooks" icon="webhook" href="/code/hooks">
-    Utility hooks like `useOnClickOutside` for floating UI.
+    `useOnClickOutside`, `useMediaQuery`, `useBelowBreakpoint`, and `useLockBodyScroll`.
   </Card>
   <Card title="Mixins" icon="blend" href="/code/mixins">
     Reusable code snippets. Efficiency meets elegance.

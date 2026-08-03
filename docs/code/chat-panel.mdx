@@ -1,0 +1,78 @@
+---
+title: "ChatPanel"
+description: "Cherry ChatPanel component - the chat shell as a side drawer, inline container, or fullscreen dialog, with full focus management."
+date: "2026-08-03"
+category: "Chat"
+categoryOrder: 3
+order: 1
+navIcon: "panel-right"
+section: "Code"
+---
+# ChatPanel
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/chat-inline?theme=light" title="Inline chat panel" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/chat-inline?theme=dark" title="Inline chat panel" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+ChatPanel is the [chat kit](/code/chat)'s shell: a header with title, icon, and actions, plus a column that hosts the transcript and composer. It must live inside a `ChatProvider`, which drives its visibility.
+
+```jsx
+<ChatProvider onSend={handleSend}>
+  <ChatLauncher />
+  <ChatPanel $title="AI Assistant">
+    <Transcript />
+    <ChatInput />
+  </ChatPanel>
+</ChatProvider>
+```
+
+## Variants
+
+- `drawer` (default) - a fixed side panel that slides in from `$side`. From the `lg` breakpoint up it is a 420px-wide complementary panel that leaves the page interactive; below `lg` it covers the viewport and behaves as a modal dialog.
+- `inline` - a normal flow-sized container, always visible, no dialog semantics. The app controls its size and presence; the provider's `isOpen` is ignored.
+- `fullscreen` - fills the viewport and is always modal while open.
+
+Whenever the panel is modal, the kit takes care of the dialog contract: `role="dialog"` with `aria-modal`, Escape to close, a focus trap, siblings marked `inert`, and body scroll locking (via the exported [useLockBodyScroll](/code/hooks) hook). Overlay panels are hidden with `inert` and `aria-hidden` while closed, and focus is handed to the composer on open and restored to the opener on close.
+
+## Properties
+
+<Field value="$variant" type='"drawer" | "inline" | "fullscreen"'>
+  The shell form. Defaults to `"drawer"`.
+</Field>
+
+<Field value="$side" type='"left" | "right"'>
+  Which edge the drawer docks to. Defaults to `"right"`.
+</Field>
+
+<Field value="$width" type="number">
+  Drawer width in pixels from the `lg` breakpoint up. Defaults to `420`.
+</Field>
+
+<Field value="$title" type="React.ReactNode | null">
+  Header title. Defaults to `"AI Assistant"`. Pass `null` for no title; the header disappears entirely when there is no title, no actions, and no close button.
+</Field>
+
+<Field value="$titleIcon" type="IconProps | null">
+  Lucide icon before the title. Defaults to `"Sparkles"`; pass `null` for none.
+</Field>
+
+<Field value="$actions" type="React.ReactNode">
+  Extra header controls - a reset button, say - placed before the close button.
+</Field>
+
+<Field value="$hideCloseButton" type="boolean">
+  Hides the built-in close button on overlay variants.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible name for the panel. Defaults to the `$title` string.
+</Field>
+
+The component also accepts all native `<div>` attributes and forwards its ref to the root element. The library exports the `ChatPanelVariant` type.
+
+<Callout type="note">
+  A reset action pairs naturally with the header: `$actions={<IconButton onClick={reset} aria-label="New chat"><Icon name="RotateCcw" /></IconButton>}` with `reset` from `useChat()`.
+</Callout>
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/chat-panel.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

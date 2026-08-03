@@ -1,0 +1,53 @@
+---
+title: "ChatLauncher"
+description: "Cherry ChatLauncher component - the compact Ask AI pill that toggles the chat panel, with an optional rainbow halo."
+date: "2026-08-03"
+category: "Chat"
+categoryOrder: 3
+order: 4
+navIcon: "sparkles"
+section: "Code"
+---
+# ChatLauncher
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/chat-launcher?theme=light" title="Chat launcher" loading="lazy" style={{ width: "100%", height: "200px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/chat-launcher?theme=dark" title="Chat launcher" loading="lazy" style={{ width: "100%", height: "200px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+ChatLauncher is the compact pill that opens and closes the [chat kit](/code/chat)'s panel - a sparkles icon and "Ask AI" by default. It reads the provider's state, toggles the panel on click, and reports the panel's state through `aria-expanded`. Drop it in a header, a toolbar, or next to a search field.
+
+```jsx
+<ChatProvider onSend={handleSend}>
+  <ChatLauncher $glow />
+  <ChatPanel>...</ChatPanel>
+</ChatProvider>
+```
+
+With `$glow`, the pill gets the kit's rainbow treatment: a rotating rainbow band hugging the button's border - 1px on hover, 2px while pressed, 4px on focus - plus a soft radiating halo that is always faintly on and brightens with interaction or while the panel is open. Animation is disabled under `prefers-reduced-motion: reduce`.
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  The pill's content. Defaults to a sparkles icon followed by "Ask AI".
+</Field>
+
+<Field value="$glow" type="boolean">
+  The animated rainbow halo. Off by default.
+</Field>
+
+<Field value="$glowColors" type="string[]">
+  Overrides the glow palette with your own list of colors.
+</Field>
+
+<Field value="onClick" type="MouseEventHandler">
+  Overrides the default toggle behavior - useful to `ask()` a canned question instead, or to route through a search modal.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible name. Defaults to `"Ask AI Assistant"`.
+</Field>
+
+The component also accepts all native `<button>` attributes and forwards its ref to the button element.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/chat-launcher.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

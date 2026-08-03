@@ -1,0 +1,171 @@
+---
+title: "Chat Kit"
+description: "Cherry's chat kit - a headless ChatProvider plus panel, messages, composer, and launcher for building AI-assistant UIs."
+date: "2026-08-03"
+category: "Chat"
+categoryOrder: 3
+order: 0
+navIcon: "bot-message-square"
+categoryIcon: "bot-message-square"
+section: "Code"
+---
+# Chat Kit
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/chat?theme=light" title="Chat kit" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/chat?theme=dark" title="Chat kit" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Cherry ships everything needed to build an AI-assistant chat UI, split into a headless provider and presentational components. `ChatProvider` owns panel state, focus management, the transcript, and streaming bookkeeping; **the app owns the transport** - Cherry never fetches, parses SSE, or assumes an endpoint.
+
+The kit consists of:
+
+- **ChatProvider** - headless state and the `useChat()` hook, documented on this page.
+- **[ChatPanel](/code/chat-panel)** - the shell: a side drawer, an inline container, or a fullscreen dialog.
+- **[ChatMessageList, ChatMessage, ChatTyping, ChatSources](/code/chat-messages)** - the transcript.
+- **[ChatInput](/code/chat-input)** - the auto-growing composer, with an optional rainbow glow treatment.
+- **[ChatLauncher](/code/chat-launcher)** - the "Ask AI" pill that toggles the panel.
+
+## Wiring it up
+
+The provider takes your transport as `onSend` and hands it everything it needs: the question, an abort signal, the prior conversation, and a `setAssistant` callback that creates the reply bubble on its first call and patches the same bubble on every later call - so streaming updates one message in place.
+
+```jsx
+"use client";
+import React from "react";
+import {
+  ChatInput,
+  ChatLauncher,
+  ChatMessage,
+  ChatMessageList,
+  ChatPanel,
+  ChatProvider,
+  ChatTyping,
+  Prose,
+  useChat,
+} from "cherry-styled-components";
+
+function Transcript() {
+  const { messages, loading } = useChat();
+
+  return (
+    <ChatMessageList>
+      {messages.map((message) => (
+        <ChatMessage key={message.id} $role={message.role}>
+          {message.content}
+        </ChatMessage>
+      ))}
+      {loading && <ChatTyping />}
+    </ChatMessageList>
+  );
+}
+
+export default function Assistant() {
+  return (
+    <ChatProvider
+      onSend={async (question, { signal, history, setAssistant }) => {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          body: JSON.stringify({ question, history }),
+          signal,
+        });
+        let text = "";
+        for await (const chunk of readMyStream(res)) {
+          text += chunk;
+          setAssistant(text); // patches the same assistant bubble each call
+        }
+        setAssistant(<Prose $compact>{renderMarkdown(text)}</Prose>, {
+          text, // plain-text mirror used for the next request's history
+          sources: [{ id: "1", label: "Docs", href: "/docs" }],
+        });
+      }}
+    >
+      <ChatLauncher $glow />
+      <ChatPanel>
+        <Transcript />
+        <ChatInput $glow />
+      </ChatPanel>
+    </ChatProvider>
+  );
+}
+```
+
+While streaming, pass plain text to `setAssistant`; when the reply is complete, pass rich markup (typically `<Prose $compact>`) plus a plain-text `text` mirror, which is what the provider uses to build the history for the next request. A thrown error lands in `error`; an abort is swallowed.
+
+## ChatProvider
+
+<Field value="onSend" type="ChatSendHandler">
+  The transport: `(question, { signal, history, setAssistant }) => void | Promise<void>`. Optional when `$showcase` is on; required for real answers. Without one, non-command input gets a built-in hint message instead of a silent drop.
+</Field>
+
+<Field value="greeting" type="React.ReactNode | null">
+  Assistant message seeded on first open and after `reset()`. Defaults to "Hey there, how can I assist you?" (a showcase-specific greeting when `$showcase` is on). Pass `null` for none.
+</Field>
+
+<Field value="historyLimit" type="number">
+  Maximum number of prior messages in the `history` handed to `onSend`. Defaults to `20`. Each entry is additionally capped at 4000 characters, so one giant pasted message cannot blow up the request. Only messages with a non-empty `text` mirror are included.
+</Field>
+
+<Field value="shortcut" type="string | null">
+  Cmd/Ctrl + this key toggles the panel globally. Defaults to `"i"`. Pass `null` to disable.
+</Field>
+
+<Field value="$showcase" type="boolean">
+  Demo mode: chat input matching a showcase command is answered locally with a live rendering of that element. See below. Off by default.
+</Field>
+
+## useChat
+
+Every value lives in `ChatContext`; `useChat()` is the hook that reads it.
+
+<Field value="isOpen" type="boolean">
+  Whether an overlay panel is open. Inline panels ignore it.
+</Field>
+
+<Field value="open / close / toggle" type="function">
+  Panel controls. `open(returnFocusTo?)` records where focus should return; `close(restoreFocus = true)` restores it to the opener and returns that element. Focus lands on the composer whenever the panel opens.
+</Field>
+
+<Field value="messages" type="ChatMessageData[]">
+  The transcript: `{ id, role, content, text?, sources? }` entries. `content` is rendered as-is - plain text while streaming, rich markup when done.
+</Field>
+
+<Field value="input / setInput" type="string / (value: string) => void">
+  The composer's controlled value.
+</Field>
+
+<Field value="loading" type="boolean">
+  True while `onSend` is running.
+</Field>
+
+<Field value="error" type="string | null">
+  Message of the last error thrown by `onSend`, cleared on the next send.
+</Field>
+
+<Field value="send" type="(text?: string) => void">
+  Sends `text`, or the current input when omitted. No-op while loading or when empty.
+</Field>
+
+<Field value="ask" type="(question: string, returnFocusTo?: HTMLElement) => void">
+  Opens the panel and hands `question` straight to the assistant - the bridge for launchers and search modals. While a reply is still streaming, the question is pre-filled in the composer instead, ready to send.
+</Field>
+
+<Field value="reset" type="() => void">
+  Aborts any in-flight reply and restores the initial greeting. Handy as a header action on the panel.
+</Field>
+
+<Field value="inputRef" type="RefObject<HTMLTextAreaElement>">
+  Ref to the composer's textarea, used by the kit for focus management.
+</Field>
+
+## Showcase mode
+
+With `$showcase` on, chat input matching a showcase command is answered locally with a live rendering of that element; everything else still goes to `onSend` (which becomes optional). `help` lists the commands: `list` (the component catalog), `callout`, `avatar`, `prose`, `sources`, and `typing`. A leading slash and any casing work too.
+
+It is the fastest way to try the kit without a backend, and doubles as a component showcase inside your own app. The command set is exported as `showcaseCommands`, and `resolveShowcaseCommand(input)` returns a command's rendered demo (or `null`) if you want the same behavior in a custom provider.
+
+## Exports
+
+Alongside the components, the library exports the types `ChatRole`, `ChatMessageData`, `ChatSourceData`, `ChatHistoryEntry`, `ChatSendContext`, `ChatSendHandler`, `ChatProviderProps`, and `ShowcaseCommand`, plus the raw `ChatContext` for advanced use.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/chat-provider.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

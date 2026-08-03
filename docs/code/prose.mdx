@@ -1,0 +1,60 @@
+---
+title: "Prose"
+description: "Cherry Prose component - typography for rendered markdown: headings, links, lists, tables, code, and media."
+date: "2026-08-03"
+category: "Components"
+categoryOrder: 2
+order: 18
+navIcon: "pilcrow"
+section: "Code"
+---
+# Prose
+
+<iframe className="light-only" src="https://demo.cherry.al/preview/prose?theme=light" title="Prose" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://demo.cherry.al/preview/prose?theme=dark" title="Prose" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+The Prose component styles a block of rendered markdown - or any long-form HTML - with Cherry typography: the heading scale, underlined links with hover and focus states, bulleted and numbered lists, tables, inline code, blockquotes, rules, and media. Wrap the output of your markdown renderer in it and the content reads like the rest of the design system.
+
+```jsx
+import React from "react";
+import { Prose } from "cherry-styled-components";
+
+export default function Article({ html }) {
+  return <Prose dangerouslySetInnerHTML={{ __html: html }} />;
+}
+```
+
+In the [chat kit](/code/chat), pass `<Prose $compact>` as an assistant message's content to render a markdown reply at chat density.
+
+A few conventions from the markdown pipeline are honored:
+
+- Fenced code blocks (`pre`, `.hljs`) keep their highlighter theme; only inline `code` without a class gets the Cherry tint.
+- Wrap wide tables in a `<div className="table-wrapper">` to get horizontal scrolling with a slim scrollbar.
+- Anchors that carry a class of their own, or that wrap an image, are left unstyled, so buttons and image links pass through untouched.
+- First and last child margins are stripped, so the block sits flush inside whatever contains it (a card, a chat bubble, a callout).
+
+## Properties
+
+<Field value="$compact" type="boolean">
+  Tightens the vertical rhythm (20px block margins become 10px) and shifts each heading level down two steps, so markdown headings stay proportionate in dense contexts such as chat bubbles.
+</Field>
+
+The component also accepts all native `<div>` attributes and forwards its ref to the root element.
+
+## proseStyles
+
+The styles are also exported as a mixin, `proseStyles(theme, $compact?)`, for applying to an element that is already styled instead of wrapping it in another `<div>`:
+
+```tsx
+import styled from "styled-components";
+import { proseStyles } from "cherry-styled-components";
+
+const ArticleBody = styled.article`
+  ${({ theme }) => proseStyles(theme)};
+  max-width: 720px;
+`;
+```
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/prose.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>

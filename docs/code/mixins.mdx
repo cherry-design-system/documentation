@@ -1,9 +1,9 @@
 ---
 title: "Mixins"
 description: "Cherry's reusable CSS mixins: interaction affordances, resets, and form element helpers."
-date: "2026-07-03"
+date: "2026-08-03"
 category: "Utilities"
-categoryOrder: 4
+categoryOrder: 5
 order: 0
 navIcon: "blend"
 categoryIcon: "wrench"
@@ -73,6 +73,38 @@ They return a native CSS `color-mix(in srgb, ...)` string rather than a computed
   `color-mix()` is supported in all current browsers (Chrome 111+, Safari 16.2+, Firefox 113+). Cherry uses these helpers internally for its own hover and focus states, so the same baseline applies to the library as a whole.
 </Callout>
 
+## Filled text helpers
+
+Two helpers for text sitting on a brand-colored fill, extracted from the filled Button and shared by Avatar and the chat kit's user bubble:
+
+- `filledTextColor(theme)` - The palette's contrasting end: `colors.light` in light mode, `colors.dark` in dark mode.
+- `darkFilledTextRule(theme)` - The same choice restated as a rule scoped to a `dark` class on `<html>`, which is what apps resolving the mode in CSS key off before hydration can swap the theme object. Additive: with an already-dark theme object both paths resolve to the same color. Interpolate it alongside `filledTextColor`.
+
+```tsx
+import styled from "styled-components";
+import { darkFilledTextRule, filledTextColor } from "cherry-styled-components";
+
+const Badge = styled.span`
+  background: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => filledTextColor(theme)};
+  ${({ theme }) => darkFilledTextRule(theme)};
+`;
+```
+
+## thinScrollbar
+
+A slim, theme-aware scrollbar for internal scroll areas - chat transcripts, code blocks, wide tables - so the chunky native bar does not stand out, especially in dark mode. Used by [ChatMessageList](/code/chat-messages) and [Prose](/code/prose).
+
+```tsx
+import styled from "styled-components";
+import { thinScrollbar } from "cherry-styled-components";
+
+const CodeScroller = styled.pre`
+  overflow-x: auto;
+  ${thinScrollbar};
+`;
+```
+
 ## Resets
 
 - `resetButton` - Strips native button styling (appearance, border, background, padding, margin) and sets `box-sizing: border-box`, `cursor: pointer`, and `outline: none`. Since the focus outline is removed, pair it with `interactiveStyles` or provide your own focus style. The base of Button, IconButton, and ThemeToggle.
@@ -110,7 +142,7 @@ const Toolbar = styled.div`
 `;
 ```
 
-The component style mixins `buttonStyles` and `iconButtonStyles` are documented on the [Button](/code/button) and [IconButton](/code/icon-button) pages.
+The component style mixins `buttonStyles` and `iconButtonStyles` are documented on the [Button](/code/button) and [IconButton](/code/icon-button) pages; `proseStyles` on the [Prose](/code/prose) page; and `chatTextStyles` on the [Chat Messages](/code/chat-messages) page.
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/mixins.tsx" icon="code" iconPosition="left">
   View Source
