@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release notes for every cherry-styled-components version."
-date: "2026-08-03"
+date: "2026-08-04"
 category: "Getting Started"
 categoryOrder: 0
 order: 3
@@ -11,7 +11,21 @@ rss: true
 ---
 # Changelog
 
-Cherry Styled Components is currently at version `0.2.13`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Cherry Styled Components is currently at version `0.2.14`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+<Update label="0.2.14" description="2026-08-04">
+
+<Badge color="blue" size="sm">Changed</Badge>
+
+- [ChatLauncher](/code/chat-launcher): the button is now pinned to the 30px compact header-control tier (`box-sizing: border-box; height: 30px`, inner row `height: 100%`) instead of hugging its content, so its height cannot drift with platform font metrics and always matches neighboring header controls like the docs search button; rendered output is unchanged in browsers where the content already resolved to 30px
+
+<Badge color="orange" size="sm">Fixed</Badge>
+
+- `ChatProvider`: opening the panel (launcher click, <kbd>Command</kbd> + <kbd>I</kbd> / <kbd>Ctrl</kbd> + <kbd>I</kbd>, or `ask()` from a search modal) now commits the open with `flushSync` and focuses the composer synchronously inside the triggering gesture. iOS Safari ignores `focus()` (and never raises the keyboard) once the tap gesture has passed, so the previous deferred-only focus opened the panel with an unfocused input on iPads and iPhones; the deferred focus remains as a fallback for lazily mounted composers
+- [Prose](/code/prose): a top-level `.code-wrapper` block (an app's framed code component) now carries the block rhythm (`10px` in `$compact`, `20px` otherwise); previously only its inner `pre` was addressed, so framed code blocks sat flush against neighboring elements
+- `ChatSources`: the chip row now separates itself from preceding content with a 10px top margin (the answer body trims its own trailing margin, so the chips sat flush against the last line); standalone first-child usage stays margin-free
+
+</Update>
 
 <Update label="0.2.13" description="2026-08-03">
 
