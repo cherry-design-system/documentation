@@ -75,7 +75,7 @@ export default function Header() {
 `CherryThemeProvider` resolves the theme on the client after mount, so in a server-rendered app the first paint is always the light theme, which dark mode users see as a flash. For server-rendered apps (e.g. Next.js App Router), use `ClientThemeProvider` instead:
 
 1. The server reads the `theme` cookie and passes the verdict as `$initial`, so the first paint is already correct.
-2. `themeInitScript`, a blocking script in the document head, seeds the cookie from the OS preference on first visits from browsers without color-scheme client hints (Safari, Firefox) and hides the body until the client has applied the right theme.
+2. `themeInitScript`, a blocking script in the document head, seeds the cookie from the OS preference on first visits from browsers without color-scheme client hints (Safari, Firefox), hides the body until the client has applied the right theme, and rewrites the `theme-color` meta tag so the browser chrome doesn't hold the light tint either.
 3. On mount, the provider reconciles the server's guess against the cookie and OS preference and swaps the theme in place if needed.
 
 ```mermaid
@@ -125,12 +125,25 @@ Theme changes persist to the `theme` cookie and `localStorage` directly. No API 
     );
   }`} />
 
-`themeInitScript` hides the body behind a black (`#000`) background while it waits. If your dark theme uses a different page background, build the script with `createThemeInitScript` instead, so the brief pre-hydration frame matches it:
+`themeInitScript` hides the body behind a black (`#000`) background while it waits, and rewrites the `<meta name="theme-color">` tag to the same color, so browser chrome that tints from it (the Safari tab bar, Android Chrome's toolbar) doesn't hold the light server-rendered color until hydration. If your dark theme uses a different page background, build the script with `createThemeInitScript` instead, so the brief pre-hydration frame matches it:
 
 ```tsx
 import { createThemeInitScript } from "cherry-styled-components";
 
 const themeInitScript = createThemeInitScript("#0a0a0f");
+```
+
+The optional second parameter, `darkThemeColor`, sets the `theme-color` value the script writes on a dark first visit. It defaults to the background color, which matches the provider's default `$themeColor: "light"` (covered below). If your provider uses a non-default `$themeColor`, pass that token's dark value so the pre-hydration tint matches:
+
+```tsx
+import { createThemeInitScript } from "cherry-styled-components";
+import { themeDark } from "./theme";
+
+// For a provider with $themeColor="primary"
+const themeInitScript = createThemeInitScript(
+  themeDark.colors.light,
+  themeDark.colors.primary,
+);
 ```
 
 For the best first visit in Chrome, opt into color-scheme client hints in your middleware so even the very first server render matches the OS preference:
