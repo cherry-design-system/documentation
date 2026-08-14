@@ -63,13 +63,12 @@ Next, enable the styled-components compiler in your `next.config.ts`. This keeps
 
   export default nextConfig;`} />
 
-To render the CSS, open your `layout.tsx` and wrap your application. The `StyledComponentsRegistry` component injects the server-rendered styles into the HTML via `useServerInsertedHTML`, so styled-components work with server-side rendering and the App Router:
+To render the CSS, open your `layout.tsx` and wrap your application. The `StyledComponentsRegistry` component injects the server-rendered styles into the HTML via `useServerInsertedHTML`, so styled-components work with server-side rendering and the App Router.
 
-<Code title="app/layout.tsx" language="tsx" code={`import {
-    StyledComponentsRegistry,
-    CherryThemeProvider,
-    theme,
-  } from "cherry-styled-components";
+It is the one export that depends on Next, so it ships from the `cherry-styled-components/next` subpath rather than the package root. Everything else imports from `cherry-styled-components` as usual:
+
+<Code title="app/layout.tsx" language="tsx" code={`import { StyledComponentsRegistry } from "cherry-styled-components/next";
+  import { CherryThemeProvider, theme } from "cherry-styled-components";
 
   export default function RootLayout({
     children,

@@ -95,11 +95,8 @@ Theme changes persist to the `theme` cookie and `localStorage` directly. No API 
 
 <Code title="app/layout.tsx" language="tsx" code={`// Server component
   import { cookies } from "next/headers";
-  import {
-    ClientThemeProvider,
-    StyledComponentsRegistry,
-    themeInitScript,
-  } from "cherry-styled-components";
+  import { StyledComponentsRegistry } from "cherry-styled-components/next";
+  import { ClientThemeProvider, themeInitScript } from "cherry-styled-components";
   import { theme, themeDark } from "./theme";
 
   export default async function RootLayout({ children }) {
