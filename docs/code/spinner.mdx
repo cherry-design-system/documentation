@@ -24,12 +24,14 @@ export default function Loading() {
 }
 ```
 
+Any other glyph spins the same way: `<Spinner icon={Loader} size={32} />` with `Loader` imported from `lucide-react`.
+
 The [chat kit](/code/chat)'s send button swaps its arrow for a Spinner while a reply is streaming.
 
 ## Properties
 
-<Field value="name" type="IconProps">
-  The Lucide icon to rotate. Defaults to `"LoaderCircle"`.
+<Field value="icon" type="IconComponent">
+  The Lucide glyph to rotate, imported from `lucide-react`. Defaults to `LoaderCircle`.
 </Field>
 
 <Field value="color" type="string">

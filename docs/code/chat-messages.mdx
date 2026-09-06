@@ -25,6 +25,7 @@ import {
   ChatTyping,
   useChat,
 } from "cherry-styled-components";
+import { Bot } from "lucide-react";
 
 function Transcript() {
   const { messages, loading } = useChat();
@@ -36,7 +37,7 @@ function Transcript() {
           key={message.id}
           $role={message.role}
           $avatar={
-            message.role === "assistant" ? <Avatar $icon="Bot" /> : undefined
+            message.role === "assistant" ? <Avatar $icon={Bot} /> : undefined
           }
         >
           {message.content}

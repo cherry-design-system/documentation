@@ -17,9 +17,9 @@ There are two main ways to install Cherry Styled Components into your project. Y
 <Tabs>
   <TabContent title="NPM">
 
-Install the Cherry library from npm along with its peer dependencies. Import components directly into your project. Perfect for smaller projects or rapid development. The library requires `react` and `react-dom` (^18 or ^19) and `styled-components` (^6) as peer dependencies.
+Install the Cherry library from npm along with its peer dependencies. Import components directly into your project. Perfect for smaller projects or rapid development. The library requires `react` and `react-dom` (^18 or ^19), `styled-components` (^6) and `lucide-react` (^1.31) as peer dependencies; icon glyphs are imported from `lucide-react` directly.
 
-<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components react react-dom styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components react react-dom styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components react react-dom styled-components" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components react react-dom styled-components lucide-react" }, { label: "pnpm", code: "pnpm add cherry-styled-components react react-dom styled-components lucide-react" }, { label: "yarn", code: "yarn add cherry-styled-components react react-dom styled-components lucide-react" }]} />
 
   </TabContent>
   <TabContent title="Repository">
@@ -49,7 +49,7 @@ export default function App({ children }) {
 
 When integrating into a Next.js app, first install the dependencies:
 
-<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components react react-dom styled-components" }, { label: "pnpm", code: "pnpm add cherry-styled-components react react-dom styled-components" }, { label: "yarn", code: "yarn add cherry-styled-components react react-dom styled-components" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm install cherry-styled-components react react-dom styled-components lucide-react" }, { label: "pnpm", code: "pnpm add cherry-styled-components react react-dom styled-components lucide-react" }, { label: "yarn", code: "yarn add cherry-styled-components react react-dom styled-components lucide-react" }]} />
 
 Next, enable the styled-components compiler in your `next.config.ts`. This keeps class names deterministic between server and client renders and avoids hydration mismatches:
 

@@ -24,24 +24,27 @@ For design guidelines and all interactive states, see the [Buttons](/buttons) de
 ```jsx
 import React from "react";
 import { Icon, IconButton } from "cherry-styled-components";
+import { Settings } from "lucide-react";
 
 export default function Page() {
   return (
     <IconButton aria-label="Settings">
-      <Icon name="Settings" />
+      <Icon icon={Settings} />
     </IconButton>
   );
 }
 ```
 
+Every glyph is imported from `lucide-react`; the snippets below assume `Pencil`, `Plus`, `Trash2` and `Eye` are imported the same way.
+
 With sizes:
 
 ```html
 <IconButton $size="small" aria-label="Edit">
-  <Icon name="Pencil" />
+  <Icon icon={Pencil} />
 </IconButton>
 <IconButton $size="big" aria-label="Add">
-  <Icon name="Plus" />
+  <Icon icon={Plus} />
 </IconButton>
 ```
 
@@ -49,7 +52,7 @@ For destructive actions, use the error variant:
 
 ```html
 <IconButton $error aria-label="Delete">
-  <Icon name="Trash2" />
+  <Icon icon={Trash2} />
 </IconButton>
 ```
 
@@ -60,7 +63,7 @@ subtle tint, and the state is exposed to assistive technology via
 
 ```html
 <IconButton $active={isPreviewOpen} aria-label="Toggle preview">
-  <Icon name="Eye" />
+  <Icon icon={Eye} />
 </IconButton>
 ```
 

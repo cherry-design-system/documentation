@@ -20,13 +20,14 @@ Initials are the first letters of the first two words of `$name`, uppercased: "A
 ```jsx
 import React from "react";
 import { Avatar } from "cherry-styled-components";
+import { Bot } from "lucide-react";
 
 export default function Page() {
   return (
     <>
       <Avatar $src="/ada.jpg" $alt="Ada Lovelace" />
       <Avatar $name="Ada Lovelace" />
-      <Avatar $icon="Bot" $alt="Assistant" $color="tertiary" />
+      <Avatar $icon={Bot} $alt="Assistant" $color="tertiary" />
     </>
   );
 }
@@ -52,8 +53,8 @@ In the [chat kit](/code/chat), pass it to a message's `$avatar` slot to attribut
   Full name or label. Shown as initials when there is no image.
 </Field>
 
-<Field value="$icon" type="IconProps">
-  Lucide icon name used when there is no image and no name. Defaults to `"User"`.
+<Field value="$icon" type="IconSource">
+  Fallback icon used when there is no image and no name: a Lucide component imported from `lucide-react`, or a rendered element. Defaults to `User`.
 </Field>
 
 <Field value="$color" type='"primary" | "secondary" | "tertiary" | "gray"'>

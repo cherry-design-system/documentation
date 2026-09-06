@@ -25,6 +25,7 @@ For design guidelines and all interactive states, see the [Inputs](/inputs) desi
 ```jsx
 import React from "react";
 import { Dropzone } from "cherry-styled-components";
+import { ImageUp } from "lucide-react";
 
 export default function Page() {
   return (
@@ -36,7 +37,7 @@ export default function Page() {
       $prompt="Drag images here"
       $browse="or click to browse"
       $hint="PNG, JPG or WebP · up to 5MB · max 5 files"
-      $icon="ImageUp"
+      $icon={ImageUp}
       onFilesChange={(files) => console.log(files)}
       onFilesRejected={(rejections) => console.warn(rejections)}
     />
@@ -64,8 +65,8 @@ The inline variant is a compact horizontal row with a transparent background for
   Optional smaller hint line for accepted types and limits.
 </Field>
 
-<Field value="$icon" type="IconProps">
-  Name of the Lucide icon shown in the rounded tile. `IconProps` is a string union of all Lucide icon names, not an object. Defaults to `"FileUp"`.
+<Field value="$icon" type="IconSource">
+  Icon shown in the rounded tile: a Lucide component imported from `lucide-react`, or a rendered element. Defaults to `FileUp`.
 </Field>
 
 <Field value="$inline" type="boolean">

@@ -1,7 +1,7 @@
 ---
 title: "Icon"
-description: "Cherry Icon component - renders any Lucide icon by name with color, size, and accessibility control."
-date: "2026-07-03"
+description: "Cherry Icon component - renders an imported Lucide glyph with color, size, and accessibility control, plus DynamicIcon for names chosen at runtime."
+date: "2026-09-06"
 category: "Components"
 categoryOrder: 2
 order: 14
@@ -10,31 +10,34 @@ section: "Code"
 ---
 # Icon
 
-The Icon component renders any icon from the [Lucide](https://lucide.dev) icon set by name. It is the same component Cherry uses internally (for example in Dropzone tiles and the Modal close button), and it powers the `$icon` props on components like Dropzone and AvatarDropzone.
+The Icon component renders one glyph from the [Lucide](https://lucide.dev) icon set: import it from `lucide-react` and pass it as `icon`. Only the glyphs you import end up in your bundle, and they render on the server. It is the same component Cherry uses internally (for example in Dropzone tiles and the Modal close button), and `renderIcon` powers the `$icon` props on components like Avatar, Dropzone and Callout.
+
+`lucide-react` is a peer dependency, so install it alongside Cherry (see [Installation](/code/installation)).
 
 For design guidelines and all interactive states, see the [Icons](/icons) design page.
 
 ```jsx
 import React from "react";
 import { Icon } from "cherry-styled-components";
+import { Cherry } from "lucide-react";
 
 export default function Page() {
-  return <Icon name="Cherry" size={24} />;
+  return <Icon icon={Cherry} size={24} />;
 }
 ```
 
 Icons are decorative by default: without an `aria-label` they render with `aria-hidden`, so screen readers skip them. Pass an `aria-label` to make an icon meaningful; it then gets `role="img"` and the label is announced:
 
 ```html
-<Icon name="TriangleAlert" color="#ef4444" aria-label="Warning" />
+<Icon icon={TriangleAlert} color="#ef4444" aria-label="Warning" />
 ```
 
-If the given name does not match a Lucide icon, the component renders nothing.
+Any component that accepts the same props (`size`, `color`, `className` and the aria attributes) works as `icon`, so a custom SVG component or a glyph from another set can stand in for a Lucide one.
 
 ## Properties
 
-<Field value="name" type="IconProps" required>
-  Name of the Lucide icon to render, e.g. `"Cherry"` or `"FileUp"`. The exported `IconProps` type is the string union of all Lucide icon names.
+<Field value="icon" type="IconComponent" required>
+  The icon component to render: an import from `lucide-react` such as `Cherry` or `FileUp`, or any component that accepts `IconGlyphProps`.
 </Field>
 
 <Field value="color" type="string">
@@ -51,6 +54,31 @@ If the given name does not match a Lucide icon, the component renders nothing.
 
 <Field value="aria-label" type="string">
   Accessible label. When set, the icon gets `role="img"` and is announced by screen readers; when omitted, the icon is `aria-hidden`.
+</Field>
+
+## Icon props on other components
+
+[Avatar](/code/avatar), [AvatarDropzone](/code/avatar-dropzone), [Dropzone](/code/dropzone), [Callout](/code/callout) and [ChatPanel](/code/chat-panel) (`$titleIcon`) take an `IconSource`: the imported component, which the component renders through Icon at the size it chooses, or a rendered element, used as given. The exported `renderIcon(source, props)` helper does the same for components of your own.
+
+```html
+<Avatar $icon={Bot} />
+<Callout $type="note" $icon={Lightbulb}>Tip: press Cmd+K.</Callout>
+```
+
+## DynamicIcon
+
+When the icon is only known at runtime, from CMS content or a user setting, import `DynamicIcon` from the `cherry-styled-components/dynamic` subpath. It takes a Lucide `name`, either the PascalCase export name (`"ArrowRight"`) or the kebab-case id (`"arrow-right"`), resolves it on demand through `lucide-react/dynamic`, and renders nothing for a name Lucide does not have. The glyph appears after hydration once its chunk has loaded, so it is never part of server-rendered HTML. It accepts the same `color`, `size`, `className` and `aria-label` props as Icon.
+
+```jsx
+import { DynamicIcon } from "cherry-styled-components/dynamic";
+
+<DynamicIcon name={post.icon} size={16} />;
+```
+
+Importing the subpath brings Lucide's dynamic import map into your app, one dynamic import per icon, which most bundlers turn into one small chunk per icon. Nothing on the main `cherry-styled-components` entry references it, so apps that never import the subpath never pay for it. Use Icon for every glyph the code already knows. In an `$icon` prop, pass it as an element: `$icon={<DynamicIcon name={name} />}`.
+
+<Field value="name" type="IconName" required>
+  The Lucide icon, by PascalCase export name or kebab-case id. An unknown name renders nothing.
 </Field>
 
 ## Internal usage

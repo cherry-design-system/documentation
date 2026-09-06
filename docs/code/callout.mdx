@@ -28,7 +28,7 @@ export default function Page() {
 }
 ```
 
-Each intent brings its own icon: `CircleAlert` for note, `Info` for info, `TriangleAlert` for warning, `OctagonAlert` for danger, and `Check` for success.
+Each intent brings its own icon: `CircleAlert` for note, `Info` for info, `TriangleAlert` for warning, `OctagonAlert` for danger, and `Check` for success. Override it with `$icon`, for example `<Callout $type="note" $icon={Lightbulb}>` with `Lightbulb` imported from `lucide-react`.
 
 ## Properties
 
@@ -36,8 +36,8 @@ Each intent brings its own icon: `CircleAlert` for note, `Info` for info, `Trian
   The semantic intent, controlling tint and default icon. Omit it for a neutral, untinted card.
 </Field>
 
-<Field value="$icon" type="IconProps">
-  Lucide icon name that overrides the intent's default icon, or supplies one for an untyped callout.
+<Field value="$icon" type="IconSource">
+  Overrides the intent's default icon, or supplies one for an untyped callout: a Lucide component imported from `lucide-react`, or a rendered element.
 </Field>
 
 <Field value="$hideIcon" type="boolean">

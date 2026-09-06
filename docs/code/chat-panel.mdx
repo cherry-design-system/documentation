@@ -51,8 +51,8 @@ Whenever the panel is modal, the kit takes care of the dialog contract: `role="d
   Header title. Defaults to `"AI Assistant"`. Pass `null` for no title; the header disappears entirely when there is no title, no actions, and no close button.
 </Field>
 
-<Field value="$titleIcon" type="IconProps | null">
-  Lucide icon before the title. Defaults to `"Sparkles"`; pass `null` for none.
+<Field value="$titleIcon" type="IconSource | null">
+  Icon before the title: a Lucide component imported from `lucide-react`, or a rendered element. Defaults to `Sparkles`; pass `null` for none.
 </Field>
 
 <Field value="$actions" type="React.ReactNode">
@@ -70,7 +70,7 @@ Whenever the panel is modal, the kit takes care of the dialog contract: `role="d
 The component also accepts all native `<div>` attributes and forwards its ref to the root element. The library exports the `ChatPanelVariant` type.
 
 <Callout type="note">
-  A reset action pairs naturally with the header: `$actions={<IconButton onClick={reset} aria-label="New chat"><Icon name="RotateCcw" /></IconButton>}` with `reset` from `useChat()`.
+  A reset action pairs naturally with the header: `$actions={<IconButton onClick={reset} aria-label="New chat"><Icon icon={RotateCcw} /></IconButton>}` with `reset` from `useChat()` and `RotateCcw` imported from `lucide-react`.
 </Callout>
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/chat-panel.tsx" icon="code" iconPosition="left">

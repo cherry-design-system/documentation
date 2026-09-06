@@ -68,7 +68,7 @@ Once installed, the assistant follows Cherry's rules instead of improvising:
 - **Every form control is a Cherry component** - `Input`, `Select`, `Textarea`, `Toggle`, `Range`, `Password`, `Dropzone`, `AvatarDropzone` (checkbox and radio are `<Input type="checkbox">` / `<Input type="radio">`).
 - **No hardcoded design values** - colors, spacing, radii, shadows, and font sizes come from the theme, with typography mixins for text and `mq()` for breakpoints.
 - **Styling props are `$`-prefixed** (`$variant`, `$size`, `$fullWidth`) and stay within their literal unions.
-- **The app is wrapped in a Cherry provider**, uses the layout primitives (`Container`, `Grid`, `Col`, `Flex`, `Box`, `MaxWidth`, `Space`), and renders icons with `<Icon name="..." />`.
+- **The app is wrapped in a Cherry provider**, uses the layout primitives (`Container`, `Grid`, `Col`, `Flex`, `Box`, `MaxWidth`, `Space`), and renders icons with `<Icon icon={Glyph} />`, glyphs imported from `lucide-react`.
 
 ## Always-current docs
 
