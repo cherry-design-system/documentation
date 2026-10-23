@@ -101,6 +101,16 @@ useLockBodyScroll(isLocked: boolean): void
 
 Locks are reference-counted, so overlapping overlays compose: the body is only released once the last holder lets go, and a pre-existing inline `overflow` style on `<body>` is restored afterwards.
 
+## useModalLayer
+
+Puts a full-page layer that is not a [Modal](/code/modal) (an outage screen, a sign-in wall) on the modal stack while `open` is true. An open modal fades away under it and comes back once it is gone. Returns whether another layer covers this one.
+
+```tsx
+useModalLayer(open: boolean): boolean
+```
+
+It is exported next to `Modal` (`src/lib/modal.tsx`), which uses the same stack.
+
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils" icon="code" iconPosition="left">
   View Source
 </Button>
