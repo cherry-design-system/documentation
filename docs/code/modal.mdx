@@ -1,6 +1,6 @@
 ---
 title: "Modal"
-description: "Cherry Modal component - an animated dialog rendered in a portal with Escape and outside-click dismissal."
+description: "Cherry Modal component - an animated dialog rendered in a portal with Escape and outside-click dismissal, stacking one card at a time."
 date: "2026-07-03"
 category: "Components"
 categoryOrder: 2
@@ -48,6 +48,37 @@ With a custom width for larger content:
 <Modal $isOpen={isOpen} $onClose={close} $width={800}>
   Content
 </Modal>
+```
+
+## Stacking
+
+Modals stack. When a modal opens over one that is already open (a "confirm with a code" step over a form, say), only one card shows at a time: the open modal's card sinks out first, then the new card rises in over the same backdrop. Closing the top modal plays it backwards, and the one underneath comes back.
+
+The modal underneath stays mounted while it is covered, so whatever was typed in it is still there when it returns. It also ignores Escape and clicks outside while covered: those belong to the modal on top.
+
+```jsx
+<Modal $isOpen={isFormOpen} $onClose={closeForm} $title="Invite a teammate">
+  <Button onClick={() => setIsCodeOpen(true)}>Send invite</Button>
+</Modal>
+<Modal $isOpen={isCodeOpen} $onClose={closeCode} $title="Enter your code">
+  Content
+</Modal>
+```
+
+To keep the previous behaviour for one modal, where it and the ones opened over it show at the same time, pass `$stack={false}`.
+
+### Full-page layers
+
+A full-page layer that is not a Modal (an outage screen, a sign-in wall) can join the same stack with `useModalLayer`. While `open` is true, any open modal fades away under it, and it comes back once the layer is gone. It returns whether another layer covers this one.
+
+```jsx
+"use client";
+import { useModalLayer } from "cherry-styled-components";
+
+function OutageScreen({ open }) {
+  useModalLayer(open);
+  return open ? <FullPageCover /> : null;
+}
 ```
 
 ## Restyling
@@ -99,6 +130,12 @@ To restyle the modal from your app, pass a `className` (or `style`). Both are ap
 <Field value="$hideCloseButton" type="boolean">
   Omits the built-in close button in the top-right corner. Escape and outside
   click still dismiss the modal.
+</Field>
+
+<Field value="$stack" type="boolean">
+  Whether the modal joins the modal stack. Defaults to `true`: a modal opened
+  over this one hides it until it closes. Pass `false` to let this modal and the
+  ones opened over it show at the same time.
 </Field>
 
 <Field value="className" type="string">

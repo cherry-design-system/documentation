@@ -45,6 +45,8 @@ When designing modal flows, account for the three ways users dismiss it (two whe
 2. **Escape** - Pressing the Escape key.
 3. **Outside click** - Clicking the backdrop.
 
+A flow that opens a modal from inside a modal (a confirmation step, a code check) shows one card at a time over a single backdrop: the first card sinks out, the second rises in, and closing the second brings the first back as it was. Design the second modal as a step of its own rather than a layer on top, since the two are never on screen together.
+
 ## Toast
 
 Toasts are pill-shaped notifications with a semantic status icon, a message, and a close button. They stack vertically and animate in and out.
