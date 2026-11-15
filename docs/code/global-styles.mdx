@@ -16,11 +16,11 @@ Global styles consist of a basic set of CSS rules designed to reset certain brow
 import { GlobalStyles } from "cherry-styled-components";
 ```
 
-`GlobalStyles` is a function that takes a `Theme` and returns a global-style component built with `createGlobalStyle`. Call it with your theme and render the result, as in this minimal wrapper. Unlike the real `CherryThemeProvider`, it skips the dark theme handling and toggle context:
+`GlobalStyles` is a function that takes a `Theme` and returns a global-style component built with `createGlobalStyle`. Each call builds a new component, so call it once per theme (the providers memoize it) and render the result, as in this minimal wrapper. Unlike the real `CherryThemeProvider`, it skips the dark theme handling and toggle context:
 
 ```tsx
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { GlobalStyles, Theme } from "cherry-styled-components";
 
@@ -31,7 +31,9 @@ function ManualThemeProvider({
   children: React.ReactNode;
   theme: Theme;
 }) {
-  const GlobalStylesComponent = GlobalStyles(theme);
+  // GlobalStyles builds a new component on each call: memoize it per theme,
+  // or every render remounts it and re-injects the global sheet.
+  const GlobalStylesComponent = useMemo(() => GlobalStyles(theme), [theme]);
 
   return (
     <StyledThemeProvider theme={theme}>
@@ -51,6 +53,7 @@ Adjust the global styles according to your project's requirements:
 <Code title="src/lib/utils/global.tsx" language="tsx" code={`"use client";
   import { createGlobalStyle } from "styled-components";
   import { Theme } from "./theme";
+  import { linkColor } from "./mixins";
 
   const GlobalStyles = (theme: Theme) => createGlobalStyle\`
   html,
@@ -102,7 +105,7 @@ Adjust the global styles according to your project's requirements:
   }
 
   a {
-    color: \${theme.isDark ? theme.colors.dark : theme.colors.primary};
+    color: \${linkColor(theme)};
   }
 
   ol,

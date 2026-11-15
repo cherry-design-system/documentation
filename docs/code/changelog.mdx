@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release notes for every cherry-styled-components version."
-date: "2026-09-06"
+date: "2026-11-15"
 category: "Getting Started"
 categoryOrder: 0
 order: 3
@@ -11,7 +11,75 @@ rss: true
 ---
 # Changelog
 
-Cherry Styled Components is currently at version `0.2.17`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Cherry Styled Components is currently at version `0.2.23`. The entries below are based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+<Update label="0.2.23" description="2026-11-15">
+
+<Badge color="green" size="sm">Added</Badge>
+
+- Optional mode tokens in the theme, for a theme whose colors are CSS variables (one theme object for both modes, the mode switched by a `dark` class on `<html>` or a `data-theme` attribute, so a switch repaints without re-rendering): `colors.accent` (hover and emphasis text), `colors.link` (links in `GlobalStyles`), `colors.onFilled` (the label on a filled control), `colors.primaryTintHover`, `colors.primaryTintDrop` and `colors.primaryTintActive` (the primary tints behind a hovered or dragged-over [Dropzone](/code/dropzone) and [AvatarDropzone](/code/avatar-dropzone) and an active [IconButton](/code/icon-button)) and `shadows.toast`. Each replaces a `theme.isDark` choice and falls back to it when unset, so themes without them render exactly as before. See [Theme](/code/theme)
+- `accentColor`, `linkColor`, `primaryTintColor` and `darkPrimaryTintRule` mixins, for the same choices in your own components. See [Mixins](/code/mixins)
+
+<Badge color="blue" size="sm">Changed</Badge>
+
+- `isDark` is optional in the `Theme` type. Absent reads as light
+- `darkFilledTextRule` returns an empty rule when the theme sets `onFilled`, whose value already follows the mode; the `:root.dark` tint rules of the dropzones, the active `IconButton` and the [ThemeToggle](/code/theme-toggle) glyph are skipped the same way when the theme sets their token
+- [Callout](/code/callout) also follows a `data-theme="dark"` or `data-theme="light"` ancestor, so a section forced into one mode keeps that mode's tint
+
+<Badge color="orange" size="sm">Fixed</Badge>
+
+- `CherryThemeProvider` and `ClientThemeProvider` build their global styles once per theme instead of on every render, which re-injected the global sheet on each update. See [Global Styles](/code/global-styles)
+
+</Update>
+
+<Update label="0.2.22" description="2026-11-14">
+
+<Badge color="green" size="sm">Added</Badge>
+
+- An optional `primaryFill` color in the theme: the fill of the solid primary surfaces (the primary [Button](/code/button), the sent [ChatMessage](/code/chat-messages) bubble, the primary [Avatar](/code/avatar)), whose label is `onPrimary`. Set it when `primary` is too bright to carry a label but right for accents: the fills take the deeper shade and links, rings and outlines keep `primary`. The filled primary button's hover is a 10% shade of it. Themes without `primaryFill` render exactly as before. See [Theme](/code/theme)
+- `primaryFillColor` and `primaryFillHoverColor` mixins, for your own primary-filled surfaces. See [Mixins](/code/mixins)
+
+</Update>
+
+<Update label="0.2.21" description="2026-11-14">
+
+<Badge color="green" size="sm">Added</Badge>
+
+- An optional `onPrimary` color in the theme: the label color for text on a `primary` fill. Set it when neither `light` nor `dark` reads on the theme's primary, such as a bright dark-mode primary that light text cannot sit on. See [Theme](/code/theme)
+- `filledTextColor` and `darkFilledTextRule` take an optional fill (`"primary"` or `"other"`, the default). On a primary fill they return the theme's `onPrimary` when it has one (in `darkFilledTextRule`, only for a dark theme object, which knows its dark value); otherwise the palette's contrasting end, as before. See [Mixins](/code/mixins)
+
+<Badge color="orange" size="sm">Fixed</Badge>
+
+- The primary [Avatar](/code/avatar), the sent [ChatMessage](/code/chat-messages) bubble and the primary [Button](/code/button) use the theme's `onPrimary` when it sets one. A theme whose dark-mode primary is a bright color (an orange, a yellow) showed light initials and text on it at about 2.5:1; it can now give a dark label that reads. Themes without `onPrimary` render exactly as before
+
+</Update>
+
+<Update label="0.2.20" description="2026-10-23">
+
+<Badge color="green" size="sm">Added</Badge>
+
+- [Modal](/code/modal)s stack. A modal opened over an open one (a "confirm with a code" step over a form, say) no longer shows on top of it: the open modal's card sinks out first, then the new card rises in over the same backdrop, and closing the top one plays it backwards. The modal underneath stays mounted while it is covered, so whatever was typed in it is still there when it comes back, and it ignores <kbd>Esc</kbd> and clicks outside, which belong to the modal on top. Before, both cards showed at once, and a click inside the top modal counted as a click outside the one under it, which closed it
+- `$stack` on `Modal` (default `true`). Pass `$stack={false}` to keep the previous behaviour for that modal: it neither hides the modals under it nor steps aside for the ones opened over it
+- `useModalLayer(open)` puts a full-page layer that is not a `Modal` (an outage screen, a sign-in wall) on the same stack while `open`: an open modal fades away under it and comes back once it is gone. Returns whether another layer covers it. See [Hooks](/code/hooks)
+
+</Update>
+
+<Update label="0.2.19" description="2026-10-22">
+
+<Badge color="orange" size="sm">Fixed</Badge>
+
+- [IconButton](/code/icon-button) keeps its circle when a parent rule sets the width or height of the buttons inside it. A container with `& button { width: auto }` (a common way to stretch or reset an action row) overrode the fixed size and collapsed the button into a narrow oval around its glyph; `width: 100%` stretched it into a pill. The box is now pinned with matching `min-`/`max-` width and height, so only the `$size` prop decides it
+
+</Update>
+
+<Update label="0.2.18" description="2026-10-06">
+
+<Badge color="orange" size="sm">Fixed</Badge>
+
+- A [Toggle](/code/toggle) that is both `disabled` and checked is grayed out like a disabled unchecked one. The checked fill rule outranked the disabled rule, so a locked-on switch (a "Necessary cookies, always on" row, for example) kept its primary fill under a gray knob and border and looked half broken. The disabled styles now match on `:disabled`, which also covers a toggle inside a disabled `<fieldset>`, and explicitly win over the checked state
+- The demo's Toggle row shows the disabled off and disabled on states, so the case is visible at every size
+
+</Update>
 
 <Update label="0.2.17" description="2026-09-06">
 

@@ -41,10 +41,11 @@ With success and error states:
 <Toggle $error />
 ```
 
-Disabled toggles get built-in styling with a `not-allowed` cursor and gray colors:
+Disabled toggles get built-in styling with a `not-allowed` cursor and gray colors. A toggle that is disabled and checked (a locked-on switch, such as a "Necessary cookies, always on" row) is grayed out the same way, and so is a toggle inside a disabled `<fieldset>`:
 
 ```html
 <Toggle disabled />
+<Toggle disabled defaultChecked />
 ```
 
 The underlying input always renders with `role="switch"`, so assistive technologies announce it as a switch.

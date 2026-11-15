@@ -35,7 +35,7 @@ Cherry exports two ready-made theme objects to start from: `theme` (light) and `
 
 ## Theme Object
 
-The theme object is type safe and uses TypeScript. The `Theme` interface has eight keys: the seven sections below plus an `isDark` boolean that marks a theme as a dark variant:
+The theme object is type safe and uses TypeScript. The `Theme` interface has eight keys: the seven sections below plus an optional `isDark` boolean that marks a theme as a dark variant (absent reads as light):
 
 <Accordion title="1. Breakpoints">
 
@@ -135,6 +135,27 @@ export const colorsDark: Colors = {
 };
 ```
 
+`Colors` also takes optional keys, unset in both built-in themes. Two of them are for a primary that cannot carry a label:
+
+- `onPrimary`: the label color on a primary fill (the primary [Button](/code/button), the sent [ChatMessage](/code/chat-messages) bubble, the primary [Avatar](/code/avatar)). Set it when neither `light` nor `dark` reads on your primary, such as a bright dark-mode primary. Unset, the label takes the palette's contrasting end.
+- `primaryFill`: the fill of those same solid primary surfaces, whose label is `onPrimary`. Set it when `primary` is too bright to carry a label but right for accents: the fills take the deeper shade, and links, rings and outlines keep `primary`. The filled primary button's hover is a 10% shade of it. Unset, the fills use `primary`.
+
+```tsx
+import { themeDark as baseDark, type Theme } from "cherry-styled-components";
+
+export const themeDark: Theme = {
+  ...baseDark,
+  colors: {
+    ...baseDark.colors,
+    primary: "#ff7a1a", // accents: links, rings, accent text
+    primaryFill: "#ba440d", // buttons, sent bubbles, avatars
+    onPrimary: "#faf8f6", // the label on primaryFill
+  },
+};
+```
+
+The rest are mode tokens, covered in [Theming through CSS variables](#theming-through-css-variables) below.
+
 </Accordion>
 
 <Accordion title="4. Shadows">
@@ -148,6 +169,8 @@ export const shadows: Shadows = {
   xl: "0px 24px 32px 0px rgba(18, 18, 18, 0.24), 0px 2px 3px 0px rgba(39, 41, 45, 0.12)",
 };
 ```
+
+`Shadows` also takes an optional `toast` key, the [Toast](/code/toast)'s shadow. Unset, the toast uses `xs` in light mode and `sm` in dark mode.
 
 A dark counterpart, `shadowsDark`, is also exported and used by `themeDark`. It uses white shadows at the same offsets and opacities so elevation stays visible on dark surfaces:
 
@@ -277,6 +300,24 @@ const Card = styled.div`
 <iframe className="dark-only" src="https://demo.cherry.al/preview/shadows?theme=dark" title="Shadow elevations" loading="lazy" style={{ width: "100%", height: "500px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
 See the [Shadows](/shadows) foundation page for the full list of values.
+
+## Theming through CSS variables
+
+A theme can hold `var(--token)` references instead of values: one theme object for both modes, the light and dark values in CSS custom properties, and the mode switched by a `dark` class on `<html>` or a `data-theme` attribute. Switching the mode then repaints without re-rendering React. Such a theme cannot answer `isDark`, so it leaves it out and sets the optional mode tokens to variables of its own:
+
+| Token | Used for | Unset (light / dark) |
+| --- | --- | --- |
+| `colors.accent` | Hover and emphasis text (Prose links on hover, ChatSources, ChatLauncher, the ThemeToggle glyph on hover) | `primaryDark` / `primaryLight` |
+| `colors.link` | Links in `GlobalStyles` | `primary` / `dark` |
+| `colors.onFilled` | The label on a filled control that is not primary (a secondary, tertiary or error Button, a colored Avatar), and on a primary fill when there is no `onPrimary` | `light` / `dark` |
+| `colors.primaryTintHover` | The tint behind a hovered [Dropzone](/code/dropzone) or [AvatarDropzone](/code/avatar-dropzone) | `primary` at 4% / 10% |
+| `colors.primaryTintDrop` | The tint behind a Dropzone or AvatarDropzone while a file is dragged over it | `primary` at 5% / 12% |
+| `colors.primaryTintActive` | The tint behind an active (`$active`) [IconButton](/code/icon-button) | `primary` at 10% / 18% |
+| `shadows.toast` | The [Toast](/code/toast)'s shadow | `xs` / `sm` |
+
+Each token replaces a `theme.isDark` choice and falls back to it when unset, so a pair of light and dark theme objects can ignore them and renders exactly as before. When a theme sets a token, Cherry also skips the matching `:root.dark` fallback rule, since the token already follows the mode. The [mixins](/code/mixins#mode-token-helpers) `accentColor`, `linkColor` and `primaryTintColor` make the same choices for your own components.
+
+The [Callout](/code/callout)'s alert tints are fixed colors, not tokens, so under such a theme it follows the `dark` class on `<html>` and the nearest `data-theme="dark"` or `data-theme="light"` ancestor.
 
 ## Extending the Theme
 

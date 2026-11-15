@@ -85,7 +85,9 @@ subtle tint, and the state is exposed to assistive technology via
 </Field>
 
 <Field value="$size" type='"default" | "big" | "small"'>
-  Size of the button: 24px (small), 28px (default), or 32px (big).
+  Size of the button: 24px (small), 28px (default), or 32px (big). The box is
+  pinned with matching `min-`/`max-` width and height, so a parent rule such as
+  `& button { width: auto }` cannot stretch or collapse the circle.
 </Field>
 
 <Field value="$error" type="boolean">

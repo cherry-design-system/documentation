@@ -181,6 +181,8 @@ If your app ships its own global styles, pass `$globalStyles={false}` and render
 
 In a client-only app there is no server render to flash, so either provider works. To use `ClientThemeProvider`, resolve the initial theme synchronously (cookie, then `localStorage`, then `matchMedia`) before rendering and pass it as `$initial`.
 
+A theme whose colors are CSS variables can serve both modes from one object, switched by the `dark` class on `<html>` or a `data-theme` attribute, so a switch repaints without re-rendering. It leaves `isDark` out and sets the optional mode tokens instead; see [Theming through CSS variables](/code/theme#theming-through-css-variables).
+
 <Callout type="note">
   Both providers expose `setTheme` and `toggleTheme` through the same
   `ThemeContext`, and both work with the `ThemeToggle` component. Existing apps
