@@ -13,16 +13,16 @@ section: "Code"
 Global styles consist of a basic set of CSS rules designed to reset certain browser behaviors. Both `CherryThemeProvider` and `ClientThemeProvider` inject the Cherry global styles automatically. If your app ships its own global styles, pass `$globalStyles={false}` to `ClientThemeProvider` and render yours as a child instead. Outside the providers, include them manually:
 
 ```tsx
-import { GlobalStyles } from "cherry-styled-components";
+import { ThemedGlobalStyles } from "cherry-styled-components";
 ```
 
-`GlobalStyles` is a function that takes a `Theme` and returns a global-style component built with `createGlobalStyle`. Each call builds a new component, so call it once per theme (the providers memoize it) and render the result, as in this minimal wrapper. Unlike the real `CherryThemeProvider`, it skips the dark theme handling and toggle context:
+`ThemedGlobalStyles` is a global-style component that reads the active theme from the styled-components `ThemeProvider`, so render it inside one. It is created once, so switching themes restyles it without building a new component. This minimal wrapper is what the providers do; unlike the real `CherryThemeProvider`, it skips the dark theme handling and toggle context:
 
 ```tsx
 "use client";
-import React, { useMemo } from "react";
+import React from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { GlobalStyles, Theme } from "cherry-styled-components";
+import { ThemedGlobalStyles, Theme } from "cherry-styled-components";
 
 function ManualThemeProvider({
   children,
@@ -31,13 +31,9 @@ function ManualThemeProvider({
   children: React.ReactNode;
   theme: Theme;
 }) {
-  // GlobalStyles builds a new component on each call: memoize it per theme,
-  // or every render remounts it and re-injects the global sheet.
-  const GlobalStylesComponent = useMemo(() => GlobalStyles(theme), [theme]);
-
   return (
     <StyledThemeProvider theme={theme}>
-      <GlobalStylesComponent />
+      <ThemedGlobalStyles />
       {children}
     </StyledThemeProvider>
   );
@@ -46,16 +42,24 @@ function ManualThemeProvider({
 export { ManualThemeProvider };
 ```
 
+`GlobalStyles(theme)` is still exported. It takes a `Theme` and returns a new global-style component built with `createGlobalStyle` for that one theme. Call it once at module level, never during render or inside `useMemo`: in development, styled-components calls a React hook whenever a styled component is created, and React throws "Rendered fewer hooks than expected" when that happens inside another hook.
+
+```tsx
+import { GlobalStyles, theme } from "cherry-styled-components";
+
+const LightGlobalStyles = GlobalStyles(theme);
+```
+
 ## The Actual Global Styles
 
 Adjust the global styles according to your project's requirements:
 
 <Code title="src/lib/utils/global.tsx" language="tsx" code={`"use client";
-  import { createGlobalStyle } from "styled-components";
+  import { createGlobalStyle, css } from "styled-components";
   import { Theme } from "./theme";
   import { linkColor } from "./mixins";
 
-  const GlobalStyles = (theme: Theme) => createGlobalStyle\`
+  const globalStyles = (theme: Theme) => css\`
   html,
   body {
     margin: 0;
@@ -145,7 +149,17 @@ Adjust the global styles according to your project's requirements:
   }
   \`;
 
-  export { GlobalStyles };`} />
+  // One fixed theme. Call once at module level, never during render.
+  const GlobalStyles = (theme: Theme) => createGlobalStyle\`
+    \${globalStyles(theme)}
+  \`;
+
+  // Reads the active theme from the ThemeProvider; what the providers render.
+  const ThemedGlobalStyles = createGlobalStyle\`
+    \${({ theme }) => globalStyles(theme as Theme)}
+  \`;
+
+  export { GlobalStyles, ThemedGlobalStyles };`} />
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils/global.tsx" icon="code" iconPosition="left">
   View Source

@@ -1,7 +1,7 @@
 ---
 title: "Toast"
-description: "Cherry Toast component - provider, hook, and animated toast stack with semantic colors and auto-hide."
-date: "2026-07-02"
+description: "Cherry Toast component - provider, hook, and a stacked toast deck with status tiles, actions, and promise toasts."
+date: "2026-11-18"
 category: "Components"
 categoryOrder: 2
 order: 11
@@ -13,7 +13,9 @@ section: "Code"
 <iframe className="light-only" src="https://demo.cherry.al/preview/toast?theme=light" title="Toast notifications" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/toast?theme=dark" title="Toast notifications" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-Cherry's toast system shows short, animated notifications in a fixed stack. It consists of three parts: a provider that holds the state, a component that renders the stack, and a hook to fire notifications from anywhere in the tree.
+Cherry's toast system shows short notifications as cards in a stack. It consists of three parts: a provider that holds the state, a component that renders the stack, and a hook to fire notifications from anywhere in the tree.
+
+Each toast is a card with a colored icon tile, a bold title, an optional description line, an optional action button, and a close badge on the corner. Several toasts collapse into a deck: the newest sits in front and older ones peek out behind it. Hovering, focusing, or tapping the stack fans it out.
 
 For design guidelines and all interactive states, see the [Overlays](/overlays) design page.
 
@@ -37,7 +39,7 @@ export default function App({ children }) {
 }
 ```
 
-Fire notifications with the `useToastNotifications` hook:
+Fire notifications with the `useToastNotifications` hook. The first argument is the title; everything else is optional:
 
 ```jsx
 "use client";
@@ -50,8 +52,9 @@ export default function SaveButton() {
   return (
     <Button
       onClick={() =>
-        addNotification("Changes saved successfully.", {
+        addNotification("Changes saved", {
           color: "success",
+          description: "Your profile is up to date.",
           autoHide: 4000,
         })
       }
@@ -62,33 +65,125 @@ export default function SaveButton() {
 }
 ```
 
-A toast without `autoHide` stays until the user dismisses it with the built-in close button. Either way, once a toast has animated out it is removed from the stack entirely. The stack is an `aria-live="polite"` region, so screen readers announce new toasts as they appear.
+## Actions
+
+Give a toast an `action` to render a small button next to the text. Clicking it runs `onClick`, then dismisses the toast:
+
+```jsx
+addNotification("Message archived", {
+  color: "default",
+  autoHide: 5000,
+  action: { label: "Undo", onClick: () => restoreMessage(id) },
+});
+```
+
+The `default` color has no icon tile, which suits plain confirmations like this one.
+
+## Promise toasts
+
+`promiseNotification` shows a loading toast with a spinner, then turns the same toast into a success or error toast when the promise settles. The icon swaps in place, so the stack does not jump:
+
+```jsx
+const { promiseNotification } = useToastNotifications();
+
+promiseNotification(publishPost(), {
+  loading: "Publishing your post",
+  success: (post) => `Published "${post.title}"`,
+  error: "Couldn't publish",
+}).catch(() => {});
+```
+
+`success` and `error` can be plain values or functions of the result or the error. The settled toast hides itself after 4 seconds unless you pass `autoHide`. The returned promise is your task's own promise, so handle its rejection as you would without the toast.
+
+## Behavior
+
+- **Deck.** The newest toast sits in front; up to `$visibleToasts` (default 3) are shown, the older ones peeking out behind it, smaller, with their content hidden. Pass `$expand` to keep every toast fanned out instead.
+- **Fan out.** Hovering, focusing, or tapping the stack spreads the toasts out. While the stack is in use, and while the browser tab is hidden, auto-hide timers pause and pick up where they left off.
+- **Dismiss.** The close badge appears on hover or focus (always on touch screens). A toast can also be swiped toward the edge it is anchored to, or sideways, and Escape dismisses the focused toast. Pass `dismissible: false` to remove the badge and swipe.
+- **Persistence.** A toast without `autoHide` stays until it is dismissed; `loading` toasts always stay until updated or dismissed. Once a toast has animated out it is removed from the stack entirely.
+- **Accessibility.** The stack is an `aria-live="polite"` region labeled "Notifications", so screen readers announce new toasts and in-place updates. All motion turns off under `prefers-reduced-motion`.
 
 ## Properties
 
-`useToastNotifications` returns `{ notifications, addNotification, removeNotification }`. The `notifications` array holds the toasts currently in the stack; each entry carries a unique numeric `id` plus its `text`, resolved `color`, and `autoHide` value.
+`useToastNotifications` returns `{ notifications, addNotification, updateNotification, dismissNotification, removeNotification, promiseNotification }`. The `notifications` array holds the toasts currently in the stack; each entry carries a unique numeric `id` plus its `text`, `color`, `autoHide`, `description`, `action`, `dismissible`, and an `exiting` flag while it animates out.
 
 ### addNotification
 
-<Field value="text" type="string" required>
-  The message to display.
+Adds a toast and returns its `id`.
+
+<Field value="text" type="ReactNode" required>
+  The title of the toast.
 </Field>
 
-<Field value="config.color" type='"info" | "success" | "error" | "warning"'>
-  Semantic color for the status icon. Defaults to `"info"`.
+<Field value="config.color" type='"default" | "info" | "success" | "error" | "warning" | "loading"'>
+  The status tile. `default` has no tile and `loading` shows a spinner.
+  Defaults to `"info"`.
+</Field>
+
+<Field value="config.description" type="ReactNode">
+  A second, smaller line under the title.
+</Field>
+
+<Field value="config.action" type="{ label: string; onClick: () => void }">
+  Renders a small button that runs `onClick`, then dismisses the toast.
 </Field>
 
 <Field value="config.autoHide" type="number">
-  Milliseconds before the toast hides itself. Omit to keep it until dismissed.
+  Milliseconds before the toast hides itself. Omit to keep it until
+  dismissed. Ignored for `loading`.
+</Field>
+
+<Field value="config.dismissible" type="boolean">
+  Shows the close badge and allows swiping the toast away. Defaults to `true`.
+</Field>
+
+<Field value="config.id" type="number">
+  Reuse the `id` of a toast in the stack to replace it in place instead of
+  adding a new one.
+</Field>
+
+### updateNotification
+
+Changes a toast that is still on screen, keeping its place in the stack. Toasts that were dismissed are left alone.
+
+<Field value="id" type="number" required>
+  The `id` returned by `addNotification`.
+</Field>
+
+<Field value="update" type="{ text?, color?, description?, action?, autoHide?, dismissible? }" required>
+  The fields to change. Changing `autoHide` restarts its timer.
+</Field>
+
+### dismissNotification
+
+Removes a toast with its exit animation, the same way the close badge does.
+
+<Field value="id" type="number" required>
+  The `id` of the toast to dismiss.
+</Field>
+
+### promiseNotification
+
+<Field value="task" type="Promise<T> | (() => Promise<T>)" required>
+  The work to track.
+</Field>
+
+<Field value="messages" type="{ loading, success, error }" required>
+  Titles for each phase. `success` may be a function of the result and
+  `error` a function of the error.
+</Field>
+
+<Field value="config" type="ToastConfig">
+  Any other toast options, such as `description` or `autoHide` for the
+  settled toast (default 4000).
 </Field>
 
 ### removeNotification
 
-Removes a toast from state immediately, skipping the exit animation. You rarely need this yourself: the close button and `autoHide` already remove toasts after their exit animation.
+Removes a toast from state immediately, skipping the exit animation. Prefer `dismissNotification`; this is for clearing state without motion.
 
 <Field value="id" type="number" required>
-  The `id` of the toast to remove, as found on the entries of the
-  `notifications` array.
+  The `id` of the toast to remove.
 </Field>
 
 ### ToastNotifications
@@ -101,9 +196,17 @@ Removes a toast from state immediately, skipping the exit animation. You rarely 
   Anchors the stack to the bottom of the viewport instead of the top.
 </Field>
 
+<Field value="$expand" type="boolean">
+  Keeps every toast fanned out instead of collapsing them into a deck.
+</Field>
+
+<Field value="$visibleToasts" type="number">
+  How many toasts show at once; older ones wait behind. Defaults to `3`.
+</Field>
+
 ## Exports
 
-The library also exports the types `ToastColor` (`"info" | "success" | "error" | "warning"`), `ToastAlign` (`"center" | "left" | "right"`), and `ToastConfig` (`{ color?, autoHide? }`; `addNotification` defaults `color` to `"info"` and `autoHide` to `0`, which keeps the toast until dismissed). For advanced use it exposes `ToastNotificationsContext`, the context behind the hook, and the styled primitives `StyledNotifications` and `StyledNotificationItem`.
+The library also exports the types `ToastColor`, `ToastAlign` (`"center" | "left" | "right"`), `ToastConfig`, `ToastUpdate`, `ToastAction`, `ToastPromiseMessages`, and `ToastNotification` (an entry of the `notifications` array). For advanced use it exposes `ToastNotificationsContext`, the context behind the hook, and the styled primitives `StyledNotifications` and `StyledNotificationItem`.
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/toast.tsx" icon="code" iconPosition="left">
   View Source

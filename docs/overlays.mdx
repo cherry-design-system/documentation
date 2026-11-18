@@ -13,7 +13,7 @@ Overlays sit on top of the page to demand attention or give feedback. Cherry pro
 
 ## States
 
-Both overlays are dismissed through an icon button: the close button on the Modal and the dismiss button on the Toast. When customizing your designs, consider all the different states these controls can have:
+Both overlays are dismissed through an icon button: the close button on the Modal and the close badge on the Toast. When customizing your designs, consider all the different states these controls can have:
 
 1. **Normal** - The default appearance of the control.
 2. **Hover** `:hover` - When the user hovers the cursor over the control.
@@ -49,28 +49,32 @@ A flow that opens a modal from inside a modal (a confirmation step, a code check
 
 ## Toast
 
-Toasts are pill-shaped notifications with a semantic status icon, a message, and a close button. They stack vertically and animate in and out.
+Toasts are cards with a colored icon tile, a bold title, an optional description, an optional action button, and a close badge on the corner. The tile's glyph draws itself in once the card lands. Several toasts collapse into a deck: the newest sits in front and up to two older ones peek out behind it, smaller, with their content hidden. Hovering, focusing, or tapping the stack fans the toasts out.
 
 <iframe className="light-only" src="https://demo.cherry.al/preview/toast?theme=light" title="Toast notifications" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 <iframe className="dark-only" src="https://demo.cherry.al/preview/toast?theme=dark" title="Toast notifications" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
 
-| Color   | Icon           | Use for                    |
-| ------- | -------------- | -------------------------- |
-| Info    | Info           | Neutral information        |
-| Success | Circle check   | Completed actions          |
-| Error   | Circle x       | Failures                   |
-| Warning | Triangle alert | Situations needing caution |
+| Color   | Tile                  | Use for                                     |
+| ------- | --------------------- | ------------------------------------------- |
+| Default | None                  | Plain confirmations, often with an action   |
+| Info    | Info color, "i"       | Neutral information                         |
+| Success | Success color, check  | Completed actions                           |
+| Error   | Error color, cross    | Failures                                    |
+| Warning | Warning color, "!"    | Situations needing caution                  |
+| Loading | Gray, spinner         | Work in progress; turns into success/error  |
 
 By default the stack is anchored to the top of the viewport and centered horizontally. It can be aligned left, center, or right (`$align`) and anchored to the bottom instead (`$bottom`); toasts slide in from the edge the stack is anchored to. When no color is given, a toast defaults to Info.
 
-Toasts are persistent by default: auto-hide (`autoHide`) is a duration in milliseconds that defaults to 0, meaning off, so a toast stays on screen until the user dismisses it. Pass a duration to have the toast dismiss itself.
+Toasts are persistent by default: auto-hide (`autoHide`) is a duration in milliseconds that defaults to 0, meaning off, so a toast stays on screen until the user dismisses it. Pass a duration to have the toast dismiss itself. Auto-hide pauses while the stack is fanned out or the browser tab is hidden, so a toast never disappears while someone is reading it.
+
+Keep the action to one short verb (Undo, Retry, View). The close badge shows on hover or focus, and is always visible on touch screens, where toasts can also be swiped away.
 
 <Callout type="warning">
   Reserve persistent toasts (without auto-hide) for messages that require the
   user's acknowledgment. Transient confirmations should dismiss themselves.
 </Callout>
 
-In code, the Modal is controlled through its `$isOpen` and `$onClose` props. Toast is context-driven: wrap the app in `ToastNotificationsProvider`, render the `ToastNotifications` outlet once, and push messages with `useToastNotifications().addNotification`.
+In code, the Modal is controlled through its `$isOpen` and `$onClose` props. Toast is context-driven: wrap the app in `ToastNotificationsProvider`, render the `ToastNotifications` outlet once, and push messages with `useToastNotifications().addNotification` (or `promiseNotification` for loading states).
 
 <Callout type="info">
   Ready to build? See the [Modal](/code/modal) and [Toast](/code/toast)
