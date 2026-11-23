@@ -1,7 +1,7 @@
 ---
 title: "Mixins"
 description: "Cherry's reusable CSS mixins: interaction affordances, resets, and form element helpers."
-date: "2026-08-03"
+date: "2026-11-23"
 category: "Utilities"
 categoryOrder: 5
 order: 0
@@ -66,7 +66,7 @@ const DangerZone = styled.div`
 
 They return a native CSS `color-mix(in srgb, ...)` string rather than a computed value, which means the browser does the math at paint time. Two consequences worth knowing:
 
-- The input can be any valid CSS color, including a `var(--token)` reference. If you white-label Cherry through CSS custom properties, the helpers keep working, where a JavaScript color library would choke on the unresolved `var()`.
+- The input can be any valid CSS color, including a `var(--token)` reference. Under Cherry's providers every theme color is one (`theme.colors.error` is `var(--cherry-color-error)`), so these helpers are the way to derive a shade from a theme color: a JavaScript color library would choke on the unresolved `var()`. For a real value in JavaScript, use [`useResolvedTheme()`](/code/dark-mode#real-color-values).
 - The output is a CSS string, not a hex value. Interpolate it into a style declaration; do not try to parse it or feed it to something expecting `#rrggbb`.
 
 <Callout type="info">
@@ -78,14 +78,12 @@ They return a native CSS `color-mix(in srgb, ...)` string rather than a computed
 Helpers for a brand-colored fill and the text sitting on it, extracted from the filled Button and shared by Avatar and the chat kit's user bubble:
 
 - `primaryFillColor(theme)` - The solid primary fill: the theme's `primaryFill`, else `primary`.
-- `primaryFillHoverColor(theme)` - That fill on hover: a 10% shade of `primaryFill`, else `primaryDark`.
-- `filledTextColor(theme, fill?)` - The label color on a fill. `fill` is `"primary"` or `"other"` (the default). On a primary fill it returns the theme's `onPrimary` when it sets one; otherwise the theme's `onFilled`, else the palette's contrasting end: `colors.light` in light mode, `colors.dark` in dark mode.
-- `darkFilledTextRule(theme, fill?)` - The same choice restated as a rule scoped to a `dark` class on `<html>`, which is what apps resolving the mode in CSS key off before hydration can swap the theme object. Additive: with an already-dark theme object both paths resolve to the same color. On a primary fill, only a dark theme object's `onPrimary` applies; a light one cannot know the dark value, so it keeps the palette's `dark`. Empty when the theme sets `onFilled`, whose value already follows the mode. Interpolate it alongside `filledTextColor`.
+- `primaryFillHoverColor(theme)` - That fill on hover: the theme's `primaryFillHover`, else a 10% shade of `primaryFill`, else `primaryDark`.
+- `filledTextColor(theme, fill?)` - The label color on a fill. `fill` is `"primary"` or `"other"` (the default). On a primary fill it returns the theme's `onPrimary` when it sets one; otherwise the theme's `onFilled`, which follows the mode: `colors.light` in light mode and `colors.dark` in dark mode unless the theme overrides it.
 
 ```tsx
 import styled from "styled-components";
 import {
-  darkFilledTextRule,
   filledTextColor,
   primaryFillColor,
   primaryFillHoverColor,
@@ -94,7 +92,6 @@ import {
 const Badge = styled.span`
   background: ${({ theme }) => primaryFillColor(theme)};
   color: ${({ theme }) => filledTextColor(theme, "primary")};
-  ${({ theme }) => darkFilledTextRule(theme, "primary")};
 
   &:hover {
     background: ${({ theme }) => primaryFillHoverColor(theme)};
@@ -102,22 +99,22 @@ const Badge = styled.span`
 `;
 ```
 
-Fill a labelled primary surface with these instead of `theme.colors.primary` and `theme.colors.light`, so a theme's `primaryFill` and `onPrimary` apply (see [Theme](/code/theme)). Fills with no label on them (dots, bars, rings) stay on `primary`.
+Fill a labelled primary surface with these instead of `theme.colors.primary` and `theme.colors.light`, so a theme's `primaryFill`, `primaryFillHover` and `onPrimary` apply (see [Theme](/code/theme)). Fills with no label on them (dots, bars, rings) stay on `primary`.
 
 ## Mode token helpers
 
-Helpers for the choices a theme's optional mode tokens make, so your own components follow a theme whose colors are CSS variables (see [Theming through CSS variables](/code/theme#theming-through-css-variables)). Each returns the theme's token when it sets one, else the `isDark` choice it replaces:
+Helpers that read the theme's mode tokens, so your own components make the same choices as Cherry's (see [Mode tokens](/code/theme#mode-tokens)). The providers always fill these tokens in, per mode, so each helper returns a CSS variable that follows the mode:
 
-- `accentColor(theme)` - Hover and emphasis text: the theme's `accent`, else `primaryDark` in light mode and `primaryLight` in dark mode.
-- `linkColor(theme)` - The link color: the theme's `link`, else `primary` in light mode and `dark` in dark mode.
-- `primaryTintColor(theme, kind)` - The primary tint behind a surface, `kind` being `"hover"`, `"drop"` or `"active"`: the theme's `primaryTintHover`, `primaryTintDrop` or `primaryTintActive`, else `primary` faded to the mode's amount.
-- `darkPrimaryTintRule(theme, kind)` - That tint's dark value as a rule scoped to a `dark` class on `<html>`, for apps that resolve the mode in CSS before hydration. Empty when the theme sets the token. Interpolate it alongside `primaryTintColor`.
+- `accentColor(theme)` - Hover and emphasis text: the theme's `accent` (by default `primaryDark` in light mode and `primaryLight` in dark mode).
+- `linkColor(theme)` - The link color: the theme's `link` (by default `primary` in light mode and `dark` in dark mode).
+- `primaryTintColor(theme, kind)` - The primary tint behind a surface, `kind` being `"hover"`, `"drop"` or `"active"`: the theme's `primaryTintHover`, `primaryTintDrop` or `primaryTintActive` (by default `primary` faded to the mode's amount).
+
+Outside the providers, for a theme object passed straight to something like `GlobalStyles(theme)`, a token the theme leaves out falls back to its light-mode default.
 
 ```tsx
 import styled from "styled-components";
 import {
   accentColor,
-  darkPrimaryTintRule,
   primaryTintColor,
   resetButton,
 } from "cherry-styled-components";
@@ -128,10 +125,11 @@ const Tile = styled.button`
   &:hover {
     color: ${({ theme }) => accentColor(theme)};
     background: ${({ theme }) => primaryTintColor(theme, "hover")};
-    ${({ theme }) => darkPrimaryTintRule(theme, "hover")};
   }
 `;
 ```
+
+For a one-off style that differs by mode, with no token for it, use `modes()` or `modeValue()`, covered in [Dark Mode](/code/dark-mode#styles-that-differ-by-mode).
 
 ## thinScrollbar
 

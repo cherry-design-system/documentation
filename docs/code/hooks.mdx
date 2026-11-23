@@ -1,7 +1,7 @@
 ---
 title: "Hooks"
-description: "Cherry utility hooks - useOnClickOutside, useMediaQuery, useBelowBreakpoint, and useLockBodyScroll."
-date: "2026-08-03"
+description: "Cherry utility hooks - useOnClickOutside, useMediaQuery, useBelowBreakpoint, useLockBodyScroll, useModalLayer, useColorMode, and useResolvedTheme."
+date: "2026-11-23"
 category: "Utilities"
 categoryOrder: 5
 order: 2
@@ -110,6 +110,31 @@ useModalLayer(open: boolean): boolean
 ```
 
 It is exported next to `Modal` (`src/lib/modal.tsx`), which uses the same stack.
+
+## useColorMode
+
+The light or dark mode in force, the visitor's preference (`"light"`, `"dark"` or `"system"`), and the `toggleTheme` and `setPreference` setters, from the nearest Cherry theme provider.
+
+```tsx
+useColorMode(): {
+  mode: "light" | "dark";
+  preference: "light" | "dark" | "system";
+  toggleTheme: () => void;
+  setPreference: (preference: "light" | "dark" | "system") => void;
+}
+```
+
+A component that calls it renders again when the mode switches; nothing else does. Read it only for what CSS cannot do, such as an image per mode. See [Dark Mode](/code/dark-mode#usecolormode).
+
+## useResolvedTheme
+
+The theme with real color values (not CSS variables) for the mode in force, plus an `isDark` flag. Use it for code that hands a theme color to something CSS does not style: a canvas, a chart or color library, an editor theme.
+
+```tsx
+useResolvedTheme(): Theme & { isDark: boolean }
+```
+
+Like `useColorMode`, it renders its component again when the mode switches. See [Dark Mode](/code/dark-mode#real-color-values).
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils" icon="code" iconPosition="left">
   View Source

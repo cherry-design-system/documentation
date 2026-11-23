@@ -1,7 +1,7 @@
 ---
 title: "Theme"
 description: "The Cherry theme object defines media queries, spacing, colors, font sizes, line heights, and shadows."
-date: "2026-02-19"
+date: "2026-11-23"
 category: "Configuration"
 categoryOrder: 1
 order: 0
@@ -31,11 +31,11 @@ export default function App({ Component, pageProps }) {
 }
 ```
 
-Cherry exports two ready-made theme objects to start from: `theme` (light) and `themeDark` (dark). `CherryThemeProvider` accepts an optional `themeDark` prop - dark mode switching only happens when you pass it. The provider also exports a `ThemeContext` that gives you `setTheme` and `toggleTheme` for switching themes programmatically. See the [Dark Mode](/code/dark-mode) documentation for details.
+Cherry exports two ready-made theme objects to start from: `theme` (light) and `themeDark` (dark). You pass both as plain objects with real color values, and the provider turns them into one theme for both modes whose colors and shadows are CSS variables (see [Theming through CSS variables](#theming-through-css-variables)). `themeDark` is optional: without it the page stays light. To switch modes from your own code, use `ThemeContext` (`toggleTheme` and `setPreference`) or the `useColorMode()` hook. See the [Dark Mode](/code/dark-mode) documentation for details.
 
 ## Theme Object
 
-The theme object is type safe and uses TypeScript. The `Theme` interface has eight keys: the seven sections below plus an optional `isDark` boolean that marks a theme as a dark variant (absent reads as light):
+The theme object is type safe and uses TypeScript. The `Theme` interface has seven keys, the sections below. There is no `isDark` flag: which theme is light and which is dark comes from the provider prop you pass it to (`theme` or `themeDark`):
 
 <Accordion title="1. Breakpoints">
 
@@ -135,10 +135,11 @@ export const colorsDark: Colors = {
 };
 ```
 
-`Colors` also takes optional keys, unset in both built-in themes. Two of them are for a primary that cannot carry a label:
+`Colors` also takes optional keys, unset in both built-in themes. Three of them are for a primary that cannot carry a label:
 
 - `onPrimary`: the label color on a primary fill (the primary [Button](/code/button), the sent [ChatMessage](/code/chat-messages) bubble, the primary [Avatar](/code/avatar)). Set it when neither `light` nor `dark` reads on your primary, such as a bright dark-mode primary. Unset, the label takes the palette's contrasting end.
-- `primaryFill`: the fill of those same solid primary surfaces, whose label is `onPrimary`. Set it when `primary` is too bright to carry a label but right for accents: the fills take the deeper shade, and links, rings and outlines keep `primary`. The filled primary button's hover is a 10% shade of it. Unset, the fills use `primary`.
+- `primaryFill`: the fill of those same solid primary surfaces, whose label is `onPrimary`. Set it when `primary` is too bright to carry a label but right for accents: the fills take the deeper shade, and links, rings and outlines keep `primary`. Unset, the fills use `primary`.
+- `primaryFillHover`: the hover shade of that solid primary fill. Unset, it is `primaryFill` mixed 10% toward black when the theme sets `primaryFill`, else `primaryDark`.
 
 ```tsx
 import { themeDark as baseDark, type Theme } from "cherry-styled-components";
@@ -149,6 +150,7 @@ export const themeDark: Theme = {
     ...baseDark.colors,
     primary: "#ff7a1a", // accents: links, rings, accent text
     primaryFill: "#ba440d", // buttons, sent bubbles, avatars
+    primaryFillHover: "#9a3a0b", // primaryFill on hover
     onPrimary: "#faf8f6", // the label on primaryFill
   },
 };
@@ -256,7 +258,7 @@ export const lineHeights: LineHeights = {
 
 </Accordion>
 
-These sections, together with the `isDark` flag, make up the exported `theme` and `themeDark` objects:
+These sections make up the exported `theme` and `themeDark` objects:
 
 ```tsx
 export const theme: Theme = {
@@ -267,7 +269,6 @@ export const theme: Theme = {
   fonts,
   fontSizes,
   lineHeights,
-  isDark: false,
 };
 
 export const themeDark: Theme = {
@@ -278,13 +279,12 @@ export const themeDark: Theme = {
   fonts,
   fontSizes,
   lineHeights,
-  isDark: true,
 };
 ```
 
 ## Using Shadows
 
-Every theme ships five shadow levels (`xs`, `sm`, `md`, `lg`, `xl`) under `theme.shadows`. Reference them in your styled components to add elevation. When you pass `themeDark` to `CherryThemeProvider`, the dark theme swaps in `shadowsDark`, so elevation adapts to light and dark mode automatically:
+Every theme ships five shadow levels (`xs`, `sm`, `md`, `lg`, `xl`) under `theme.shadows`. Reference them in your styled components to add elevation. When you pass `themeDark` to the provider, `theme.shadows.md` is a CSS variable whose value is the light shadow on `:root` and the `shadowsDark` one in dark mode, so elevation adapts to light and dark mode automatically:
 
 ```tsx
 import styled from "styled-components";
@@ -303,7 +303,26 @@ See the [Shadows](/shadows) foundation page for the full list of values.
 
 ## Theming through CSS variables
 
-A theme can hold `var(--token)` references instead of values: one theme object for both modes, the light and dark values in CSS custom properties, and the mode switched by a `dark` class on `<html>` or a `data-theme` attribute. Switching the mode then repaints without re-rendering React. Such a theme cannot answer `isDark`, so it leaves it out and sets the optional mode tokens to variables of its own:
+Inside styled components, the theme is one object for both modes. The providers pass your light and dark theme objects to `createThemeVariables`, which hands styled-components a theme whose colors and shadows are CSS variable references, `var(--cherry-color-<key>)` and `var(--cherry-shadow-<key>)`, and renders the values in a plain `<style data-cherry-theme>` element: the light ones on `:root`, the dark ones on `:root.dark`. Everything else in the theme (breakpoints, spacing, fonts, font sizes, line heights) stays as you wrote it.
+
+```tsx
+const Card = styled.div`
+  /* Renders as background: var(--cherry-color-light); */
+  background: ${({ theme }) => theme.colors.light};
+  box-shadow: ${({ theme }) => theme.shadows.md};
+`;
+```
+
+The mode is the `dark` class on `<html>`. Switching it flips the class and the browser repaints: no styled component renders again, and the page changes at once instead of fading control by control. For the frame that paints a switch, a `.theme-switching` class on `<html>` turns transitions off.
+
+Two things follow from this model:
+
+- A style cannot branch on the mode in JavaScript, since the same theme object serves both. Use a mode token (below), a `:root.dark &` rule, or the [`modes()`](/code/dark-mode#styles-that-differ-by-mode) helper.
+- A theme color is a `var()` string, not a hex value, so JavaScript color math on it (polished's `darken()`, `rgba()`, `readableColor()` and the like) breaks. Use the native `color-mix()` helpers [`alpha`, `shade` and `tint`](/code/mixins#color-helpers), or read real values from [`useResolvedTheme()`](/code/dark-mode#real-color-values).
+
+### Mode tokens
+
+Some colors have a default that differs between light and dark mode. The providers always fill these mode tokens in, per mode, with the default below, so Cherry's components read them as CSS variables that follow the mode. Set one on either theme object to override it:
 
 | Token | Used for | Unset (light / dark) |
 | --- | --- | --- |
@@ -315,9 +334,27 @@ A theme can hold `var(--token)` references instead of values: one theme object f
 | `colors.primaryTintActive` | The tint behind an active (`$active`) [IconButton](/code/icon-button) | `primary` at 10% / 18% |
 | `shadows.toast` | The [Toast](/code/toast)'s shadow | `xs` / `sm` |
 
-Each token replaces a `theme.isDark` choice and falls back to it when unset, so a pair of light and dark theme objects can ignore them and renders exactly as before. When a theme sets a token, Cherry also skips the matching `:root.dark` fallback rule, since the token already follows the mode. The [mixins](/code/mixins#mode-token-helpers) `accentColor`, `linkColor` and `primaryTintColor` make the same choices for your own components.
+The optional fill tokens follow the same rule: once either theme sets `primaryFill` or `primaryFillHover`, both modes get a value (the theme's own, else `primary` and the default hover shade), and the same goes for `onPrimary`, so one mode never inherits the other's. The [mixins](/code/mixins#mode-token-helpers) `accentColor`, `linkColor`, `primaryTintColor`, `filledTextColor` and `primaryFillHoverColor` read these tokens for your own components.
 
-The [Callout](/code/callout)'s alert tints are fixed colors, not tokens, so under such a theme it follows the `dark` class on `<html>` and the nearest `data-theme="dark"` or `data-theme="light"` ancestor.
+The [Callout](/code/callout)'s alert tints are fixed colors, not tokens, so it follows the `dark` class on `<html>` and the nearest `data-theme="dark"` or `data-theme="light"` ancestor.
+
+### createThemeVariables
+
+The providers call `createThemeVariables(theme, themeDark?)` for you. It is server-safe, so you can call it yourself to render the stylesheet in server code or to read the resolved palettes. It returns:
+
+- `theme` - the theme for both modes, with every color and shadow as a CSS variable.
+- `light` and `dark` - the two palettes with real values and every mode token filled in, each with an `isDark` flag. `dark` is the light one when no dark theme is given.
+- `css` - the stylesheet behind the variables. Render it as a plain `<style>`, not through styled-components, whose CSS preprocessor drops the empty custom properties `modeValue()` relies on.
+
+```tsx
+import { createThemeVariables } from "cherry-styled-components";
+import { theme, themeDark } from "./theme";
+
+const { light, dark } = createThemeVariables(theme, themeDark);
+
+light.colors.accent; // "#194569"
+dark.colors.accent; // "#79C5FF"
+```
 
 ## Extending the Theme
 

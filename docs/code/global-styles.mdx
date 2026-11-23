@@ -1,7 +1,7 @@
 ---
 title: "Global Styles"
 description: "Cherry's global CSS reset and base styles for consistent rendering across browsers."
-date: "2026-02-19"
+date: "2026-11-23"
 category: "Configuration"
 categoryOrder: 1
 order: 2
@@ -16,7 +16,7 @@ Global styles consist of a basic set of CSS rules designed to reset certain brow
 import { ThemedGlobalStyles } from "cherry-styled-components";
 ```
 
-`ThemedGlobalStyles` is a global-style component that reads the active theme from the styled-components `ThemeProvider`, so render it inside one. It is created once, so switching themes restyles it without building a new component. This minimal wrapper is what the providers do; unlike the real `CherryThemeProvider`, it skips the dark theme handling and toggle context:
+`ThemedGlobalStyles` is a global-style component that reads the theme from the styled-components `ThemeProvider`, so render it inside one. Under Cherry's providers that theme's colors are CSS variables, so a mode switch repaints the global styles without rendering them again. This minimal wrapper renders them for one fixed theme with real values; unlike the real `CherryThemeProvider`, it skips the CSS variables, dark mode and the toggle context:
 
 ```tsx
 "use client";
