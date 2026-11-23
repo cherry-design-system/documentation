@@ -1,7 +1,7 @@
 ---
 title: "Callout"
 description: "Cherry Callout component - tinted admonition boxes with five semantic intents and automatic icons."
-date: "2026-08-03"
+date: "2026-11-23"
 category: "Components"
 categoryOrder: 2
 order: 17
@@ -47,7 +47,7 @@ Each intent brings its own icon: `CircleAlert` for note, `Info` for info, `Trian
 The component also accepts all native `<div>` attributes and forwards its ref to the root element. The library exports the `CalloutType` type.
 
 <Callout type="info">
-  The tints are alert-semantic and deliberately independent of the brand palette: a white-labeled theme can recolor everything else without a danger callout turning reassuring. Each intent carries a light and a dark tint, and the dark one applies both when the theme object is dark and under a `dark` class on `<html>`, so it is correct even before hydration swaps the theme. A `data-theme="dark"` or `data-theme="light"` ancestor wins over the class, so a section forced into one mode keeps that mode's tint, which is how the Callout follows a [theme whose colors are CSS variables](/code/theme#theming-through-css-variables).
+  The tints are alert-semantic and deliberately independent of the brand palette: a white-labeled theme can recolor everything else without a danger callout turning reassuring. Each intent carries a light and a dark tint, and the dark one applies under the `dark` class on `<html>` that sets the mode (see [Dark Mode](/code/dark-mode)), so it is right from the first paint. A `data-theme="dark"` or `data-theme="light"` ancestor wins over the class, so a section forced into one mode keeps that mode's tint.
 </Callout>
 
 <Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/callout.tsx" icon="code" iconPosition="left">

@@ -1,7 +1,7 @@
 ---
 title: "Overview"
 description: "Get started with Cherry's React components built with Styled Components and TypeScript."
-date: "2026-02-19"
+date: "2026-11-23"
 category: "Getting Started"
 categoryOrder: 0
 order: 0
@@ -155,10 +155,13 @@ Everything needed to build an AI-assistant chat UI: a headless provider that own
 
 - **[StyledComponentsRegistry](/code/installation)** - Renders CSS in your Next.js app. Imported from `cherry-styled-components/next`.
 - **[CherryThemeProvider](/code/installation)** - Wrap your app with the Cherry Theme context.
-- **[ClientThemeProvider](/code/dark-mode)** - SSR-aware theme provider for flash-free dark mode.
-- **[themeInitScript / createThemeInitScript](/code/dark-mode)** - Blocking head script that prevents the dark-mode flash.
-- **[resolveTheme](/code/dark-mode)** - Resolve the `theme` cookie to a theme object in server code.
-- **[ThemeContext](/code/dark-mode)** - Access `setTheme` and `toggleTheme` for custom theme controls.
+- **[ClientThemeProvider](/code/dark-mode)** - The full theme provider, with `theme-color` meta sync, for flash-free dark mode in server-rendered apps.
+- **[themeInitScript / createThemeInitScript](/code/dark-mode#createthemeinitscript)** - Blocking head script that sets the mode before the first paint.
+- **[resolveTheme](/code/dark-mode#resolvetheme)** - Resolve the `theme` cookie to a theme object in server code.
+- **[ThemeContext](/code/dark-mode#manual-theme-toggle)** - Access `toggleTheme` and `setPreference` for custom mode controls.
+- **[useColorMode / useResolvedTheme](/code/dark-mode#usecolormode)** - Read the mode and preference, or the theme with real color values.
+- **[createThemeVariables](/code/theme#createthemevariables)** - Build the CSS-variable theme and its stylesheet, in server or client code.
+- **[modes / modeValue](/code/dark-mode#styles-that-differ-by-mode)** - Write a style that differs by light and dark mode.
 
 ## Next Steps
 
@@ -170,7 +173,7 @@ Everything needed to build an AI-assistant chat UI: a headless provider that own
     Get started with development.
   </Card>
   <Card title="Dark Mode" icon="moon" href="/code/dark-mode">
-    Flash-free dark mode with SSR support.
+    Flash-free dark mode that switches without re-rendering.
   </Card>
   <Card title="Changelog" icon="history" href="/code/changelog">
     Release notes for every version.
