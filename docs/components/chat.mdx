@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Chat
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/chat-inline?theme=light" title="Chat preview" loading="lazy" style={{ width: "100%", height: "784px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/chat-inline?theme=dark" title="Chat preview" loading="lazy" style={{ width: "100%", height: "784px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-The chat kit is a set of parts you compose into an assistant UI: a ChatLauncher button opens a ChatPanel, which holds a scrolling ChatMessageList of ChatMessage turns, a ChatTyping indicator, ChatSources and ChatSuggestions, and a ChatInput composer. The parts hold no conversation state: you keep the messages and call your own backend.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/chat-inline?theme=light" title="Chat preview" loading="lazy" style={{ width: "100%", height: "784px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/chat-inline?theme=dark" title="Chat preview" loading="lazy" style={{ width: "100%", height: "784px" }} />
 
 ```tsx
 "use client";
@@ -172,6 +171,9 @@ export function Assistant() {
   );
 }
 ```
+</Preview>
+
+The chat kit is a set of parts you compose into an assistant UI: a ChatLauncher button opens a ChatPanel, which holds a scrolling ChatMessageList of ChatMessage turns, a ChatTyping indicator, ChatSources and ChatSuggestions, and a ChatInput composer. The parts hold no conversation state: you keep the messages and call your own backend.
 
 <Callout type="warning">
   Treat replies as untrusted text. Render them as plain text or through a markdown renderer that outputs React elements, never as raw HTML.

@@ -11,16 +11,9 @@ section: "Code"
 ---
 # Button
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/button?theme=light" title="Button" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/button?theme=dark" title="Button" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Buttons are essential components in web development, frequently used for user interactions.
-
-Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
-
-For design guidelines and all interactive states, see the [Buttons](/v1/buttons) design page.
-
-The examples below assume the Cherry theme provider from [Installation](/v1/code/installation) is already set up.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/button?theme=light" title="Button" loading="lazy" style={{ width: "100%", height: "320px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/button?theme=dark" title="Button" loading="lazy" style={{ width: "100%", height: "320px" }} />
 
 ```jsx
 import React from "react";
@@ -30,6 +23,15 @@ export default function Page() {
   return <Button>Button</Button>;
 }
 ```
+</Preview>
+
+Buttons are essential components in web development, frequently used for user interactions.
+
+Keep in mind that the `<button>` element inherently includes native browser properties like `onClick`. Cherry UI components introduce custom properties that always begin with a `$` to distinguish them from native props.
+
+For design guidelines and all interactive states, see the [Buttons](/v1/buttons) design page.
+
+The examples below assume the Cherry theme provider from [Installation](/v1/code/installation) is already set up.
 
 You can change the look of your button by adding a `$variant` prop:
 

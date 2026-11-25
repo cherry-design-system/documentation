@@ -10,14 +10,9 @@ section: "Code"
 ---
 # Modal
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/modal?theme=light" title="Modal" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/modal?theme=dark" title="Modal" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-The Modal component renders an animated dialog on top of the page. It portals into `document.body` so the overlay always sits above transformed or clipped ancestors, and it closes on Escape, on a click outside, or with the built-in close button.
-
-The Modal is a controlled component: the parent owns the open state. The dialog surface carries `role="dialog"` and `aria-modal="true"`, and takes its accessible name from `$title`.
-
-For design guidelines and all interactive states, see the [Overlays](/v1/overlays) design page.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/modal?theme=light" title="Modal" loading="lazy" style={{ width: "100%", height: "320px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/modal?theme=dark" title="Modal" loading="lazy" style={{ width: "100%", height: "320px" }} />
 
 ```jsx
 "use client";
@@ -41,6 +36,13 @@ export default function Page() {
   );
 }
 ```
+</Preview>
+
+The Modal component renders an animated dialog on top of the page. It portals into `document.body` so the overlay always sits above transformed or clipped ancestors, and it closes on Escape, on a click outside, or with the built-in close button.
+
+The Modal is a controlled component: the parent owns the open state. The dialog surface carries `role="dialog"` and `aria-modal="true"`, and takes its accessible name from `$title`.
+
+For design guidelines and all interactive states, see the [Overlays](/v1/overlays) design page.
 
 With a custom width for larger content:
 

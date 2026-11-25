@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Tabs
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/tabs?theme=light" title="Tabs preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/tabs?theme=dark" title="Tabs preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Tabs switch between panels of related content in the same place. Compose a `TabList` of `Tab`s and one `TabPanel` per tab, matched by `value`. For a segmented control that sets a value (not panels) use [ToggleGroup](/components/toggle-group).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/tabs?theme=light" title="Tabs preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/tabs?theme=dark" title="Tabs preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
 
 ```tsx
 import { Tab, TabList, TabPanel, Tabs } from "@cherry-design-system/react";
@@ -32,6 +31,9 @@ export function Project() {
   );
 }
 ```
+</Preview>
+
+Tabs switch between panels of related content in the same place. Compose a `TabList` of `Tab`s and one `TabPanel` per tab, matched by `value`. For a segmented control that sets a value (not panels) use [ToggleGroup](/components/toggle-group).
 
 ## Examples
 

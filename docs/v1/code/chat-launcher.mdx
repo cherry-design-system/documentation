@@ -10,10 +10,9 @@ section: "Code"
 ---
 # ChatLauncher
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/chat-launcher?theme=light" title="Chat launcher" loading="lazy" style={{ width: "100%", height: "200px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/chat-launcher?theme=dark" title="Chat launcher" loading="lazy" style={{ width: "100%", height: "200px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-ChatLauncher is the compact pill that opens and closes the [chat kit](/v1/code/chat)'s panel - a sparkles icon and "Ask AI" by default. It reads the provider's state, toggles the panel on click, and reports the panel's state through `aria-expanded`. Drop it in a header, a toolbar, or next to a search field.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/chat-launcher?theme=light" title="Chat launcher" loading="lazy" style={{ width: "100%", height: "200px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/chat-launcher?theme=dark" title="Chat launcher" loading="lazy" style={{ width: "100%", height: "200px" }} />
 
 ```jsx
 <ChatProvider onSend={handleSend}>
@@ -21,6 +20,9 @@ ChatLauncher is the compact pill that opens and closes the [chat kit](/v1/code/c
   <ChatPanel>...</ChatPanel>
 </ChatProvider>
 ```
+</Preview>
+
+ChatLauncher is the compact pill that opens and closes the [chat kit](/v1/code/chat)'s panel - a sparkles icon and "Ask AI" by default. It reads the provider's state, toggles the panel on click, and reports the panel's state through `aria-expanded`. Drop it in a header, a toolbar, or next to a search field.
 
 With `$glow`, the pill gets the kit's rainbow treatment: a rotating rainbow band hugging the button's border - 1px on hover, 2px while pressed, 4px on focus - plus a soft radiating halo that is always faintly on and brightens with interaction or while the panel is open. Animation is disabled under `prefers-reduced-motion: reduce`.
 

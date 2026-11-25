@@ -10,10 +10,9 @@ section: "Code"
 ---
 # Prose
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/prose?theme=light" title="Prose" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/prose?theme=dark" title="Prose" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-The Prose component styles a block of rendered markdown - or any long-form HTML - with Cherry typography: the heading scale, underlined links with hover and focus states, bulleted and numbered lists, tables, inline code, blockquotes, rules, and media. Wrap the output of your markdown renderer in it and the content reads like the rest of the design system.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/prose?theme=light" title="Prose" loading="lazy" style={{ width: "100%", height: "480px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/prose?theme=dark" title="Prose" loading="lazy" style={{ width: "100%", height: "480px" }} />
 
 ```jsx
 import React from "react";
@@ -23,6 +22,9 @@ export default function Article({ html }) {
   return <Prose dangerouslySetInnerHTML={{ __html: html }} />;
 }
 ```
+</Preview>
+
+The Prose component styles a block of rendered markdown - or any long-form HTML - with Cherry typography: the heading scale, underlined links with hover and focus states, bulleted and numbered lists, tables, inline code, blockquotes, rules, and media. Wrap the output of your markdown renderer in it and the content reads like the rest of the design system.
 
 In the [chat kit](/v1/code/chat), pass `<Prose $compact>` as an assistant message's content to render a markdown reply at chat density.
 

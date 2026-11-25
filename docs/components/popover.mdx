@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Popover
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/popover?theme=light" title="Popover preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/popover?theme=dark" title="Popover preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Popover is a non-modal floating panel anchored to the button that opens it. It runs on the native `popover` attribute and CSS anchor positioning, so it needs no client JavaScript: point a button at it with `popoverTarget` and the browser opens, closes and light-dismisses it. For a list of actions use [Menu](/components/menu); for a short hover hint use [Tooltip](/components/tooltip).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/popover?theme=light" title="Popover preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/popover?theme=dark" title="Popover preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
 
 ```tsx
 import { Button, Popover } from "@cherry-design-system/react";
@@ -30,6 +29,9 @@ export function SharePreview() {
   );
 }
 ```
+</Preview>
+
+Popover is a non-modal floating panel anchored to the button that opens it. It runs on the native `popover` attribute and CSS anchor positioning, so it needs no client JavaScript: point a button at it with `popoverTarget` and the browser opens, closes and light-dismisses it. For a list of actions use [Menu](/components/menu); for a short hover hint use [Tooltip](/components/tooltip).
 
 ## Examples
 

@@ -11,10 +11,9 @@ section: "Components"
 ---
 # NumberField
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/numberfield?theme=light" title="NumberField preview" loading="lazy" style={{ width: "100%", height: "720px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/numberfield?theme=dark" title="NumberField preview" loading="lazy" style={{ width: "100%", height: "720px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-A numeric input with decrement and increment buttons (`role="spinbutton"`). Typed text commits on blur or Enter, clamped to `min` and `max` and snapped to `step`. Use it for quantities and exact numbers. Use [Range](/components/range) when an approximate value is enough.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/numberfield?theme=light" title="NumberField preview" loading="lazy" style={{ width: "100%", height: "720px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/numberfield?theme=dark" title="NumberField preview" loading="lazy" style={{ width: "100%", height: "720px" }} />
 
 ```tsx
 "use client";
@@ -28,6 +27,9 @@ export function Guests() {
   );
 }
 ```
+</Preview>
+
+A numeric input with decrement and increment buttons (`role="spinbutton"`). Typed text commits on blur or Enter, clamped to `min` and `max` and snapped to `step`. Use it for quantities and exact numbers. Use [Range](/components/range) when an approximate value is enough.
 
 ## Examples
 

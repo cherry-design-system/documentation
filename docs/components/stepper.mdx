@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Stepper
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/stepper?theme=light" title="Stepper preview" loading="lazy" style={{ width: "100%", height: "508px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/stepper?theme=dark" title="Stepper preview" loading="lazy" style={{ width: "100%", height: "508px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Stepper shows where the user is in a multi-step flow such as onboarding or checkout. Steps before `current` are complete, connectors fill as steps complete, and the component has no client JavaScript. For a single value use [Progress](/components/progress).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/stepper?theme=light" title="Stepper preview" loading="lazy" style={{ width: "100%", height: "508px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/stepper?theme=dark" title="Stepper preview" loading="lazy" style={{ width: "100%", height: "508px" }} />
 
 ```tsx
 import { Stepper } from "@cherry-design-system/react";
@@ -29,6 +28,9 @@ export function Setup() {
   );
 }
 ```
+</Preview>
+
+Stepper shows where the user is in a multi-step flow such as onboarding or checkout. Steps before `current` are complete, connectors fill as steps complete, and the component has no client JavaScript. For a single value use [Progress](/components/progress).
 
 ## Examples
 

@@ -27,11 +27,21 @@ When customizing your designs, consider all the different states that accordions
 
 ## Variations
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/accordion?theme=light" title="Card accordion" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion?theme=dark" title="Card accordion" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/accordion?theme=light" title="Card accordion" loading="lazy" style={{ width: "100%", height: "340px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion?theme=dark" title="Card accordion" loading="lazy" style={{ width: "100%", height: "340px" }} />
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/accordion-inline?theme=light" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion-inline?theme=dark" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+```jsx
+import { Accordion } from "cherry-styled-components";
+
+<Accordion title="Title">Content</Accordion>;
+```
+</Preview>
+
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/accordion-inline?theme=light" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion-inline?theme=dark" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px" }} />
+</Preview>
 
 | Variation | Open | Closed |
 | --------- | ---- | ------ |
@@ -41,13 +51,7 @@ When customizing your designs, consider all the different states that accordions
 - **Card** - A bordered, rounded surface with generous padding. Use it when the accordion stands on its own.
 - **Inline** - No border, radius, or side padding. Use it inside cards, lists, or other surfaces that already provide their own container. Enabled in code with the `$inline` prop.
 
-In code, both variations use the same `Accordion` component:
-
-```jsx
-import { Accordion } from "cherry-styled-components";
-
-<Accordion title="Title">Content</Accordion>;
-```
+In code, both variations use the same `Accordion` component, as in the example above.
 
 The accordion manages its own open state and starts closed; use `defaultOpen` to start it open, or pass `open` together with `onToggle` to control it from the parent.
 

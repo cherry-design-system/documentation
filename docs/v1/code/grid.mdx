@@ -10,10 +10,9 @@ section: "Code"
 ---
 # Grid
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/grid?theme=light" title="Grid" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/grid?theme=dark" title="Grid" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-The Cherry Grid system simplifies creating responsive layouts using the modern CSS grid property. It allows you to define the grid structure, including the number of columns and the gaps.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/grid?theme=light" title="Grid" loading="lazy" style={{ width: "100%", height: "320px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/grid?theme=dark" title="Grid" loading="lazy" style={{ width: "100%", height: "320px" }} />
 
 ```jsx
 import React from "react";
@@ -34,6 +33,9 @@ export default function Page() {
   );
 }
 ```
+</Preview>
+
+The Cherry Grid system simplifies creating responsive layouts using the modern CSS grid property. It allows you to define the grid structure, including the number of columns and the gaps.
 
 ## Properties
 

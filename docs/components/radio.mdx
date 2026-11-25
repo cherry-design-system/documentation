@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Radio
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/radio?theme=light" title="Radio preview" loading="lazy" style={{ width: "100%", height: "628px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/radio?theme=dark" title="Radio preview" loading="lazy" style={{ width: "100%", height: "628px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-`Radio` is a native `<input type="radio">`; `RadioGroup` wraps a set of them (`role="radiogroup"`) and hands each one its name, value, size and state. Use it for one choice out of a few visible options. Use [Select](/components/select) when there are many options and [ToggleGroup](/components/toggle-group) for a view switch outside a form.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/radio?theme=light" title="Radio preview" loading="lazy" style={{ width: "100%", height: "628px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/radio?theme=dark" title="Radio preview" loading="lazy" style={{ width: "100%", height: "628px" }} />
 
 ```tsx
 "use client";
@@ -32,6 +31,9 @@ export function Plan() {
   );
 }
 ```
+</Preview>
+
+`Radio` is a native `<input type="radio">`; `RadioGroup` wraps a set of them (`role="radiogroup"`) and hands each one its name, value, size and state. Use it for one choice out of a few visible options. Use [Select](/components/select) when there are many options and [ToggleGroup](/components/toggle-group) for a view switch outside a form.
 
 ## Examples
 

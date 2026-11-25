@@ -10,10 +10,9 @@ section: "Code"
 ---
 # ChatPanel
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/chat-inline?theme=light" title="Inline chat panel" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/chat-inline?theme=dark" title="Inline chat panel" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-ChatPanel is the [chat kit](/v1/code/chat)'s shell: a header with title, icon, and actions, plus a column that hosts the transcript and composer. It must live inside a `ChatProvider`, which drives its visibility.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/chat-inline?theme=light" title="Inline chat panel" loading="lazy" style={{ width: "100%", height: "480px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/chat-inline?theme=dark" title="Inline chat panel" loading="lazy" style={{ width: "100%", height: "480px" }} />
 
 ```jsx
 <ChatProvider onSend={handleSend}>
@@ -24,6 +23,9 @@ ChatPanel is the [chat kit](/v1/code/chat)'s shell: a header with title, icon, a
   </ChatPanel>
 </ChatProvider>
 ```
+</Preview>
+
+ChatPanel is the [chat kit](/v1/code/chat)'s shell: a header with title, icon, and actions, plus a column that hosts the transcript and composer. It must live inside a `ChatProvider`, which drives its visibility.
 
 ## Variants
 

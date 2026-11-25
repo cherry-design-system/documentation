@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Combobox
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/combobox?theme=light" title="Combobox preview" loading="lazy" style={{ width: "100%", height: "672px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/combobox?theme=dark" title="Combobox preview" loading="lazy" style={{ width: "100%", height: "672px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-A text input with a filterable listbox, following the ARIA combobox pattern. The list is a native `popover` placed with CSS anchor positioning. Use it for long lists such as countries or frameworks. Use [Select](/components/select) for a short, fixed list.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/combobox?theme=light" title="Combobox preview" loading="lazy" style={{ width: "100%", height: "672px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/combobox?theme=dark" title="Combobox preview" loading="lazy" style={{ width: "100%", height: "672px" }} />
 
 ```tsx
 "use client";
@@ -28,6 +27,9 @@ export function Framework() {
   );
 }
 ```
+</Preview>
+
+A text input with a filterable listbox, following the ARIA combobox pattern. The list is a native `popover` placed with CSS anchor positioning. Use it for long lists such as countries or frameworks. Use [Select](/components/select) for a short, fixed list.
 
 ## Examples
 

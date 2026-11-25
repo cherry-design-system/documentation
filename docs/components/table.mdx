@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Table
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/table?theme=light" title="Table preview" loading="lazy" style={{ width: "100%", height: "608px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/table?theme=dark" title="Table preview" loading="lazy" style={{ width: "100%", height: "608px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Table wraps a native `<table>` in a rounded frame that scrolls sideways when the columns do not fit. Write plain `thead`, `tbody`, `tr`, `th` and `td` inside. Cells stay on one line, so narrow screens scroll instead of squeezing columns.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/table?theme=light" title="Table preview" loading="lazy" style={{ width: "100%", height: "608px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/table?theme=dark" title="Table preview" loading="lazy" style={{ width: "100%", height: "608px" }} />
 
 ```tsx
 import { Table } from "@cherry-design-system/react";
@@ -42,6 +41,9 @@ export function Releases() {
   );
 }
 ```
+</Preview>
+
+Table wraps a native `<table>` in a rounded frame that scrolls sideways when the columns do not fit. Write plain `thead`, `tbody`, `tr`, `th` and `td` inside. Cells stay on one line, so narrow screens scroll instead of squeezing columns.
 
 ## Examples
 

@@ -11,10 +11,9 @@ section: "Components"
 ---
 # CodeBlock
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/codeblock?theme=light" title="CodeBlock preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/codeblock?theme=dark" title="CodeBlock preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-CodeBlock shows a multi-line code listing in a frame, with a header (icon, file name, language, copy button) and a line-number gutter. Line numbers come from CSS, so selecting and copying the text never picks them up. For a one-line command, use [Snippet](/components/snippet); for code inside a sentence, use [InlineCode](/components/inline-code).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/codeblock?theme=light" title="CodeBlock preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/codeblock?theme=dark" title="CodeBlock preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
 
 ```tsx
 import { CodeBlock } from "@cherry-design-system/react";
@@ -29,6 +28,9 @@ export function Example() {
   return <CodeBlock filename="save.tsx" language="tsx" code={source} />;
 }
 ```
+</Preview>
+
+CodeBlock shows a multi-line code listing in a frame, with a header (icon, file name, language, copy button) and a line-number gutter. Line numbers come from CSS, so selecting and copying the text never picks them up. For a one-line command, use [Snippet](/components/snippet); for code inside a sentence, use [InlineCode](/components/inline-code).
 
 ## Examples
 

@@ -10,10 +10,9 @@ section: "Code"
 ---
 # Box
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/box?theme=light" title="Box" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/box?theme=dark" title="Box" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-The Box component is a styled variant of the Container component. It accepts exactly the same props and adds no new ones; the only difference is visual styling: a `theme.colors.light` background, rounded corners from `theme.spacing.radius.lg` (12px by default), and a 1px `theme.colors.grayLight` border. Use it to create visually appealing boxes, tiles, or containers within your applications.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/box?theme=light" title="Box" loading="lazy" style={{ width: "100%", height: "340px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/box?theme=dark" title="Box" loading="lazy" style={{ width: "100%", height: "340px" }} />
 
 ```jsx
 import React from "react";
@@ -23,6 +22,9 @@ export default function Page() {
   return <Box>Boxing things around!</Box>;
 }
 ```
+</Preview>
+
+The Box component is a styled variant of the Container component. It accepts exactly the same props and adds no new ones; the only difference is visual styling: a `theme.colors.light` background, rounded corners from `theme.spacing.radius.lg` (12px by default), and a 1px `theme.colors.grayLight` border. Use it to create visually appealing boxes, tiles, or containers within your applications.
 
 ## Properties
 

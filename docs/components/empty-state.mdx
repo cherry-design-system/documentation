@@ -11,10 +11,9 @@ section: "Components"
 ---
 # EmptyState
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/emptystate?theme=light" title="EmptyState preview" loading="lazy" style={{ width: "100%", height: "616px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/emptystate?theme=dark" title="EmptyState preview" loading="lazy" style={{ width: "100%", height: "616px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-EmptyState fills the space of a list or view that has nothing to show yet: an empty project list, a search with no results or a first run. It pairs a heading with optional text and actions.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/emptystate?theme=light" title="EmptyState preview" loading="lazy" style={{ width: "100%", height: "616px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/emptystate?theme=dark" title="EmptyState preview" loading="lazy" style={{ width: "100%", height: "616px" }} />
 
 ```tsx
 import { Button, EmptyState } from "@cherry-design-system/react";
@@ -31,6 +30,9 @@ export function NoProjects() {
   );
 }
 ```
+</Preview>
+
+EmptyState fills the space of a list or view that has nothing to show yet: an empty project list, a search with no results or a first run. It pairs a heading with optional text and actions.
 
 ## Examples
 

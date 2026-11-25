@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Textarea
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/textarea?theme=light" title="Textarea preview" loading="lazy" style={{ width: "100%", height: "788px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/textarea?theme=dark" title="Textarea preview" loading="lazy" style={{ width: "100%", height: "788px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-A multi-line text input that grows with its content. Use it for comments, descriptions and messages. Use [Input](/components/input) for single-line values.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/textarea?theme=light" title="Textarea preview" loading="lazy" style={{ width: "100%", height: "788px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/textarea?theme=dark" title="Textarea preview" loading="lazy" style={{ width: "100%", height: "788px" }} />
 
 ```tsx
 "use client";
@@ -28,6 +27,9 @@ export function Bio() {
   );
 }
 ```
+</Preview>
+
+A multi-line text input that grows with its content. Use it for comments, descriptions and messages. Use [Input](/components/input) for single-line values.
 
 ## Examples
 

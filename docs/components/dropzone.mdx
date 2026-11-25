@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Dropzone
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=light" title="Dropzone preview" loading="lazy" style={{ width: "100%", height: "816px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=dark" title="Dropzone preview" loading="lazy" style={{ width: "100%", height: "816px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-A drag-and-drop file area around a real file input. The input is visually hidden but focusable, so Tab plus Enter or Space opens the native picker, forms submit the files (dropped ones included), and it works inside Field. Pair it with `FileItem` to list what was added. For a single round profile picture, use [AvatarDropzone](/components/avatar-dropzone).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=light" title="Dropzone preview" loading="lazy" style={{ width: "100%", height: "816px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=dark" title="Dropzone preview" loading="lazy" style={{ width: "100%", height: "816px" }} />
 
 ```tsx
 "use client";
@@ -34,6 +33,9 @@ export function Attachments({ upload }: { upload: (files: File[]) => void }) {
   );
 }
 ```
+</Preview>
+
+A drag-and-drop file area around a real file input. The input is visually hidden but focusable, so Tab plus Enter or Space opens the native picker, forms submit the files (dropped ones included), and it works inside Field. Pair it with `FileItem` to list what was added. For a single round profile picture, use [AvatarDropzone](/components/avatar-dropzone).
 
 ## Examples
 

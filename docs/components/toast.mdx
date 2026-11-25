@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Toast
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/toast?theme=light" title="Toast preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/toast?theme=dark" title="Toast preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Toasts are short, transient notifications announced without moving focus. Wrap the app in `ToastProvider`, place one `Toaster` inside it, and call `useToast()` anywhere below to show them. For a message that stays in the page use [Callout](/components/callout) or [Banner](/components/banner).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/toast?theme=light" title="Toast preview" loading="lazy" style={{ width: "100%", height: "520px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/toast?theme=dark" title="Toast preview" loading="lazy" style={{ width: "100%", height: "520px" }} />
 
 ```tsx
 "use client";
@@ -30,6 +29,9 @@ export function Providers({ children }: { children: ReactNode }) {
   );
 }
 ```
+</Preview>
+
+Toasts are short, transient notifications announced without moving focus. Wrap the app in `ToastProvider`, place one `Toaster` inside it, and call `useToast()` anywhere below to show them. For a message that stays in the page use [Callout](/components/callout) or [Banner](/components/banner).
 
 ```tsx
 "use client";

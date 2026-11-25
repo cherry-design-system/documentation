@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Sheet
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/sheet?theme=light" title="Sheet preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/sheet?theme=dark" title="Sheet preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Sheet is a modal panel that slides in from an edge of the screen, on the native `<dialog>` element (`showModal`). Use it for filters, details or forms that need more room than a [Modal](/components/modal). Compose it with `SheetBody` (scrolls) and `SheetFooter` (pinned to the bottom).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/sheet?theme=light" title="Sheet preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/sheet?theme=dark" title="Sheet preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
 
 ```tsx
 "use client";
@@ -33,6 +32,9 @@ export function Filters() {
   );
 }
 ```
+</Preview>
+
+Sheet is a modal panel that slides in from an edge of the screen, on the native `<dialog>` element (`showModal`). Use it for filters, details or forms that need more room than a [Modal](/components/modal). Compose it with `SheetBody` (scrolls) and `SheetFooter` (pinned to the bottom).
 
 ## Examples
 

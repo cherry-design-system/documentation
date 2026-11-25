@@ -11,10 +11,9 @@ section: "Components"
 ---
 # ConfirmButton
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/confirmbutton?theme=light" title="ConfirmButton preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/confirmbutton?theme=dark" title="ConfirmButton preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-A two-step button for destructive actions. The first click widens the control and reveals a Confirm and Cancel pair inside it (the default trash icon lifts its lid). It closes again on Cancel, Escape, or after `resetAfter` milliseconds. Use a [Modal](/components/modal) when the action needs more explanation than a confirm step.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/confirmbutton?theme=light" title="ConfirmButton preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/confirmbutton?theme=dark" title="ConfirmButton preview" loading="lazy" style={{ width: "100%", height: "420px" }} />
 
 ```tsx
 "use client";
@@ -24,6 +23,9 @@ export function DeleteFile({ id, remove }: { id: string; remove: (id: string) =>
   return <ConfirmButton aria-label="Delete report.pdf" onConfirm={() => remove(id)} />;
 }
 ```
+</Preview>
+
+A two-step button for destructive actions. The first click widens the control and reveals a Confirm and Cancel pair inside it (the default trash icon lifts its lid). It closes again on Cancel, Escape, or after `resetAfter` milliseconds. Use a [Modal](/components/modal) when the action needs more explanation than a confirm step.
 
 ## Examples
 

@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Modal
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/modal?theme=light" title="Modal preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/modal?theme=dark" title="Modal preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Modal is a dialog that blocks the page until the user responds, built on the native `<dialog>` element (`showModal`). The focus trap, top layer, inert page and Escape come from the platform. Compose the content with `ModalBody` and `ModalFooter`. For a panel that slides in from an edge use [Sheet](/components/sheet); for a non-blocking panel use [Popover](/components/popover).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/modal?theme=light" title="Modal preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/modal?theme=dark" title="Modal preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
 
 ```tsx
 "use client";
@@ -41,6 +40,9 @@ export function DeleteProject({ onDelete }: { onDelete: () => void }) {
   );
 }
 ```
+</Preview>
+
+Modal is a dialog that blocks the page until the user responds, built on the native `<dialog>` element (`showModal`). The focus trap, top layer, inert page and Escape come from the platform. Compose the content with `ModalBody` and `ModalFooter`. For a panel that slides in from an edge use [Sheet](/components/sheet); for a non-blocking panel use [Popover](/components/popover).
 
 ## Examples
 

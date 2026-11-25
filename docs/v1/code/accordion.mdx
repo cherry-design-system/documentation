@@ -10,15 +10,9 @@ section: "Code"
 ---
 # Accordion
 
-<iframe className="light-only" src="https://v1.cherry.al/preview/accordion?theme=light" title="Accordion" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion?theme=dark" title="Accordion" loading="lazy" style={{ width: "100%", height: "340px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-<iframe className="light-only" src="https://v1.cherry.al/preview/accordion-inline?theme=light" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion-inline?theme=dark" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-The Accordion component shows and hides content behind a clickable title. It animates open and close, rotates its chevron to match, and respects `prefers-reduced-motion`.
-
-For design guidelines and all interactive states, see the [Accordions](/v1/accordions) design page.
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/accordion?theme=light" title="Accordion" loading="lazy" style={{ width: "100%", height: "340px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion?theme=dark" title="Accordion" loading="lazy" style={{ width: "100%", height: "340px" }} />
 
 ```jsx
 import React from "react";
@@ -32,6 +26,16 @@ export default function Page() {
   );
 }
 ```
+</Preview>
+
+<Preview bleed>
+<iframe className="light-only" src="https://v1.cherry.al/preview/accordion-inline?theme=light" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/accordion-inline?theme=dark" title="Inline accordion" loading="lazy" style={{ width: "100%", height: "320px" }} />
+</Preview>
+
+The Accordion component shows and hides content behind a clickable title. It animates open and close, rotates its chevron to match, and respects `prefers-reduced-motion`.
+
+For design guidelines and all interactive states, see the [Accordions](/v1/accordions) design page.
 
 The inline variant drops the border, radius, and side padding for embedding inside cards or lists:
 

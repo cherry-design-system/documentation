@@ -11,10 +11,9 @@ section: "Components"
 ---
 # SearchDialog
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/search-dialog?theme=light" title="SearchDialog preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/search-dialog?theme=dark" title="SearchDialog preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-SearchDialog is a command palette: a search input (`role="combobox"`) over a listbox of results, inside a native modal `<dialog>`. You own the query and the filtering; the dialog handles the keyboard, the highlight and the layout. Compose results with `SearchGroup` and `SearchResult`. For picking a value inside a form use [Combobox](/components/combobox).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/search-dialog?theme=light" title="SearchDialog preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/search-dialog?theme=dark" title="SearchDialog preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
 
 ```tsx
 "use client";
@@ -65,6 +64,9 @@ export function DocsSearch() {
   );
 }
 ```
+</Preview>
+
+SearchDialog is a command palette: a search input (`role="combobox"`) over a listbox of results, inside a native modal `<dialog>`. You own the query and the filtering; the dialog handles the keyboard, the highlight and the layout. Compose results with `SearchGroup` and `SearchResult`. For picking a value inside a form use [Combobox](/components/combobox).
 
 <Callout type="note">
   `empty` shows only when `children` is empty, so render nothing (not an empty `SearchGroup`) when there are no matches. Selecting a result does not close the dialog: set `open` to `false` yourself in `onSelect`.

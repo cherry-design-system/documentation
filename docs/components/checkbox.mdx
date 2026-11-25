@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Checkbox
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/checkbox?theme=light" title="Checkbox preview" loading="lazy" style={{ width: "100%", height: "604px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/checkbox?theme=dark" title="Checkbox preview" loading="lazy" style={{ width: "100%", height: "604px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-A checkbox on a native `<input type="checkbox">`: it submits, resets and handles keyboard and assistive tech natively. The checkmark stroke draws in; `indeterminate` shows a dash. Use it for independent yes/no choices in a form. Use [Toggle](/components/toggle) for settings that apply immediately and [Radio](/components/radio) for one choice out of several.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/checkbox?theme=light" title="Checkbox preview" loading="lazy" style={{ width: "100%", height: "604px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/checkbox?theme=dark" title="Checkbox preview" loading="lazy" style={{ width: "100%", height: "604px" }} />
 
 ```tsx
 "use client";
@@ -28,6 +27,9 @@ export function Terms() {
   );
 }
 ```
+</Preview>
+
+A checkbox on a native `<input type="checkbox">`: it submits, resets and handles keyboard and assistive tech natively. The checkmark stroke draws in; `indeterminate` shows a dash. Use it for independent yes/no choices in a form. Use [Toggle](/components/toggle) for settings that apply immediately and [Radio](/components/radio) for one choice out of several.
 
 ## Examples
 

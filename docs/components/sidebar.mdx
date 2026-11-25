@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Sidebar
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/sidebar?theme=light" title="Sidebar preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/sidebar?theme=dark" title="Sidebar preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Sidebar is the side navigation of an app: an `<aside>` with a header, a `<nav>` of `SidebarGroup`s and a footer. It has no client JavaScript: collapsible groups are native `<details>`, the active item is plain `aria-current`, and `collapsed` is a prop you drive. For a top-of-page navigation use [NavPill](/components/nav-pill).
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/sidebar?theme=light" title="Sidebar preview" loading="lazy" style={{ width: "100%", height: "664px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/sidebar?theme=dark" title="Sidebar preview" loading="lazy" style={{ width: "100%", height: "664px" }} />
 
 ```tsx
 import { Sidebar, SidebarGroup, SidebarItem } from "@cherry-design-system/react";
@@ -31,6 +30,9 @@ export function AppSidebar() {
   );
 }
 ```
+</Preview>
+
+Sidebar is the side navigation of an app: an `<aside>` with a header, a `<nav>` of `SidebarGroup`s and a footer. It has no client JavaScript: collapsible groups are native `<details>`, the active item is plain `aria-current`, and `collapsed` is a prop you drive. For a top-of-page navigation use [NavPill](/components/nav-pill).
 
 ## Examples
 
