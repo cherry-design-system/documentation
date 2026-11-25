@@ -1,22 +1,27 @@
 [
   {
-    "title": "Discord",
-    "url": "https://discord.gg/6JvcWU5bke",
-    "icon": "message-circle"
-  },
-  {
-    "title": "Figma Template",
-    "url": "https://www.figma.com/community/file/943862931766586094/Cherry-Design-System",
-    "icon": "pen-tool"
-  },
-  {
-    "title": "Figma Plugin",
-    "url": "https://www.figma.com/community/plugin/1091785956842659849/Cherry-Theme-Generator",
-    "icon": "puzzle"
+    "title": "Website",
+    "url": "https://cherry.al",
+    "icon": "globe"
   },
   {
     "title": "GitHub",
-    "url": "https://github.com/cherry-design-system",
+    "url": "https://github.com/cherry-design-system/react",
     "icon": "git-branch"
+  },
+  {
+    "title": "npm",
+    "url": "https://www.npmjs.com/package/@cherry-design-system/react",
+    "icon": "package"
+  },
+  {
+    "title": "Figma Template",
+    "url": "https://www.figma.com/community/file/943862931766586094/cherry-design-system",
+    "icon": "pen-tool"
+  },
+  {
+    "title": "Discord",
+    "url": "https://discord.gg/6JvcWU5bke",
+    "icon": "message-circle"
   }
 ]
