@@ -18,7 +18,9 @@ The 1.x documentation stays available at [/v1](/v1) while you migrate.
 
 Remove the old packages and add the new one:
 
-<CodeTabs tabs={[{ label: "npm", code: "npm uninstall cherry-styled-components styled-components\nnpm install @cherry-design-system/react lucide-react" }, { label: "pnpm", code: "pnpm remove cherry-styled-components styled-components\npnpm add @cherry-design-system/react lucide-react" }, { label: "yarn", code: "yarn remove cherry-styled-components styled-components\nyarn add @cherry-design-system/react lucide-react" }]} />
+<CodeTabs tabs={[{ label: "npm", code: "npm uninstall cherry-styled-components styled-components" }, { label: "pnpm", code: "pnpm remove cherry-styled-components styled-components" }, { label: "yarn", code: "yarn remove cherry-styled-components styled-components" }, { label: "bun", code: "bun remove cherry-styled-components styled-components" }]} />
+
+<Install>@cherry-design-system/react lucide-react</Install>
 
 Keep `styled-components` if your own code still uses it; cherry 2.0 no longer needs it. In Next.js, you can also drop `compiler.styledComponents` from `next.config.ts` once nothing else depends on it.
 
