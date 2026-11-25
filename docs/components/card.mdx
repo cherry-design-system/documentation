@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Card
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/card-and-statcard?theme=light" title="Card preview" loading="lazy" style={{ width: "100%", height: "948px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/card-and-statcard?theme=dark" title="Card preview" loading="lazy" style={{ width: "100%", height: "948px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Card is a bordered or filled surface that groups related content. Compose it with `CardIcon`, `CardTitle` and `CardDescription`. For a metric tile use [StatCard](/components/stat-card) instead.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/card?theme=light" title="Card preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/card?theme=dark" title="Card preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
 
 ```tsx
 import { Card, CardDescription, CardIcon, CardTitle } from "@cherry-design-system/react";
@@ -32,6 +31,9 @@ export function Feature() {
   );
 }
 ```
+</Preview>
+
+Card is a bordered or filled surface that groups related content. Compose it with `CardIcon`, `CardTitle` and `CardDescription`. For a metric tile use [StatCard](/components/stat-card) instead.
 
 ## Examples
 

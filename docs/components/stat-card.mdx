@@ -11,10 +11,9 @@ section: "Components"
 ---
 # StatCard
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/card-and-statcard?theme=light" title="StatCard preview" loading="lazy" style={{ width: "100%", height: "948px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/card-and-statcard?theme=dark" title="StatCard preview" loading="lazy" style={{ width: "100%", height: "948px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-StatCard is a metric tile for dashboards: a label, a value, a delta whose color follows the trend, and an optional sparkline that draws itself in over a token gradient.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/stat-card?theme=light" title="StatCard preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/stat-card?theme=dark" title="StatCard preview" loading="lazy" style={{ width: "100%", height: "560px" }} />
 
 ```tsx
 import { StatCard } from "@cherry-design-system/react";
@@ -31,6 +30,9 @@ export function ActiveUsers() {
   );
 }
 ```
+</Preview>
+
+StatCard is a metric tile for dashboards: a label, a value, a delta whose color follows the trend, and an optional sparkline that draws itself in over a token gradient.
 
 ## Examples
 

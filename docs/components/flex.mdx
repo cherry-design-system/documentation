@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Flex
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=light" title="Flex preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=dark" title="Flex preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Flex lays out its children with flexbox, and every layout prop can change per breakpoint. `Stack` is a vertical Flex that does not wrap, for form fields and lists of blocks. Use [Grid](/components/grid) when you want equal columns.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/flex?theme=light" title="Flex preview" loading="lazy" style={{ width: "100%", height: "600px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/flex?theme=dark" title="Flex preview" loading="lazy" style={{ width: "100%", height: "600px" }} />
 
 ```tsx
 import { Button, Flex } from "@cherry-design-system/react";
@@ -28,6 +27,9 @@ export function Actions() {
   );
 }
 ```
+</Preview>
+
+Flex lays out its children with flexbox, and every layout prop can change per breakpoint. `Stack` is a vertical Flex that does not wrap, for form fields and lists of blocks. Use [Grid](/components/grid) when you want equal columns.
 
 ## Examples
 

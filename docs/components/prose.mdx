@@ -11,10 +11,9 @@ section: "Components"
 ---
 # Prose
 
-<iframe className="light-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=light" title="Prose preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-<iframe className="dark-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=dark" title="Prose preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
-
-Prose styles rich text that you do not style element by element, such as rendered markdown or CMS content. Headings, paragraphs, links, lists, quotes, code, tables and media all take their look from the text tokens. Only bare elements are styled, so cherry components placed inside keep their own look.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/prose?theme=light" title="Prose preview" loading="lazy" style={{ width: "100%", height: "600px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/prose?theme=dark" title="Prose preview" loading="lazy" style={{ width: "100%", height: "600px" }} />
 
 ```tsx
 import { Prose } from "@cherry-design-system/react";
@@ -34,6 +33,9 @@ export function Article() {
   );
 }
 ```
+</Preview>
+
+Prose styles rich text that you do not style element by element, such as rendered markdown or CMS content. Headings, paragraphs, links, lists, quotes, code, tables and media all take their look from the text tokens. Only bare elements are styled, so cherry components placed inside keep their own look.
 
 ## Examples
 

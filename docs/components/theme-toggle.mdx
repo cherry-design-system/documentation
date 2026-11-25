@@ -11,7 +11,9 @@ section: "Components"
 ---
 # ThemeToggle
 
-ThemeToggle is a three-way switch between System, Light and Dark color modes. It reads and sets the same preference as `useColorMode()`, which is stored in `localStorage` and mirrored to a cookie. See [Dark mode](/dark-mode) for the init script that applies the mode before the first paint.
+<Preview bleed>
+<iframe className="light-only" src="https://v2.cherry.al/preview/theme-toggle?theme=light" title="ThemeToggle preview" loading="lazy" style={{ width: "100%", height: "240px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/theme-toggle?theme=dark" title="ThemeToggle preview" loading="lazy" style={{ width: "100%", height: "240px" }} />
 
 ```tsx
 import { ThemeToggle } from "@cherry-design-system/react";
@@ -24,6 +26,9 @@ export function Header() {
   );
 }
 ```
+</Preview>
+
+ThemeToggle is a three-way switch between System, Light and Dark color modes. It reads and sets the same preference as `useColorMode()`, which is stored in `localStorage` and mirrored to a cookie. See [Dark mode](/dark-mode) for the init script that applies the mode before the first paint.
 
 ## Examples
 
