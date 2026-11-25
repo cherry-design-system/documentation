@@ -1,0 +1,4 @@
+[
+  { "label": "v2.0", "default": true },
+  { "slug": "v1", "label": "v1.x" }
+]

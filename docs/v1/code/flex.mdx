@@ -1,0 +1,86 @@
+---
+title: "Flex"
+description: "Cherry Flex component - responsive flexbox layouts with gap and alignment control."
+date: "2026-02-19"
+category: "Layout"
+categoryOrder: 4
+order: 3
+navIcon: "stretch-horizontal"
+section: "Code"
+---
+# Flex
+
+<iframe className="light-only" src="https://v1.cherry.al/preview/flex?theme=light" title="Flex" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v1.cherry.al/preview/flex?theme=dark" title="Flex" loading="lazy" style={{ width: "100%", height: "320px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+The Flex component is a flexible container for creating responsive layouts. It's useful for arranging child elements in a row or column, adjusting the gap between them, and controlling alignment. Flex adapts to different screen sizes with responsive props like `$xsGap` and `$smJustifyContent`. You will see this pattern throughout the Cherry Design System.
+
+```jsx
+import React from "react";
+import { Flex, Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Flex $justifyContent="center">
+      <Box>Box</Box>
+      <Box>Box</Box>
+    </Flex>
+  );
+}
+```
+
+Responsive variants apply from their breakpoint upwards. This example stacks the boxes in a column, then switches to a centered row from the `lg` breakpoint:
+
+```jsx
+import React from "react";
+import { Flex, Box } from "cherry-styled-components";
+
+export default function Page() {
+  return (
+    <Flex $direction="column" $lgDirection="row" $lgJustifyContent="center">
+      <Box>Box</Box>
+      <Box>Box</Box>
+    </Flex>
+  );
+}
+```
+
+## Properties
+
+<Field value="children" type="React.ReactNode">
+  Flex container content.
+</Field>
+
+<Field value="$justifyContent" type='"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"'>
+  Justify content alignment along the main axis. Defaults to `"flex-start"`. Also available as responsive variants: `$xsJustifyContent`, `$smJustifyContent`, `$mdJustifyContent`, `$lgJustifyContent`, `$xlJustifyContent`, `$xxlJustifyContent`, `$xxxlJustifyContent`.
+</Field>
+
+<Field value="$alignItems" type='"stretch" | "center" | "flex-start" | "flex-end" | "baseline"'>
+  Align items along the cross axis. Defaults to `"stretch"`. Also available as responsive variants: `$xsAlignItems`, `$smAlignItems`, `$mdAlignItems`, `$lgAlignItems`, `$xlAlignItems`, `$xxlAlignItems`, `$xxxlAlignItems`.
+</Field>
+
+<Field value="$alignContent" type='"stretch" | "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"'>
+  Align content distributes wrapped lines along the cross axis. Defaults to `"stretch"`. Also available as responsive variants: `$xsAlignContent`, `$smAlignContent`, `$mdAlignContent`, `$lgAlignContent`, `$xlAlignContent`, `$xxlAlignContent`, `$xxxlAlignContent`.
+</Field>
+
+<Field value="$wrap" type='"wrap" | "nowrap" | "wrap-reverse"'>
+  Flex wrap behavior. Defaults to `"wrap"`.
+</Field>
+
+<Field value="$gap" type='number | "none"'>
+  Gap between flex items. Defaults to the theme's `gridGap` (`20px`, and `40px` from the `lg` breakpoint). Also available as responsive variants: `$xsGap`, `$smGap`, `$mdGap`, `$lgGap`, `$xlGap`, `$xxlGap`, `$xxxlGap`. Note that on the base `$gap`, `"none"` behaves like `undefined`, so the theme default still applies; only the responsive variants map `"none"` to `0`.
+</Field>
+
+<Field value="$direction" type='"row" | "column" | "row-reverse" | "column-reverse"'>
+  Flex direction. Defaults to `"row"`. Also available as responsive variants: `$xsDirection`, `$smDirection`, `$mdDirection`, `$lgDirection`, `$xlDirection`, `$xxlDirection`, `$xxxlDirection`.
+</Field>
+
+<Field value="$fullWidth" type="boolean">
+  Makes the flex container span the full width of its parent.
+</Field>
+
+Flex also accepts all standard `div` attributes (`className`, `id`, `onClick`, etc.) and forwards its `ref` to the underlying `div` element.
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/flex.tsx" icon="code" iconPosition="left">
+  View Source
+</Button>
