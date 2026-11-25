@@ -1,0 +1,158 @@
+---
+title: "Checkbox"
+description: "Checkbox on a native input with a visible label, three sizes, an indeterminate state and an error state."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 1
+navIcon: "square-check"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Checkbox
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/checkbox?theme=light" title="Checkbox preview" loading="lazy" style={{ width: "100%", height: "604px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/checkbox?theme=dark" title="Checkbox preview" loading="lazy" style={{ width: "100%", height: "604px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A checkbox on a native `<input type="checkbox">`: it submits, resets and handles keyboard and assistive tech natively. The checkmark stroke draws in; `indeterminate` shows a dash. Use it for independent yes/no choices in a form. Use [Toggle](/components/toggle) for settings that apply immediately and [Radio](/components/radio) for one choice out of several.
+
+```tsx
+"use client";
+import { Checkbox, Field } from "@cherry-design-system/react";
+
+export function Terms() {
+  return (
+    <Field label="Terms" required>
+      <Checkbox name="terms" label="I accept the terms of service" />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+`sm`, `md` and `lg` are 16, 18 and 20 px boxes.
+
+```tsx
+"use client";
+import { Checkbox, Field } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Field label="Small">
+        <Checkbox size="sm" label="Remember me" />
+      </Field>
+      <Field label="Medium">
+        <Checkbox size="md" label="Remember me" />
+      </Field>
+      <Field label="Large">
+        <Checkbox size="lg" label="Remember me" />
+      </Field>
+    </>
+  );
+}
+```
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Checkbox, Field } from "@cherry-design-system/react";
+
+export function Newsletter() {
+  const [checked, setChecked] = useState(false);
+  return (
+    <Field label="Newsletter">
+      <Checkbox
+        label="Send me product updates"
+        checked={checked}
+        onChange={(e) => setChecked(e.target.checked)}
+      />
+    </Field>
+  );
+}
+```
+
+### Indeterminate
+
+Use `indeterminate` for a "select all" box when only some children are checked. It is announced as "mixed" and cleared by the next click.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Checkbox, Field } from "@cherry-design-system/react";
+
+const items = ["Email", "SMS", "Push"];
+
+export function Channels() {
+  const [on, setOn] = useState<string[]>(["Email"]);
+  const all = on.length === items.length;
+  return (
+    <Field label="Channels">
+      <Checkbox
+        label="All channels"
+        checked={all}
+        indeterminate={on.length > 0 && !all}
+        onChange={() => setOn(all ? [] : items)}
+      />
+    </Field>
+  );
+}
+```
+
+### Error
+
+```tsx
+"use client";
+import { Checkbox, Field } from "@cherry-design-system/react";
+
+export function Consent() {
+  return (
+    <Field label="Consent" error="You must accept the terms to continue.">
+      <Checkbox name="terms" label="I accept the terms of service" />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="label" type="ReactNode">
+  Visible label. Omit only when an `aria-label` is given.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  16 / 18 / 20 px box. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="indeterminate" type="boolean">
+  Mixed state (a dash). Announced as "mixed"; cleared by the next click. Defaults to `false`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer `<label>` (`className` goes to the `<input>`).
+</Field>
+
+The ref and all native `<input>` attributes (except `size` and `type`) go to the `<input>`.
+
+## Styling
+
+Root class `cherry-checkbox` (the outer `<label>`) with `data-size` (`sm`, `md`, `lg`) and states `data-invalid`, `data-disabled`, plus `:checked`, `:indeterminate` and `:disabled` on the input. Parts: `cherry-checkbox__control`, `__input`, `__icon`, `__check`, `__dash`, `__label`.
+
+Reads `--cherry-primary-default` and `--cherry-primary-fg` when checked, `--cherry-border-strong`, `--cherry-danger-solid`, `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+Native checkbox: Space toggles, the label is clickable, and `indeterminate` is announced as mixed. Inside a Field, the Field's hint or error is linked to the input through `aria-describedby`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/checkbox" icon="code" iconPosition="left">
+  View Source
+</Button>

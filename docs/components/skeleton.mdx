@@ -1,0 +1,104 @@
+---
+title: "Skeleton"
+description: "A shimmering loading placeholder shaped as text lines, a circle or a rectangle, to hold the layout while content loads."
+date: "2026-11-25"
+category: "Feedback"
+categoryOrder: 7
+order: 5
+navIcon: "square-dashed"
+categoryIcon: "message-square-warning"
+section: "Components"
+---
+# Skeleton
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/skeleton?theme=light" title="Skeleton preview" loading="lazy" style={{ width: "100%", height: "454px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/skeleton?theme=dark" title="Skeleton preview" loading="lazy" style={{ width: "100%", height: "454px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Skeleton is a loading placeholder with a shimmer. It keeps the layout in place while content loads, so the page does not jump when the data arrives. For a short wait without a known layout, use [Spinner](/components/spinner).
+
+```tsx
+import { Skeleton } from "@cherry-design-system/react";
+
+export function LoadingText() {
+  return (
+    <div aria-busy="true">
+      <Skeleton shape="text" lines={3} />
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Shapes
+
+`text` draws lines (the last one is shorter), `circle` fits an avatar and `rect` fits media or cards.
+
+```tsx
+import { Skeleton } from "@cherry-design-system/react";
+
+export function Shapes() {
+  return (
+    <>
+      <Skeleton shape="text" lines={2} />
+      <Skeleton shape="circle" width={48} />
+      <Skeleton shape="rect" width="50%" height="8rem" />
+    </>
+  );
+}
+```
+
+### A loading card
+
+```tsx
+import { Skeleton } from "@cherry-design-system/react";
+
+export function ProfileCardSkeleton() {
+  return (
+    <div aria-busy="true" aria-label="Loading profile" style={{ display: "flex", gap: 12 }}>
+      <Skeleton shape="circle" width={40} />
+      <div style={{ flex: 1 }}>
+        <Skeleton shape="text" lines={2} />
+      </div>
+    </div>
+  );
+}
+```
+
+## Properties
+
+<Field value="shape" type='"text" | "circle" | "rect"'>
+  `text` (lines), `circle` (avatar) or `rect` (media, cards). Defaults to `"text"`.
+</Field>
+
+<Field value="width" type="number | string">
+  CSS width; a number means pixels. Defaults to the full width, and to 40px for a circle.
+</Field>
+
+<Field value="height" type="number | string">
+  CSS height; a number means pixels. A circle uses its width when omitted.
+</Field>
+
+<Field value="lines" type="number">
+  Number of text lines; the last one is shorter. Defaults to `1`.
+</Field>
+
+Skeleton renders a `<span aria-hidden="true">`, forwards its ref to it and passes every other `<span>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-skeleton` | Root element |
+| `data-shape` | `text`, `circle`, `rect` |
+| `.cherry-skeleton__line` | One text line |
+
+The base reads `--cherry-bg-muted` and the shimmer `--cherry-bg-canvas`. The shimmer stops under `prefers-reduced-motion`.
+
+## Accessibility
+
+A Skeleton is hidden from screen readers. Mark the region that is loading with `aria-busy="true"` instead, and remove it once the content is in.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/skeleton" icon="code" iconPosition="left">
+  View Source
+</Button>

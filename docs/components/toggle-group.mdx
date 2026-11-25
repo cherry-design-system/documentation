@@ -1,0 +1,150 @@
+---
+title: "ToggleGroup"
+description: "Segmented control: a single-select radio group with a sliding pill, or a multi-select group of pressed buttons."
+date: "2026-11-25"
+category: "Actions"
+categoryOrder: 1
+order: 4
+navIcon: "square-split-horizontal"
+categoryIcon: "mouse-pointer-click"
+section: "Components"
+---
+# ToggleGroup
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/togglegroup?theme=light" title="ToggleGroup preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/togglegroup?theme=dark" title="ToggleGroup preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A segmented control. `type="single"` is a radio group whose selected pill slides between items; `type="multiple"` is a group of pressed buttons. Use it for view switches and formatting toolbars. For a form choice that submits with a form, use [Radio](/components/radio) or [Checkbox](/components/checkbox).
+
+```tsx
+"use client";
+import { ToggleGroup, ToggleGroupItem } from "@cherry-design-system/react";
+
+export function RangeSwitch() {
+  return (
+    <ToggleGroup type="single" defaultValue="week" aria-label="Range">
+      <ToggleGroupItem value="day">Day</ToggleGroupItem>
+      <ToggleGroupItem value="week">Week</ToggleGroupItem>
+      <ToggleGroupItem value="month">Month</ToggleGroupItem>
+    </ToggleGroup>
+  );
+}
+```
+
+## Examples
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { ToggleGroup, ToggleGroupItem } from "@cherry-design-system/react";
+
+export function ViewSwitch() {
+  const [view, setView] = useState<string | null>("list");
+  return (
+    <ToggleGroup type="single" value={view} onValueChange={setView} aria-label="View">
+      <ToggleGroupItem value="list">List</ToggleGroupItem>
+      <ToggleGroupItem value="board">Board</ToggleGroupItem>
+    </ToggleGroup>
+  );
+}
+```
+
+### Multiple
+
+With `type="multiple"`, `value`, `defaultValue` and `onValueChange` use `string[]`.
+
+```tsx
+"use client";
+import { ToggleGroup, ToggleGroupItem } from "@cherry-design-system/react";
+import { Bold, Italic, Underline } from "lucide-react";
+
+export function Formatting() {
+  return (
+    <ToggleGroup type="multiple" defaultValue={["bold"]} size="sm" aria-label="Text formatting">
+      <ToggleGroupItem value="bold" aria-label="Bold">
+        <Bold />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Italic">
+        <Italic />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="underline" aria-label="Underline">
+        <Underline />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  );
+}
+```
+
+### Disabled
+
+`disabled` on the group disables every item; `disabled` on one item disables only that item.
+
+```tsx
+"use client";
+import { ToggleGroup, ToggleGroupItem } from "@cherry-design-system/react";
+
+export function Plans() {
+  return (
+    <ToggleGroup defaultValue="monthly" aria-label="Billing period">
+      <ToggleGroupItem value="monthly">Monthly</ToggleGroupItem>
+      <ToggleGroupItem value="yearly" disabled>
+        Yearly
+      </ToggleGroupItem>
+    </ToggleGroup>
+  );
+}
+```
+
+## Properties
+
+### ToggleGroup
+
+<Field value="type" type='"single" | "multiple"'>
+  `single`: one value at a time (a radio group). `multiple`: any number of values (toggle buttons with `aria-pressed`). Defaults to `"single"`.
+</Field>
+
+<Field value="value" type="string | null (single) | string[] (multiple)">
+  Controlled value.
+</Field>
+
+<Field value="defaultValue" type="string | null (single) | string[] (multiple)">
+  Initial value when uncontrolled.
+</Field>
+
+<Field value="onValueChange" type="(value: string) => void | (value: string[]) => void">
+  Called with the new value; a `string[]` when `type="multiple"`.
+</Field>
+
+<Field value="size" type='"sm" | "md"'>
+  Item size. Defaults to `"md"`.
+</Field>
+
+<Field value="disabled" type="boolean">
+  Disables every item. Defaults to `false`.
+</Field>
+
+Renders a `<div>`, forwards its ref and passes through native `<div>` attributes.
+
+### ToggleGroupItem
+
+<Field value="value" type="string" required>
+  The item's value.
+</Field>
+
+Renders a `<button>` and passes through all native `<button>` attributes. Icon-only items need an `aria-label`.
+
+## Styling
+
+Root class `cherry-toggle-group` with `data-type` (`single`, `multiple`) and `data-size` (`sm`, `md`). Parts: `cherry-toggle-group__item`, `cherry-toggle-group__indicator` (the sliding pill). States: `data-ready`, `aria-checked`, `aria-pressed`, `aria-disabled`, `:disabled`.
+
+Reads `--cherry-bg-muted`, `--cherry-bg-canvas` (selected pill), `--cherry-elevation-xs` and `--cherry-ring`.
+
+## Accessibility
+
+`type="single"` is a radiogroup: arrows, Home and End move and select. `type="multiple"` is a set of toggle buttons with `aria-pressed`. Name the group with `aria-label` and label icon-only items.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/toggle-group" icon="code" iconPosition="left">
+  View Source
+</Button>

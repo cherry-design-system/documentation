@@ -1,0 +1,191 @@
+---
+title: "DateTimePicker"
+description: "Day and time in one popover: a Calendar beside a column of time slots, confirmed with Cancel and Apply."
+date: "2026-11-25"
+category: "Date and time"
+categoryOrder: 3
+order: 2
+navIcon: "calendar-clock"
+categoryIcon: "calendar"
+section: "Components"
+---
+# DateTimePicker
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/datetimepicker?theme=light" title="DateTimePicker preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/datetimepicker?theme=dark" title="DateTimePicker preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Picks a day and a time in one popover: a [Calendar](/components/calendar) beside a column of time slots, then Cancel or Apply. It reuses the [DatePicker](/components/date-picker) trigger. Use DatePicker or [TimePicker](/components/time-picker) when you only need one of the two.
+
+```tsx
+"use client";
+import { DateTimePicker, Field } from "@cherry-design-system/react";
+
+export function PublishAt() {
+  return (
+    <Field label="Publish at">
+      <DateTimePicker name="publishAt" locale="en-GB" hourCycle={24} fullWidth />
+    </Field>
+  );
+}
+```
+
+`onChange` runs only on Apply. With `name`, a hidden input submits `"YYYY-MM-DDTHH:mm"` in local time.
+
+<Callout type="note">
+  If you import per-component CSS from `@cherry-design-system/react/css/*` instead of `styles.css`, DateTimePicker needs `date-picker.css`, `calendar.css`, `time-picker.css` and `button.css` besides its own stylesheet.
+</Callout>
+
+## Examples
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { DateTimePicker, Field } from "@cherry-design-system/react";
+
+export function Meeting() {
+  const [when, setWhen] = useState<Date | null>(null);
+  return (
+    <Field label="Meeting" hint={when ? when.toISOString() : "Not scheduled"}>
+      <DateTimePicker value={when} onChange={setWhen} step={15} hourCycle={12} />
+    </Field>
+  );
+}
+```
+
+### Limits and disabled days
+
+```tsx
+"use client";
+import { DateTimePicker, Field } from "@cherry-design-system/react";
+
+const now = new Date();
+
+export function Delivery() {
+  return (
+    <Field label="Delivery window" required>
+      <DateTimePicker
+        min={now}
+        isDateDisabled={(d) => d.getDay() === 0}
+        dateFormatOptions={{ weekday: "short", day: "numeric", month: "short" }}
+        placeholder="Choose a delivery slot"
+      />
+    </Field>
+  );
+}
+```
+
+### Translated labels
+
+```tsx
+"use client";
+import { DateTimePicker, Field } from "@cherry-design-system/react";
+
+export function Cita() {
+  return (
+    <Field label="Cita">
+      <DateTimePicker
+        locale="es-ES"
+        weekStartsOn={1}
+        labels={{ dialog: "Elegir fecha y hora", time: "Hora", cancel: "Cancelar", apply: "Aplicar" }}
+        calendarLabels={{ previousMonth: "Mes anterior", nextMonth: "Mes siguiente" }}
+      />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="value" type="Date | null">
+  Controlled date and time.
+</Field>
+
+<Field value="defaultValue" type="Date | null">
+  Initial value when uncontrolled. Defaults to `null`.
+</Field>
+
+<Field value="onChange" type="(value: Date) => void">
+  Called on Apply with the picked day at the picked time.
+</Field>
+
+<Field value="min" type="Date">
+  Earliest selectable day.
+</Field>
+
+<Field value="max" type="Date">
+  Latest selectable day.
+</Field>
+
+<Field value="isDateDisabled" type="(date: Date) => boolean">
+  Extra rule for unavailable days.
+</Field>
+
+<Field value="step" type="number">
+  Minutes between time slots. Defaults to `30`.
+</Field>
+
+<Field value="hourCycle" type="12 | 24">
+  12 or 24-hour clock for the slots.
+</Field>
+
+<Field value="locale" type="string">
+  BCP 47 locale for the calendar, the slots and the trigger text.
+</Field>
+
+<Field value="weekStartsOn" type="0 | 1 | 2 | 3 | 4 | 5 | 6">
+  First day of the week, 0 = Sunday.
+</Field>
+
+<Field value="dateFormatOptions" type="Intl.DateTimeFormatOptions">
+  How the trigger shows the day. Defaults to `{ dateStyle: "medium" }`.
+</Field>
+
+<Field value="placeholder" type="ReactNode">
+  Shown while empty. Defaults to `"Pick a date and time"`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Trigger size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Stretch the trigger to the container width.
+</Field>
+
+<Field value="name" type="string">
+  Form field name: submits `"YYYY-MM-DDTHH:mm"` (local time).
+</Field>
+
+<Field value="labels" type="{ dialog?: string; time?: string; cancel?: string; apply?: string }">
+  Accessible names and button text (`DateTimePickerLabels`). Default to `"Choose date and time"`, `"Time"`, `"Cancel"` and `"Apply"`.
+</Field>
+
+<Field value="calendarLabels" type="{ previousMonth?: string; nextMonth?: string }">
+  Labels passed to the Calendar's month buttons.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the trigger button).
+</Field>
+
+The ref and native `<button>` attributes (except `value`, `defaultValue`, `onChange` and `children`) go to the trigger button.
+
+## Styling
+
+Root class `cherry-date-time-picker` with states `data-open`, `data-invalid` and `data-disabled`. Parts: `cherry-date-time-picker__popover`, `__body`, `__time`, `__time-label`, `__footer`. The trigger uses the DatePicker classes (`cherry-date-picker__trigger` and so on), the grid uses the Calendar classes and the slots use the TimePicker option classes.
+
+Reads `--cherry-border-default` for the divider, `--cherry-fg-muted` for the time label and `--cherry-primary-default` with `--cherry-primary-fg` for the selected slot.
+
+## Accessibility
+
+A dialog with the Calendar grid and a time listbox; Cancel and Apply are buttons. Escape closes the dialog and returns focus to the trigger. Label it with Field.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/date-time-picker" icon="code" iconPosition="left">
+  View Source
+</Button>

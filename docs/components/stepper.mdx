@@ -1,0 +1,136 @@
+---
+title: "Stepper"
+description: "Progress through a multi-step flow as an ordered list, horizontal or vertical, with completed, current and upcoming states."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 5
+navIcon: "list-checks"
+categoryIcon: "navigation"
+section: "Components"
+---
+# Stepper
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/stepper?theme=light" title="Stepper preview" loading="lazy" style={{ width: "100%", height: "508px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/stepper?theme=dark" title="Stepper preview" loading="lazy" style={{ width: "100%", height: "508px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Stepper shows where the user is in a multi-step flow such as onboarding or checkout. Steps before `current` are complete, connectors fill as steps complete, and the component has no client JavaScript. For a single value use [Progress](/components/progress).
+
+```tsx
+import { Stepper } from "@cherry-design-system/react";
+
+export function Setup() {
+  return (
+    <Stepper
+      aria-label="Setup"
+      current={1}
+      steps={[{ label: "Account" }, { label: "Workspace" }, { label: "Invite" }]}
+    />
+  );
+}
+```
+
+## Examples
+
+### Vertical with descriptions
+
+```tsx
+import { Stepper } from "@cherry-design-system/react";
+
+export function Checkout() {
+  return (
+    <Stepper
+      aria-label="Checkout"
+      orientation="vertical"
+      current={2}
+      steps={[
+        { label: "Cart", description: "3 items" },
+        { label: "Shipping", description: "Standard, 3 to 5 days" },
+        { label: "Payment", description: "Card or bank transfer" },
+        { label: "Review" },
+      ]}
+    />
+  );
+}
+```
+
+### Overriding a step's state
+
+A step's `state` overrides the one derived from `current`, for example to keep a skipped step marked as upcoming.
+
+```tsx
+import { Stepper } from "@cherry-design-system/react";
+
+export function Onboarding() {
+  return (
+    <Stepper
+      aria-label="Onboarding"
+      current={2}
+      steps={[
+        { label: "Profile" },
+        { label: "Integrations", state: "upcoming" },
+        { label: "Done" },
+      ]}
+    />
+  );
+}
+```
+
+### Translated state labels
+
+Each step announces its state in text. `labels` replaces the defaults ("Completed", "Current step", "Not started").
+
+```tsx
+import { Stepper } from "@cherry-design-system/react";
+
+export function Pasos() {
+  return (
+    <Stepper
+      aria-label="Registro"
+      current={0}
+      labels={{ complete: "Completado", current: "Paso actual", upcoming: "Sin empezar" }}
+      steps={[{ label: "Cuenta" }, { label: "Equipo" }]}
+    />
+  );
+}
+```
+
+## Properties
+
+<Field value="steps" type="StepperStep[]" required>
+  The steps, in order. Each is `{ label: ReactNode; description?: ReactNode; state?: "complete" | "current" | "upcoming" }`. `state` overrides the state derived from `current`.
+</Field>
+
+<Field value="current" type="number" required>
+  Index (0-based) of the current step. Earlier steps are complete.
+</Field>
+
+<Field value="orientation" type='"horizontal" | "vertical"'>
+  Layout direction. Defaults to `"horizontal"`.
+</Field>
+
+<Field value="labels" type='Partial<Record<"complete" | "current" | "upcoming", string>>'>
+  Screen-reader words for each state. Translate here.
+</Field>
+
+Stepper renders an `<ol>`, forwards its ref and passes every other `<ol>` attribute through. It is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-stepper` |
+| `data-orientation` | `horizontal`, `vertical` |
+| `data-state` (on each step) | `complete`, `current`, `upcoming` |
+| States | `[aria-current="step"]` |
+| Parts | `cherry-stepper__step`, `cherry-stepper__marker`, `cherry-stepper__check`, `cherry-stepper__number`, `cherry-stepper__connector`, `cherry-stepper__text`, `cherry-stepper__label`, `cherry-stepper__description` |
+
+Completed and current markers read `--cherry-primary-default` and `--cherry-primary-fg`; upcoming markers and connectors use `--cherry-bg-muted` and `--cherry-border-default`.
+
+## Accessibility
+
+The current step is `aria-current="step"`. Each step states whether it is complete, current or not started in text (`labels`), not only with the check mark. Name the list with `aria-label` when the page has more than one.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/stepper" icon="code" iconPosition="left">
+  View Source
+</Button>

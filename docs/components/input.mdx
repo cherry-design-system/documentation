@@ -1,0 +1,152 @@
+---
+title: "Input"
+description: "Single-line text input with three sizes, a leading icon slot, a suffix slot and an error state wired to Field."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 5
+navIcon: "text-cursor-input"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Input
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/fields?theme=light" title="Input preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/fields?theme=dark" title="Input preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A single-line text input for names, emails, URLs and search. Use [Textarea](/components/textarea) for multi-line text, [Password](/components/password) for secrets and [NumberField](/components/number-field) for numbers with steppers.
+
+```tsx
+"use client";
+import { Field, Input } from "@cherry-design-system/react";
+import { Mail } from "lucide-react";
+
+export function Email() {
+  return (
+    <Field label="Email" hint="We never share it.">
+      <Input type="email" leadingIcon={<Mail />} placeholder="you@example.com" />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+```tsx
+"use client";
+import { Field, Input } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Field label="Small">
+        <Input size="sm" />
+      </Field>
+      <Field label="Medium">
+        <Input size="md" />
+      </Field>
+      <Field label="Large">
+        <Input size="lg" />
+      </Field>
+    </>
+  );
+}
+```
+
+### With a suffix
+
+`suffix` takes any element after the text: a unit, an icon or a button.
+
+```tsx
+"use client";
+import { Field, IconButton, Input } from "@cherry-design-system/react";
+import { Copy } from "lucide-react";
+
+export function Domain() {
+  return (
+    <>
+      <Field label="Subdomain">
+        <Input name="subdomain" suffix=".example.com" />
+      </Field>
+      <Field label="API key">
+        <Input
+          readOnly
+          defaultValue="sk_live_1234"
+          suffix={<IconButton aria-label="Copy API key" icon={<Copy />} size="sm" />}
+        />
+      </Field>
+    </>
+  );
+}
+```
+
+### Search
+
+```tsx
+"use client";
+import { Field, Input } from "@cherry-design-system/react";
+import { Search } from "lucide-react";
+
+export function SearchBox() {
+  return (
+    <Field label="Search">
+      <Input type="search" leadingIcon={<Search />} placeholder="Search projects" />
+    </Field>
+  );
+}
+```
+
+### Error
+
+```tsx
+"use client";
+import { Field, Input } from "@cherry-design-system/react";
+
+export function Website() {
+  return (
+    <Field label="Website" error="Enter a full URL, including https://">
+      <Input type="url" defaultValue="example" />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Input size. Defaults to `"md"`.
+</Field>
+
+<Field value="leadingIcon" type="ReactNode">
+  Icon before the text, for example `<Search />`.
+</Field>
+
+<Field value="suffix" type="ReactNode">
+  Element after the text: an icon, a unit or a button.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the `<input>`).
+</Field>
+
+The ref and every native `<input>` attribute go to the `<input>`.
+
+## Styling
+
+Root class `cherry-input` (the wrapper) with `data-size` (`sm`, `md`, `lg`) and states `data-invalid`, `data-disabled`, `:focus-within`. Parts: `cherry-input__control`, `cherry-input__icon`, `cherry-input__suffix`.
+
+Reads `--cherry-bg-canvas`, `--cherry-border-default`, `--cherry-border-strong` (hover), `--cherry-border-focus`, `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+Always label it: wrap it in Field or pass `aria-label`. A placeholder is a hint, not a label. `invalid` (or Field's `error`) sets `aria-invalid` and the error is read with the field.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/input" icon="code" iconPosition="left">
+  View Source
+</Button>

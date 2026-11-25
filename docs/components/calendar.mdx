@@ -1,0 +1,170 @@
+---
+title: "Calendar"
+description: "Inline month grid for picking a single date or a date range, with min and max limits, disabled days and locale support."
+date: "2026-11-25"
+category: "Date and time"
+categoryOrder: 3
+order: 0
+navIcon: "calendar-days"
+categoryIcon: "calendar"
+section: "Components"
+---
+# Calendar
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/calendar?theme=light" title="Calendar preview" loading="lazy" style={{ width: "100%", height: "804px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/calendar?theme=dark" title="Calendar preview" loading="lazy" style={{ width: "100%", height: "804px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+An inline month grid (`role="grid"`) for picking a single date or a range. Changing month slides the grid. Use it when the calendar should stay on the page, such as a booking sidebar. Use [DatePicker](/components/date-picker) for a compact form field that opens a calendar in a popover.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Calendar } from "@cherry-design-system/react";
+
+export function DueDate() {
+  const [date, setDate] = useState<Date | null>(new Date());
+  return <Calendar locale="en-US" value={date} onChange={setDate} fullWidth />;
+}
+```
+
+## Examples
+
+### Range selection
+
+With `mode="range"`, `value`, `defaultValue` and `onChange` use a `DateRange`: `{ start: Date; end: Date | null }`. `end` is `null` while the second end is still being picked.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Calendar, type DateRange } from "@cherry-design-system/react";
+
+export function Stay() {
+  const [range, setRange] = useState<DateRange | null>(null);
+  return <Calendar mode="range" value={range} onChange={setRange} locale="en-GB" />;
+}
+```
+
+### Limits and disabled days
+
+```tsx
+"use client";
+import { Calendar } from "@cherry-design-system/react";
+
+const today = new Date();
+const inThreeMonths = new Date(today.getFullYear(), today.getMonth() + 3, today.getDate());
+const isWeekend = (date: Date) => date.getDay() === 0 || date.getDay() === 6;
+
+export function Appointment() {
+  return <Calendar min={today} max={inThreeMonths} isDateDisabled={isWeekend} />;
+}
+```
+
+### Week start and translated labels
+
+`weekStartsOn` takes 0 (Sunday) to 6 (Saturday) and defaults to the locale's first day.
+
+```tsx
+"use client";
+import { Calendar } from "@cherry-design-system/react";
+
+export function Calendario() {
+  return (
+    <Calendar
+      locale="es-ES"
+      weekStartsOn={1}
+      labels={{ previousMonth: "Mes anterior", nextMonth: "Mes siguiente" }}
+    />
+  );
+}
+```
+
+### Controlled month
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Calendar } from "@cherry-design-system/react";
+
+export function MonthView() {
+  const [month, setMonth] = useState(new Date(2026, 0, 1));
+  return <Calendar month={month} onMonthChange={setMonth} />;
+}
+```
+
+## Properties
+
+<Field value="mode" type='"single" | "range"'>
+  Single date or range selection. Defaults to `"single"`.
+</Field>
+
+<Field value="value" type="Date | null (single) | DateRange | null (range)">
+  Controlled selection.
+</Field>
+
+<Field value="defaultValue" type="Date | null (single) | DateRange | null (range)">
+  Initial selection when uncontrolled.
+</Field>
+
+<Field value="onChange" type="(date: Date) => void | (range: DateRange) => void">
+  Called with the picked date, or the range when `mode="range"`.
+</Field>
+
+<Field value="month" type="Date">
+  Visible month (controlled). Any day inside the month works.
+</Field>
+
+<Field value="defaultMonth" type="Date">
+  Initial visible month (uncontrolled). Defaults to the selection or today.
+</Field>
+
+<Field value="onMonthChange" type="(month: Date) => void">
+  Called when the visible month changes.
+</Field>
+
+<Field value="min" type="Date">
+  Earliest selectable day.
+</Field>
+
+<Field value="max" type="Date">
+  Latest selectable day.
+</Field>
+
+<Field value="isDateDisabled" type="(date: Date) => boolean">
+  Extra rule for unavailable days (weekends, booked dates).
+</Field>
+
+<Field value="locale" type="string">
+  BCP 47 locale for month and weekday names. Defaults to the runtime's.
+</Field>
+
+<Field value="weekStartsOn" type="0 | 1 | 2 | 3 | 4 | 5 | 6">
+  0 = Sunday to 6 = Saturday (`Weekday`). Defaults to the locale's first day.
+</Field>
+
+<Field value="today" type="Date">
+  Override "today" (tests, server rendering in another time zone).
+</Field>
+
+<Field value="labels" type="{ previousMonth?: string; nextMonth?: string }">
+  Button labels (`CalendarLabels`). Default to `"Previous month"` and `"Next month"`.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Fill the container: the seven day columns share its width.
+</Field>
+
+Renders a `<div>`, forwards its ref and passes through native `<div>` attributes (except `onChange` and `defaultValue`).
+
+## Styling
+
+Root class `cherry-calendar` with `data-mode` (`single`, `range`) and `data-full-width`. The month viewport uses `data-direction` (`next`, `prev`) while sliding. Day cells use `data-range` (`start`, `middle`, `end`) and the states `data-outside`, `data-today`, `data-selected`, `data-preview`, `aria-selected`, `aria-current` and `aria-disabled`. Parts: `cherry-calendar__header`, `__nav`, `__title`, `__title-text`, `__grid`, `__weekdays`, `__weekday`, `__viewport`, `__weeks`, `__week`, `__cell`, `__day`.
+
+Reads `--cherry-primary-default` and `--cherry-primary-fg` for selected days, `--cherry-secondary-hover` for hover on the range strip, `--cherry-accent-default` for the today dot, and `--cherry-ring`.
+
+## Accessibility
+
+`role="grid"` with one tab stop. Arrows move by day and week, PageUp and PageDown by month (Shift for a year), Home and End to the week's start and end. Today is `aria-current="date"` and month changes are announced.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/calendar" icon="code" iconPosition="left">
+  View Source
+</Button>

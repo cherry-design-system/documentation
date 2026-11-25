@@ -1,0 +1,194 @@
+---
+title: "DatePicker"
+description: "Input-like trigger that opens a Calendar in a popover, submits YYYY-MM-DD with forms and works inside Field."
+date: "2026-11-25"
+category: "Date and time"
+categoryOrder: 3
+order: 1
+navIcon: "calendar"
+categoryIcon: "calendar"
+section: "Components"
+---
+# DatePicker
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/datepicker?theme=light" title="DatePicker preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/datepicker?theme=dark" title="DatePicker preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+An input-like trigger that opens a [Calendar](/components/calendar) in a native popover. Use it for a date field in a form. Use [DateTimePicker](/components/date-time-picker) when a time is needed too.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { DatePicker, Field } from "@cherry-design-system/react";
+
+export function DueDate() {
+  const [due, setDue] = useState<Date | null>(null);
+  return (
+    <Field label="Due date">
+      <DatePicker locale="en-US" value={due} onChange={setDue} fullWidth />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### In a form
+
+`name` adds a hidden input that submits the date as `YYYY-MM-DD`.
+
+```tsx
+"use client";
+import { DatePicker, Field } from "@cherry-design-system/react";
+
+export function Birthday() {
+  return (
+    <form action="/profile" method="post">
+      <Field label="Birthday" required>
+        <DatePicker name="birthday" max={new Date()} />
+      </Field>
+    </form>
+  );
+}
+```
+
+### Format and placeholder
+
+```tsx
+"use client";
+import { DatePicker, Field } from "@cherry-design-system/react";
+
+export function Launch() {
+  return (
+    <Field label="Launch day" hint="Weekdays only.">
+      <DatePicker
+        locale="en-GB"
+        weekStartsOn={1}
+        formatOptions={{ weekday: "long", day: "numeric", month: "long" }}
+        placeholder="Choose a weekday"
+        isDateDisabled={(d) => d.getDay() === 0 || d.getDay() === 6}
+      />
+    </Field>
+  );
+}
+```
+
+### Keep open after selecting
+
+```tsx
+"use client";
+import { DatePicker, Field } from "@cherry-design-system/react";
+
+export function Reminder() {
+  return (
+    <Field label="Reminder">
+      <DatePicker size="sm" closeOnSelect={false} dialogLabel="Choose reminder date" />
+    </Field>
+  );
+}
+```
+
+### Error
+
+```tsx
+"use client";
+import { DatePicker, Field } from "@cherry-design-system/react";
+
+export function Start() {
+  return (
+    <Field label="Start date" error="Pick a start date.">
+      <DatePicker />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="value" type="Date | null">
+  Controlled date.
+</Field>
+
+<Field value="defaultValue" type="Date | null">
+  Initial date when uncontrolled.
+</Field>
+
+<Field value="onChange" type="(date: Date) => void">
+  Called with the picked day.
+</Field>
+
+<Field value="min" type="Date">
+  Earliest selectable day.
+</Field>
+
+<Field value="max" type="Date">
+  Latest selectable day.
+</Field>
+
+<Field value="isDateDisabled" type="(date: Date) => boolean">
+  Extra rule for unavailable days.
+</Field>
+
+<Field value="locale" type="string">
+  BCP 47 locale for the calendar and the trigger text.
+</Field>
+
+<Field value="weekStartsOn" type="0 | 1 | 2 | 3 | 4 | 5 | 6">
+  First day of the week, 0 = Sunday. Defaults to the locale's first day.
+</Field>
+
+<Field value="formatOptions" type="Intl.DateTimeFormatOptions">
+  How the trigger shows the date. Defaults to `{ dateStyle: "medium" }`.
+</Field>
+
+<Field value="placeholder" type="ReactNode">
+  Shown while empty. Defaults to `"Pick a date"`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Trigger size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Stretch the trigger to the container width.
+</Field>
+
+<Field value="name" type="string">
+  Form field name: submits the date as `YYYY-MM-DD`.
+</Field>
+
+<Field value="closeOnSelect" type="boolean">
+  Close the popover once a day is picked. Defaults to `true`.
+</Field>
+
+<Field value="dialogLabel" type="string">
+  Accessible name of the popover. Defaults to `"Choose date"`.
+</Field>
+
+<Field value="calendarLabels" type="{ previousMonth?: string; nextMonth?: string }">
+  Labels passed to the Calendar's month buttons.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the trigger button).
+</Field>
+
+The ref and native `<button>` attributes (except `value`, `defaultValue`, `onChange` and `children`) go to the trigger button.
+
+## Styling
+
+Root class `cherry-date-picker` with `data-size` (`sm`, `md`, `lg`) and states `data-open`, `data-invalid`, `data-disabled`, `data-full-width`. Parts: `cherry-date-picker__trigger`, `__icon`, `__value`, `__placeholder`, `__popover`. The popover contains a Calendar, so it also needs the Calendar styles (included in `styles.css`).
+
+Reads the field tokens for the trigger and `--cherry-bg-elevated`, `--cherry-elevation-lg` and `--cherry-radius-xl` for the popover.
+
+## Accessibility
+
+The trigger opens a dialog and focus moves into the Calendar grid; Escape closes it and returns focus to the trigger. Label it with Field.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/date-picker" icon="code" iconPosition="left">
+  View Source
+</Button>

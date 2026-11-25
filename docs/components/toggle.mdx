@@ -1,0 +1,104 @@
+---
+title: "Toggle"
+description: "On/off switch built on a native checkbox with role switch, usable without client JavaScript."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 13
+navIcon: "toggle-right"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Toggle
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/fields?theme=light" title="Toggle preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/fields?theme=dark" title="Toggle preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+An on/off switch built on a native checkbox with `role="switch"`. It submits and resets with forms and works without client JavaScript when uncontrolled, so it renders in Server Components. Use it for settings that read as on or off. Use [Checkbox](/components/checkbox) for consent and multi-select lists.
+
+```tsx
+import { Toggle } from "@cherry-design-system/react";
+
+export function Notifications() {
+  return <Toggle name="notifications" label="Email notifications" defaultChecked />;
+}
+```
+
+## Examples
+
+### Inside Field
+
+Toggle does not read Field's context, so give both the same `id` to link Field's label to the switch. Leave out Toggle's own `label` in this case.
+
+```tsx
+import { Field, Toggle } from "@cherry-design-system/react";
+
+export function Marketing() {
+  return (
+    <Field label="Marketing emails" id="marketing" hint="One email a month, at most.">
+      <Toggle id="marketing" name="marketing" aria-describedby="marketing-message" />
+    </Field>
+  );
+}
+```
+
+Field renders its hint with the id `<id>-message`.
+
+### Sizes
+
+```tsx
+import { Toggle } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Toggle size="sm" label="Small" />
+      <Toggle size="md" label="Medium" />
+      <Toggle size="lg" label="Large" />
+    </>
+  );
+}
+```
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Toggle } from "@cherry-design-system/react";
+
+export function DarkMode() {
+  const [on, setOn] = useState(false);
+  return <Toggle label="Dark mode" checked={on} onChange={(e) => setOn(e.target.checked)} />;
+}
+```
+
+## Properties
+
+<Field value="label" type="ReactNode">
+  Visible label. Omit only when an `aria-label` (or a linked Field label) is given.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Switch size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state. Sets `aria-invalid` on the input. Not set automatically by Field.
+</Field>
+
+The ref and native `<input>` attributes (except `size` and `type`) go to the `<input>`. `className` and `style` go to the outer `<label>`.
+
+## Styling
+
+Root class `cherry-toggle` (the outer `<label>`) with `data-size` (`sm`, `md`, `lg`) and `data-invalid`. Parts: `cherry-toggle__input`, `__track`, `__thumb`, `__label`. States: `:checked`, `:disabled`, `:focus-visible` on the input.
+
+Reads `--cherry-primary-default` for the on track, `--cherry-border-strong` for the off track, `--cherry-elevation-sm` for the thumb, `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+`role="switch"`: Space toggles and on/off is announced. The `label` names it; without one, link a Field label by `id` or pass `aria-label`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/toggle" icon="code" iconPosition="left">
+  View Source
+</Button>

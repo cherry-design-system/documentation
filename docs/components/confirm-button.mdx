@@ -1,0 +1,123 @@
+---
+title: "ConfirmButton"
+description: "Two-step destructive action button: the first click reveals Confirm and Cancel, the second runs the action."
+date: "2026-11-25"
+category: "Actions"
+categoryOrder: 1
+order: 1
+navIcon: "trash-2"
+categoryIcon: "mouse-pointer-click"
+section: "Components"
+---
+# ConfirmButton
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/confirmbutton?theme=light" title="ConfirmButton preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/confirmbutton?theme=dark" title="ConfirmButton preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A two-step button for destructive actions. The first click widens the control and reveals a Confirm and Cancel pair inside it (the default trash icon lifts its lid). It closes again on Cancel, Escape, or after `resetAfter` milliseconds. Use a [Modal](/components/modal) when the action needs more explanation than a confirm step.
+
+```tsx
+"use client";
+import { ConfirmButton } from "@cherry-design-system/react";
+
+export function DeleteFile({ id, remove }: { id: string; remove: (id: string) => void }) {
+  return <ConfirmButton aria-label="Delete report.pdf" onConfirm={() => remove(id)} />;
+}
+```
+
+## Examples
+
+### Custom labels and icon
+
+```tsx
+"use client";
+import { ConfirmButton } from "@cherry-design-system/react";
+import { Archive } from "lucide-react";
+
+export function ArchiveProject({ onArchive }: { onArchive: () => void }) {
+  return (
+    <ConfirmButton
+      aria-label="Archive project"
+      icon={<Archive />}
+      confirmLabel="Archive"
+      cancelLabel="Keep"
+      onConfirm={onArchive}
+    />
+  );
+}
+```
+
+### Timeout and cancel callback
+
+`resetAfter` defaults to 4000 ms. Pass `0` to keep the confirm step open until the user acts.
+
+```tsx
+"use client";
+import { ConfirmButton } from "@cherry-design-system/react";
+
+export function RemoveMember({ onRemove }: { onRemove: () => void }) {
+  return (
+    <ConfirmButton
+      aria-label="Remove member"
+      size="lg"
+      resetAfter={0}
+      onConfirm={onRemove}
+      onCancel={() => console.log("kept")}
+    />
+  );
+}
+```
+
+## Properties
+
+<Field value="onConfirm" type="() => void" required>
+  Runs when the second step is confirmed.
+</Field>
+
+<Field value="onCancel" type="() => void">
+  Runs when the confirm step closes without confirming.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Trigger icon. Defaults to a trash can.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible name of the trigger. Defaults to `"Delete"`.
+</Field>
+
+<Field value="confirmLabel" type="string">
+  Name of the confirm button. Defaults to `"Confirm"`.
+</Field>
+
+<Field value="cancelLabel" type="string">
+  Name of the cancel button. Defaults to `"Cancel"`.
+</Field>
+
+<Field value="resetAfter" type="number">
+  Milliseconds before the confirm step closes by itself; `0` keeps it open. Defaults to `4000`.
+</Field>
+
+<Field value="size" type='"md" | "lg"'>
+  Control size. Defaults to `"md"`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the trigger).
+</Field>
+
+The ref and all native `<button>` attributes go to the trigger button.
+
+## Styling
+
+Root class `cherry-confirm-button` with `data-size` (`md`, `lg`) and `data-state` (`idle`, `confirm`). The two action buttons carry `data-action` (`confirm`, `cancel`). Parts: `cherry-confirm-button__trigger`, `__glyph`, `__lid`, `__clip`, `__panel`, `__action`.
+
+The confirm action reads `--cherry-danger-bg` and `--cherry-danger-fg`; the trigger uses `--cherry-secondary-*` and `--cherry-ring`.
+
+## Accessibility
+
+The trigger has `aria-expanded`. Opening moves focus to Confirm; Cancel, Escape, leaving the control or `resetAfter` closes it and returns focus to the trigger. Give it a specific `aria-label` such as "Delete report.pdf" rather than the generic default.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/confirm-button" icon="code" iconPosition="left">
+  View Source
+</Button>

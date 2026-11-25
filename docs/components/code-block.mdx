@@ -1,0 +1,150 @@
+---
+title: "CodeBlock"
+description: "A framed code listing with a file name, language tag, copy button, line numbers and highlighted lines."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 2
+navIcon: "file-code"
+categoryIcon: "table"
+section: "Components"
+---
+# CodeBlock
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=light" title="CodeBlock preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=dark" title="CodeBlock preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+CodeBlock shows a multi-line code listing in a frame, with a header (icon, file name, language, copy button) and a line-number gutter. Line numbers come from CSS, so selecting and copying the text never picks them up. For a one-line command, use [Snippet](/components/snippet); for code inside a sentence, use [InlineCode](/components/inline-code).
+
+```tsx
+import { CodeBlock } from "@cherry-design-system/react";
+
+const source = `import { Button } from "@cherry-design-system/react";
+
+export function Save() {
+  return <Button>Save</Button>;
+}`;
+
+export function Example() {
+  return <CodeBlock filename="save.tsx" language="tsx" code={source} />;
+}
+```
+
+## Examples
+
+### Highlighted lines
+
+`highlightLines` takes 1-based line numbers.
+
+```tsx
+import { CodeBlock } from "@cherry-design-system/react";
+
+const source = `const a = 1;
+const b = 2;
+const sum = a + b;`;
+
+export function Highlighted() {
+  return <CodeBlock language="ts" highlightLines={[3]} code={source} />;
+}
+```
+
+### Without line numbers or copy button
+
+```tsx
+import { CodeBlock } from "@cherry-design-system/react";
+
+export function Plain() {
+  return (
+    <CodeBlock
+      lineNumbers={false}
+      copyable={false}
+      code={"NODE_ENV=production\nPORT=3000"}
+    />
+  );
+}
+```
+
+### Custom header icon and labels
+
+```tsx
+import { CodeBlock } from "@cherry-design-system/react";
+import { FileJson } from "lucide-react";
+
+export function Config() {
+  return (
+    <CodeBlock
+      icon={<FileJson />}
+      filename="package.json"
+      language="json"
+      copyLabel="Copy file"
+      copiedLabel="File copied"
+      code={'{\n  "name": "my-app"\n}'}
+    />
+  );
+}
+```
+
+<Callout type="note">
+  CodeBlock has no syntax highlighter. `code` is rendered as plain text, so never pass HTML in it.
+</Callout>
+
+## Properties
+
+<Field value="code" type="string" required>
+  The code, as plain text (no highlighting, no HTML).
+</Field>
+
+<Field value="filename" type="ReactNode">
+  File name shown in the header.
+</Field>
+
+<Field value="language" type="string">
+  Language tag shown in the header, such as `"tsx"`.
+</Field>
+
+<Field value="lineNumbers" type="boolean">
+  Line numbers in the gutter. Defaults to `true`.
+</Field>
+
+<Field value="highlightLines" type="number[]">
+  1-based lines to highlight.
+</Field>
+
+<Field value="copyable" type="boolean">
+  Copy button in the header. Defaults to `true`.
+</Field>
+
+<Field value="copyLabel" type="string">
+  Accessible name of the copy button. Defaults to `"Copy code"`.
+</Field>
+
+<Field value="copiedLabel" type="string">
+  Name and announcement after a copy. Defaults to `"Copied"`.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Header icon. Defaults to a terminal glyph; `null` hides it.
+</Field>
+
+CodeBlock renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through (it takes no `children`). It is a client component.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-code-block` | Root element |
+| `data-line-numbers` | Present when line numbers show |
+| `data-highlighted` | On a highlighted `.cherry-code-block__line` |
+| `data-copied` | On the copy button after a copy |
+| Parts | `.cherry-code-block__header`, `__icon`, `__filename`, `__language`, `__copy`, `__glyph`, `__pre`, `__code`, `__line` |
+
+The frame reads `--cherry-bg-subtle`, `--cherry-border-default` and `--cherry-radius-lg`; code uses `--cherry-font-mono` with the `mono-sm` text tokens; highlighted lines read `--cherry-accent-subtle` and `--cherry-accent-default`.
+
+## Accessibility
+
+- The copy button is labelled (`copyLabel`) and a successful copy is announced through a polite live region (`copiedLabel`).
+- Code wider than the block can be focused and scrolled with the keyboard, and the whole block shows the focus ring.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/code-block" icon="code" iconPosition="left">
+  View Source
+</Button>

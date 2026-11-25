@@ -1,0 +1,153 @@
+---
+title: "Sheet"
+description: "Panel that slides in from the left, right or bottom edge on the native dialog element, with a scrolling body and a pinned footer."
+date: "2026-11-25"
+category: "Overlays"
+categoryOrder: 6
+order: 3
+navIcon: "panel-right"
+categoryIcon: "layers"
+section: "Components"
+---
+# Sheet
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/sheet?theme=light" title="Sheet preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/sheet?theme=dark" title="Sheet preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Sheet is a modal panel that slides in from an edge of the screen, on the native `<dialog>` element (`showModal`). Use it for filters, details or forms that need more room than a [Modal](/components/modal). Compose it with `SheetBody` (scrolls) and `SheetFooter` (pinned to the bottom).
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Button, Sheet, SheetBody } from "@cherry-design-system/react";
+
+export function Filters() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button variant="outline" onClick={() => setIsOpen(true)}>Filters</Button>
+      <Sheet open={isOpen} onClose={() => setIsOpen(false)} side="right" title="Filters">
+        <SheetBody>Filter controls</SheetBody>
+      </Sheet>
+    </>
+  );
+}
+```
+
+## Examples
+
+### Footer actions
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Button, Sheet, SheetBody, SheetFooter } from "@cherry-design-system/react";
+
+export function EditOrder() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>Edit order</Button>
+      <Sheet
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Order #1042"
+        description="Changes apply to the next shipment."
+      >
+        <SheetBody>Order form</SheetBody>
+        <SheetFooter>
+          <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+          <Button onClick={() => setIsOpen(false)}>Save</Button>
+        </SheetFooter>
+      </Sheet>
+    </>
+  );
+}
+```
+
+### Bottom sheet
+
+`side="bottom"` slides the panel up from the bottom edge and shows a drag handle at the top.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Button, Sheet, SheetBody } from "@cherry-design-system/react";
+
+export function Share() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>Share</Button>
+      <Sheet open={isOpen} onClose={() => setIsOpen(false)} side="bottom" title="Share">
+        <SheetBody>Share options</SheetBody>
+      </Sheet>
+    </>
+  );
+}
+```
+
+## Properties
+
+### Sheet
+
+<Field value="open" type="boolean" required>
+  Controlled open state.
+</Field>
+
+<Field value="onClose" type="() => void" required>
+  Called on Escape, a backdrop click or the close button. Set `open` to `false` here.
+</Field>
+
+<Field value="side" type='"left" | "right" | "bottom"'>
+  Edge it slides from. Defaults to `"right"`.
+</Field>
+
+<Field value="title" type="ReactNode">
+  Heading; also the dialog's accessible name.
+</Field>
+
+<Field value="description" type="ReactNode">
+  Line under the title; wired as the accessible description.
+</Field>
+
+<Field value="hideClose" type="boolean">
+  Hide the close button in the header.
+</Field>
+
+<Field value="closeLabel" type="string">
+  Accessible name of the close button. Defaults to `"Close"`.
+</Field>
+
+<Field value="dismissible" type="boolean">
+  Escape and backdrop clicks close it. Defaults to `true`.
+</Field>
+
+Sheet renders a `<dialog>`, forwards its ref to it and passes other `<dialog>` attributes through. It is a Client Component.
+
+### SheetBody
+
+SheetBody has no props of its own. It renders a scrolling `<div>`, forwards its ref and passes `<div>` attributes through.
+
+### SheetFooter
+
+SheetFooter has no props of its own. It renders an action row pinned to the bottom above a divider, forwards its ref and passes `<div>` attributes through.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-sheet` |
+| `data-side` | `right`, `left`, `bottom` |
+| States | `[open]`, `::backdrop` |
+| Parts | `cherry-sheet__handle`, `cherry-sheet__header`, `cherry-sheet__title`, `cherry-sheet__description`, `cherry-sheet__close`, `cherry-sheet__body`, `cherry-sheet__footer` |
+
+The panel reads `--cherry-bg-elevated`, `--cherry-radius-2xl` and `--cherry-elevation-xl`; the backdrop uses `--cherry-bg-overlay`.
+
+## Accessibility
+
+Sheet is a native modal `<dialog>`: the page behind is inert, focus moves in and stays in, Escape closes it and focus returns to the trigger. `title` names it; give it a `title`, or an `aria-label` when there is no visible heading.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/sheet" icon="code" iconPosition="left">
+  View Source
+</Button>

@@ -1,0 +1,174 @@
+---
+title: "Radio"
+description: "Native radio buttons grouped by RadioGroup, with shared name, value, size and error state, and arrow key navigation."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 9
+navIcon: "circle-dot"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Radio
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/radio?theme=light" title="Radio preview" loading="lazy" style={{ width: "100%", height: "628px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/radio?theme=dark" title="Radio preview" loading="lazy" style={{ width: "100%", height: "628px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+`Radio` is a native `<input type="radio">`; `RadioGroup` wraps a set of them (`role="radiogroup"`) and hands each one its name, value, size and state. Use it for one choice out of a few visible options. Use [Select](/components/select) when there are many options and [ToggleGroup](/components/toggle-group) for a view switch outside a form.
+
+```tsx
+"use client";
+import { Field, Radio, RadioGroup } from "@cherry-design-system/react";
+
+export function Plan() {
+  return (
+    <Field label="Plan">
+      <RadioGroup name="plan" defaultValue="pro">
+        <Radio value="free" label="Free" />
+        <Radio value="pro" label="Pro" />
+        <Radio value="team" label="Team" />
+      </RadioGroup>
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Horizontal
+
+```tsx
+"use client";
+import { Field, Radio, RadioGroup } from "@cherry-design-system/react";
+
+export function Billing() {
+  return (
+    <Field label="Billing period">
+      <RadioGroup name="billing" defaultValue="monthly" orientation="horizontal" size="sm">
+        <Radio value="monthly" label="Monthly" />
+        <Radio value="yearly" label="Yearly" />
+      </RadioGroup>
+    </Field>
+  );
+}
+```
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Field, Radio, RadioGroup } from "@cherry-design-system/react";
+
+export function Shipping() {
+  const [method, setMethod] = useState<string | null>("standard");
+  return (
+    <Field label="Shipping">
+      <RadioGroup value={method} onValueChange={setMethod}>
+        <Radio value="standard" label="Standard (3 to 5 days)" />
+        <Radio value="express" label="Express (next day)" />
+        <Radio value="pickup" label="Pick up in store" disabled />
+      </RadioGroup>
+    </Field>
+  );
+}
+```
+
+### Required and error
+
+```tsx
+"use client";
+import { Field, Radio, RadioGroup } from "@cherry-design-system/react";
+
+export function Size() {
+  return (
+    <Field label="Size" required error="Pick a size.">
+      <RadioGroup name="size">
+        <Radio value="s" label="Small" />
+        <Radio value="m" label="Medium" />
+        <Radio value="l" label="Large" />
+      </RadioGroup>
+    </Field>
+  );
+}
+```
+
+## Properties
+
+### RadioGroup
+
+<Field value="name" type="string">
+  Shared input name. Generated when omitted.
+</Field>
+
+<Field value="value" type="string | null">
+  Controlled selected value.
+</Field>
+
+<Field value="defaultValue" type="string | null">
+  Initial value when uncontrolled. Defaults to `null`.
+</Field>
+
+<Field value="onValueChange" type="(value: string) => void">
+  Called with the newly selected value.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Size passed to every Radio. Defaults to `"md"`.
+</Field>
+
+<Field value="orientation" type='"vertical" | "horizontal"'>
+  Stack direction. Defaults to `"vertical"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="disabled" type="boolean">
+  Disables every option.
+</Field>
+
+<Field value="required" type="boolean">
+  Marks the group as required.
+</Field>
+
+Renders a `<div>`, forwards its ref and passes through native `<div>` attributes.
+
+### Radio
+
+<Field value="value" type="string" required>
+  The value submitted, and matched against the group's value.
+</Field>
+
+<Field value="label" type="ReactNode">
+  Visible label. Omit only when an `aria-label` is given.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  16 / 18 / 20 px. Inherits the group's size.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state. Inherits the group's (or Field's) state.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer `<label>` (`className` goes to the `<input>`).
+</Field>
+
+The ref and native `<input>` attributes go to the `<input>`.
+
+## Styling
+
+Radio root class `cherry-radio` and group class `cherry-radio-group`. `data-size` (`sm`, `md`, `lg`) and, on the group, `data-orientation` (`vertical`, `horizontal`). States: `data-invalid`, `data-disabled`, `:checked`, `:disabled`. Parts: `cherry-radio__control`, `__input`, `__dot`, `__label`.
+
+Reads `--cherry-primary-default` for the checked state, `--cherry-border-strong`, `--cherry-danger-solid`, `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+Native radios in a named radiogroup: arrow keys move and select. Name the group with a Field label (linked through `aria-labelledby`), `aria-label` or `aria-labelledby`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/radio" icon="code" iconPosition="left">
+  View Source
+</Button>

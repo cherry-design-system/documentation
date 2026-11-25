@@ -1,6 +1,7 @@
 {
-  "name": "Cherry Design System",
-  "icon": "https://cherry.al/icon.png",
-  "image": "https://cherry.al/preview.png",
-  "url": "https://cherry.al"
+  "name": "cherry",
+  "description": "Documentation for cherry 2.0, an open source React design system in plain CSS: accessible components, light and dark mode from one brand color, zero styling runtime and Server Components ready.",
+  "icon": "/icon.png",
+  "image": "https://docs.cherry.al/preview.png",
+  "url": "https://docs.cherry.al"
 }

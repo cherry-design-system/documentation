@@ -1,0 +1,89 @@
+---
+title: "Spinner"
+description: "A spinning loader icon in four sizes that announces a busy state, or stays silent when nearby text already says it."
+date: "2026-11-25"
+category: "Feedback"
+categoryOrder: 7
+order: 6
+navIcon: "loader-circle"
+categoryIcon: "message-square-warning"
+section: "Components"
+---
+# Spinner
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/badges-and-spinners?theme=light" title="Spinner preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/badges-and-spinners?theme=dark" title="Spinner preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Spinner is a spinning loader icon for short waits. The icon is inlined, so no icon import is needed. For work with a measurable length, use [Progress](/components/progress); to hold a layout while content loads, use [Skeleton](/components/skeleton).
+
+```tsx
+import { Spinner } from "@cherry-design-system/react";
+
+export function LoadingResults() {
+  return <Spinner label="Loading results" />;
+}
+```
+
+## Examples
+
+### Sizes
+
+```tsx
+import { Spinner } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Spinner size="xs" />
+      <Spinner size="sm" />
+      <Spinner size="md" />
+      <Spinner size="lg" />
+    </>
+  );
+}
+```
+
+### Next to visible text
+
+When the text next to it already says that something is loading, pass `label={null}` so the state is not announced twice.
+
+```tsx
+import { Spinner } from "@cherry-design-system/react";
+
+export function Saving() {
+  return (
+    <span role="status">
+      <Spinner label={null} /> Saving changes
+    </span>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md" | "lg" | "xs"'>
+  Icon size. Defaults to `"sm"`.
+</Field>
+
+<Field value="label" type="string | null">
+  Accessible label. Defaults to `"Loading"`. Pass `null` when a parent already announces the busy state.
+</Field>
+
+Spinner renders a `<span>`, forwards its ref to it and passes every other `<span>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-spinner` | Root element |
+| `data-size` | `xs`, `sm`, `md`, `lg` |
+
+The icon reads `--cherry-fg-muted`. Set `color` on the spinner to change it. The rotation slows down under `prefers-reduced-motion`.
+
+## Accessibility
+
+With a `label` the spinner is a `role="status"` announcement. Pass `label={null}` when visible text nearby already says it is loading.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/spinner" icon="code" iconPosition="left">
+  View Source
+</Button>

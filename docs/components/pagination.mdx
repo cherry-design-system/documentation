@@ -1,0 +1,145 @@
+---
+title: "Pagination"
+description: "Page navigation with numbered or compact layouts, rendered as plain links for Server Components or as buttons with a change handler."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 3
+navIcon: "ellipsis"
+categoryIcon: "navigation"
+section: "Components"
+---
+# Pagination
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/pagination?theme=light" title="Pagination preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/pagination?theme=dark" title="Pagination preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Pagination moves between pages of a list or table. With `getHref` every control is a plain link and the component needs no client JavaScript; with `onPageChange` the controls are buttons.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Pagination } from "@cherry-design-system/react";
+
+export function Results() {
+  const [page, setPage] = useState(1);
+  return <Pagination page={page} totalPages={10} onPageChange={setPage} />;
+}
+```
+
+## Examples
+
+### Links for Server Components
+
+`getHref` builds the URL for each page, so the control works without JavaScript.
+
+```tsx
+import { Pagination } from "@cherry-design-system/react";
+
+export default async function PostsPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const page = Number((await searchParams).page ?? 1);
+  return <Pagination page={page} totalPages={24} getHref={(p) => `/posts?page=${p}`} />;
+}
+```
+
+### Compact
+
+`variant="compact"` shows Previous and Next around a "Page 3 of 10" status instead of numbered pages.
+
+```tsx
+import { Pagination } from "@cherry-design-system/react";
+
+export function Pager({ page }: { page: number }) {
+  return <Pagination variant="compact" page={page} totalPages={10} getHref={(p) => `?page=${p}`} />;
+}
+```
+
+### Siblings and labels
+
+`siblings` sets how many pages show on each side of the current one. `labels` translates every visible and accessible string.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Pagination } from "@cherry-design-system/react";
+
+export function Resultados() {
+  const [page, setPage] = useState(5);
+  return (
+    <Pagination
+      page={page}
+      totalPages={40}
+      siblings={2}
+      onPageChange={setPage}
+      labels={{
+        nav: "Paginación",
+        previous: "Anterior",
+        next: "Siguiente",
+        page: (p) => `Página ${p}`,
+        status: (p, total) => `Página ${p} de ${total}`,
+      }}
+    />
+  );
+}
+```
+
+### paginationRange
+
+`paginationRange(page, total, siblings = 1, boundaries = 1)` returns the page numbers the control shows, with `"ellipsis"` for each gap. The list keeps a constant length so a custom control does not jump in width.
+
+```tsx
+import { paginationRange } from "@cherry-design-system/react";
+
+paginationRange(5, 20); // [1, "ellipsis", 4, 5, 6, "ellipsis", 20]
+```
+
+## Properties
+
+<Field value="page" type="number" required>
+  Current page, 1-based.
+</Field>
+
+<Field value="totalPages" type="number" required>
+  Number of pages.
+</Field>
+
+<Field value="getHref" type="(page: number) => string">
+  Builds the link for a page: zero-JavaScript pagination for Server Components.
+</Field>
+
+<Field value="onPageChange" type="(page: number) => void">
+  Called with the target page. The controls render as buttons when `getHref` is absent.
+</Field>
+
+<Field value="variant" type='"full" | "compact"'>
+  `full` (numbered pages) or `compact` ("Page 3 of 10"). Defaults to `"full"`.
+</Field>
+
+<Field value="siblings" type="number">
+  Pages shown on either side of the current one. Defaults to `1`.
+</Field>
+
+<Field value="labels" type="PaginationLabels">
+  Text overrides: `nav` (landmark name, default "Pagination"), `previous` ("Previous"), `next` ("Next"), `page` (accessible name of a page link, default `Page n`) and `status` (compact text, default `Page n of total`).
+</Field>
+
+Pagination renders a `<nav>`, forwards its ref and passes other attributes through (except `onChange`).
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-pagination` |
+| `data-variant` | `full`, `compact` |
+| States | `[aria-current="page"]`, `[aria-disabled="true"]`, `:hover`, `:active`, `:focus-visible` |
+| Parts | `cherry-pagination__list`, `cherry-pagination__item`, `cherry-pagination__link`, `cherry-pagination__step`, `cherry-pagination__ellipsis`, `cherry-pagination__status` |
+
+The current page reads `--cherry-bg-canvas`, `--cherry-border-default` and `--cherry-elevation-xs`; hover uses `--cherry-ghost-hover`.
+
+## Accessibility
+
+Pagination is a navigation landmark. When a page has two, give each a distinct name with `labels.nav`. The current page is `aria-current="page"`, Previous and Next are labelled, and unavailable steps are `aria-disabled`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/pagination" icon="code" iconPosition="left">
+  View Source
+</Button>

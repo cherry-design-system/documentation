@@ -1,0 +1,258 @@
+---
+title: "Dropzone"
+description: "Drag-and-drop file area around a real file input, with type, size and count limits, plus FileItem rows for uploads."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 3
+navIcon: "upload"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Dropzone
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=light" title="Dropzone preview" loading="lazy" style={{ width: "100%", height: "816px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=dark" title="Dropzone preview" loading="lazy" style={{ width: "100%", height: "816px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A drag-and-drop file area around a real file input. The input is visually hidden but focusable, so Tab plus Enter or Space opens the native picker, forms submit the files (dropped ones included), and it works inside Field. Pair it with `FileItem` to list what was added. For a single round profile picture, use [AvatarDropzone](/components/avatar-dropzone).
+
+```tsx
+"use client";
+import { Dropzone, Field } from "@cherry-design-system/react";
+
+export function Attachments({ upload }: { upload: (files: File[]) => void }) {
+  return (
+    <Field label="Attachments">
+      <Dropzone
+        name="attachments"
+        accept="image/*"
+        maxBytes={10_000_000}
+        hint="PNG or JPG, up to 10 MB"
+        onFilesAdded={upload}
+      />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Multiple files with FileItem
+
+`maxFiles` limits one pick or drop; without `multiple` it is 1. Render a `FileItem` per file to show progress and a remove button.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Dropzone, Field, FileItem } from "@cherry-design-system/react";
+
+type Upload = { id: string; file: File; progress: number; status: "uploading" | "complete" | "error" };
+
+export function Uploader() {
+  const [uploads, setUploads] = useState<Upload[]>([]);
+
+  return (
+    <>
+      <Field label="Documents">
+        <Dropzone
+          multiple
+          maxFiles={5}
+          accept=".pdf"
+          hint="Up to 5 PDF files"
+          onFilesAdded={(files) =>
+            setUploads((list) => [
+              ...list,
+              ...files.map((file) => ({
+                id: crypto.randomUUID(),
+                file,
+                progress: 0,
+                status: "uploading" as const,
+              })),
+            ])
+          }
+        />
+      </Field>
+      {uploads.map((u) => (
+        <FileItem
+          key={u.id}
+          name={u.file.name}
+          bytes={u.file.size}
+          status={u.status}
+          progress={u.progress}
+          onRemove={() => setUploads((list) => list.filter((x) => x.id !== u.id))}
+        />
+      ))}
+    </>
+  );
+}
+```
+
+### Rejected files
+
+`onFilesRejected` receives each refused file with a `reason` of `"type"`, `"size"` or `"count"`.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Dropzone, Field, type DropzoneRejection } from "@cherry-design-system/react";
+
+export function Logo() {
+  const [error, setError] = useState<string>();
+  const onRejected = (rejections: DropzoneRejection[]) => {
+    const reason = rejections[0]?.reason;
+    setError(reason === "size" ? "That file is over 2 MB." : "Use an SVG or PNG file.");
+  };
+  return (
+    <Field label="Logo" error={error}>
+      <Dropzone
+        accept=".svg,image/png"
+        maxBytes={2_000_000}
+        hint="SVG or PNG, up to 2 MB"
+        onFilesAdded={() => setError(undefined)}
+        onFilesRejected={onRejected}
+      />
+    </Field>
+  );
+}
+```
+
+### Inline
+
+`inline` is a compact horizontal layout that sits in a form row.
+
+```tsx
+"use client";
+import { Dropzone, Field } from "@cherry-design-system/react";
+import { Paperclip } from "lucide-react";
+
+export function Receipt() {
+  return (
+    <Field label="Receipt">
+      <Dropzone inline icon={<Paperclip />} prompt="Attach a file" browse="or drop it here" />
+    </Field>
+  );
+}
+```
+
+### FileItem states
+
+```tsx
+"use client";
+import { FileItem } from "@cherry-design-system/react";
+
+export function States() {
+  return (
+    <>
+      <FileItem name="brand.pdf" bytes={2_400_000} status="uploading" progress={64} />
+      <FileItem name="logo.svg" bytes={18_000} status="complete" onRemove={() => {}} />
+      <FileItem name="video.mov" bytes={480_000_000} status="error" error="File is too large" />
+    </>
+  );
+}
+```
+
+## Properties
+
+### Dropzone
+
+<Field value="prompt" type="ReactNode">
+  Bold first words of the prompt. Defaults to `"Click to upload"`.
+</Field>
+
+<Field value="browse" type="ReactNode">
+  Rest of the prompt line. Defaults to `"or drag and drop"`.
+</Field>
+
+<Field value="hint" type="ReactNode">
+  Small line under the prompt (accepted types, limits).
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Icon in the tile. Defaults to an upload glyph.
+</Field>
+
+<Field value="inline" type="boolean">
+  Compact horizontal layout that sits in a form row.
+</Field>
+
+<Field value="maxBytes" type="number">
+  Maximum size per file, in bytes.
+</Field>
+
+<Field value="maxFiles" type="number">
+  Maximum files accepted from one pick or drop. With `multiple` unset, 1.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="onFilesAdded" type="(files: File[]) => void">
+  Accepted files from a pick or a drop.
+</Field>
+
+<Field value="onFilesRejected" type="(rejections: DropzoneRejection[]) => void">
+  Files refused for their type, size or count. `DropzoneRejection` is `{ file: File; reason: "type" | "size" | "count" }`.
+</Field>
+
+The ref and native `<input>` attributes (`accept`, `multiple`, `name`, `disabled` and so on; not `type`, `value`, `children` or `size`) go to the hidden file `<input>`.
+
+Also exported: `matchesAccept(file, accept)`, which matches a file against an `accept` string such as `".pdf,image/*,text/plain"`, mirroring the native picker's filter for dropped files.
+
+### FileItem
+
+One uploaded or uploading file: icon tile, name, size, progress or status, and a remove button. Rows slide in, the progress fill eases, an error shakes once, and a removed row collapses out before `onRemove` runs.
+
+<Field value="name" type="string" required>
+  File name.
+</Field>
+
+<Field value="bytes" type="number">
+  File size in bytes, formatted as "2.4 MB".
+</Field>
+
+<Field value="status" type='"uploading" | "complete" | "error"'>
+  Upload state. Defaults to `"complete"`.
+</Field>
+
+<Field value="progress" type="number">
+  Upload progress, 0 to 100, shown while uploading.
+</Field>
+
+<Field value="error" type="ReactNode">
+  Error message shown in the error state. Defaults to `"Upload failed"`.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Icon in the tile. Defaults to a document glyph (a warning on error).
+</Field>
+
+<Field value="completeLabel" type="ReactNode">
+  Text after the size when complete. Defaults to `"Uploaded"`.
+</Field>
+
+<Field value="removeLabel" type="string">
+  Accessible name of the remove button. Defaults to `"Remove {name}"`.
+</Field>
+
+<Field value="onRemove" type="() => void">
+  Shows the remove button. Runs after the row has animated out.
+</Field>
+
+Renders a `<div>`, forwards its ref and passes through native `<div>` attributes. Also exported: `formatBytes`, which turns `2_400_000` into `"2.4 MB"` (1000-based, like file managers).
+
+## Styling
+
+Dropzone root class `cherry-dropzone` with states `data-inline`, `data-drag-over`, `data-disabled`, `data-invalid` and `data-dropped`. Parts: `cherry-dropzone__input`, `__tile`, `__text`, `__prompt`, `__hint`.
+
+FileItem root class `cherry-file-item` with `data-status` (`uploading`, `complete`, `error`) and `data-removing`. Parts: `cherry-file-item__tile`, `__glyph`, `__body`, `__name`, `__meta`, `__check`, `__progress`, `__bar`, `__remove`.
+
+Dropzone reads `--cherry-bg-subtle`, `--cherry-border-strong` (dashed border), `--cherry-border-focus` and `--cherry-ring`. FileItem reads `--cherry-bg-elevated`, `--cherry-primary-default` (progress), `--cherry-success-fg` and the `--cherry-danger-*` tokens.
+
+## Accessibility
+
+Dropzone is a native file input: Tab to it, Enter or Space opens the picker. The hint states the limits; rejected files set `aria-invalid`. FileItem progress is a labelled progressbar, errors are announced as alerts, and the remove button is labelled.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/dropzone" icon="code" iconPosition="left">
+  View Source
+</Button>

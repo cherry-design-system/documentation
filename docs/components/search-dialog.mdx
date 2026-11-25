@@ -1,0 +1,248 @@
+---
+title: "SearchDialog"
+description: "Command-palette search on a native dialog: a combobox input over grouped results, keyboard navigation, an optional preview panel and status."
+date: "2026-11-25"
+category: "Overlays"
+categoryOrder: 6
+order: 2
+navIcon: "search"
+categoryIcon: "layers"
+section: "Components"
+---
+# SearchDialog
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/search-dialog?theme=light" title="SearchDialog preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/search-dialog?theme=dark" title="SearchDialog preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+SearchDialog is a command palette: a search input (`role="combobox"`) over a listbox of results, inside a native modal `<dialog>`. You own the query and the filtering; the dialog handles the keyboard, the highlight and the layout. Compose results with `SearchGroup` and `SearchResult`. For picking a value inside a form use [Combobox](/components/combobox).
+
+```tsx
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button, SearchDialog, SearchGroup, SearchResult } from "@cherry-design-system/react";
+
+const pages = [
+  { label: "Button", href: "/components/button" },
+  { label: "Modal", href: "/components/modal" },
+];
+
+export function DocsSearch() {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const results = pages.filter((page) => page.label.toLowerCase().includes(query.toLowerCase()));
+
+  return (
+    <>
+      <Button variant="outline" onClick={() => setIsOpen(true)}>Search</Button>
+      <SearchDialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        query={query}
+        onQueryChange={setQuery}
+        placeholder="Search components"
+        empty="No results"
+        status={`${results.length} of ${pages.length}`}
+      >
+        {results.length > 0 ? (
+          <SearchGroup label="Components">
+            {results.map((page) => (
+              <SearchResult
+                key={page.href}
+                onSelect={() => {
+                  setIsOpen(false);
+                  router.push(page.href);
+                }}
+              >
+                {page.label}
+              </SearchResult>
+            ))}
+          </SearchGroup>
+        ) : null}
+      </SearchDialog>
+    </>
+  );
+}
+```
+
+<Callout type="note">
+  `empty` shows only when `children` is empty, so render nothing (not an empty `SearchGroup`) when there are no matches. Selecting a result does not close the dialog: set `open` to `false` yourself in `onSelect`.
+</Callout>
+
+## Examples
+
+### Icons and descriptions
+
+```tsx
+import { SearchResult } from "@cherry-design-system/react";
+import { Box } from "lucide-react";
+
+<SearchResult icon={<Box />} description="Actions" onSelect={() => go("/components/button")}>
+  Button
+</SearchResult>;
+```
+
+### Preview panel
+
+`preview` adds a side panel, for example a preview of the highlighted result. Track the highlight with `onHighlight` on each result.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { SearchDialog, SearchResult } from "@cherry-design-system/react";
+
+const items = [
+  { id: "button", label: "Button", summary: "Triggers an action." },
+  { id: "modal", label: "Modal", summary: "Blocks the page until the user responds." },
+];
+
+export function PreviewSearch({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [query, setQuery] = useState("");
+  const [highlighted, setHighlighted] = useState(items[0]);
+  return (
+    <SearchDialog
+      open={open}
+      onClose={onClose}
+      query={query}
+      onQueryChange={setQuery}
+      preview={<p>{highlighted.summary}</p>}
+    >
+      {items.map((item) => (
+        <SearchResult key={item.id} onHighlight={() => setHighlighted(item)} onSelect={onClose}>
+          {item.label}
+        </SearchResult>
+      ))}
+    </SearchDialog>
+  );
+}
+```
+
+### Translated labels
+
+`label` names the dialog and the input, `placeholder` fills the input, and `navigateLabel` / `selectLabel` translate the footer hints. `hints={false}` hides the hints footer.
+
+```tsx
+<SearchDialog
+  open={open}
+  onClose={onClose}
+  query={query}
+  onQueryChange={setQuery}
+  label="Rechercher"
+  placeholder="Rechercher"
+  navigateLabel="naviguer"
+  selectLabel="ouvrir"
+/>
+```
+
+## Properties
+
+### SearchDialog
+
+<Field value="open" type="boolean" required>
+  Controlled open state.
+</Field>
+
+<Field value="onClose" type="() => void" required>
+  Called on Escape or a backdrop click. Set `open` to `false` here.
+</Field>
+
+<Field value="query" type="string" required>
+  The search text (controlled). Filter the results from it.
+</Field>
+
+<Field value="onQueryChange" type="(query: string) => void" required>
+  Called with the new text as the user types.
+</Field>
+
+<Field value="children" type="ReactNode">
+  `SearchGroup`s and `SearchResult`s matching the query.
+</Field>
+
+<Field value="empty" type="ReactNode">
+  Shown instead of the results when `children` is empty.
+</Field>
+
+<Field value="preview" type="ReactNode">
+  Side panel, such as a preview of the highlighted result.
+</Field>
+
+<Field value="status" type="ReactNode">
+  End of the footer, announced politely (for example "31 of 31").
+</Field>
+
+<Field value="placeholder" type="string">
+  Input placeholder. Defaults to `"Search"`.
+</Field>
+
+<Field value="label" type="string">
+  Accessible name of the dialog and the input. Defaults to `"Search"`.
+</Field>
+
+<Field value="navigateLabel" type="string">
+  Footer hint next to the arrow keys. Defaults to `"navigate"`.
+</Field>
+
+<Field value="selectLabel" type="string">
+  Footer hint next to the Enter key. Defaults to `"open"`.
+</Field>
+
+<Field value="hints" type="boolean">
+  Show the keyboard hints footer. Defaults to `true`.
+</Field>
+
+SearchDialog renders a `<dialog>`, forwards its ref to it and passes other `<dialog>` attributes through. It is a Client Component.
+
+### SearchGroup
+
+<Field value="label" type="ReactNode" required>
+  Small all-caps heading over the group; names it for assistive tech.
+</Field>
+
+SearchGroup renders a `<div>`, forwards its ref and passes other `<div>` attributes through.
+
+### SearchResult
+
+<Field value="icon" type="ReactNode">
+  Icon before the label.
+</Field>
+
+<Field value="description" type="ReactNode">
+  Second line under the label.
+</Field>
+
+<Field value="onSelect" type="() => void">
+  Runs on click, or on Enter while it is the highlighted result.
+</Field>
+
+<Field value="onHighlight" type="() => void">
+  Runs when it becomes the highlighted result, by keyboard or pointer.
+</Field>
+
+<Field value="disabled" type="boolean">
+  Shown but never highlighted or selected.
+</Field>
+
+SearchResult renders a `<div role="option">`, forwards its ref and passes other `<div>` attributes through.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-search-dialog` |
+| `data-layout` | `list`, `preview` (set when `preview` is passed) |
+| States | `[open]`, `::backdrop` |
+| Parts | `cherry-search-dialog__header`, `cherry-search-dialog__icon`, `cherry-search-dialog__input`, `cherry-search-dialog__content`, `cherry-search-dialog__results`, `cherry-search-dialog__group`, `cherry-search-dialog__group-label`, `cherry-search-dialog__empty`, `cherry-search-dialog__preview`, `cherry-search-dialog__footer`, `cherry-search-dialog__hints`, `cherry-search-dialog__hint`, `cherry-search-dialog__status` |
+| Result class | `cherry-search-result` |
+| Result states | `data-active`, `aria-selected`, `aria-disabled`, `:hover` |
+| Result parts | `cherry-search-result__icon`, `cherry-search-result__text`, `cherry-search-result__label`, `cherry-search-result__description`, `cherry-search-result__arrow` |
+
+The dialog reads `--cherry-bg-elevated`, `--cherry-radius-2xl` and `--cherry-elevation-xl`, with `--cherry-bg-overlay` for the backdrop. The highlighted result uses `--cherry-bg-muted` and `--cherry-accent-default`.
+
+## Accessibility
+
+SearchDialog is a modal dialog around a combobox. Up and Down move the active result through `aria-activedescendant` while focus stays in the input, Enter opens the active result and Escape closes the dialog. Pass `status` so the result count is announced. Each result is `role="option"` inside the listbox.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/search-dialog" icon="code" iconPosition="left">
+  View Source
+</Button>

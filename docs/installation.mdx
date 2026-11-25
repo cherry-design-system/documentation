@@ -1,0 +1,198 @@
+---
+title: "Installation"
+description: "Install cherry 2.0 and set it up in Next.js, Vite or any React app: stylesheet, init script, router links, fonts and server-side mode."
+date: "2026-11-25"
+category: "Getting Started"
+categoryOrder: 0
+order: 1
+navIcon: "download"
+categoryIcon: "rocket"
+---
+# Installation
+
+cherry needs three things, once: the stylesheet, a small init script in `<head>`, and a class on `<body>`. There is no provider to wrap your app in.
+
+## Install the package
+
+`react`, `react-dom` (18.2 or later) and `lucide-react` are peer dependencies. cherry renders its own internal icons with `lucide-react`, and your code imports icons from it to pass as `icon` props, so list it in your app directly.
+
+<CodeTabs tabs={[{ label: "npm", code: "npm install @cherry-design-system/react lucide-react" }, { label: "pnpm", code: "pnpm add @cherry-design-system/react lucide-react" }, { label: "yarn", code: "yarn add @cherry-design-system/react lucide-react" }]} />
+
+## The three setup steps
+
+1. **The stylesheet.** `import "@cherry-design-system/react/styles.css"` in your root layout or entry file. JavaScript never imports CSS by itself.
+2. **The init script** in `<head>`. It sets the `dark` class on `<html>` from the visitor's preference before the first paint, so there is no flash of the wrong mode.
+3. **`className="cherry-root"` on `<body>`.** It applies the canvas color, text color and font.
+
+## Next.js (App Router)
+
+```tsx
+// app/layout.tsx
+import "@cherry-design-system/react/styles.css";
+import { themeInitScript } from "@cherry-design-system/react/theme-init";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="cherry-root">{children}</body>
+    </html>
+  );
+}
+```
+
+`suppressHydrationWarning` is needed because the script changes the class on `<html>` before React hydrates.
+
+Components without interactivity (Button, Badge, Card, Table, Prose, the layout primitives) are Server Component safe. Interactive ones carry `"use client"` themselves, so you can import any component from a Server Component.
+
+<Callout type="info">
+  `themeInitScript` is a static string shipped by the package, with no user input in it, which is why `dangerouslySetInnerHTML` is acceptable here. Under a strict Content Security Policy, serve it as a file or add its hash to `script-src`.
+</Callout>
+
+## Vite, Create React App and other client-only apps
+
+Put the class on `<body>` in your HTML:
+
+```html
+<!-- index.html -->
+<body class="cherry-root">
+  <div id="root"></div>
+</body>
+```
+
+Import the stylesheet and run the init script before the first render:
+
+```tsx
+// main.tsx
+import "@cherry-design-system/react/styles.css";
+import { themeInitScript } from "@cherry-design-system/react/theme-init";
+
+// Run before the first render so the first paint is already in the right mode.
+const init = document.createElement("script");
+init.textContent = themeInitScript;
+document.head.appendChild(init);
+```
+
+## Navigation with a router
+
+`NavItem` renders a plain `<a>`, which reloads the page. For client-side navigation, pass your router's link with `asChild`: NavItem gives it the item's class, state and icon, and your router handles the click.
+
+```tsx
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { NavItem, NavPill } from "@cherry-design-system/react";
+
+export function SiteNav() {
+  const pathname = usePathname();
+  return (
+    <NavPill aria-label="Main" position="fixed" trackSections>
+      <NavItem asChild active={pathname === "/"}>
+        <Link href="/">Home</Link>
+      </NavItem>
+      <NavItem asChild>
+        <Link href="/#components">Components</Link>
+      </NavItem>
+      <NavItem asChild active={pathname.startsWith("/docs")}>
+        <Link href="/docs">Docs</Link>
+      </NavItem>
+    </NavPill>
+  );
+}
+```
+
+- **The current page:** pass `active` from your router (`usePathname()` in Next.js) so the server renders the highlight on the first paint. Or set `trackRoute` on NavPill and leave `active` off: it matches each link against the URL and follows route changes, but only after hydration.
+- **In-page links** (`#section` or `/path#section`): `trackSections` highlights the one whose section is in view, with `aria-current="location"`. Give each target section an `id`.
+- **Other routers:** the same `asChild` pattern works with React Router's `<Link to>` and TanStack Router's `<Link to>`. The child must render an `<a href>`.
+
+For text links rendered by a router, give the router's link the same look as cherry's `Link` with `className="cherry-link"` plus a `data-variant` attribute. See [NavPill](/components/nav-pill) and [Link](/components/link).
+
+## Fonts
+
+cherry does not load font files. Its type tokens point at Geist with system fallbacks:
+
+```css
+--cherry-font-sans: Geist, ui-sans-serif, system-ui, sans-serif;
+--cherry-font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+```
+
+Load the fonts you want and point the two tokens at them in your own CSS. For example, with the Geist packages from Fontsource:
+
+```css
+/* app/globals.css */
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+:root {
+  --cherry-font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --cherry-font-mono: "Geist Mono Variable", ui-monospace, monospace;
+}
+```
+
+Your rule is outside `@layer cherry`, so it wins without `!important`. Every text style reads its family from these two tokens.
+
+## Only the CSS you use
+
+Instead of `styles.css`, import `tokens.css`, `css/base.css` and the files for the components you render:
+
+```ts
+import "@cherry-design-system/react/tokens.css";
+import "@cherry-design-system/react/css/base.css";
+import "@cherry-design-system/react/css/button.css";
+import "@cherry-design-system/react/css/field.css";
+import "@cherry-design-system/react/css/input.css";
+```
+
+<Callout type="warning">
+  Some components render others: Field renders labels, DatePicker uses Calendar and Button, Toast uses Spinner. Include those files too, or use `styles.css` while prototyping.
+</Callout>
+
+## The theme-color meta
+
+The init script keeps `<meta name="theme-color">` in step with the mode, using cherry's canvas colors by default (`#ffffff` in light, `#09090b` in dark). Use your own colors, or opt out:
+
+```ts
+import { createThemeInitScript } from "@cherry-design-system/react/theme-init";
+
+const script = createThemeInitScript({
+  themeColor: { light: "#ffffff", dark: "#0b0b0f" },
+});
+
+// Leaves the meta alone:
+const noMeta = createThemeInitScript({ themeColor: false });
+```
+
+## Server-side mode
+
+The visitor's choice lives in `localStorage` (`themePreference`: `light`, `dark` or `system`) and is mirrored to a `theme` cookie. Server code that needs the mode, for example to pick an image, reads the cookie with `modeFromCookie`:
+
+```tsx
+// app/hero.tsx (Server Component)
+import { cookies } from "next/headers";
+import { modeFromCookie } from "@cherry-design-system/react/theme-init";
+
+export default async function Hero() {
+  const mode = modeFromCookie((await cookies()).get("theme")?.value);
+  return <img src={`/hero-${mode}.png`} alt="Product dashboard" />;
+}
+```
+
+`modeFromCookie` returns `"dark"` for a `dark` cookie and `"light"` otherwise. Nothing visual depends on it: the init script has already set the right class. See [Dark mode](/dark-mode).
+
+## Entry points
+
+| Import | What |
+| --- | --- |
+| `@cherry-design-system/react` | Components, hooks, `createBrand`, color mode helpers |
+| `@cherry-design-system/react/styles.css` | All CSS (tokens, base, every component) |
+| `@cherry-design-system/react/tokens.css` | Only the tokens |
+| `@cherry-design-system/react/css/<name>.css` | One component's CSS |
+| `@cherry-design-system/react/theme-init` | `themeInitScript`, `createThemeInitScript`, `modeFromCookie` (server safe) |
+| `@cherry-design-system/react/tokens` | Token names as typed lists (`colorTokens`, `spaceTokens`, `textStyles`, ...) |
+| `@cherry-design-system/react/style-api.json` | Every class, data attribute and allowed value |

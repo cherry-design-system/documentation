@@ -1,0 +1,165 @@
+---
+title: "Table"
+description: "A native HTML table in a rounded, horizontally scrollable frame, with striped rows, hover, density and numeric columns."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 8
+navIcon: "table-2"
+categoryIcon: "table"
+section: "Components"
+---
+# Table
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/table?theme=light" title="Table preview" loading="lazy" style={{ width: "100%", height: "608px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/table?theme=dark" title="Table preview" loading="lazy" style={{ width: "100%", height: "608px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Table wraps a native `<table>` in a rounded frame that scrolls sideways when the columns do not fit. Write plain `thead`, `tbody`, `tr`, `th` and `td` inside. Cells stay on one line, so narrow screens scroll instead of squeezing columns.
+
+```tsx
+import { Table } from "@cherry-design-system/react";
+
+export function Releases() {
+  return (
+    <Table scrollLabel="Releases">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th data-numeric>Downloads</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Button</td>
+          <td data-numeric>12,840</td>
+        </tr>
+        <tr>
+          <td>Modal</td>
+          <td data-numeric>9,310</td>
+        </tr>
+      </tbody>
+    </Table>
+  );
+}
+```
+
+## Examples
+
+### Numeric and wrapping columns
+
+Put `data-numeric` on the `th` and every `td` of a number column to right-align it in tabular figures. Put `data-wrap` on a prose cell to let it wrap.
+
+```tsx
+import { Table } from "@cherry-design-system/react";
+
+export function Invoices() {
+  return (
+    <Table scrollLabel="Invoices">
+      <thead>
+        <tr>
+          <th scope="col">Invoice</th>
+          <th scope="col">Note</th>
+          <th scope="col" data-numeric>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>INV-0042</td>
+          <td data-wrap>Annual plan, billed upfront with the volume discount applied.</td>
+          <td data-numeric>$1,920.00</td>
+        </tr>
+      </tbody>
+    </Table>
+  );
+}
+```
+
+### Density, stripes and hover
+
+```tsx
+import { Table } from "@cherry-design-system/react";
+
+export function Compact() {
+  return (
+    <Table size="sm" striped hoverable={false}>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Region</td><td>eu-west-1</td></tr>
+        <tr><td>Runtime</td><td>Node 22</td></tr>
+        <tr><td>Memory</td><td>1024 MB</td></tr>
+      </tbody>
+    </Table>
+  );
+}
+```
+
+### Styling the frame
+
+`className` and `style` go on the `<table>`. Use `frameClassName` and `frameStyle` for the outer frame.
+
+```tsx
+import { Table } from "@cherry-design-system/react";
+
+export function Tall({ children }: { children: React.ReactNode }) {
+  return (
+    <Table frameStyle={{ maxHeight: 400 }} frameClassName="audit-log" scrollLabel="Audit log">
+      {children}
+    </Table>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md"'>
+  Row density. Defaults to `"md"`.
+</Field>
+
+<Field value="striped" type="boolean">
+  Zebra rows.
+</Field>
+
+<Field value="hoverable" type="boolean">
+  Highlights rows on hover. Defaults to `true`.
+</Field>
+
+<Field value="scrollLabel" type="string">
+  Names the scroll region and makes it keyboard scrollable, for a table that can overflow.
+</Field>
+
+<Field value="frameClassName" type="string">
+  Class for the outer frame (`className` goes on the `<table>`).
+</Field>
+
+<Field value="frameStyle" type="CSSProperties">
+  Inline style for the outer frame.
+</Field>
+
+Table renders a `<div>` frame around a `<table>`. The ref goes to the `<table>`, and every other `<table>` attribute passes through to it. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-table` | The frame |
+| `data-size` | `sm`, `md` |
+| `data-striped`, `data-hoverable` | On the frame when enabled |
+| `data-numeric`, `data-wrap` | On cells you mark |
+| `.cherry-table__table` | The `<table>` |
+
+The frame reads `--cherry-bg-elevated`, `--cherry-border-default` and `--cherry-radius-lg`; header cells use the `label-xs` text tokens and `--cherry-bg-subtle`; hovered rows read `--cherry-ghost-hover`.
+
+## Accessibility
+
+- It is a native table: use `<th>` headers, with `scope` where needed.
+- `scrollLabel` turns a table that can scroll sideways into a named, keyboard-focusable region. Set it whenever the table can overflow.
+- Add `data-numeric` to number columns so figures line up.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/table" icon="code" iconPosition="left">
+  View Source
+</Button>

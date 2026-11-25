@@ -1,0 +1,207 @@
+---
+title: "Tokens"
+description: "Every non-color --cherry-* design token in cherry 2.0: spacing, radius, elevation, focus rings, motion, layout and typography."
+date: "2026-11-25"
+category: "Customization"
+categoryOrder: 1
+order: 3
+navIcon: "swatch-book"
+categoryIcon: "palette"
+---
+# Tokens
+
+Every design value in cherry is a CSS custom property named `--cherry-*`, declared on `:root` and again on every `[data-cherry-mode]` and `[data-cherry-brand]` scope. Components read only these tokens, and your own CSS should too: color tokens switch between light and dark by themselves, and brands override them.
+
+## Using tokens
+
+Read them with `var()` in any CSS:
+
+```css
+.my-panel {
+  padding: var(--cherry-space-4);
+  border: 1px solid var(--cherry-border-default);
+  border-radius: var(--cherry-radius-lg);
+  background: var(--cherry-bg-elevated);
+  color: var(--cherry-fg-default);
+  box-shadow: var(--cherry-elevation-sm);
+  transition: box-shadow var(--cherry-duration-fast) var(--cherry-easing-standard);
+}
+.my-panel:focus-visible {
+  outline: 2px solid transparent; /* stays visible in Windows High Contrast */
+  box-shadow: var(--cherry-ring);
+}
+```
+
+Layout props on cherry components take the spacing step number instead of a token: `gap={4}` is `--cherry-space-4`.
+
+```tsx
+import { Stack, Grid } from "@cherry-design-system/react";
+
+<Stack gap={4}>...</Stack>
+<Grid cols={{ xs: 1, md: 3 }} gap={{ xs: 4, lg: 8 }}>...</Grid>
+```
+
+Token names are also available in TypeScript, as typed lists and unions, from `@cherry-design-system/react/tokens`:
+
+```ts
+import {
+  colorTokens, // "bg/canvas", "fg/default", ...
+  spaceTokens, // "0", "1", "2", ...
+  radiusTokens, // "none", "xs", ...
+  elevationTokens, // "xs", "sm", ...
+  textStyles, // "display", "h1", ...
+  type ColorToken,
+  type SpaceToken,
+} from "@cherry-design-system/react/tokens";
+```
+
+A color token name such as `bg/canvas` maps to the custom property `--cherry-bg-canvas`.
+
+<Callout type="note">
+  Never branch on the mode to pick a color, and never write `.dark` overrides for a cherry color. Use the semantic token; it already switches. See [Dark mode](/dark-mode).
+</Callout>
+
+## Colors
+
+Color tokens have their own page with swatches for every semantic color in light and dark mode and for the full palette: see [Colors](/colors).
+
+## Spacing
+
+A 4px base scale. Layout props (`gap`, `padding`) take the step number: `gap={4}` is `--cherry-space-4`.
+
+| Token | Value |
+| --- | --- |
+| `--cherry-space-0` | `0px` |
+| `--cherry-space-1` | `4px` |
+| `--cherry-space-2` | `8px` |
+| `--cherry-space-3` | `12px` |
+| `--cherry-space-4` | `16px` |
+| `--cherry-space-5` | `20px` |
+| `--cherry-space-6` | `24px` |
+| `--cherry-space-8` | `32px` |
+| `--cherry-space-10` | `40px` |
+| `--cherry-space-12` | `48px` |
+| `--cherry-space-16` | `64px` |
+| `--cherry-space-20` | `80px` |
+| `--cherry-space-24` | `96px` |
+| `--cherry-space-px` | `2px` |
+
+## Radius
+
+| Token | Value |
+| --- | --- |
+| `--cherry-radius-none` | `0px` |
+| `--cherry-radius-xs` | `4px` |
+| `--cherry-radius-sm` | `6px` |
+| `--cherry-radius-md` | `8px` |
+| `--cherry-radius-lg` | `12px` |
+| `--cherry-radius-xl` | `16px` |
+| `--cherry-radius-2xl` | `24px` |
+| `--cherry-radius-full` | `9999px` |
+
+## Elevation and focus
+
+Elevation tokens are complete `box-shadow` values built from the shadow colors, so they adapt to dark mode. `--cherry-ring` is the focus ring for most controls; `--cherry-ring-inset` draws it inward for controls inside a scrolling or clipping container.
+
+| Token | Value |
+| --- | --- |
+| `--cherry-elevation-xs` | `0 1px 2px var(--cherry-shadow-xs)` |
+| `--cherry-elevation-sm` | `0 1px 2px var(--cherry-shadow-ambient), 0 2px 4px var(--cherry-shadow-sm), inset 0 1px 0 var(--cherry-shadow-highlight)` |
+| `--cherry-elevation-md` | `0 1px 3px var(--cherry-shadow-ambient), 0 6px 12px var(--cherry-shadow-md), inset 0 1px 0 var(--cherry-shadow-highlight)` |
+| `--cherry-elevation-lg` | `0 2px 4px var(--cherry-shadow-ambient), 0 12px 24px var(--cherry-shadow-lg), inset 0 1px 0 var(--cherry-shadow-highlight)` |
+| `--cherry-elevation-xl` | `0 4px 8px var(--cherry-shadow-ambient), 0 24px 48px var(--cherry-shadow-xl), inset 0 1px 0 var(--cherry-shadow-highlight)` |
+| `--cherry-ring` | `0 0 0 3px var(--cherry-focus-ring)` |
+| `--cherry-ring-danger` | `0 0 0 3px var(--cherry-accent-ring)` |
+| `--cherry-ring-inset` | `inset 0 0 0 1px var(--cherry-border-focus), inset 0 0 0 4px var(--cherry-focus-ring)` |
+
+## Motion
+
+Every cherry transition uses these. Under `prefers-reduced-motion: reduce` the durations drop to `1ms`, so transitions you build with them shorten too.
+
+| Token | Value |
+| --- | --- |
+| `--cherry-duration-instant` | `100ms` |
+| `--cherry-duration-fast` | `200ms` |
+| `--cherry-duration-base` | `300ms` |
+| `--cherry-duration-slow` | `400ms` |
+| `--cherry-duration-emphasis` | `450ms` |
+| `--cherry-easing-standard` | `cubic-bezier(0.4, 0, 0.2, 1)` |
+| `--cherry-easing-out` | `cubic-bezier(0.2, 0.8, 0.2, 1)` |
+| `--cherry-easing-spring` | `cubic-bezier(0.21, 1.02, 0.73, 1)` |
+| `--cherry-easing-pop` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
+
+How cherry uses them:
+
+| Use | Duration | Easing |
+| --- | --- | --- |
+| Hover, color, border, focus ring | `--cherry-duration-fast` | `--cherry-easing-standard` |
+| Press feedback | `--cherry-duration-instant` | `--cherry-easing-standard` |
+| Toggles, sliding indicators, thumbs, tab underline | `--cherry-duration-base` | `--cherry-easing-spring` |
+| Overlays in (popover, menu, tooltip, dialog, sheet) | `--cherry-duration-fast` or `--cherry-duration-base` | `--cherry-easing-out` |
+| Overlays out | `--cherry-duration-fast` | `--cherry-easing-standard` |
+| Large layout moves | `--cherry-duration-slow` | `--cherry-easing-spring` |
+| Icon pops, emphasis | `--cherry-duration-emphasis` | `--cherry-easing-pop` |
+
+## Layout
+
+Breakpoints, container widths, gutters and page padding. The breakpoint names match the keys of responsive props (`{ xs, sm, md, lg, xl, xxl, xxxl }`).
+
+| Token | Value |
+| --- | --- |
+| `--cherry-breakpoint-xs` | `0px` |
+| `--cherry-breakpoint-sm` | `576px` |
+| `--cherry-breakpoint-md` | `768px` |
+| `--cherry-breakpoint-lg` | `992px` |
+| `--cherry-breakpoint-xl` | `1200px` |
+| `--cherry-breakpoint-xxl` | `1440px` |
+| `--cherry-breakpoint-xxxl` | `1920px` |
+| `--cherry-container-max` | `1280px` |
+| `--cherry-container-max-xxxl` | `1440px` |
+| `--cherry-gutter-mobile` | `20px` |
+| `--cherry-gutter-desktop` | `40px` |
+| `--cherry-padding-mobile` | `20px` |
+| `--cherry-padding-desktop` | `40px` |
+
+<Callout type="info">
+  CSS does not allow custom properties inside `@media` conditions, so write the pixel value in your own media queries: `@media (min-width: 992px)` for `lg`.
+</Callout>
+
+## Typography
+
+Each text style is a set of five tokens: `--cherry-text-<style>-size`, `-line-height`, `-weight`, `-tracking` and `-family`. The families come from `--cherry-font-sans` (Geist) and `--cherry-font-mono` (Geist Mono). cherry does not load the font files; see [Installation](/installation#fonts).
+
+```css
+.plan-card__price {
+  font-family: var(--cherry-text-h3-family);
+  font-size: var(--cherry-text-h3-size);
+  line-height: var(--cherry-text-h3-line-height);
+  font-weight: var(--cherry-text-h3-weight);
+  letter-spacing: var(--cherry-text-h3-tracking);
+}
+```
+
+| Style | Size | Line height | Weight | Tracking | Family |
+| --- | --- | --- | --- | --- | --- |
+| `display` | `3.5rem` | `1.0714` | `600` | `-0.03em` | sans |
+| `h1` | `2.5rem` | `1.1` | `600` | `-0.025em` | sans |
+| `h2` | `2rem` | `1.1875` | `600` | `-0.02em` | sans |
+| `h3` | `1.5rem` | `1.25` | `600` | `-0.015em` | sans |
+| `h4` | `1.25rem` | `1.4` | `600` | `-0.01em` | sans |
+| `h5` | `1rem` | `1.5` | `600` | `-0.005em` | sans |
+| `body-lg` | `1.125rem` | `1.5556` | `400` | `-0.005em` | sans |
+| `body-md` | `0.9375rem` | `1.6` | `400` | `-0.003em` | sans |
+| `body-sm` | `0.875rem` | `1.4286` | `400` | `-0.002em` | sans |
+| `body-xs` | `0.75rem` | `1.3333` | `400` | `0em` | sans |
+| `label-lg` | `0.9375rem` | `1.3333` | `500` | `-0.003em` | sans |
+| `label-md` | `0.875rem` | `1.4286` | `500` | `-0.002em` | sans |
+| `label-sm` | `0.8125rem` | `1.3846` | `500` | `-0.001em` | sans |
+| `label-xs` | `0.75rem` | `1.3333` | `500` | `0em` | sans |
+| `eyebrow` | `0.75rem` | `1.3333` | `500` | `0.04em` | sans |
+| `mono-md` | `0.875rem` | `1.4286` | `400` | `0em` | mono |
+| `mono-sm` | `0.8125rem` | `1.5385` | `400` | `0em` | mono |
+| `mono-xs` | `0.75rem` | `1.3333` | `400` | `0em` | mono |
+
+| Token | Value |
+| --- | --- |
+| `--cherry-font-sans` | `Geist, ui-sans-serif, system-ui, sans-serif` |
+| `--cherry-font-mono` | `"Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace` |

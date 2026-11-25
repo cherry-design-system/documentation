@@ -1,0 +1,168 @@
+---
+title: "TimePicker"
+description: "Time field that opens a list of time slots or hour and minute columns, with step, min, max and 12 or 24-hour clocks."
+date: "2026-11-25"
+category: "Date and time"
+categoryOrder: 3
+order: 3
+navIcon: "clock"
+categoryIcon: "calendar"
+section: "Components"
+---
+# TimePicker
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/timepicker?theme=light" title="TimePicker preview" loading="lazy" style={{ width: "100%", height: "460px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/timepicker?theme=dark" title="TimePicker preview" loading="lazy" style={{ width: "100%", height: "460px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A time trigger that opens a popover with a list of time slots or hour and minute columns. Values are `"HH:mm"` strings on a 24-hour clock, whatever the display. Use [DateTimePicker](/components/date-time-picker) when the day matters too.
+
+```tsx
+"use client";
+import { Field, TimePicker } from "@cherry-design-system/react";
+
+export function StartTime() {
+  return (
+    <Field label="Start time">
+      <TimePicker name="start" hourCycle={12} min="08:00" max="18:00" fullWidth />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Columns layout
+
+`layout="columns"` shows hours, minutes and, on a 12-hour clock, AM/PM.
+
+```tsx
+"use client";
+import { Field, TimePicker } from "@cherry-design-system/react";
+
+export function Alarm() {
+  return (
+    <Field label="Alarm">
+      <TimePicker layout="columns" hourCycle={12} step={15} />
+    </Field>
+  );
+}
+```
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Field, TimePicker } from "@cherry-design-system/react";
+
+export function Meeting() {
+  const [time, setTime] = useState<string | null>("09:30");
+  return (
+    <Field label="Meeting time" hint={time ? `Stored as ${time}` : undefined}>
+      <TimePicker value={time} onChange={setTime} hourCycle={24} step={30} />
+    </Field>
+  );
+}
+```
+
+### Translated labels
+
+```tsx
+"use client";
+import { Field, TimePicker } from "@cherry-design-system/react";
+
+export function Hora() {
+  return (
+    <Field label="Hora">
+      <TimePicker
+        locale="es-ES"
+        layout="columns"
+        placeholder="Elige una hora"
+        labels={{ dialog: "Elegir hora", hours: "Horas", minutes: "Minutos" }}
+      />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="value" type="string | null">
+  Controlled time, `"HH:mm"` on a 24-hour clock.
+</Field>
+
+<Field value="defaultValue" type="string | null">
+  Initial time when uncontrolled. Defaults to `null`.
+</Field>
+
+<Field value="onChange" type="(value: string) => void">
+  Called with the picked `"HH:mm"` value.
+</Field>
+
+<Field value="step" type="number">
+  Minutes between options. Defaults to `30`.
+</Field>
+
+<Field value="min" type="string">
+  Earliest time, `"HH:mm"`.
+</Field>
+
+<Field value="max" type="string">
+  Latest time, `"HH:mm"`.
+</Field>
+
+<Field value="layout" type='"list" | "columns"'>
+  `"list"`: one column of slots. `"columns"`: hours, minutes (and AM/PM). Defaults to `"list"`.
+</Field>
+
+<Field value="hourCycle" type="12 | 24">
+  12 or 24-hour clock. Defaults to the locale's.
+</Field>
+
+<Field value="locale" type="string">
+  BCP 47 locale for the displayed times.
+</Field>
+
+<Field value="placeholder" type="ReactNode">
+  Shown while empty. Defaults to `"Pick a time"`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Trigger size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Stretch the trigger to the container width.
+</Field>
+
+<Field value="name" type="string">
+  Form field name: submits `"HH:mm"`.
+</Field>
+
+<Field value="labels" type="{ dialog?: string; list?: string; hours?: string; minutes?: string; period?: string }">
+  Accessible names (`TimePickerLabels`). Default to `"Choose time"`, `"Times"`, `"Hours"`, `"Minutes"` and `"AM/PM"`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the trigger button).
+</Field>
+
+The ref and native `<button>` attributes (except `value`, `defaultValue`, `onChange` and `children`) go to the trigger button.
+
+## Styling
+
+Root class `cherry-time-picker` with `data-size` (`sm`, `md`, `lg`), `data-layout` (`list`, `columns`) and states `data-open`, `data-invalid`, `data-disabled`, `data-full-width`. Options use `aria-selected` and `aria-disabled`. Parts: `cherry-time-picker__trigger`, `__icon`, `__value`, `__placeholder`, `__popover`, `__list`, `__columns`, `__column`, `__option`, `__option-label`, `__check`.
+
+Reads the field tokens for the trigger, `--cherry-bg-elevated` and `--cherry-elevation-lg` for the popover, and `--cherry-primary-default` with `--cherry-primary-fg` for the selected option.
+
+## Accessibility
+
+A listbox of times: Up and Down, Home and End move, Enter selects, Escape closes and returns focus to the trigger. With `layout="columns"`, Left and Right move between the hour, minute and AM/PM columns. Label it with Field.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/time-picker" icon="code" iconPosition="left">
+  View Source
+</Button>

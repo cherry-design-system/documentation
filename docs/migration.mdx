@@ -1,0 +1,424 @@
+---
+title: "Migrating from 1.x"
+description: "Move from cherry-styled-components to cherry 2.0 (@cherry-design-system/react): setup, props, toasts, layout and styling, with before and after code."
+date: "2026-11-25"
+category: "Resources"
+categoryOrder: 2
+order: 1
+navIcon: "arrow-right-left"
+categoryIcon: "book-open"
+---
+# Migrating from 1.x
+
+cherry 2.0 ships as `@cherry-design-system/react`. It replaces `cherry-styled-components` (cherry 1.x) and drops styled-components: components ship static CSS and are styled through `--cherry-*` tokens. It keeps the 1.x theme behavior (light, dark and system, with the same storage keys and cookie), so visitors keep their mode across the upgrade.
+
+The 1.x documentation stays available at [/v1](/v1) while you migrate.
+
+## Install
+
+Remove the old packages and add the new one:
+
+<CodeTabs tabs={[{ label: "npm", code: "npm uninstall cherry-styled-components styled-components\nnpm install @cherry-design-system/react lucide-react" }, { label: "pnpm", code: "pnpm remove cherry-styled-components styled-components\npnpm add @cherry-design-system/react lucide-react" }, { label: "yarn", code: "yarn remove cherry-styled-components styled-components\nyarn add @cherry-design-system/react lucide-react" }]} />
+
+Keep `styled-components` if your own code still uses it; cherry 2.0 no longer needs it. In Next.js, you can also drop `compiler.styledComponents` from `next.config.ts` once nothing else depends on it.
+
+## Setup
+
+| 1.x | 2.0 |
+| --- | --- |
+| `CherryThemeProvider` / `ClientThemeProvider` with `theme` and `themeDark` | Import `@cherry-design-system/react/styles.css` once. No provider. |
+| `StyledComponentsRegistry` (`cherry-styled-components/next`) | Not needed: the CSS is static. |
+| `themeInitScript` / `createThemeInitScript({ themeColor })` | Same names, from `@cherry-design-system/react/theme-init`. `themeColor` is `{ light, dark }` or `false`. |
+| `resolveTheme(cookie, theme, themeDark)` | `modeFromCookie(cookie)` returns `"light"` or `"dark"`. |
+| `ThemeContext` `{ toggleTheme, setPreference }`, `useColorMode()` | `useColorMode()` returns `{ mode, preference, setPreference, toggle }`. |
+| `useResolvedTheme()` (JS theme values) | Read `--cherry-*` CSS variables instead. |
+| Custom theme objects | `createBrand(name, { accent, primary })` for a scoped brand, or override `--cherry-l-*` / `--cherry-d-*` in your own CSS. |
+
+### Root layout
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+// app/layout.tsx
+import { StyledComponentsRegistry } from "cherry-styled-components/next";
+import { ClientThemeProvider, themeInitScript } from "cherry-styled-components";
+import { theme, themeDark } from "./theme";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body>
+        <StyledComponentsRegistry>
+          <ClientThemeProvider theme={theme} themeDark={themeDark}>
+            {children}
+          </ClientThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
+}
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```tsx
+// app/layout.tsx
+import "@cherry-design-system/react/styles.css";
+import { themeInitScript } from "@cherry-design-system/react/theme-init";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="cherry-root">{children}</body>
+    </html>
+  );
+}
+```
+
+  </TabContent>
+</Tabs>
+
+`className="cherry-root"` on `<body>` replaces the global styles the provider used to inject: it applies the canvas color, text color and font. See [Installation](/installation).
+
+### Reading the mode
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+"use client";
+import { useContext } from "react";
+import { ThemeContext } from "cherry-styled-components";
+
+export function ModeButton() {
+  const { toggleTheme } = useContext(ThemeContext);
+  return <button onClick={toggleTheme}>Toggle mode</button>;
+}
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```tsx
+"use client";
+import { Button, useColorMode } from "@cherry-design-system/react";
+
+export function ModeButton() {
+  const { mode, toggle } = useColorMode();
+  return (
+    <Button variant="outline" onClick={toggle}>
+      Switch to {mode === "dark" ? "light" : "dark"}
+    </Button>
+  );
+}
+```
+
+  </TabContent>
+</Tabs>
+
+On the server, replace `resolveTheme` with `modeFromCookie`:
+
+```tsx
+import { cookies } from "next/headers";
+import { modeFromCookie } from "@cherry-design-system/react/theme-init";
+
+const mode = modeFromCookie((await cookies()).get("theme")?.value); // "light" | "dark"
+```
+
+The stored preference (`themePreference`, and the legacy `theme` key) and the `theme` cookie are read as before. See [Dark mode](/dark-mode).
+
+### Custom themes
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+import { theme as base, ClientThemeProvider } from "cherry-styled-components";
+
+const theme = {
+  ...base,
+  colors: { ...base.colors, primary: "#5b5bd6" },
+};
+
+<ClientThemeProvider theme={theme}>{children}</ClientThemeProvider>;
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```ts
+// brand.ts
+import { createBrand } from "@cherry-design-system/react";
+
+export const acme = createBrand("acme", { accent: "#5b5bd6" });
+// Add acme.css to your stylesheet, then:
+// <body className="cherry-root" {...acme.attributes}>
+```
+
+  </TabContent>
+</Tabs>
+
+See [Brands](/brands) for the full API and for overriding the `--cherry-l-*` / `--cherry-d-*` slots directly.
+
+## Props
+
+- The `$` prefix is gone: `$variant` becomes `variant`, `$size` becomes `size`, `$fullWidth` becomes `fullWidth`.
+- Sizes are `sm`, `md` and `lg` (32, 36 and 44px) instead of `small`, `default` and `big`.
+- `$error` becomes `invalid`, or wrap the control in `<Field error="...">`. There is no success state; drop `$success`.
+- `$label` on inputs moves to `<Field label="...">`.
+- Icon props take a rendered element: `leadingIcon={<Plus />}`.
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+import { Button, Input } from "cherry-styled-components";
+
+<Button $variant="secondary" $size="big" $fullWidth>
+  Save
+</Button>
+
+<Input type="email" $label="Email" $error={!!errors.email} $fullWidth />
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```tsx
+import { Button, Field, Input } from "@cherry-design-system/react";
+import { Save } from "lucide-react";
+
+<Button variant="secondary" size="lg" fullWidth leadingIcon={<Save />}>
+  Save
+</Button>
+
+<Field label="Email" error={errors.email}>
+  <Input type="email" />
+</Field>
+```
+
+  </TabContent>
+</Tabs>
+
+<Callout type="warning">
+  Values must be one of the listed options. An unknown value, such as a leftover `size="big"`, renders unstyled instead of throwing. Check each component's Properties section.
+</Callout>
+
+## Renamed or changed components
+
+| 1.x | 2.0 |
+| --- | --- |
+| `ToastNotificationsProvider`, `ToastNotifications`, `useToastNotifications` | `ToastProvider`, `Toaster`, `useToast` |
+| `Box` | `Card` |
+| `Col` / `Grid` / `Flex` / `Container` | Same names; responsive props take one value or `{ xs, md, lg, ... }` |
+| `MaxWidth`, `Space` | Removed: use `Container` and `gap` |
+| `Icon` / `DynamicIcon` | Import lucide icons directly |
+| `ChatProvider` | Removed: chat parts are controlled through props |
+| `modes()`, `modeValue()`, `alpha` / `shade` / `tint`, `mq()` | Not needed: write CSS against `--cherry-*` tokens and `@media` |
+
+### Toasts
+
+`addNotification` becomes `show`, `promiseNotification` becomes `promise`, and the `Toaster` props lose their `$`: `$align`, `$bottom`, `$expand` and `$visibleToasts` become `align`, `position`, `expand` and `visibleToasts`.
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+"use client";
+import {
+  ToastNotifications,
+  ToastNotificationsProvider,
+  useToastNotifications,
+  Button,
+} from "cherry-styled-components";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <ToastNotificationsProvider>
+      <ToastNotifications $bottom $align="right" />
+      {children}
+    </ToastNotificationsProvider>
+  );
+}
+
+export function SaveButton() {
+  const { addNotification, promiseNotification } = useToastNotifications();
+  return (
+    <Button
+      onClick={() => {
+        addNotification("Changes saved", { color: "success", autoHide: 4000 });
+        promiseNotification(publishPost(), {
+          loading: "Publishing your post",
+          success: (post) => `Published "${post.title}"`,
+          error: "Couldn't publish",
+        }).catch(() => {});
+      }}
+    >
+      Save
+    </Button>
+  );
+}
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```tsx
+"use client";
+import { Button, ToastProvider, Toaster, useToast } from "@cherry-design-system/react";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <ToastProvider>
+      {children}
+      <Toaster position="bottom" align="right" />
+    </ToastProvider>
+  );
+}
+
+export function SaveButton() {
+  const toast = useToast();
+  return (
+    <Button
+      onClick={() => {
+        toast.show("Changes saved", { color: "success", autoHide: 4000 });
+        toast
+          .promise(publishPost(), {
+            loading: "Publishing your post",
+            success: (post) => `Published "${post.title}"`,
+            error: "Couldn't publish",
+          })
+          .catch(() => {});
+      }}
+    >
+      Save
+    </Button>
+  );
+}
+```
+
+  </TabContent>
+</Tabs>
+
+`useToast()` returns `{ toasts, show, update, dismiss, remove, promise }`. `show` takes the same options as before (`color`, `autoHide`, `description`, `action`, `dismissible`, `id`) and returns the toast's id. See [Toast](/components/toast).
+
+### Layout
+
+Responsive props no longer use one prop per breakpoint (`$xsCols`, `$lgSpan`, `$mdGap`). Each prop takes a single value or an object keyed by breakpoint, mobile first. Gaps and padding are spacing steps (`gap={4}` is 16px), not pixels.
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+import { Container, Grid, Col, Space, MaxWidth } from "cherry-styled-components";
+
+<Container>
+  <MaxWidth $size={800}>
+    <Grid $xsCols={1} $lgCols={3} $gap={20}>
+      <Col $lgSpan={2}>Main</Col>
+      <Col>Aside</Col>
+    </Grid>
+    <Space $size={40} />
+  </MaxWidth>
+</Container>
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```tsx
+import { Container, Grid, Col, Stack } from "@cherry-design-system/react";
+
+<Container>
+  <Stack gap={10}>
+    <Grid cols={{ xs: 1, lg: 3 }} gap={5}>
+      <Col span={{ xs: 1, lg: 2 }}>Main</Col>
+      <Col>Aside</Col>
+    </Grid>
+  </Stack>
+</Container>
+```
+
+  </TabContent>
+</Tabs>
+
+`MaxWidth` and `Space` are gone: use `Container` for page width and `gap` on `Flex`, `Stack` or `Grid` for spacing. Constrain a narrower column with a class of your own if you need one. See [Grid](/components/grid) and [Flex](/components/flex).
+
+### Box to Card
+
+```tsx
+// 1.x
+<Box>...</Box>
+
+// 2.0
+import { Card, CardTitle, CardDescription } from "@cherry-design-system/react";
+
+<Card variant="outline">
+  <CardTitle level={3}>Usage</CardTitle>
+  <CardDescription>2,431 requests this month.</CardDescription>
+</Card>
+```
+
+### Icons
+
+`Icon` and `DynamicIcon` are removed. Import the lucide glyphs you use and pass the element:
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+import { Plus } from "lucide-react";
+
+<Button leadingIcon={<Plus />}>New project</Button>
+```
+
+## Styling your own components
+
+Target cherry's stable hooks instead of styled-components interpolations, and read tokens instead of theme values:
+
+<Tabs>
+  <TabContent title="1.x">
+
+```tsx
+import styled from "styled-components";
+import { Button } from "cherry-styled-components";
+
+const WideButton = styled(Button)`
+  width: 100%;
+  color: ${({ theme }) => theme.colors.grayDark};
+`;
+```
+
+  </TabContent>
+  <TabContent title="2.0">
+
+```css
+.wide-button {
+  width: 100%;
+  color: var(--cherry-fg-muted);
+}
+
+/* Or every outline button */
+.cherry-button[data-variant="outline"] {
+  border-color: var(--cherry-border-strong);
+}
+```
+
+```tsx
+<Button className="wide-button">Continue</Button>
+```
+
+  </TabContent>
+</Tabs>
+
+Every cherry rule is in `@layer cherry`, so your unlayered CSS wins without `!important`. `style-api.json` lists every class, data attribute and value. See [Styling](/styling) and [Tokens](/tokens).
+
+## Agent skill
+
+If your coding agent used the 1.x `cherry-design-system` skill, install the 2.0 `cherry-react` skill for projects on the new package. The two can be installed side by side. See [Skill for AI agents](/ai-skill).

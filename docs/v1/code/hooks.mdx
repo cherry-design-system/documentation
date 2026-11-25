@@ -1,0 +1,141 @@
+---
+title: "Hooks"
+description: "Cherry utility hooks - useOnClickOutside, useMediaQuery, useBelowBreakpoint, useLockBodyScroll, useModalLayer, useColorMode, and useResolvedTheme."
+date: "2026-11-23"
+category: "Utilities"
+categoryOrder: 5
+order: 2
+navIcon: "webhook"
+section: "Code"
+---
+# Hooks
+
+Cherry exports utility hooks alongside its components.
+
+## useOnClickOutside
+
+Calls a callback when a click lands outside all of the given elements. Useful for dismissing menus, popovers, and other floating UI. Cherry's own Modal uses it to close on outside clicks.
+
+```tsx
+useOnClickOutside(refs: RefObject<HTMLElement | null>[], cb: () => void): void
+```
+
+```jsx
+"use client";
+import React, { useRef, useState } from "react";
+import { useOnClickOutside, Button } from "cherry-styled-components";
+
+export default function Menu() {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useOnClickOutside([menuRef, buttonRef], () => setOpen(false));
+
+  return (
+    <>
+      <Button ref={buttonRef} onClick={() => setOpen(!open)}>
+        Menu
+      </Button>
+      {open && <div ref={menuRef}>...</div>}
+    </>
+  );
+}
+```
+
+Behavior details:
+
+- Listens for `mousedown` on the document and fires the callback when the click target is inside none of the passed refs.
+- Unattached refs (with a `null` current value) are ignored: a click counts as outside unless it lands inside a currently mounted ref target.
+- The document listener is subscribed once per mount. You can safely pass inline arrays and inline callbacks; the hook keeps the latest values in a ref instead of re-subscribing on every render.
+
+### Parameters
+
+<Field value="refs" type="RefObject<HTMLElement | null>[]" required>
+  Refs to the elements that count as "inside". Clicks within any of them do not trigger the callback.
+</Field>
+
+<Field value="cb" type="() => void" required>
+  Callback invoked when a click lands outside all ref targets.
+</Field>
+
+## useMediaQuery
+
+Subscribes to a CSS media query and returns whether it currently matches. Returns `false` on the server and during the first client render so hydration matches, then re-renders with the real match.
+
+```tsx
+useMediaQuery(query: string): boolean
+```
+
+```jsx
+"use client";
+import { useMediaQuery } from "cherry-styled-components";
+
+export default function Layout({ children }) {
+  const prefersReducedMotion = useMediaQuery(
+    "(prefers-reduced-motion: reduce)",
+  );
+  // ...
+}
+```
+
+Pass a full media query string, e.g. `"(max-width: 991px)"`.
+
+## useBelowBreakpoint
+
+True while the viewport is narrower than the named Cherry breakpoint (`xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`) - the inverse of the `mq()` helper's min-width query. Use it for *behavior* that has to change below a breakpoint; for styling, stay with `mq()` in CSS.
+
+```tsx
+useBelowBreakpoint(size: keyof Breakpoints): boolean
+```
+
+The chat kit's [ChatPanel](/v1/code/chat-panel) uses it to turn the desktop drawer into a full-screen modal below `lg`.
+
+## useLockBodyScroll
+
+Freezes body scrolling while the flag is true - the hook behind modal overlays like [Modal](/v1/code/modal) and the modal states of [ChatPanel](/v1/code/chat-panel).
+
+```tsx
+useLockBodyScroll(isLocked: boolean): void
+```
+
+Locks are reference-counted, so overlapping overlays compose: the body is only released once the last holder lets go, and a pre-existing inline `overflow` style on `<body>` is restored afterwards.
+
+## useModalLayer
+
+Puts a full-page layer that is not a [Modal](/v1/code/modal) (an outage screen, a sign-in wall) on the modal stack while `open` is true. An open modal fades away under it and comes back once it is gone. Returns whether another layer covers this one.
+
+```tsx
+useModalLayer(open: boolean): boolean
+```
+
+It is exported next to `Modal` (`src/lib/modal.tsx`), which uses the same stack.
+
+## useColorMode
+
+The light or dark mode in force, the visitor's preference (`"light"`, `"dark"` or `"system"`), and the `toggleTheme` and `setPreference` setters, from the nearest Cherry theme provider.
+
+```tsx
+useColorMode(): {
+  mode: "light" | "dark";
+  preference: "light" | "dark" | "system";
+  toggleTheme: () => void;
+  setPreference: (preference: "light" | "dark" | "system") => void;
+}
+```
+
+A component that calls it renders again when the mode switches; nothing else does. Read it only for what CSS cannot do, such as an image per mode. See [Dark Mode](/v1/code/dark-mode#usecolormode).
+
+## useResolvedTheme
+
+The theme with real color values (not CSS variables) for the mode in force, plus an `isDark` flag. Use it for code that hands a theme color to something CSS does not style: a canvas, a chart or color library, an editor theme.
+
+```tsx
+useResolvedTheme(): Theme & { isDark: boolean }
+```
+
+Like `useColorMode`, it renders its component again when the mode switches. See [Dark Mode](/v1/code/dark-mode#real-color-values).
+
+<Button href="https://github.com/cherry-design-system/styled-components/blob/main/src/lib/utils" icon="code" iconPosition="left">
+  View Source
+</Button>

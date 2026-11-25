@@ -1,0 +1,106 @@
+---
+title: "Kbd"
+description: "A keyboard key chip for shortcuts, showing text such as esc or Cmd K, or an icon with an accessible label."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 4
+navIcon: "keyboard"
+categoryIcon: "table"
+section: "Components"
+---
+# Kbd
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/kbd?theme=light" title="Kbd preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/kbd?theme=dark" title="Kbd preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Kbd shows a keyboard key, for shortcut hints in menus, tooltips and search fields. It holds text ("esc", "⌘K") or an icon.
+
+```tsx
+import { Kbd } from "@cherry-design-system/react";
+
+export function SearchHint() {
+  return (
+    <p>
+      Press <Kbd>⌘K</Kbd> to search.
+    </p>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+`sm` is 20px tall and `md` is 24px.
+
+```tsx
+import { Kbd } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Kbd size="sm">esc</Kbd>
+      <Kbd size="md">esc</Kbd>
+    </>
+  );
+}
+```
+
+### Icon keys
+
+Give an icon-only key an `aria-label`. The chip then takes `role="img"`, since a bare `<kbd>` may not carry one.
+
+```tsx
+import { Kbd } from "@cherry-design-system/react";
+import { ArrowDown, ArrowUp, CornerDownLeft } from "lucide-react";
+
+export function NavigationKeys() {
+  return (
+    <>
+      <Kbd aria-label="Up arrow"><ArrowUp /></Kbd>
+      <Kbd aria-label="Down arrow"><ArrowDown /></Kbd>
+      <Kbd aria-label="Enter"><CornerDownLeft /></Kbd>
+    </>
+  );
+}
+```
+
+### Key combination
+
+```tsx
+import { Kbd } from "@cherry-design-system/react";
+
+export function Combo() {
+  return (
+    <span>
+      <Kbd>Ctrl</Kbd> + <Kbd>Shift</Kbd> + <Kbd>P</Kbd>
+    </span>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md"'>
+  20 / 24 px tall. Defaults to `"md"`.
+</Field>
+
+Kbd renders a `<kbd>`, forwards its ref to it and passes every native attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-kbd` | Root element |
+| `data-size` | `sm`, `md` |
+
+The chip reads `--cherry-bg-subtle`, `--cherry-border-default`, `--cherry-fg-muted`, `--cherry-elevation-xs` and the `label-xs` text tokens.
+
+## Accessibility
+
+Text keys are read as text. Icon-only keys need an `aria-label`; they then become `role="img"`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/kbd" icon="code" iconPosition="left">
+  View Source
+</Button>

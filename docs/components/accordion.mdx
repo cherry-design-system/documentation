@@ -1,0 +1,153 @@
+---
+title: "Accordion"
+description: "A stack of disclosures built on native details and summary, in card or inline style, with one-at-a-time or multiple open."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 0
+navIcon: "list-collapse"
+categoryIcon: "table"
+section: "Components"
+---
+# Accordion
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/accordion?theme=light" title="Accordion preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/accordion?theme=dark" title="Accordion preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Accordion stacks collapsible sections, such as FAQ entries or grouped settings. Each AccordionItem is a native `<details>` / `<summary>`, so keyboard support, find-in-page and assistive tech work without client JavaScript.
+
+```tsx
+import { Accordion, AccordionItem } from "@cherry-design-system/react";
+
+export function Faq() {
+  return (
+    <Accordion type="single">
+      <AccordionItem title="What is cherry?" defaultOpen>
+        A React design system in plain CSS.
+      </AccordionItem>
+      <AccordionItem title="Does it need client JS?">
+        Only where a component is interactive.
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+## Examples
+
+### One open at a time
+
+With `type="single"` the items share a native `name`, so opening one closes the others. The default, `type="multiple"`, lets any number stay open.
+
+```tsx
+import { Accordion, AccordionItem } from "@cherry-design-system/react";
+
+export function Shipping() {
+  return (
+    <Accordion type="single" name="shipping-faq">
+      <AccordionItem title="How long does shipping take?">3 to 5 business days.</AccordionItem>
+      <AccordionItem title="Do you ship abroad?">Yes, to 40 countries.</AccordionItem>
+      <AccordionItem title="Can I return an order?">Within 30 days.</AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Inline variant
+
+`card` draws a bordered surface per item. `inline` separates items with divider lines. An item can override the variant set on the Accordion.
+
+```tsx
+import { Accordion, AccordionItem } from "@cherry-design-system/react";
+
+export function Settings() {
+  return (
+    <Accordion variant="inline">
+      <AccordionItem title="Notifications">Email and push settings.</AccordionItem>
+      <AccordionItem title="Privacy">Who can see your profile.</AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Controlled item
+
+AccordionItem passes native `<details>` attributes through, so use `open` with `onToggle` to control it.
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { AccordionItem } from "@cherry-design-system/react";
+
+export function ControlledItem() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <AccordionItem
+      title="Advanced options"
+      open={open}
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+    >
+      Cache size, log level and experimental flags.
+    </AccordionItem>
+  );
+}
+```
+
+## Properties
+
+### Accordion
+
+<Field value="variant" type='"card" | "inline"'>
+  Applied to every item that does not set its own. Defaults to `"card"`.
+</Field>
+
+<Field value="type" type='"single" | "multiple"'>
+  `single` lets one item open at a time (items share a native `name`); `multiple` lets any number open. Defaults to `"multiple"`.
+</Field>
+
+<Field value="name" type="string">
+  The group name used by `type="single"`. Generated when omitted.
+</Field>
+
+<Field value="children" type="ReactNode">
+  The AccordionItems.
+</Field>
+
+Accordion renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through.
+
+### AccordionItem
+
+<Field value="title" type="ReactNode" required>
+  The always-visible heading, rendered in the `<summary>`.
+</Field>
+
+<Field value="variant" type='"card" | "inline"'>
+  `card` (bordered surface) or `inline` (divider lines). Defaults to `"card"`, or to the Accordion's variant.
+</Field>
+
+<Field value="defaultOpen" type="boolean">
+  Starts open (uncontrolled). Use `open` and `onToggle` for controlled use.
+</Field>
+
+AccordionItem renders a `<details>`, forwards its ref to it and passes every other `<details>` attribute through. Neither part has client JavaScript, so both are safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-accordion` | Root element |
+| `data-variant` | `card`, `inline` |
+| `[open]` | An open item |
+| Parts | `.cherry-accordion__item`, `__trigger`, `__title`, `__chevron`, `__body` |
+
+Items read `--cherry-border-default`, `--cherry-bg-canvas` and `--cherry-radius-lg`; the title uses the `label-md` text tokens and the body the `body-sm` text tokens.
+
+## Accessibility
+
+Native `<details>` / `<summary>`: Enter or Space toggles an item and the open state is announced natively. `type="single"` keeps one item open through the native exclusive accordion.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/accordion" icon="code" iconPosition="left">
+  View Source
+</Button>

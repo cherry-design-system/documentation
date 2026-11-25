@@ -1,0 +1,495 @@
+---
+title: "Chat"
+description: "Composable parts for an assistant chat: launcher, panel, transcript, messages, composer, typing indicator, sources and suggestions."
+date: "2026-11-25"
+category: "Chat"
+categoryOrder: 9
+order: 0
+navIcon: "message-circle"
+categoryIcon: "message-circle"
+section: "Components"
+---
+# Chat
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/chat-inline?theme=light" title="Chat preview" loading="lazy" style={{ width: "100%", height: "784px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/chat-inline?theme=dark" title="Chat preview" loading="lazy" style={{ width: "100%", height: "784px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+The chat kit is a set of parts you compose into an assistant UI: a ChatLauncher button opens a ChatPanel, which holds a scrolling ChatMessageList of ChatMessage turns, a ChatTyping indicator, ChatSources and ChatSuggestions, and a ChatInput composer. The parts hold no conversation state: you keep the messages and call your own backend.
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import {
+  Avatar,
+  ChatInput,
+  ChatLauncher,
+  ChatMessage,
+  ChatMessageList,
+  ChatPanel,
+  ChatSource,
+  ChatSources,
+  ChatSuggestion,
+  ChatSuggestions,
+  ChatTyping,
+  IconButton,
+  Prose,
+} from "@cherry-design-system/react";
+import { Copy, RotateCcw, Sparkles } from "lucide-react";
+
+type Message = {
+  id: string;
+  role: "user" | "assistant";
+  text: string;
+  sources?: { title: string; href: string }[];
+};
+
+async function askAssistant(question: string): Promise<Omit<Message, "id" | "role">> {
+  const response = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question }),
+  });
+  if (!response.ok) throw new Error("The assistant is unavailable.");
+  return response.json();
+}
+
+const suggestions = ["How do I add a brand color?", "Does cherry support dark mode?"];
+
+export function Assistant() {
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [pending, setPending] = useState(false);
+
+  const send = async (text: string) => {
+    setDraft("");
+    setMessages((current) => [
+      ...current,
+      { id: crypto.randomUUID(), role: "user", text },
+    ]);
+    setPending(true);
+    try {
+      const reply = await askAssistant(text);
+      setMessages((current) => [
+        ...current,
+        { id: crypto.randomUUID(), role: "assistant", ...reply },
+      ]);
+    } catch (error) {
+      setMessages((current) => [
+        ...current,
+        {
+          id: crypto.randomUUID(),
+          role: "assistant",
+          text: error instanceof Error ? error.message : "Something went wrong.",
+        },
+      ]);
+    } finally {
+      setPending(false);
+    }
+  };
+
+  return (
+    <>
+      <ChatLauncher glow aria-expanded={open} onClick={() => setOpen(true)}>
+        Ask AI
+      </ChatLauncher>
+
+      <ChatPanel
+        variant="drawer"
+        open={open}
+        onOpenChange={setOpen}
+        title="Assistant"
+        actions={
+          <IconButton
+            aria-label="New conversation"
+            icon={<RotateCcw />}
+            size="sm"
+            variant="ghost"
+            onClick={() => setMessages([])}
+          />
+        }
+      >
+        <ChatMessageList streaming={pending}>
+          {messages.length === 0 ? (
+            <ChatSuggestions>
+              {suggestions.map((text) => (
+                <ChatSuggestion key={text} icon={<Sparkles />} onClick={() => send(text)}>
+                  {text}
+                </ChatSuggestion>
+              ))}
+            </ChatSuggestions>
+          ) : null}
+
+          {messages.map((message) =>
+            message.role === "user" ? (
+              <ChatMessage key={message.id} role="user">
+                {message.text}
+              </ChatMessage>
+            ) : (
+              <ChatMessage
+                key={message.id}
+                role="assistant"
+                avatar={<Avatar size="sm" color="ai" icon={<Sparkles />} alt="" />}
+                actions={
+                  <IconButton
+                    aria-label="Copy reply"
+                    icon={<Copy />}
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => navigator.clipboard.writeText(message.text)}
+                  />
+                }
+              >
+                <Prose compact>
+                  <p>{message.text}</p>
+                </Prose>
+                {message.sources?.length ? (
+                  <ChatSources>
+                    {message.sources.map((source) => (
+                      <ChatSource key={source.href} href={source.href}>
+                        {source.title}
+                      </ChatSource>
+                    ))}
+                  </ChatSources>
+                ) : null}
+              </ChatMessage>
+            ),
+          )}
+
+          <ChatTyping active={pending} />
+        </ChatMessageList>
+
+        <ChatInput
+          value={draft}
+          onValueChange={setDraft}
+          onSend={send}
+          loading={pending}
+          footnote="Enter to send, Shift+Enter for a new line."
+        />
+      </ChatPanel>
+    </>
+  );
+}
+```
+
+<Callout type="warning">
+  Treat replies as untrusted text. Render them as plain text or through a markdown renderer that outputs React elements, never as raw HTML.
+</Callout>
+
+## Examples
+
+### Inline panel
+
+`variant="inline"` renders a plain panel in the page flow, for a dedicated chat page. It ignores `open` and has no close button.
+
+```tsx
+import { ChatInput, ChatMessageList, ChatPanel } from "@cherry-design-system/react";
+
+export function SupportPage({ children, onSend }: { children: React.ReactNode; onSend: (text: string) => void }) {
+  return (
+    <ChatPanel variant="inline" title="Support" style={{ height: 600 }}>
+      <ChatMessageList>{children}</ChatMessageList>
+      <ChatInput onSend={onSend} />
+    </ChatPanel>
+  );
+}
+```
+
+### Fullscreen and left drawer
+
+A drawer slides in from the right by default and is modal below 992px, sitting beside the page above it. `fullscreen` covers the viewport and is always modal. `modal` overrides either default.
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { ChatLauncher, ChatPanel } from "@cherry-design-system/react";
+
+export function Panels() {
+  const [open, setOpen] = useState<"left" | "full" | null>(null);
+
+  return (
+    <>
+      <ChatLauncher onClick={() => setOpen("left")}>Left drawer</ChatLauncher>
+      <ChatLauncher onClick={() => setOpen("full")}>Fullscreen</ChatLauncher>
+
+      <ChatPanel
+        variant="drawer"
+        side="left"
+        modal
+        open={open === "left"}
+        onOpenChange={(next) => !next && setOpen(null)}
+      />
+      <ChatPanel
+        variant="fullscreen"
+        open={open === "full"}
+        onOpenChange={(next) => !next && setOpen(null)}
+      />
+    </>
+  );
+}
+```
+
+### Streaming a reply
+
+While a reply streams in, set `streaming` on the ChatMessage to show a blinking caret, and on the ChatMessageList so following jumps instead of smooth-scrolling.
+
+```tsx
+import { ChatMessage, ChatMessageList } from "@cherry-design-system/react";
+
+export function Transcript({ question, reply, streaming }: { question: string; reply: string; streaming: boolean }) {
+  return (
+    <ChatMessageList streaming={streaming}>
+      <ChatMessage role="user">{question}</ChatMessage>
+      <ChatMessage role="assistant" streaming={streaming}>
+        {reply}
+      </ChatMessage>
+    </ChatMessageList>
+  );
+}
+```
+
+### Restored history
+
+Pass `still` to messages loaded from history so they skip the entrance animation.
+
+```tsx
+import { ChatMessage } from "@cherry-design-system/react";
+
+export function History({ messages }: { messages: { id: string; role: "user" | "assistant"; text: string }[] }) {
+  return messages.map((m) => (
+    <ChatMessage key={m.id} role={m.role} still>
+      {m.text}
+    </ChatMessage>
+  ));
+}
+```
+
+### Composer with actions
+
+```tsx
+import { ChatInput, IconButton } from "@cherry-design-system/react";
+import { Paperclip } from "lucide-react";
+
+export function Composer({ onSend }: { onSend: (text: string) => void }) {
+  return (
+    <ChatInput
+      glow
+      placeholder="Ask about your docs…"
+      maxHeight={240}
+      actions={<IconButton aria-label="Attach file" icon={<Paperclip />} size="sm" variant="ghost" />}
+      onSend={onSend}
+    />
+  );
+}
+```
+
+## Properties
+
+### ChatPanel
+
+<Field value="variant" type='"inline" | "drawer" | "fullscreen"'>
+  `drawer` slides in from the side (modal below 992px, beside the page above it); `fullscreen` covers the viewport and is modal; `inline` is a plain panel in the page flow. Defaults to `"drawer"`.
+</Field>
+
+<Field value="side" type='"left" | "right"'>
+  Drawer edge. Defaults to `"right"`.
+</Field>
+
+<Field value="open" type="boolean">
+  Overlay variants: shown or not. Inline panels ignore it. Defaults to `false`.
+</Field>
+
+<Field value="onOpenChange" type="(open: boolean) => void">
+  Called with `false` when Escape or the close button asks to close.
+</Field>
+
+<Field value="modal" type="boolean">
+  Forces modal (`true`) or non-modal (`false`) instead of the variant default.
+</Field>
+
+<Field value="title" type="ReactNode">
+  Header title, rendered as an `<h2>`. Defaults to `"AI assistant"`; `null` hides the header text.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Header icon. Defaults to sparkles; `null` hides it.
+</Field>
+
+<Field value="actions" type="ReactNode">
+  Extra header controls (reset, settings), placed before the close button.
+</Field>
+
+<Field value="hideClose" type="boolean">
+  Hides the close button of an overlay panel.
+</Field>
+
+<Field value="closeLabel" type="string">
+  Accessible name of the close button. Defaults to `"Close chat"`.
+</Field>
+
+Overlay variants render a native `<dialog>`; `inline` renders a `<section>`. The ref goes to whichever element renders, and other attributes pass through to it. Escape, the top layer, the inert background and the backdrop come from the platform, and focus moves to the composer on open.
+
+### ChatMessageList
+
+<Field value="streaming" type="boolean">
+  A reply is streaming: following jumps instead of smooth-scrolling, and turning it on re-arms following.
+</Field>
+
+Renders a `<div role="log">`, forwards its ref to it and passes every other `<div>` attribute through. It follows new messages while the reader is near the bottom and stops once they scroll up.
+
+### ChatLauncher
+
+<Field value="glow" type="boolean">
+  Animated AI gradient border with a soft halo.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Icon before the label. Defaults to sparkles.
+</Field>
+
+Renders a `<button type="button">` whose label defaults to "Ask AI". It forwards its ref and passes every other `<button>` attribute through. Pass `aria-expanded` to reflect the panel state.
+
+### ChatMessage
+
+<Field value="role" type='"user" | "assistant"'>
+  `user` is a right-aligned bubble; `assistant` is a full-width reply. Defaults to `"assistant"`.
+</Field>
+
+<Field value="avatar" type="ReactNode">
+  Shown beside the message, typically an `<Avatar size="sm">`.
+</Field>
+
+<Field value="actions" type="ReactNode">
+  Row under the message (copy, retry), typically small IconButtons.
+</Field>
+
+<Field value="streaming" type="boolean">
+  Shows a blinking caret after the text while a reply streams in.
+</Field>
+
+<Field value="still" type="boolean">
+  Skips the entrance animation, for messages restored from history.
+</Field>
+
+Renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. Note that `role` here is the message author, not an ARIA role. ChatMessage has no client JavaScript.
+
+### ChatInput
+
+<Field value="value" type="string">
+  Controlled text.
+</Field>
+
+<Field value="defaultValue" type="string">
+  Initial text when uncontrolled. Defaults to `""`.
+</Field>
+
+<Field value="onValueChange" type="(value: string) => void">
+  Called with the new text on every change.
+</Field>
+
+<Field value="onSend" type="(value: string) => void">
+  Called on Enter (or the send button) with non-blank text. An uncontrolled input clears after; a controlled one is yours to clear.
+</Field>
+
+<Field value="loading" type="boolean">
+  A reply is on its way: the send button spins and sending is blocked.
+</Field>
+
+<Field value="glow" type="boolean">
+  Animated AI gradient border with a soft halo.
+</Field>
+
+<Field value="actions" type="ReactNode">
+  Controls at the start of the footer (attach, tools), for example IconButtons.
+</Field>
+
+<Field value="footnote" type="ReactNode">
+  Small print under the composer.
+</Field>
+
+<Field value="maxHeight" type="number">
+  Tallest the text area grows before it scrolls, in px. Defaults to `160`.
+</Field>
+
+<Field value="sendLabel" type="string">
+  Accessible name of the send button. Defaults to `"Send message"`.
+</Field>
+
+<Field value="loadingLabel" type="string">
+  Accessible name of the send button while `loading`. Defaults to `"Waiting for the reply"`.
+</Field>
+
+ChatInput renders a wrapper `<div>` holding a `<form>` with a `<textarea>`. The ref and other `<textarea>` attributes go to the textarea, except `className` and `style`, which go to the wrapper. `placeholder` defaults to "Ask anything…" and `aria-label` to "Message".
+
+### ChatTyping
+
+<Field value="children" type="ReactNode">
+  Text after the dots. Defaults to `"Thinking…"`.
+</Field>
+
+<Field value="active" type="boolean">
+  Keep it mounted and toggle this to let it fade and fold away (and back) instead of popping out. Defaults to `true`.
+</Field>
+
+Renders a `<div role="status">`, forwards its ref to it and passes every other `<div>` attribute through. It has no client JavaScript.
+
+### ChatSources
+
+<Field value="label" type="string">
+  Names the list for assistive tech. Defaults to `"Sources"`.
+</Field>
+
+Renders an `<ol>`, forwards its ref to it and passes every other `<ol>` attribute through.
+
+### ChatSource
+
+ChatSource has no props of its own. It renders an `<a>` inside an `<li>`, with its number in a circle drawn by a CSS counter, so the number follows the list order. The ref and every `<a>` attribute go to the link.
+
+### ChatSuggestions
+
+<Field value="label" type="string">
+  Names the group for assistive tech. Defaults to `"Suggestions"`.
+</Field>
+
+Renders a `<div role="group">`, forwards its ref to it and passes every other `<div>` attribute through.
+
+### ChatSuggestion
+
+<Field value="icon" type="ReactNode">
+  Icon before the text.
+</Field>
+
+Renders a `<button type="button">`, forwards its ref and passes every other `<button>` attribute through. Wire `onClick` to send its text.
+
+## Styling
+
+| Part | Class | Attributes and states |
+| --- | --- | --- |
+| ChatPanel | `.cherry-chat-panel` | `data-variant` (`drawer`, `inline`, `fullscreen`), `data-side` (`left`, `right`), `[open]`, `:modal` |
+| Panel parts | `.cherry-chat-panel__header`, `__title`, `__icon`, `__actions`, `__body` (the ChatMessageList) | |
+| ChatLauncher | `.cherry-chat-launcher`, `.cherry-chat-launcher__icon` | `data-glow` |
+| ChatMessage | `.cherry-chat-message` | `data-role` (`user`, `assistant`), `data-streaming`, `data-still` |
+| Message parts | `.cherry-chat-message__avatar`, `__main`, `__content`, `__actions` | |
+| ChatInput | `.cherry-chat-input` | `data-glow`, `data-disabled`; `data-ready` on the send button |
+| Input parts | `.cherry-chat-input__frame`, `__surface`, `__textarea`, `__footer`, `__actions`, `__send`, `__arrow`, `__footnote` | |
+| ChatTyping | `.cherry-chat-typing` | `data-active` |
+| Typing parts | `.cherry-chat-typing__inner`, `__dots`, `__dot`, `__label` | |
+| ChatSources | `.cherry-chat-sources`, `.cherry-chat-sources__item`, `.cherry-chat-source`, `.cherry-chat-source__label` | |
+| ChatSuggestions | `.cherry-chat-suggestions`, `.cherry-chat-suggestion`, `.cherry-chat-suggestion__icon`, `.cherry-chat-suggestion__label` | |
+
+The glow borders and the AI avatar color use the `--cherry-ai-from` and `--cherry-ai-to` gradient tokens. The panel reads `--cherry-bg-canvas`, `--cherry-border-default`, `--cherry-elevation-xl` and `--cherry-bg-overlay` for the backdrop; the user bubble reads `--cherry-bg-muted`; the send button reads `--cherry-primary-default` and `--cherry-primary-fg`. Animations are reduced under `prefers-reduced-motion`.
+
+## Accessibility
+
+- An overlay ChatPanel is a dialog named by its `title` (or `aria-label`). Escape closes it through `onOpenChange`, and focus goes to the composer on open.
+- ChatMessageList is a live log, so new messages are announced. A `streaming` message is `aria-busy` until it finishes.
+- ChatInput's textarea is labelled "Message" by default (override with `aria-label`). Enter sends, Shift+Enter adds a line, and an IME composition keeps Enter. The send button is labelled by `sendLabel`, or `loadingLabel` while a reply is on its way.
+- ChatTyping is a `role="status"` region, announced while `active`.
+- ChatSources is a labelled list of links, and ChatSuggestions a labelled group of buttons; each chip's text is its name.
+- Pass `aria-expanded` to ChatLauncher to reflect whether the panel is open.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/chat-panel" icon="code" iconPosition="left">
+  View Source
+</Button>
