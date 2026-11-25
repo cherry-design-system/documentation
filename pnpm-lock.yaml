@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       doccupine:
-        specifier: ^0.1.0
-        version: 0.1.0(@scalar/openapi-types@0.9.10)
+        specifier: latest
+        version: 0.1.1(@scalar/openapi-types@0.9.10)
 
 packages:
 
@@ -326,8 +326,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  doccupine@0.1.0:
-    resolution: {integrity: sha512-FmV10/pQPpKKyMXVZBmxWWhOXKFPGch2rU2rdvHPu1RRMRwOP/rY+NWOH/TqCPhzBUrkWoGz+sNAIZHNjqqDjA==}
+  doccupine@0.1.1:
+    resolution: {integrity: sha512-hFG/BiiGUz8fSjHQdHTjhWiBuJxdFWqzbz+m4IOMJ/13EI2xLt2eqif6b8NtM/mt1mPGkl0IedtvJL5VRoIRDw==}
     engines: {node: '>=22.12.0'}
     hasBin: true
 
@@ -735,7 +735,7 @@ snapshots:
   detect-libc@2.1.2:
     optional: true
 
-  doccupine@0.1.0(@scalar/openapi-types@0.9.10):
+  doccupine@0.1.1(@scalar/openapi-types@0.9.10):
     dependencies:
       '@readme/openapi-parser': 11.0.0(@scalar/openapi-types@0.9.10)
       chalk: 6.0.1
