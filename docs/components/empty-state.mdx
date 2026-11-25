@@ -1,0 +1,122 @@
+---
+title: "EmptyState"
+description: "A placeholder for an empty list, a search with no results or a first run, with an icon, title, description and actions."
+date: "2026-11-25"
+category: "Feedback"
+categoryOrder: 7
+order: 3
+navIcon: "inbox"
+categoryIcon: "message-square-warning"
+section: "Components"
+---
+# EmptyState
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/emptystate?theme=light" title="EmptyState preview" loading="lazy" style={{ width: "100%", height: "616px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/emptystate?theme=dark" title="EmptyState preview" loading="lazy" style={{ width: "100%", height: "616px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+EmptyState fills the space of a list or view that has nothing to show yet: an empty project list, a search with no results or a first run. It pairs a heading with optional text and actions.
+
+```tsx
+import { Button, EmptyState } from "@cherry-design-system/react";
+import { Inbox } from "lucide-react";
+
+export function NoProjects() {
+  return (
+    <EmptyState
+      icon={<Inbox />}
+      title="No projects yet"
+      description="Create your first project."
+      actions={<Button>New project</Button>}
+    />
+  );
+}
+```
+
+## Examples
+
+### No search results
+
+```tsx
+import { Button, EmptyState } from "@cherry-design-system/react";
+import { SearchX } from "lucide-react";
+
+export function NoResults({ query, onClear }: { query: string; onClear: () => void }) {
+  return (
+    <EmptyState
+      icon={<SearchX />}
+      title={`No results for "${query}"`}
+      description="Check the spelling or try a broader term."
+      actions={
+        <Button variant="secondary" onClick={onClear}>
+          Clear search
+        </Button>
+      }
+    />
+  );
+}
+```
+
+### Without an icon
+
+The icon defaults to an inbox. Pass `null` to hide it.
+
+```tsx
+import { EmptyState } from "@cherry-design-system/react";
+
+export function Quiet() {
+  return <EmptyState icon={null} title="Nothing here" />;
+}
+```
+
+### Heading level
+
+The title is an `<h3>` by default. Set `headingLevel` to fit the page outline.
+
+```tsx
+import { EmptyState } from "@cherry-design-system/react";
+
+export function TopLevel() {
+  return <EmptyState headingLevel={2} title="No invoices" description="Invoices appear here after your first payment." />;
+}
+```
+
+## Properties
+
+<Field value="title" type="ReactNode" required>
+  The heading.
+</Field>
+
+<Field value="icon" type="ReactNode | null">
+  Icon shown in a tile above the title. Defaults to an inbox; `null` hides it.
+</Field>
+
+<Field value="description" type="ReactNode">
+  Supporting text under the title.
+</Field>
+
+<Field value="actions" type="ReactNode">
+  Buttons or links under the text.
+</Field>
+
+<Field value="headingLevel" type="2 | 3 | 4 | 5 | 6">
+  Heading level of the title. Defaults to `3`.
+</Field>
+
+EmptyState renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-empty-state` | Root element |
+| Parts | `.cherry-empty-state__icon`, `__title`, `__description`, `__actions` |
+
+The icon tile reads `--cherry-bg-muted`, `--cherry-border-default` and `--cherry-elevation-xs`; the title uses the `h5` text tokens.
+
+## Accessibility
+
+The title is a real heading (`headingLevel`), followed by plain text. The icon is decorative and hidden from assistive tech.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/empty-state" icon="code" iconPosition="left">
+  View Source
+</Button>

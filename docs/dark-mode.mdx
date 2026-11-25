@@ -1,0 +1,193 @@
+---
+title: "Dark mode"
+description: "Light, dark and system modes in cherry 2.0: the init script, useColorMode, ThemeToggle, per-section modes and where the preference is stored."
+date: "2026-11-25"
+category: "Customization"
+categoryOrder: 1
+order: 0
+navIcon: "moon"
+categoryIcon: "palette"
+---
+# Dark mode
+
+The mode is the `dark` class on `<html>`. Every `--cherry-*` color token holds a light and a dark value and switches with that class, so a mode change repaints the page without re-rendering any component.
+
+Visitors pick one of three preferences: `light`, `dark`, or `system`, which follows the OS setting live. Without an explicit choice, cherry follows the OS.
+
+## Set the mode before the first paint
+
+`themeInitScript` is a blocking script for `<head>`. It reads the stored preference and sets the class before anything paints, so there is no flash of the wrong mode. See [Installation](/installation) for the full setup.
+
+```tsx
+// app/layout.tsx
+import "@cherry-design-system/react/styles.css";
+import { themeInitScript } from "@cherry-design-system/react/theme-init";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="cherry-root">{children}</body>
+    </html>
+  );
+}
+```
+
+The script decides the mode in this order:
+
+1. An explicit `themePreference` in `localStorage`: `light`, `dark` or `system`.
+2. Otherwise a `theme` entry in `localStorage` (written by cherry 1.x), so visitors keep their mode across the upgrade.
+3. Otherwise the OS setting (`prefers-color-scheme`).
+
+Where storage is blocked, the `theme` cookie keeps the choice.
+
+### The theme-color meta
+
+The script also sets `<meta name="theme-color">` so browser chrome matches the page from the first paint. The defaults are cherry's canvas colors, `#ffffff` (light) and `#09090b` (dark). Build your own script with `createThemeInitScript`:
+
+```ts
+import { createThemeInitScript } from "@cherry-design-system/react/theme-init";
+
+export const themeScript = createThemeInitScript({
+  themeColor: { light: "#ffffff", dark: "#0b0b0f" },
+});
+
+// Leave the meta alone:
+export const plainScript = createThemeInitScript({ themeColor: false });
+```
+
+<Field value="themeColor" type="{ light: string; dark: string } | false">
+  The `theme-color` meta for each mode. Pass `false` to leave the meta alone. Defaults to `{ light: "#ffffff", dark: "#09090b" }`.
+</Field>
+
+## Let visitors choose
+
+[ThemeToggle](/components/theme-toggle) is a System, Light and Dark segmented switch. It needs no props:
+
+```tsx
+import { ThemeToggle } from "@cherry-design-system/react";
+
+export function Header() {
+  return (
+    <header>
+      <ThemeToggle />
+    </header>
+  );
+}
+```
+
+## useColorMode
+
+To read or set the preference yourself, use the `useColorMode` hook in a Client Component.
+
+```tsx
+"use client";
+import { useColorMode, Button } from "@cherry-design-system/react";
+
+export function ModeMenu() {
+  const { mode, preference, setPreference, toggle } = useColorMode();
+
+  return (
+    <>
+      <Button variant="outline" onClick={toggle}>
+        Switch to {mode === "dark" ? "light" : "dark"}
+      </Button>
+      <Button
+        variant="ghost"
+        disabled={preference === "system"}
+        onClick={() => setPreference("system")}
+      >
+        Follow system
+      </Button>
+    </>
+  );
+}
+```
+
+<Field value="mode" type='"light" | "dark"'>
+  The mode in force.
+</Field>
+<Field value="preference" type='"light" | "dark" | "system"'>
+  What the visitor picked: a fixed mode, or whatever the OS is set to.
+</Field>
+<Field value="setPreference" type='(preference: "light" | "dark" | "system") => void'>
+  Picks a mode, or `"system"` to follow the OS, and remembers it.
+</Field>
+<Field value="toggle" type="() => void">
+  Switches to the other mode and remembers it as an explicit preference.
+</Field>
+
+The hook re-renders on every switch, including OS changes while the preference is `"system"`. During server rendering and hydration it reports `light` and `system`. The init script has already applied the real mode to `<html>`, so nothing visible depends on that value at first paint.
+
+### Outside React
+
+The same store is available as plain functions, exported from `@cherry-design-system/react`:
+
+| Export | What |
+| --- | --- |
+| `getColorModeState()` | Returns `{ mode, preference }`. On the server: `light` and `system`. |
+| `setColorModePreference(preference)` | Picks `light`, `dark` or `system` and remembers it. |
+| `toggleColorMode()` | Switches to the other mode and remembers it. |
+| `subscribeColorMode(listener)` | Calls `listener` on every change; returns an unsubscribe function. |
+| `applyColorMode(mode, { persist })` | Applies a mode to the page without storing a preference. `persist` (default `true`) writes the cookie. |
+| `DARK_MODE_QUERY` | The media query string, `"(prefers-color-scheme: dark)"`. |
+
+## Storage and cookie
+
+| Where | Key | Values |
+| --- | --- | --- |
+| `localStorage` | `themePreference` | `light`, `dark` or `system` |
+| `localStorage` | `theme` | `light` or `dark` (legacy, read only when `themePreference` is absent) |
+| Cookie | `theme` | The mode in force, `light` or `dark`. `path=/`, one year, `SameSite=Lax`. |
+
+The cookie always mirrors the mode in force, for server code that needs it. Read it with `modeFromCookie`:
+
+```tsx
+import { cookies } from "next/headers";
+import { modeFromCookie } from "@cherry-design-system/react/theme-init";
+
+const mode = modeFromCookie((await cookies()).get("theme")?.value); // "light" | "dark"
+```
+
+## A section in a fixed mode
+
+Scope any element to a mode, whatever the page is in, with `data-cherry-mode`:
+
+```tsx
+<section data-cherry-mode="dark">Always dark</section>
+<aside data-cherry-mode="light">Always light</aside>
+```
+
+The scope gets the canvas color, text color and font of that mode, and every cherry component inside it follows.
+
+## Never branch on the mode in JavaScript
+
+Colors switch through CSS, so:
+
+- Never read the mode in JavaScript to pick a color.
+- Never write `.dark .my-thing { color: ... }` for a cherry color. Use the token: it already switches.
+
+```css
+/* Do */
+.notice {
+  color: var(--cherry-fg-muted);
+  background: var(--cherry-bg-subtle);
+}
+
+/* Don't */
+.dark .notice {
+  color: #a1a1aa;
+}
+```
+
+Read the mode in JavaScript only for something CSS cannot style, such as a canvas or a chart library, and use `useColorMode` for it.
+
+<Callout type="info">
+  While the mode switches, cherry adds a `theme-switching` class to `<html>` for one frame, which turns transitions off so the page changes at once instead of fading control by control.
+</Callout>

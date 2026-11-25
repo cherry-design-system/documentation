@@ -1,0 +1,157 @@
+---
+title: "Banner"
+description: "A full-width announcement bar with an icon, a trailing action and an optional dismiss button that collapses it away."
+date: "2026-11-25"
+category: "Feedback"
+categoryOrder: 7
+order: 1
+navIcon: "megaphone"
+categoryIcon: "message-square-warning"
+section: "Components"
+---
+# Banner
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/banner?theme=light" title="Banner preview" loading="lazy" style={{ width: "100%", height: "407px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/banner?theme=dark" title="Banner preview" loading="lazy" style={{ width: "100%", height: "407px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A Banner is a full-width announcement bar for site-wide news, such as a release or scheduled maintenance. It fades in on mount. For a message tied to one part of the page, use [Callout](/components/callout); for transient feedback after an action, use a toast.
+
+```tsx
+import { Banner } from "@cherry-design-system/react";
+import { Megaphone } from "lucide-react";
+
+export function ReleaseBanner() {
+  return (
+    <Banner variant="accent" icon={<Megaphone />} dismissible>
+      cherry 2.0 is here.
+    </Banner>
+  );
+}
+```
+
+## Examples
+
+### Variants
+
+`inverse` is the default.
+
+```tsx
+import { Banner } from "@cherry-design-system/react";
+
+export function Variants() {
+  return (
+    <>
+      <Banner variant="inverse">Inverse banner.</Banner>
+      <Banner variant="accent">Accent banner.</Banner>
+      <Banner variant="subtle">Subtle banner.</Banner>
+    </>
+  );
+}
+```
+
+### With an action
+
+`action` renders after the message. Pass a link or a button.
+
+```tsx
+import { Banner, Link } from "@cherry-design-system/react";
+import { Wrench } from "lucide-react";
+
+export function MaintenanceBanner() {
+  return (
+    <Banner
+      variant="subtle"
+      icon={<Wrench />}
+      action={<Link href="/status">View status</Link>}
+    >
+      Scheduled maintenance on Sunday from 02:00 to 04:00 UTC.
+    </Banner>
+  );
+}
+```
+
+### Dismissible
+
+With `dismissible` the banner shows a close button. Dismissing fades it out and collapses its height to zero, then removes it and calls `onDismiss`. Use `onDismiss` to remember the choice.
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { Banner } from "@cherry-design-system/react";
+import { Megaphone } from "lucide-react";
+
+export function DismissibleBanner() {
+  const [hidden, setHidden] = useState(false);
+
+  if (hidden) return null;
+
+  return (
+    <Banner
+      icon={<Megaphone />}
+      dismissible
+      onDismiss={() => setHidden(true)}
+      dismissLabel="Close announcement"
+    >
+      New pricing starts next month.
+    </Banner>
+  );
+}
+```
+
+<Callout type="note">
+  In a flex column or block flow the gap after the banner collapses with it. A grid track cannot shrink below zero, so inside a grid the row gap closes at the end of the animation.
+</Callout>
+
+## Properties
+
+<Field value="variant" type='"accent" | "inverse" | "subtle"'>
+  Color scheme. Defaults to `"inverse"`.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Leading icon, for example `<Megaphone />`.
+</Field>
+
+<Field value="action" type="ReactNode">
+  Trailing link or button after the message.
+</Field>
+
+<Field value="dismissible" type="boolean">
+  Shows a close button. The banner collapses, then `onDismiss` runs.
+</Field>
+
+<Field value="onDismiss" type="() => void">
+  Called after the dismiss animation has finished.
+</Field>
+
+<Field value="dismissLabel" type="string">
+  Accessible name of the close button. Defaults to `"Dismiss"`.
+</Field>
+
+<Field value="aria-label" type="string">
+  Name of the region landmark. Defaults to `"Announcement"`.
+</Field>
+
+Banner renders a `<div role="region">`, forwards its ref to it and passes every other `<div>` attribute through. It is a client component.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-banner` | Root element |
+| `data-variant` | `inverse`, `accent`, `subtle` |
+| `data-dismissed` | Present while the banner collapses |
+| Parts | `.cherry-banner__inner`, `__content`, `__icon`, `__message`, `__action`, `__dismiss` |
+
+`inverse` reads `--cherry-bg-inverse` and `--cherry-fg-inverse`, `accent` reads `--cherry-accent-default` and `--cherry-fg-on-accent`, and `subtle` reads `--cherry-bg-subtle` and `--cherry-border-default`.
+
+## Accessibility
+
+- The banner is a region landmark. When several banners show at once, give each a distinct `aria-label`.
+- The dismiss button is labelled by `dismissLabel`. Translate it there.
+- The icon is decorative and hidden from assistive tech.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/banner" icon="code" iconPosition="left">
+  View Source
+</Button>

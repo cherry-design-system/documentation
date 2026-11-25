@@ -1,0 +1,86 @@
+---
+title: "Container"
+description: "A centered page column with the container max width and responsive padding, rendered as a plain div with no client JavaScript."
+date: "2026-11-25"
+category: "Layout"
+categoryOrder: 4
+order: 1
+navIcon: "frame"
+categoryIcon: "layout-grid"
+section: "Components"
+---
+# Container
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=light" title="Container preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=dark" title="Container preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Container is the centered column that holds a page's content. It caps the width at the container max width and pads every side. Use [Flex](/components/flex) or [Grid](/components/grid) inside it to arrange the content.
+
+```tsx
+import { Container } from "@cherry-design-system/react";
+
+export default function Page() {
+  return (
+    <Container>
+      <h1>Settings</h1>
+    </Container>
+  );
+}
+```
+
+## Examples
+
+### Full width
+
+`fluid` drops the max width so the column spans the full width of its parent. The padding stays.
+
+```tsx
+import { Container } from "@cherry-design-system/react";
+
+export function Hero() {
+  return <Container fluid>Edge to edge content</Container>;
+}
+```
+
+### Custom padding
+
+`padding` takes a spacing step (`0`, `1`, `2`, `3`, `4`, `5`, `6`, `8`, `10`, `12`, `16`, `20` or `24`, read from `--cherry-space-<step>`). Pass an object to change it per breakpoint. Breakpoints are mobile first: a value set at `md` holds through every larger breakpoint until another one overrides it.
+
+```tsx
+import { Container } from "@cherry-design-system/react";
+
+export function Narrow() {
+  return <Container padding={{ xs: 4, lg: 8 }}>Content</Container>;
+}
+```
+
+The breakpoints are `xs` (0px), `sm` (576px), `md` (768px), `lg` (992px), `xl` (1200px), `xxl` (1440px) and `xxxl` (1920px).
+
+## Properties
+
+<Field value="fluid" type="boolean">
+  Full width instead of the container max width.
+</Field>
+
+<Field value="padding" type="Responsive<SpaceStep>">
+  Padding on every side (as in 1.x), as a spacing step, or an object of steps per breakpoint. Defaults to 20px, and 40px from `lg`.
+</Field>
+
+Container renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. It is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-container` |
+| State | `data-fluid` |
+
+The column reads `--cherry-container-max` (and `--cherry-container-max-xxxl` from 1920px) for its width, and `--cherry-padding-mobile` / `--cherry-padding-desktop` for the default padding.
+
+## Accessibility
+
+Container is layout only and has no role. Use landmark elements such as `<main>` around or inside it where the page needs them.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/container" icon="code" iconPosition="left">
+  View Source
+</Button>

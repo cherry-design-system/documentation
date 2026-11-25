@@ -1,0 +1,166 @@
+---
+title: "Field"
+description: "Wraps a form control with a label, hint and error message, and wires the ids and ARIA attributes for you."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 4
+navIcon: "tag"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Field
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/fields?theme=light" title="Field preview" loading="lazy" style={{ width: "100%", height: "396px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/fields?theme=dark" title="Field preview" loading="lazy" style={{ width: "100%", height: "396px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Label, control and hint or error in one wrapper. Field generates the control's id, links the label to it, points `aria-describedby` at the hint or error, and passes `invalid`, `disabled` and `required` down to the control. Wrap every form control in a Field unless it has its own visible label.
+
+```tsx
+"use client";
+import { Field, Input } from "@cherry-design-system/react";
+
+export function Username({ error }: { error?: string }) {
+  return (
+    <Field label="Username" required error={error}>
+      <Input name="username" />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### With a hint
+
+The hint shows under the control and is hidden while an error shows.
+
+```tsx
+"use client";
+import { Field, Input } from "@cherry-design-system/react";
+import { Mail } from "lucide-react";
+
+export function Email() {
+  return (
+    <Field label="Email" hint="We never share it.">
+      <Input type="email" leadingIcon={<Mail />} placeholder="you@example.com" />
+    </Field>
+  );
+}
+```
+
+### Error state
+
+`error` replaces the hint, marks the control `aria-invalid` and switches it to its error style.
+
+```tsx
+"use client";
+import { Field, Password } from "@cherry-design-system/react";
+
+export function NewPassword() {
+  return (
+    <Field label="Password" hint="At least 12 characters." error="Too short.">
+      <Password autoComplete="new-password" />
+    </Field>
+  );
+}
+```
+
+### Disabled and required
+
+```tsx
+"use client";
+import { Field, Select } from "@cherry-design-system/react";
+
+export function Region() {
+  return (
+    <Field label="Region" required disabled>
+      <Select placeholder="Select a region">
+        <option value="eu">Europe</option>
+        <option value="us">United States</option>
+      </Select>
+    </Field>
+  );
+}
+```
+
+### Group controls
+
+For a [RadioGroup](/components/radio) or an [OTPInput](/components/otp-input), Field's label names the whole group through `aria-labelledby`.
+
+```tsx
+"use client";
+import { Field, Radio, RadioGroup } from "@cherry-design-system/react";
+
+export function Plan() {
+  return (
+    <Field label="Plan">
+      <RadioGroup name="plan" defaultValue="pro">
+        <Radio value="free" label="Free" />
+        <Radio value="pro" label="Pro" />
+      </RadioGroup>
+    </Field>
+  );
+}
+```
+
+### Custom controls
+
+`useFieldControl` returns the props a control inside a Field should spread: `id`, `aria-describedby`, `aria-invalid`, `disabled` and `required`. Explicit props on the control win.
+
+```tsx
+"use client";
+import type { InputHTMLAttributes } from "react";
+import { useFieldControl } from "@cherry-design-system/react";
+
+export function ColorInput(props: InputHTMLAttributes<HTMLInputElement>) {
+  const control = useFieldControl(props);
+  return <input type="color" {...control} />;
+}
+```
+
+## Properties
+
+<Field value="label" type="ReactNode" required>
+  Visible label, rendered as a `<label>` linked to the control.
+</Field>
+
+<Field value="children" type="ReactNode" required>
+  The control.
+</Field>
+
+<Field value="hint" type="ReactNode">
+  Helper text under the control. Hidden while an error shows.
+</Field>
+
+<Field value="error" type="ReactNode">
+  Error message. Marks the control `aria-invalid` and replaces the hint.
+</Field>
+
+<Field value="id" type="string">
+  The control's id. Generated when omitted.
+</Field>
+
+<Field value="disabled" type="boolean">
+  Disables the control. Defaults to `false`.
+</Field>
+
+<Field value="required" type="boolean">
+  Sets the native `required` attribute on the control and shows an asterisk. Defaults to `false`.
+</Field>
+
+Renders a `<div>`, forwards its ref and passes through native `<div>` attributes. Also exported: `FieldContext` and `useFieldControl`.
+
+## Styling
+
+Root class `cherry-field` with state attributes `data-invalid` and `data-disabled`. Parts: `cherry-field__label`, `cherry-field__required`, `cherry-field__hint`, `cherry-field__error`.
+
+Reads `--cherry-fg-default` (label), `--cherry-fg-muted` (hint) and `--cherry-danger-fg` (error).
+
+## Accessibility
+
+Links the label to the control and the hint or error through `aria-describedby`; `error` sets `aria-invalid` on the control. `required` uses the native `required` attribute, not only the asterisk (which is hidden from screen readers). Works with Input, Textarea, Select, Password, NumberField, Combobox, OTPInput, Checkbox, RadioGroup, Range, Dropzone, AvatarDropzone and the date and time pickers.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/field" icon="code" iconPosition="left">
+  View Source
+</Button>

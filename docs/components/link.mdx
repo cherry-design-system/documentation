@@ -1,0 +1,107 @@
+---
+title: "Link"
+description: "Underlined text link with default and muted variants and an external mode that opens a new tab and announces it."
+date: "2026-11-25"
+category: "Actions"
+categoryOrder: 1
+order: 3
+navIcon: "link"
+categoryIcon: "mouse-pointer-click"
+section: "Components"
+---
+# Link
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=light" title="Link preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=dark" title="Link preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A text link for navigation inside prose and UI copy. The underline sweeps in on hover, the external arrow nudges toward its target, and focus draws a ring offset from the text. Use [Button](/components/button) for actions that do not navigate.
+
+```tsx
+import { Link } from "@cherry-design-system/react";
+
+export function DocsLink() {
+  return <Link href="/docs">Read the docs</Link>;
+}
+```
+
+Link ships no client JavaScript, so it renders in React Server Components.
+
+## Examples
+
+### Muted
+
+`muted` stays gray until hovered, which suits footers and secondary links.
+
+```tsx
+import { Link } from "@cherry-design-system/react";
+
+export function FooterLink() {
+  return (
+    <Link href="/privacy" variant="muted">
+      Privacy policy
+    </Link>
+  );
+}
+```
+
+### External
+
+`external` opens a new tab with `rel="noopener noreferrer"`, shows an arrow icon and adds visually hidden text for screen readers.
+
+```tsx
+import { Link } from "@cherry-design-system/react";
+
+export function ExternalLink() {
+  return (
+    <Link href="https://example.com" external externalLabel="(opens in a new tab)">
+      Example site
+    </Link>
+  );
+}
+```
+
+### With a router link
+
+Link renders a plain `<a>`. To give a framework link the same look, add `className="cherry-link"` and `data-variant`.
+
+```tsx
+import NextLink from "next/link";
+
+export function RouterLink() {
+  return (
+    <NextLink href="/settings" className="cherry-link" data-variant="default">
+      Settings
+    </NextLink>
+  );
+}
+```
+
+## Properties
+
+<Field value="variant" type='"default" | "muted"'>
+  `default`: underlined text color; `muted`: gray until hovered. Defaults to `"default"`.
+</Field>
+
+<Field value="external" type="boolean">
+  Opens in a new tab (`rel="noopener noreferrer"`) and shows an arrow icon. An explicit `target` or `rel` wins.
+</Field>
+
+<Field value="externalLabel" type="string">
+  Spoken after the text of an external link. Defaults to `"(opens in a new tab)"`.
+</Field>
+
+Renders an `<a>` and forwards its ref to it. All native `<a>` attributes pass through.
+
+## Styling
+
+Root class `cherry-link` with `data-variant` (`default`, `muted`). External links get `data-external` and the part `cherry-link__icon`. States: `:hover`, `:focus-visible`.
+
+Reads `--cherry-fg-default`, `--cherry-fg-muted`, `--cherry-accent-fg` and `--cherry-border-focus` for the focus ring.
+
+## Accessibility
+
+Underlined so it is not identified by color alone. `external` opens a new tab and appends `externalLabel` to the accessible name, so translate it for other languages.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/link" icon="code" iconPosition="left">
+  View Source
+</Button>

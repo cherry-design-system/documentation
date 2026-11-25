@@ -1,0 +1,248 @@
+---
+title: "Overview"
+description: "Every component in Cherry 2.0, grouped by category, with a short note on what each one does and a link to its page."
+date: "2026-11-25"
+category: "Overview"
+categoryOrder: 0
+order: 0
+navIcon: "compass"
+categoryIcon: "compass"
+section: "Components"
+---
+# Components
+
+Every component is exported from `@cherry-design-system/react` and styled by one stylesheet. Import `@cherry-design-system/react/styles.css` once at the root of your app, then import components by name. See [Installation](/installation) for the full setup.
+
+```tsx
+import "@cherry-design-system/react/styles.css";
+import { Button } from "@cherry-design-system/react";
+
+export default function Page() {
+  return <Button>Get started</Button>;
+}
+```
+
+## Actions
+
+<Columns cols={2}>
+  <Card title="Button" icon="mouse-pointer-click" href="/components/button">
+    A button in five variants and three sizes, safe in Server Components.
+  </Card>
+  <Card title="ConfirmButton" icon="trash-2" href="/components/confirm-button">
+    Two-step destructive action that reveals a confirm and cancel pair.
+  </Card>
+  <Card title="IconButton" icon="circle-plus" href="/components/icon-button">
+    Square icon-only button with a required accessible name.
+  </Card>
+  <Card title="Link" icon="link" href="/components/link">
+    Text link with an animated underline and an external arrow.
+  </Card>
+  <Card title="ToggleGroup" icon="square-split-horizontal" href="/components/toggle-group">
+    Segmented control for single or multiple selection.
+  </Card>
+</Columns>
+
+## Forms
+
+<Columns cols={2}>
+  <Card title="AvatarDropzone" icon="circle-user-round" href="/components/avatar-dropzone">
+    Round profile-picture picker by click, keyboard or drop.
+  </Card>
+  <Card title="Checkbox" icon="square-check" href="/components/checkbox">
+    Native checkbox with an indeterminate state.
+  </Card>
+  <Card title="Combobox" icon="list-filter" href="/components/combobox">
+    Text input with a filterable listbox.
+  </Card>
+  <Card title="Dropzone" icon="upload" href="/components/dropzone">
+    Drag-and-drop file area around a real file input.
+  </Card>
+  <Card title="Field" icon="tag" href="/components/field">
+    Label, control, hint and error, wired for assistive tech.
+  </Card>
+  <Card title="Input" icon="text-cursor-input" href="/components/input">
+    Single-line text input.
+  </Card>
+  <Card title="NumberField" icon="hash" href="/components/number-field">
+    Numeric input with decrement and increment buttons.
+  </Card>
+  <Card title="OTPInput" icon="rectangle-ellipsis" href="/components/otp-input">
+    One-time code input with single-character slots.
+  </Card>
+  <Card title="Password" icon="key-round" href="/components/password">
+    Password input with a show and hide toggle.
+  </Card>
+  <Card title="Radio" icon="circle-dot" href="/components/radio">
+    Native radio buttons, grouped with RadioGroup.
+  </Card>
+  <Card title="Range" icon="sliders-horizontal" href="/components/range">
+    Slider on a native range input.
+  </Card>
+  <Card title="Select" icon="chevrons-up-down" href="/components/select">
+    Native select with a styled picker where supported.
+  </Card>
+  <Card title="Textarea" icon="align-left" href="/components/textarea">
+    Multi-line text input that grows with its content.
+  </Card>
+  <Card title="Toggle" icon="toggle-right" href="/components/toggle">
+    On and off switch built on a native checkbox.
+  </Card>
+</Columns>
+
+## Date and time
+
+<Columns cols={2}>
+  <Card title="Calendar" icon="calendar-days" href="/components/calendar">
+    Month grid for single dates or ranges.
+  </Card>
+  <Card title="DatePicker" icon="calendar" href="/components/date-picker">
+    Input-like trigger that opens a calendar.
+  </Card>
+  <Card title="DateTimePicker" icon="calendar-clock" href="/components/date-time-picker">
+    Day and time in one popover.
+  </Card>
+  <Card title="TimePicker" icon="clock" href="/components/time-picker">
+    Time trigger with a list of slots or hour and minute columns.
+  </Card>
+</Columns>
+
+## Layout
+
+<Columns cols={2}>
+  <Card title="Card" icon="square" href="/components/card">
+    Surface for grouping content, with an icon, title and description.
+  </Card>
+  <Card title="Container" icon="frame" href="/components/container">
+    Centered page column with responsive padding.
+  </Card>
+  <Card title="Flex" icon="align-horizontal-space-between" href="/components/flex">
+    Responsive flexbox row or column, plus Stack.
+  </Card>
+  <Card title="Grid" icon="grid-3x3" href="/components/grid">
+    Equal-column CSS grid, plus Col for spanning cells.
+  </Card>
+  <Card title="Separator" icon="separator-horizontal" href="/components/separator">
+    Horizontal or vertical rule, optionally labelled.
+  </Card>
+</Columns>
+
+## Navigation
+
+<Columns cols={2}>
+  <Card title="Breadcrumb" icon="chevrons-right" href="/components/breadcrumb">
+    Trail from the root to the current page.
+  </Card>
+  <Card title="Menu" icon="menu" href="/components/menu">
+    Menu button with a list of actions anchored to its trigger.
+  </Card>
+  <Card title="NavPill" icon="panel-top" href="/components/nav-pill">
+    Top navigation pill with a sliding highlight and route tracking.
+  </Card>
+  <Card title="Pagination" icon="ellipsis" href="/components/pagination">
+    Numbered or compact page navigation, as links or buttons.
+  </Card>
+  <Card title="Sidebar" icon="panel-left" href="/components/sidebar">
+    App sidebar with groups, badges and a collapsed icon rail.
+  </Card>
+  <Card title="Stepper" icon="list-checks" href="/components/stepper">
+    Progress through a multi-step flow.
+  </Card>
+  <Card title="Tabs" icon="panels-top-left" href="/components/tabs">
+    Pill or underline tabs with keyboard navigation.
+  </Card>
+</Columns>
+
+## Overlays
+
+<Columns cols={2}>
+  <Card title="Modal" icon="app-window" href="/components/modal">
+    Modal dialog on the native dialog element.
+  </Card>
+  <Card title="Popover" icon="message-square" href="/components/popover">
+    Floating panel opened with popoverTarget, no JavaScript needed.
+  </Card>
+  <Card title="SearchDialog" icon="search" href="/components/search-dialog">
+    Command-palette search with grouped results.
+  </Card>
+  <Card title="Sheet" icon="panel-right" href="/components/sheet">
+    Panel that slides in from an edge of the screen.
+  </Card>
+  <Card title="Toast" icon="bell" href="/components/toast">
+    Transient notifications with show, update and promise.
+  </Card>
+  <Card title="Tooltip" icon="info" href="/components/tooltip">
+    Short hint on hover and keyboard focus.
+  </Card>
+</Columns>
+
+## Feedback
+
+<Columns cols={2}>
+  <Card title="Badge" icon="badge" href="/components/badge">
+    Status pill.
+  </Card>
+  <Card title="Banner" icon="megaphone" href="/components/banner">
+    Full-width announcement bar that can be dismissed.
+  </Card>
+  <Card title="Callout" icon="info" href="/components/callout">
+    Inline box for supplementary, cautionary or critical notes.
+  </Card>
+  <Card title="EmptyState" icon="inbox" href="/components/empty-state">
+    Placeholder for an empty list, no results or a first run.
+  </Card>
+  <Card title="Progress" icon="gauge" href="/components/progress">
+    Linear progress bar, determinate or indeterminate.
+  </Card>
+  <Card title="Skeleton" icon="square-dashed" href="/components/skeleton">
+    Loading placeholder with a shimmer.
+  </Card>
+  <Card title="Spinner" icon="loader-circle" href="/components/spinner">
+    Spinning loader.
+  </Card>
+  <Card title="Tag" icon="tag" href="/components/tag">
+    Value chip, optionally removable.
+  </Card>
+</Columns>
+
+## Data display
+
+<Columns cols={2}>
+  <Card title="Accordion" icon="list-collapse" href="/components/accordion">
+    Stack of collapsible sections.
+  </Card>
+  <Card title="Avatar" icon="circle-user" href="/components/avatar">
+    Image, initials or icon with a status dot, plus AvatarGroup.
+  </Card>
+  <Card title="CodeBlock" icon="file-code" href="/components/code-block">
+    Framed code listing with a header, copy button and line numbers.
+  </Card>
+  <Card title="InlineCode" icon="code" href="/components/inline-code">
+    Inline code chip in the mono type.
+  </Card>
+  <Card title="Kbd" icon="keyboard" href="/components/kbd">
+    Keyboard key chip.
+  </Card>
+  <Card title="Prose" icon="pilcrow" href="/components/prose">
+    Typography for rendered markdown and CMS content.
+  </Card>
+  <Card title="Snippet" icon="terminal" href="/components/snippet">
+    One-line command with a copy button.
+  </Card>
+  <Card title="StatCard" icon="trending-up" href="/components/stat-card">
+    Metric tile with a delta and an optional sparkline.
+  </Card>
+  <Card title="Table" icon="table-2" href="/components/table">
+    Native table in a rounded, scrollable frame.
+  </Card>
+  <Card title="ThemeToggle" icon="sun-moon" href="/components/theme-toggle">
+    System, light and dark segmented switch.
+  </Card>
+</Columns>
+
+## Chat
+
+<Columns cols={2}>
+  <Card title="Chat" icon="message-circle" href="/components/chat">
+    Composer, messages, panel, launcher, sources, suggestions and typing indicator.
+  </Card>
+</Columns>

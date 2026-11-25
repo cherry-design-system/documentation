@@ -1,0 +1,100 @@
+---
+title: "Breadcrumb"
+description: "Breadcrumb trail rendered as a nav landmark with an ordered list, chevron or slash separators, and the last entry marked as the current page."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 0
+navIcon: "chevrons-right"
+categoryIcon: "navigation"
+section: "Components"
+---
+# Breadcrumb
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/breadcrumb?theme=light" title="Breadcrumb preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/breadcrumb?theme=dark" title="Breadcrumb preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Breadcrumb shows where the current page sits in a hierarchy, from the root to the current page. It is a `<nav>` with an ordered list and no client JavaScript, so it is safe in Server Components.
+
+```tsx
+import { Breadcrumb } from "@cherry-design-system/react";
+
+export function Trail() {
+  return (
+    <Breadcrumb
+      items={[
+        { label: "Docs", href: "/docs" },
+        { label: "Components", href: "/docs/components" },
+        { label: "Combobox" },
+      ]}
+    />
+  );
+}
+```
+
+## Examples
+
+### Slash separator
+
+```tsx
+import { Breadcrumb } from "@cherry-design-system/react";
+
+export function Trail() {
+  return (
+    <Breadcrumb
+      separator="slash"
+      items={[{ label: "Projects", href: "/projects" }, { label: "Website" }]}
+    />
+  );
+}
+```
+
+### Translated landmark name
+
+```tsx
+import { Breadcrumb } from "@cherry-design-system/react";
+
+export function Trail() {
+  return (
+    <Breadcrumb
+      aria-label="Fil d'Ariane"
+      items={[{ label: "Accueil", href: "/" }, { label: "Paramètres" }]}
+    />
+  );
+}
+```
+
+## Properties
+
+<Field value="items" type="BreadcrumbEntry[]" required>
+  Trail from the root to the current page (the last entry). Each entry is `{ label: ReactNode; href?: string }`; omit `href` on the last entry, it is the current page.
+</Field>
+
+<Field value="separator" type='"chevron" | "slash"'>
+  Glyph between entries. Defaults to `"chevron"`.
+</Field>
+
+<Field value="aria-label" type="string">
+  Names the landmark. Defaults to `"Breadcrumb"`.
+</Field>
+
+Breadcrumb renders a `<nav>` around an `<ol>`, forwards its ref to the `<nav>` and passes other attributes through.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-breadcrumb` |
+| `data-separator` | `chevron`, `slash` |
+| States | `[aria-current="page"]`, `:hover`, `:focus-visible` |
+| Parts | `cherry-breadcrumb__list`, `cherry-breadcrumb__item`, `cherry-breadcrumb__link`, `cherry-breadcrumb__current`, `cherry-breadcrumb__separator` |
+
+Links read `--cherry-fg-muted` and turn `--cherry-fg-default` on hover; separators use `--cherry-fg-subtle`.
+
+## Accessibility
+
+Breadcrumb is a navigation landmark named "Breadcrumb". The current page is `aria-current="page"`, separators are hidden from assistive tech, and links have 24px targets.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/breadcrumb" icon="code" iconPosition="left">
+  View Source
+</Button>

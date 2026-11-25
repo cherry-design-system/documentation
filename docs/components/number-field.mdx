@@ -1,0 +1,147 @@
+---
+title: "NumberField"
+description: "Numeric input with decrement and increment buttons, min and max clamping, step snapping and spinbutton keyboard support."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 6
+navIcon: "hash"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# NumberField
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/numberfield?theme=light" title="NumberField preview" loading="lazy" style={{ width: "100%", height: "720px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/numberfield?theme=dark" title="NumberField preview" loading="lazy" style={{ width: "100%", height: "720px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A numeric input with decrement and increment buttons (`role="spinbutton"`). Typed text commits on blur or Enter, clamped to `min` and `max` and snapped to `step`. Use it for quantities and exact numbers. Use [Range](/components/range) when an approximate value is enough.
+
+```tsx
+"use client";
+import { Field, NumberField } from "@cherry-design-system/react";
+
+export function Guests() {
+  return (
+    <Field label="Guests">
+      <NumberField name="guests" min={1} max={8} defaultValue={2} />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Controlled
+
+`value` is `null` when the field is empty.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Field, NumberField } from "@cherry-design-system/react";
+
+export function Quantity() {
+  const [qty, setQty] = useState<number | null>(1);
+  return (
+    <Field label="Quantity" hint={qty === null ? "Enter a quantity." : undefined}>
+      <NumberField value={qty} onValueChange={setQty} min={0} />
+    </Field>
+  );
+}
+```
+
+### Decimal steps
+
+```tsx
+"use client";
+import { Field, NumberField } from "@cherry-design-system/react";
+
+export function Weight() {
+  return (
+    <Field label="Weight (kg)">
+      <NumberField step={0.5} largeStep={5} min={0} defaultValue={2.5} size="sm" />
+    </Field>
+  );
+}
+```
+
+### Translated button labels
+
+```tsx
+"use client";
+import { Field, NumberField } from "@cherry-design-system/react";
+
+export function Personas() {
+  return (
+    <Field label="Personas">
+      <NumberField min={1} defaultValue={2} decrementLabel="Reducir" incrementLabel="Aumentar" />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="value" type="number | null">
+  Controlled value (`null` means empty).
+</Field>
+
+<Field value="defaultValue" type="number | null">
+  Initial value when uncontrolled.
+</Field>
+
+<Field value="onValueChange" type="(value: number | null) => void">
+  Called with the committed value.
+</Field>
+
+<Field value="min" type="number">
+  Lowest value. Home jumps here.
+</Field>
+
+<Field value="max" type="number">
+  Highest value. End jumps here.
+</Field>
+
+<Field value="step" type="number">
+  Arrow and button increment. Defaults to `1`.
+</Field>
+
+<Field value="largeStep" type="number">
+  PageUp and PageDown increment. Defaults to `step * 10`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Control size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="decrementLabel" type="string">
+  Name of the decrement button (translate here). Defaults to `"Decrease"`.
+</Field>
+
+<Field value="incrementLabel" type="string">
+  Name of the increment button (translate here). Defaults to `"Increase"`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the `<input>`).
+</Field>
+
+The ref and native `<input>` attributes (except `size`, `type`, `value`, `defaultValue`, `min`, `max` and `step`, which are typed above) go to the `<input>`.
+
+## Styling
+
+Root class `cherry-number-field` with `data-size` (`sm`, `md`, `lg`) and states `data-invalid`, `data-disabled`. Parts: `cherry-number-field__input`, `__button`, `__decrement`, `__increment`.
+
+Reads the field tokens (`--cherry-bg-canvas`, `--cherry-border-default`, `--cherry-border-focus`, `--cherry-ring`, `--cherry-ring-danger`) and `--cherry-ghost-hover` for the buttons.
+
+## Accessibility
+
+`role="spinbutton"`: Up and Down step, PageUp and PageDown use `largeStep`, Home and End go to min and max. The stepper buttons are labelled (`decrementLabel`, `incrementLabel`). Label the field with Field.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/number-field" icon="code" iconPosition="left">
+  View Source
+</Button>

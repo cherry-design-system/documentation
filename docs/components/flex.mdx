@@ -1,0 +1,136 @@
+---
+title: "Flex"
+description: "Flexbox row or column with responsive direction, alignment, wrap and gap props, plus Stack for vertical lists. No client JavaScript."
+date: "2026-11-25"
+category: "Layout"
+categoryOrder: 4
+order: 2
+navIcon: "align-horizontal-space-between"
+categoryIcon: "layout-grid"
+section: "Components"
+---
+# Flex
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=light" title="Flex preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=dark" title="Flex preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Flex lays out its children with flexbox, and every layout prop can change per breakpoint. `Stack` is a vertical Flex that does not wrap, for form fields and lists of blocks. Use [Grid](/components/grid) when you want equal columns.
+
+```tsx
+import { Button, Flex } from "@cherry-design-system/react";
+
+export function Actions() {
+  return (
+    <Flex gap={3} align="center">
+      <Button variant="outline">Cancel</Button>
+      <Button>Save</Button>
+    </Flex>
+  );
+}
+```
+
+## Examples
+
+### Stack
+
+`Stack` defaults to `direction="column"`, `wrap="nowrap"` and `gap={4}` (16px). Every Flex prop still works and overrides those defaults.
+
+```tsx
+import { Stack, Field, Input } from "@cherry-design-system/react";
+
+export function ProfileForm() {
+  return (
+    <Stack gap={4}>
+      <Field label="Name">
+        <Input name="name" />
+      </Field>
+      <Field label="Email">
+        <Input name="email" type="email" />
+      </Field>
+    </Stack>
+  );
+}
+```
+
+### Responsive direction
+
+Pass an object keyed by breakpoint (`xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`). Values are mobile first and hold until a larger breakpoint overrides them.
+
+```tsx
+import { Flex } from "@cherry-design-system/react";
+
+export function Split() {
+  return (
+    <Flex direction={{ xs: "column", md: "row" }} justify="space-between" gap={{ xs: 4, lg: 8 }}>
+      <div>Summary</div>
+      <div>Details</div>
+    </Flex>
+  );
+}
+```
+
+### Inline and full width
+
+`inline` switches to `display: inline-flex`. `fullWidth` stretches the row to the width of its container.
+
+```tsx
+import { Flex } from "@cherry-design-system/react";
+
+export function Toolbar() {
+  return (
+    <Flex fullWidth justify="space-between" align="center" wrap="nowrap">
+      <span>3 selected</span>
+      <span>Page 1</span>
+    </Flex>
+  );
+}
+```
+
+## Properties
+
+<Field value="direction" type='Responsive<"row" | "column" | "row-reverse" | "column-reverse">'>
+  Main axis. Defaults to `"row"` (`"column"` on Stack).
+</Field>
+
+<Field value="justify" type='Responsive<"flex-start" | "center" | "flex-end" | "space-between" | "space-around" | "space-evenly">'>
+  Alignment along the main axis. Defaults to `"flex-start"`.
+</Field>
+
+<Field value="align" type='Responsive<"stretch" | "flex-start" | "center" | "flex-end" | "baseline">'>
+  Alignment across the main axis. Defaults to `"stretch"`.
+</Field>
+
+<Field value="wrap" type='Responsive<"wrap" | "nowrap" | "wrap-reverse">'>
+  Wrapping. Defaults to `"wrap"` as in cherry 1.x (`"nowrap"` on Stack).
+</Field>
+
+<Field value="gap" type="Responsive<SpaceStep>">
+  Gap as a spacing step: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `8`, `10`, `12`, `16`, `20` or `24`. Defaults to the gutter (20px, 40px from `lg`), or `4` (16px) on Stack.
+</Field>
+
+<Field value="inline" type="boolean">
+  Use `display: inline-flex`.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Stretch to the container width.
+</Field>
+
+Flex and Stack render a `<div>`, forward their ref to it and pass every other `<div>` attribute through. Both are safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-flex` (Stack renders the same class) |
+| States | `data-inline`, `data-full-width` |
+
+The default gap reads `--cherry-gutter-mobile` and `--cherry-gutter-desktop`. Spacing steps map to `--cherry-space-<step>`.
+
+## Accessibility
+
+Flex is layout only and has no role. Keep the DOM order the reading order: do not use `direction` (such as `row-reverse`) to reorder content in a way that breaks it.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/flex" icon="code" iconPosition="left">
+  View Source
+</Button>

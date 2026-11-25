@@ -1,0 +1,122 @@
+---
+title: "IconButton"
+description: "Square icon-only button with ghost, outline and solid variants, three sizes and toggle support through aria-pressed."
+date: "2026-11-25"
+category: "Actions"
+categoryOrder: 1
+order: 2
+navIcon: "circle-plus"
+categoryIcon: "mouse-pointer-click"
+section: "Components"
+---
+# IconButton
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/buttons?theme=light" title="IconButton preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/buttons?theme=dark" title="IconButton preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A square button that shows only an icon, for toolbars, close buttons and compact actions. It requires an `aria-label`. Use [Button](/components/button) when the action has a visible text label.
+
+```tsx
+import { IconButton } from "@cherry-design-system/react";
+import { Search } from "lucide-react";
+
+export function SearchButton() {
+  return <IconButton aria-label="Search" icon={<Search />} />;
+}
+```
+
+IconButton ships no client JavaScript, so it renders in React Server Components.
+
+## Examples
+
+### Variants
+
+```tsx
+import { IconButton } from "@cherry-design-system/react";
+import { Settings } from "lucide-react";
+
+export function Variants() {
+  return (
+    <>
+      <IconButton aria-label="Settings" icon={<Settings />} variant="ghost" />
+      <IconButton aria-label="Settings" icon={<Settings />} variant="outline" />
+      <IconButton aria-label="Settings" icon={<Settings />} variant="solid" />
+    </>
+  );
+}
+```
+
+### Sizes
+
+```tsx
+import { IconButton } from "@cherry-design-system/react";
+import { X } from "lucide-react";
+
+export function Sizes() {
+  return (
+    <>
+      <IconButton aria-label="Close" icon={<X />} size="sm" />
+      <IconButton aria-label="Close" icon={<X />} size="md" />
+      <IconButton aria-label="Close" icon={<X />} size="lg" />
+    </>
+  );
+}
+```
+
+### As a toggle
+
+Pass `aria-pressed` to make it a toggle button.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { IconButton } from "@cherry-design-system/react";
+import { Bold } from "lucide-react";
+
+export function BoldToggle() {
+  const [on, setOn] = useState(false);
+  return (
+    <IconButton
+      aria-label="Bold"
+      aria-pressed={on}
+      icon={<Bold />}
+      variant="outline"
+      onClick={() => setOn((v) => !v)}
+    />
+  );
+}
+```
+
+## Properties
+
+<Field value="aria-label" type="string" required>
+  Accessible name. Required: icon-only buttons need one.
+</Field>
+
+<Field value="icon" type="ReactNode" required>
+  The icon element, for example `<X />`.
+</Field>
+
+<Field value="variant" type='"outline" | "ghost" | "solid"'>
+  Visual style. Defaults to `"ghost"`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Button size. Defaults to `"md"`.
+</Field>
+
+Renders a `<button>` and forwards its ref to it. All native `<button>` attributes pass through except `children` (use `icon`). `type` defaults to `"button"`.
+
+## Styling
+
+Root class `cherry-icon-button` with `data-variant` (`ghost`, `outline`, `solid`) and `data-size` (`sm`, `md`, `lg`). States: `disabled`, `aria-pressed`, `:hover`, `:active`, `:focus-visible`.
+
+Reads `--cherry-ghost-hover`, `--cherry-primary-*` (solid), `--cherry-border-default` (outline) and `--cherry-ring`.
+
+## Accessibility
+
+`aria-label` is required because the glyph carries no text for screen readers. As a toggle, pass `aria-pressed` so the on/off state is announced.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/icon-button" icon="code" iconPosition="left">
+  View Source
+</Button>

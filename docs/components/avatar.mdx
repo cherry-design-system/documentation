@@ -1,0 +1,198 @@
+---
+title: "Avatar"
+description: "A round avatar with an image, initials or icon fallback and a presence dot, plus AvatarGroup for overlapping rows with a +N counter."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 1
+navIcon: "circle-user"
+categoryIcon: "table"
+section: "Components"
+---
+# Avatar
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/avatar-and-avatargroup?theme=light" title="Avatar preview" loading="lazy" style={{ width: "100%", height: "260px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/avatar-and-avatargroup?theme=dark" title="Avatar preview" loading="lazy" style={{ width: "100%", height: "260px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Avatar shows a person as an image, their initials or an icon, with an optional presence dot. The image fades in over the initials once it has loaded and falls back to them if it fails. AvatarGroup overlaps several avatars and collapses the rest into a "+N" counter.
+
+```tsx
+import { Avatar } from "@cherry-design-system/react";
+
+export function Profile() {
+  return <Avatar name="Ada Lovelace" src="/ada.jpg" status="online" />;
+}
+```
+
+## Examples
+
+### Fallbacks
+
+Initials come from the first letters of the first two words of `name`. Without an image or a name, a user icon shows; `icon` replaces it.
+
+```tsx
+import { Avatar } from "@cherry-design-system/react";
+import { Bot } from "lucide-react";
+
+export function Fallbacks() {
+  return (
+    <>
+      <Avatar name="Alan Turing" />
+      <Avatar />
+      <Avatar icon={<Bot />} color="ai" alt="Assistant" />
+    </>
+  );
+}
+```
+
+### Sizes and colors
+
+Sizes are 24, 32, 40 and 56 px.
+
+```tsx
+import { Avatar } from "@cherry-design-system/react";
+
+export function SizesAndColors() {
+  return (
+    <>
+      <Avatar size="sm" name="Ada Lovelace" />
+      <Avatar size="md" name="Ada Lovelace" color="accent" />
+      <Avatar size="lg" name="Ada Lovelace" color="ai" />
+      <Avatar size="xl" name="Ada Lovelace" />
+    </>
+  );
+}
+```
+
+### Status
+
+```tsx
+import { Avatar } from "@cherry-design-system/react";
+
+export function Presence() {
+  return (
+    <>
+      <Avatar name="Ada Lovelace" status="online" />
+      <Avatar name="Alan Turing" status="away" />
+      <Avatar name="Grace Hopper" status="busy" statusLabels={{ busy: "Do not disturb" }} />
+      <Avatar name="Linus Torvalds" status="offline" />
+    </>
+  );
+}
+```
+
+### Group
+
+`max` sets how many avatars show before the rest collapse into the counter. The group's `size` applies to every avatar that does not set its own.
+
+```tsx
+import { Avatar, AvatarGroup } from "@cherry-design-system/react";
+
+export function Team() {
+  return (
+    <AvatarGroup max={3} size="sm" aria-label="Team">
+      <Avatar name="Ada Lovelace" />
+      <Avatar name="Alan Turing" />
+      <Avatar name="Grace Hopper" />
+      <Avatar name="Linus Torvalds" />
+      <Avatar name="Margaret Hamilton" />
+    </AvatarGroup>
+  );
+}
+```
+
+### Next to a visible name
+
+When the name is already written beside the avatar, pass `alt=""` so it adds no second name for screen readers.
+
+```tsx
+import { Avatar } from "@cherry-design-system/react";
+
+export function Author() {
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+      <Avatar name="Ada Lovelace" alt="" size="sm" />
+      Ada Lovelace
+    </span>
+  );
+}
+```
+
+## Properties
+
+### Avatar
+
+<Field value="src" type="string">
+  Image URL. Initials (then the icon) show until it loads, and if it fails.
+</Field>
+
+<Field value="alt" type="string">
+  Accessible name. Defaults to `name`.
+</Field>
+
+<Field value="name" type="string">
+  Full name; the first letters of its first two words are the initials.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Fallback icon when there is no image and no name. Defaults to a user glyph.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg" | "xl"'>
+  24 / 32 / 40 / 56 px. Defaults to `"md"`.
+</Field>
+
+<Field value="color" type='"neutral" | "accent" | "ai"'>
+  Fill behind the initials and icon. Defaults to `"neutral"`.
+</Field>
+
+<Field value="status" type='"online" | "away" | "busy" | "offline"'>
+  Presence dot on the bottom-right edge.
+</Field>
+
+<Field value="statusLabels" type="Partial<Record<AvatarStatus, string>>">
+  Spoken status names, translatable. Defaults to "Online", "Away", "Busy" and "Offline".
+</Field>
+
+Avatar renders a `<span>`, forwards its ref to it and passes every other `<span>` attribute through. It is a client component. The package also exports `toInitials`, which turns "Ada Lovelace" into "AL" and "cherry" into "C".
+
+### AvatarGroup
+
+<Field value="max" type="number">
+  Avatars shown before the rest collapse into a "+N" counter.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Size given to every avatar that does not set its own. Defaults to `"md"`.
+</Field>
+
+<Field value="overflowLabel" type="(count: number) => string">
+  Spoken text of the counter. Defaults to "N more", for example "3 more".
+</Field>
+
+AvatarGroup renders a `<div role="group">`, forwards its ref to it and passes every other `<div>` attribute through. It has no client JavaScript.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-avatar` | Avatar root |
+| `data-size` | `sm`, `md`, `lg`, `xl` |
+| `data-color` | `neutral`, `accent`, `ai` |
+| `data-status` | `online`, `away`, `busy`, `offline` |
+| `data-loaded` | Present once the image has loaded |
+| Avatar parts | `.cherry-avatar__fallback`, `__image`, `__status` |
+| `.cherry-avatar-group` | Group root, with `data-size` `sm`, `md`, `lg` |
+| `.cherry-avatar-group__overflow` | The "+N" counter |
+
+`neutral` reads `--cherry-bg-muted`, `accent` reads `--cherry-accent-subtle` and `--cherry-accent-fg`, and `ai` paints a gradient from `--cherry-ai-from` to `--cherry-ai-to`. Status dots read `--cherry-success-solid`, `--cherry-warning-solid` and `--cherry-danger-solid`.
+
+## Accessibility
+
+- An Avatar with a name is `role="img"`, named after the person and their status, for example "Ada Lovelace (Online)". Translate status words with `statusLabels`.
+- Next to a visible name, pass `alt=""` so the avatar adds no name of its own.
+- Give AvatarGroup an `aria-label`. The "+N" counter has its own name from `overflowLabel`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/avatar" icon="code" iconPosition="left">
+  View Source
+</Button>

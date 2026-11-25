@@ -1,0 +1,131 @@
+---
+title: "Progress"
+description: "A linear progress bar with an optional label and percentage, three colors, two thicknesses and an indeterminate mode."
+date: "2026-11-25"
+category: "Feedback"
+categoryOrder: 7
+order: 4
+navIcon: "gauge"
+categoryIcon: "message-square-warning"
+section: "Components"
+---
+# Progress
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/progress?theme=light" title="Progress preview" loading="lazy" style={{ width: "100%", height: "380px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/progress?theme=dark" title="Progress preview" loading="lazy" style={{ width: "100%", height: "380px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Progress is a linear bar for work with a known or unknown length, such as an upload or an import. The fill eases to each new value; without a value it slides as an indeterminate loader. For a small inline loading indicator, use [Spinner](/components/spinner).
+
+```tsx
+import { Progress } from "@cherry-design-system/react";
+
+export function Upload() {
+  return <Progress label="Uploading" value={64} showValue />;
+}
+```
+
+## Examples
+
+### Indeterminate
+
+Omit `value` (or pass `null`) when the length of the work is unknown. Without a visible label, name the bar with `aria-label`.
+
+```tsx
+import { Progress } from "@cherry-design-system/react";
+
+export function Loading() {
+  return <Progress aria-label="Loading projects" />;
+}
+```
+
+### Variants and sizes
+
+```tsx
+import { Progress } from "@cherry-design-system/react";
+
+export function Variants() {
+  return (
+    <>
+      <Progress label="Storage" value={40} />
+      <Progress label="Checks passed" value={100} variant="success" />
+      <Progress label="Quota used" value={95} variant="danger" size="sm" />
+    </>
+  );
+}
+```
+
+### Custom max and value format
+
+`formatValue` receives the value and `max` and returns the text shown next to the label.
+
+```tsx
+import { Progress } from "@cherry-design-system/react";
+
+export function Files() {
+  return (
+    <Progress
+      label="Files processed"
+      value={18}
+      max={40}
+      showValue
+      formatValue={(value, max) => `${value} of ${max}`}
+    />
+  );
+}
+```
+
+## Properties
+
+<Field value="value" type="number | null">
+  Current value. Omit it, or pass `null`, for an indeterminate bar.
+</Field>
+
+<Field value="max" type="number">
+  Value of a full bar. Defaults to `100`.
+</Field>
+
+<Field value="label" type="ReactNode">
+  Visible label. It also names the progressbar.
+</Field>
+
+<Field value="showValue" type="boolean">
+  Shows the formatted value next to the label.
+</Field>
+
+<Field value="formatValue" type="(value: number, max: number) => string">
+  Formats the shown value. Defaults to a rounded percentage.
+</Field>
+
+<Field value="variant" type='"success" | "danger" | "default"'>
+  Bar color. Defaults to `"default"`.
+</Field>
+
+<Field value="size" type='"sm" | "md"'>
+  Bar thickness: 4px (`sm`) or 6px (`md`). Defaults to `"md"`.
+</Field>
+
+<Field value="aria-label" type="string">
+  Accessible name when there is no visible label.
+</Field>
+
+Progress renders a `<div>` that holds the header and the `role="progressbar"` track. It forwards its ref to the root and passes every other `<div>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-progress` | Root element |
+| `data-variant` | `default`, `success`, `danger` |
+| `data-size` | `sm`, `md` |
+| `data-indeterminate` | Present when there is no value |
+| Parts | `.cherry-progress__header`, `__label`, `__value`, `__track`, `__fill` |
+
+The track reads `--cherry-bg-muted`. The fill reads `--cherry-primary-default`, `--cherry-success-solid` or `--cherry-danger-solid`. Motion is reduced under `prefers-reduced-motion`.
+
+## Accessibility
+
+The bar is a `role="progressbar"` with its value and range. Give it a `label` or an `aria-label`. `value={null}` marks it indeterminate.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/progress" icon="code" iconPosition="left">
+  View Source
+</Button>

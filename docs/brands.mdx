@@ -1,0 +1,169 @@
+---
+title: "Brands"
+description: "Build a cherry brand from one accent color with createBrand, or override the paired --cherry-l-* and --cherry-d-* color slots in CSS."
+date: "2026-11-25"
+category: "Customization"
+categoryOrder: 1
+order: 1
+navIcon: "palette"
+categoryIcon: "palette"
+---
+# Brands
+
+A brand changes cherry's accent (and optionally its primary color) for a page or any part of it. One accent color is enough: cherry derives the hover, subtle, text and ring shades for both light and dark.
+
+There are two ways to do it: `createBrand`, which builds a validated CSS block for you, or overriding the color slots directly in your own CSS.
+
+## createBrand
+
+```ts
+// brand.ts
+import { createBrand } from "@cherry-design-system/react";
+
+export const acme = createBrand("acme", { accent: "#5b5bd6" });
+```
+
+It returns a `Brand` object:
+
+<Field value="name" type="string">
+  The brand name you passed.
+</Field>
+<Field value="css" type="string">
+  A CSS block for a `[data-cherry-brand="<name>"]` scope, inside `@layer cherry`.
+</Field>
+<Field value="attributes" type='{ "data-cherry-brand": string }'>
+  Spread onto the element that scopes the brand.
+</Field>
+
+Put `acme.css` in your stylesheet, then scope with the attributes:
+
+```tsx
+// app/layout.tsx
+import "@cherry-design-system/react/styles.css";
+import "./brand.css";
+import { themeInitScript } from "@cherry-design-system/react/theme-init";
+import { acme } from "./brand";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="cherry-root" {...acme.attributes}>
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+The `css` string is plain CSS, so it works under a strict `style-src 'self'` Content Security Policy when you serve it as a file. One way is to write it at build time:
+
+```ts
+// scripts/write-brand.ts
+import { writeFileSync } from "node:fs";
+import { acme } from "../app/brand";
+
+writeFileSync("app/brand.css", acme.css);
+```
+
+The scope can be any element, so several brands can live on one page. Light and dark keep working inside a brand scope, including nested `data-cherry-mode` sections.
+
+### Options
+
+<Field value="name" type="string" required>
+  The brand name. Lowercase letters, digits and hyphens, starting with a letter, up to 40 characters.
+</Field>
+<Field value="accent" type="string | { light: string; dark: string }" required>
+  The brand accent. One color for both modes, or one per mode.
+</Field>
+<Field value="primary" type="{ light: string; dark: string; fgLight?: string; fgDark?: string }">
+  Optional primary color, used by solid buttons and toggles. Defaults to cherry's near-black (light) and near-white (dark). `fgLight` and `fgDark` set the text color on it.
+</Field>
+
+```ts
+import { createBrand } from "@cherry-design-system/react";
+
+// One accent per mode
+export const acme = createBrand("acme", {
+  accent: { light: "#5b5bd6", dark: "#8b8bf0" },
+});
+
+// With a primary color
+export const ocean = createBrand("ocean", {
+  accent: "#0e7490",
+  primary: { light: "#111827", dark: "#f9fafb" },
+});
+```
+
+### What it derives
+
+The shades are mixed in the browser with `color-mix(in oklab, ...)`, per mode:
+
+| Slot | Light | Dark |
+| --- | --- | --- |
+| `accent-default` | the accent | the accent |
+| `accent-hover` | 85% accent, 15% black | 85% accent, 15% white |
+| `accent-subtle` | 8% accent on white | 16% accent on black |
+| `accent-fg` | 80% accent, 20% black | 70% accent, 30% white |
+| `accent-ring` | the accent at 25% opacity | the accent at 30% opacity |
+| `ai-from` | the accent | the accent |
+| `primary-default` | `primary.light` | `primary.dark` |
+| `primary-hover` | 85% primary, 15% white | 85% primary, 15% black |
+| `primary-fg` | `primary.fgLight` | `primary.fgDark` |
+
+The primary slots are written only when you pass `primary`, and `primary-fg` only when you pass `fgLight` or `fgDark`.
+
+### Validation
+
+`createBrand` accepts plain colors only: hex, `rgb()`, `rgba()`, `hsl()`, `hsla()`, `hwb()`, `lab()`, `lch()`, `oklab()`, `oklch()`, or a named color. It rejects `var()`, keywords such as `inherit`, `currentColor` or `transparent`, quotes, semicolons, braces and declarations, and throws a `BrandValidationError`. That makes it safe to feed colors your users choose.
+
+```ts
+import { createBrand, BrandValidationError } from "@cherry-design-system/react";
+
+function brandFor(team: { slug: string; color: string }) {
+  try {
+    return createBrand(team.slug, { accent: team.color });
+  } catch (error) {
+    if (error instanceof BrandValidationError) return null;
+    throw error;
+  }
+}
+```
+
+`assertBrandColor(value, label?)` runs the same check on a single color and returns the trimmed value.
+
+<Callout type="warning">
+  Validation checks the syntax, not the contrast. Buttons with `variant="accent"` put white text (`--cherry-fg-on-accent`) on the accent, so check that your accent still gives at least 4.5:1 against white.
+</Callout>
+
+## Override the color slots in CSS
+
+Every semantic color token is resolved from a pair of slots: `--cherry-l-<name>` for light and `--cherry-d-<name>` for dark. `--cherry-accent-default` reads `--cherry-l-accent-default` in light mode and `--cherry-d-accent-default` in dark mode. Override the slots in your own CSS and the token follows both modes:
+
+```css
+/* app/globals.css */
+:root {
+  --cherry-l-accent-default: #5b5bd6;
+  --cherry-d-accent-default: #8b8bf0;
+  --cherry-l-accent-hover: #4a4ac4;
+  --cherry-d-accent-hover: #a3a3f5;
+  --cherry-l-accent-fg: #4343b0;
+  --cherry-d-accent-fg: #b4b4f7;
+}
+```
+
+Your rule is outside `@layer cherry`, so it wins without `!important`. You can scope the same overrides to any selector instead of `:root`.
+
+Every semantic color in [Colors](/colors#semantic-colors) has a slot pair: `--cherry-l-bg-canvas` and `--cherry-d-bg-canvas`, `--cherry-l-fg-muted` and `--cherry-d-fg-muted`, `--cherry-l-danger-solid` and `--cherry-d-danger-solid`, and so on.
+
+<Callout type="note">
+  Override the slots, not the resolved tokens. Setting `--cherry-accent-default` directly replaces the light and dark switch with one value, and nested `data-cherry-mode` or `data-cherry-brand` scopes resolve the token again from the slots.
+</Callout>
+
+When you override one shade by hand, set the related ones too (hover, subtle, fg, ring), or use `createBrand`, which derives them for you.

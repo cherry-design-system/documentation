@@ -1,0 +1,126 @@
+---
+title: "Tooltip"
+description: "Short hint shown on hover and keyboard focus, linked to its trigger with aria-describedby and anchored in the top layer."
+date: "2026-11-25"
+category: "Overlays"
+categoryOrder: 6
+order: 5
+navIcon: "info"
+categoryIcon: "layers"
+section: "Components"
+---
+# Tooltip
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/tooltip?theme=light" title="Tooltip preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/tooltip?theme=dark" title="Tooltip preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Tooltip shows a short, non-interactive hint when its trigger is hovered or focused. It lives in the top layer as a manual `popover`, anchored with CSS anchor positioning (or placed from the trigger's box in JavaScript where that is missing). For anything interactive or longer use [Popover](/components/popover).
+
+```tsx
+import { IconButton, Tooltip } from "@cherry-design-system/react";
+import { Copy } from "lucide-react";
+
+export function CopyButton() {
+  return (
+    <Tooltip content="Copy to clipboard">
+      <IconButton aria-label="Copy" icon={<Copy />} />
+    </Tooltip>
+  );
+}
+```
+
+## Examples
+
+### Placement
+
+```tsx
+import { Button, Tooltip } from "@cherry-design-system/react";
+
+export function Save() {
+  return (
+    <Tooltip content="Saves a draft" placement="bottom">
+      <Button>Save</Button>
+    </Tooltip>
+  );
+}
+```
+
+### Delays
+
+`openDelay` is the hover delay before showing (400ms by default) and `closeDelay` the delay before hiding once the pointer leaves (100ms). Right after one tooltip closes, the next opens without the delay, so sweeping across a toolbar reads label after label.
+
+```tsx
+import { IconButton, Tooltip } from "@cherry-design-system/react";
+import { Bold } from "lucide-react";
+
+export function BoldButton() {
+  return (
+    <Tooltip content="Bold" openDelay={150} closeDelay={0}>
+      <IconButton aria-label="Bold" icon={<Bold />} variant="ghost" />
+    </Tooltip>
+  );
+}
+```
+
+### Disabled
+
+`disabled` stops the tooltip from showing while the trigger keeps working.
+
+```tsx
+import { Button, Tooltip } from "@cherry-design-system/react";
+
+export function Publish({ hint }: { hint?: string }) {
+  return (
+    <Tooltip content={hint} disabled={!hint}>
+      <Button>Publish</Button>
+    </Tooltip>
+  );
+}
+```
+
+## Properties
+
+<Field value="content" type="ReactNode" required>
+  The hint. Keep it short and non-interactive.
+</Field>
+
+<Field value="children" type="ReactElement" required>
+  The trigger: one focusable element. It receives `aria-describedby`.
+</Field>
+
+<Field value="placement" type='"left" | "right" | "top" | "bottom"'>
+  Side of the trigger. Defaults to `"top"`.
+</Field>
+
+<Field value="openDelay" type="number">
+  Hover delay before showing, in ms. Defaults to `400`.
+</Field>
+
+<Field value="closeDelay" type="number">
+  Delay before hiding once the pointer leaves, in ms. Defaults to `100`.
+</Field>
+
+<Field value="disabled" type="boolean">
+  Never show the tooltip. The trigger keeps working.
+</Field>
+
+Tooltip wraps the trigger in a `<span class="cherry-tooltip__trigger">` and renders the hint as a sibling `<span role="tooltip">`. The ref and other `<span>` attributes go to the hint element. Tooltip is a Client Component.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-tooltip` |
+| `data-placement` | `top`, `bottom`, `left`, `right` |
+| States | `:popover-open` |
+| Parts | `cherry-tooltip__trigger` |
+
+The bubble reads `--cherry-bg-inverse`, `--cherry-fg-inverse`, `--cherry-radius-md` and `--cherry-elevation-md`.
+
+## Accessibility
+
+The tooltip has `role="tooltip"` and is linked to its trigger with `aria-describedby`. It shows on hover and keyboard focus, Escape hides it, and the pointer can move onto it without closing it. Never put essential information or controls inside, and give the trigger its own accessible name: the tooltip describes it, it does not name it.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/tooltip" icon="code" iconPosition="left">
+  View Source
+</Button>

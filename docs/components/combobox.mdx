@@ -1,0 +1,191 @@
+---
+title: "Combobox"
+description: "Text input with a filterable listbox: type to narrow the options, arrow keys to move, Enter to select."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 2
+navIcon: "list-filter"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Combobox
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/combobox?theme=light" title="Combobox preview" loading="lazy" style={{ width: "100%", height: "672px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/combobox?theme=dark" title="Combobox preview" loading="lazy" style={{ width: "100%", height: "672px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A text input with a filterable listbox, following the ARIA combobox pattern. The list is a native `popover` placed with CSS anchor positioning. Use it for long lists such as countries or frameworks. Use [Select](/components/select) for a short, fixed list.
+
+```tsx
+"use client";
+import { Combobox, Field } from "@cherry-design-system/react";
+
+export function Framework() {
+  return (
+    <Field label="Framework">
+      <Combobox options={["Next.js", "Remix", "Astro"]} placeholder="Select a framework" />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Value and label objects
+
+Plain strings are both value and label. Pass `{ value, label, disabled }` objects to separate them or disable an option.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Combobox, Field, type ComboboxOption } from "@cherry-design-system/react";
+
+const countries: ComboboxOption[] = [
+  { value: "al", label: "Albania" },
+  { value: "de", label: "Germany" },
+  { value: "it", label: "Italy", disabled: true },
+];
+
+export function Country() {
+  const [country, setCountry] = useState<string | null>(null);
+  return (
+    <Field label="Country">
+      <Combobox
+        options={countries}
+        value={country}
+        onValueChange={setCountry}
+        placeholder="Search countries"
+      />
+    </Field>
+  );
+}
+```
+
+### Empty state
+
+```tsx
+"use client";
+import { Combobox, Field } from "@cherry-design-system/react";
+
+export function Language() {
+  return (
+    <Field label="Language">
+      <Combobox
+        options={["English", "German", "Albanian"]}
+        emptyMessage="No languages found"
+        emptyHint="Try another spelling."
+      />
+    </Field>
+  );
+}
+```
+
+### Custom filter
+
+The default matcher is a case-insensitive "contains". Pass `filter` to change it.
+
+```tsx
+"use client";
+import { Combobox, Field } from "@cherry-design-system/react";
+
+export function StartsWith() {
+  return (
+    <Field label="City">
+      <Combobox
+        options={["Berlin", "Bern", "Tirana"]}
+        filter={(option, query) => option.label.toLowerCase().startsWith(query.toLowerCase())}
+      />
+    </Field>
+  );
+}
+```
+
+### Translated labels
+
+```tsx
+"use client";
+import { Combobox, Field } from "@cherry-design-system/react";
+
+export function Marco() {
+  return (
+    <Field label="Marco">
+      <Combobox
+        options={["Next.js", "Remix", "Astro"]}
+        emptyMessage="Sin resultados"
+        toggleLabel="Mostrar opciones"
+        resultsLabel={(count) => (count === 1 ? "1 resultado" : `${count} resultados`)}
+      />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="options" type="ReadonlyArray<ComboboxOption | string>" required>
+  The choices; plain strings are both value and label. `ComboboxOption` is `{ value: string; label: string; disabled?: boolean }`.
+</Field>
+
+<Field value="value" type="string | null">
+  Controlled selected value (`null` means none).
+</Field>
+
+<Field value="defaultValue" type="string | null">
+  Initial value when uncontrolled.
+</Field>
+
+<Field value="onValueChange" type="(value: string | null) => void">
+  Called when the selected value changes.
+</Field>
+
+<Field value="onInputChange" type="(text: string) => void">
+  Called with the typed text on every keystroke.
+</Field>
+
+<Field value="filter" type="(option: ComboboxOption, query: string) => boolean">
+  Custom matcher. Defaults to a case-insensitive "contains".
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Control size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="emptyMessage" type="ReactNode">
+  Shown when nothing matches. Defaults to `"No results found"`.
+</Field>
+
+<Field value="emptyHint" type="ReactNode">
+  Second line under `emptyMessage`.
+</Field>
+
+<Field value="resultsLabel" type="(count: number) => string">
+  Live-region text for the match count (translate here). Defaults to `"1 result"` / `"{count} results"`.
+</Field>
+
+<Field value="toggleLabel" type="string">
+  Name of the chevron button. Defaults to `"Show options"`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the `<input>`).
+</Field>
+
+The ref and native `<input>` attributes (except `value`, `defaultValue`, `onChange`, `type` and `list`) go to the `<input>`.
+
+## Styling
+
+Root class `cherry-combobox` with `data-size` (`sm`, `md`, `lg`) and states `data-open`, `data-invalid`, `data-disabled`. Options use `data-active`, `aria-selected` and `aria-disabled`. Parts: `cherry-combobox__input`, `__trigger`, `__popover`, `__listbox`, `__option`, `__option-label`, `__check`, `__empty`, `__empty-title`, `__empty-hint`.
+
+Reads the field tokens plus `--cherry-bg-elevated`, `--cherry-elevation-lg` and `--cherry-ghost-hover` for the list.
+
+## Accessibility
+
+Combobox and listbox pattern: Up and Down highlight options through `aria-activedescendant`, Enter selects, Escape closes. The match count is announced through a live region (`resultsLabel`). Label it with Field.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/combobox" icon="code" iconPosition="left">
+  View Source
+</Button>

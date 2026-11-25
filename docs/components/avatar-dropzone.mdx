@@ -1,0 +1,128 @@
+---
+title: "AvatarDropzone"
+description: "Round profile picture picker: click, keyboard or drop an image, preview it, and remove it with a labelled button."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 0
+navIcon: "circle-user-round"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# AvatarDropzone
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=light" title="AvatarDropzone preview" loading="lazy" style={{ width: "100%", height: "816px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/dropzone-fileitem-and-avatardropzone?theme=dark" title="AvatarDropzone preview" loading="lazy" style={{ width: "100%", height: "816px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A round profile picture picker. Click it, press Enter or Space, or drop an image on it. The preview scales in, the remove badge pops, and removing fades the picture out before the empty state returns. Use [Dropzone](/components/dropzone) for general file uploads.
+
+```tsx
+"use client";
+import { AvatarDropzone, Field } from "@cherry-design-system/react";
+
+export function ProfilePicture({ setAvatar }: { setAvatar: (file: File | null) => void }) {
+  return (
+    <Field label="Profile picture">
+      <AvatarDropzone name="avatar" accept="image/*" onFileChange={setAvatar} />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Existing picture
+
+`defaultSrc` shows the current avatar until the user picks a new one or removes it.
+
+```tsx
+"use client";
+import { AvatarDropzone, Field } from "@cherry-design-system/react";
+
+export function EditAvatar({ url }: { url: string }) {
+  return (
+    <Field label="Profile picture" hint="Square images look best.">
+      <AvatarDropzone size="lg" defaultSrc={url} accept="image/png,image/jpeg" />
+    </Field>
+  );
+}
+```
+
+### Size limit and rejection
+
+```tsx
+"use client";
+import { useState } from "react";
+import { AvatarDropzone, Field } from "@cherry-design-system/react";
+
+export function LimitedAvatar() {
+  const [error, setError] = useState<string>();
+  return (
+    <Field label="Team logo" error={error}>
+      <AvatarDropzone
+        size="sm"
+        accept="image/*"
+        maxBytes={1_000_000}
+        label="Upload team logo"
+        removeLabel="Remove team logo"
+        onFileChange={() => setError(undefined)}
+        onFileRejected={(r) => setError(r.reason === "size" ? "Use an image under 1 MB." : "Use an image file.")}
+      />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  64 / 96 / 128 px. Defaults to `"md"`.
+</Field>
+
+<Field value="defaultSrc" type="string">
+  Picture shown before anything is picked (an existing avatar URL).
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Icon shown while empty. Defaults to an image-plus glyph.
+</Field>
+
+<Field value="maxBytes" type="number">
+  Maximum file size, in bytes.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="label" type="string">
+  Accessible name of the picker. Defaults to `"Upload profile picture"`.
+</Field>
+
+<Field value="removeLabel" type="string">
+  Accessible name of the remove button. Defaults to `"Remove profile picture"`.
+</Field>
+
+<Field value="onFileChange" type="(file: File | null) => void">
+  The picked picture, or `null` once it is removed.
+</Field>
+
+<Field value="onFileRejected" type="(rejection: DropzoneRejection) => void">
+  A file refused for its type or size. `DropzoneRejection` is `{ file: File; reason: "type" | "size" | "count" }`.
+</Field>
+
+The ref and native `<input>` attributes (except `type`, `value`, `children`, `multiple`, `size` and `defaultValue`) go to the file `<input>`.
+
+## Styling
+
+Root class `cherry-avatar-dropzone` with `data-size` (`sm`, `md`, `lg`) and states `data-filled`, `data-drag-over`, `data-disabled`, `data-invalid`. Parts: `cherry-avatar-dropzone__target`, `__input`, `__icon`, `__image`, `__remove`.
+
+Reads `--cherry-bg-subtle`, `--cherry-border-strong`, `--cherry-border-focus`, `--cherry-elevation-sm` (remove badge), `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+A labelled native file input (`label`); the remove button is labelled (`removeLabel`). Translate both for other languages.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/avatar-dropzone" icon="code" iconPosition="left">
+  View Source
+</Button>

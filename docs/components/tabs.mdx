@@ -1,0 +1,176 @@
+---
+title: "Tabs"
+description: "Tabs with pill or underline styles, a sliding indicator, keyboard navigation and panels matched to tabs by value."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 6
+navIcon: "panels-top-left"
+categoryIcon: "navigation"
+section: "Components"
+---
+# Tabs
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/tabs?theme=light" title="Tabs preview" loading="lazy" style={{ width: "100%", height: "334px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/tabs?theme=dark" title="Tabs preview" loading="lazy" style={{ width: "100%", height: "334px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Tabs switch between panels of related content in the same place. Compose a `TabList` of `Tab`s and one `TabPanel` per tab, matched by `value`. For a segmented control that sets a value (not panels) use [ToggleGroup](/components/toggle-group).
+
+```tsx
+import { Tab, TabList, TabPanel, Tabs } from "@cherry-design-system/react";
+
+export function Project() {
+  return (
+    <Tabs defaultValue="overview">
+      <TabList aria-label="Project">
+        <Tab value="overview">Overview</Tab>
+        <Tab value="settings">Settings</Tab>
+      </TabList>
+      <TabPanel value="overview">Project overview</TabPanel>
+      <TabPanel value="settings">Project settings</TabPanel>
+    </Tabs>
+  );
+}
+```
+
+## Examples
+
+### Underline variant
+
+```tsx
+import { Tab, TabList, TabPanel, Tabs } from "@cherry-design-system/react";
+
+export function Account() {
+  return (
+    <Tabs variant="underline" defaultValue="profile">
+      <TabList aria-label="Account">
+        <Tab value="profile">Profile</Tab>
+        <Tab value="billing">Billing</Tab>
+      </TabList>
+      <TabPanel value="profile">Profile form</TabPanel>
+      <TabPanel value="billing">Billing details</TabPanel>
+    </Tabs>
+  );
+}
+```
+
+### With icons and a disabled tab
+
+`Tab` accepts every `<button>` attribute, so `disabled` works. Disabled tabs are skipped by the arrow keys.
+
+```tsx
+import { Tab, TabList, TabPanel, Tabs } from "@cherry-design-system/react";
+import { ChartLine, Code, Lock } from "lucide-react";
+
+export function Repo() {
+  return (
+    <Tabs defaultValue="code">
+      <TabList aria-label="Repository">
+        <Tab value="code" icon={<Code />}>Code</Tab>
+        <Tab value="insights" icon={<ChartLine />}>Insights</Tab>
+        <Tab value="security" icon={<Lock />} disabled>Security</Tab>
+      </TabList>
+      <TabPanel value="code">Files</TabPanel>
+      <TabPanel value="insights">Charts</TabPanel>
+      <TabPanel value="security">Advisories</TabPanel>
+    </Tabs>
+  );
+}
+```
+
+### Controlled
+
+Pass `value` and `onValueChange` to drive the selection, for example from the URL.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Tab, TabList, TabPanel, Tabs } from "@cherry-design-system/react";
+
+export function Billing() {
+  const [tab, setTab] = useState("monthly");
+  return (
+    <Tabs value={tab} onValueChange={setTab}>
+      <TabList aria-label="Billing period">
+        <Tab value="monthly">Monthly</Tab>
+        <Tab value="yearly">Yearly</Tab>
+      </TabList>
+      <TabPanel value="monthly">$12 per month</TabPanel>
+      <TabPanel value="yearly">$120 per year</TabPanel>
+    </Tabs>
+  );
+}
+```
+
+<Callout type="note">
+  Without `defaultValue` or `value`, the first enabled tab is selected after mount. Set `defaultValue` to have the selection in the server-rendered HTML.
+</Callout>
+
+## Properties
+
+### Tabs
+
+<Field value="value" type="string">
+  Selected tab (controlled). Pair with `onValueChange`.
+</Field>
+
+<Field value="defaultValue" type="string">
+  Initially selected tab (uncontrolled). Defaults to the first enabled tab after mount.
+</Field>
+
+<Field value="onValueChange" type="(value: string) => void">
+  Called with the value of the newly selected tab.
+</Field>
+
+<Field value="variant" type='"pill" | "underline"'>
+  `pill` (raised tab in a muted track) or `underline`. Defaults to `"pill"`.
+</Field>
+
+Tabs renders a `<div>`, forwards its ref and passes other `<div>` attributes through. It is a Client Component.
+
+### TabList
+
+<Field value="aria-label" type="string">
+  Names the tab list (or use `aria-labelledby`).
+</Field>
+
+TabList renders a `<div role="tablist">`, forwards its ref and passes other `<div>` attributes through.
+
+### Tab
+
+<Field value="value" type="string" required>
+  Matches the `value` of its TabPanel.
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Optional leading icon.
+</Field>
+
+Tab renders a `<button role="tab">`, forwards its ref and passes other `<button>` attributes through.
+
+### TabPanel
+
+<Field value="value" type="string" required>
+  Matches the `value` of its Tab.
+</Field>
+
+TabPanel renders a `<div role="tabpanel">`, forwards its ref and passes other `<div>` attributes through. Inactive panels stay mounted but hidden.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-tabs` |
+| `data-variant` | `pill`, `underline` |
+| States | `[aria-selected="true"]`, `data-indicator`, `:disabled`, `:focus-visible`, `:hover`, `[hidden]` |
+| Parts | `cherry-tabs__list`, `cherry-tabs__indicator`, `cherry-tabs__tab`, `cherry-tabs__panel` |
+
+The pill track reads `--cherry-bg-segment` and the selected tab `--cherry-bg-segment-selected`; the underline uses `--cherry-border-default` and `--cherry-border-strong`.
+
+## Accessibility
+
+Tabs follow the tablist / tab / tabpanel pattern with automatic activation: Left and Right move and select, Home and End jump to the ends, and the list is a single tab stop. Each panel is labelled by its tab. Name the `TabList`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/tabs" icon="code" iconPosition="left">
+  View Source
+</Button>

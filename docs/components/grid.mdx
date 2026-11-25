@@ -1,0 +1,109 @@
+---
+title: "Grid"
+description: "CSS grid of equal columns with a responsive column count and gap, plus Col for cells that span several columns. No client JavaScript."
+date: "2026-11-25"
+category: "Layout"
+categoryOrder: 4
+order: 3
+navIcon: "grid-3x3"
+categoryIcon: "layout-grid"
+section: "Components"
+---
+# Grid
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=light" title="Grid preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/layout-container-grid-col-flex?theme=dark" title="Grid preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Grid places its children in equal columns, with the column count and gap set per breakpoint. Wrap a child in `Col` to make it span several columns. Use [Flex](/components/flex) when items should size to their content.
+
+```tsx
+import { Grid } from "@cherry-design-system/react";
+
+export function Features() {
+  return (
+    <Grid cols={3}>
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+    </Grid>
+  );
+}
+```
+
+## Examples
+
+### Responsive columns
+
+Pass an object keyed by breakpoint (`xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`). Values are mobile first and hold until a larger breakpoint overrides them.
+
+```tsx
+import { Grid } from "@cherry-design-system/react";
+
+export function Gallery({ items }: { items: string[] }) {
+  return (
+    <Grid cols={{ xs: 1, md: 2, lg: 4 }} gap={4}>
+      {items.map((item) => (
+        <div key={item}>{item}</div>
+      ))}
+    </Grid>
+  );
+}
+```
+
+### Spanning columns with Col
+
+`span` takes a column count or `"full"` to fill the whole row, and can also change per breakpoint.
+
+```tsx
+import { Col, Grid } from "@cherry-design-system/react";
+
+export function Dashboard() {
+  return (
+    <Grid cols={{ xs: 1, lg: 4 }} gap={4}>
+      <Col span={{ xs: 1, lg: 2 }}>Revenue</Col>
+      <div>Orders</div>
+      <div>Refunds</div>
+      <Col span="full">Activity</Col>
+    </Grid>
+  );
+}
+```
+
+## Properties
+
+### Grid
+
+<Field value="cols" type="Responsive<number>">
+  Number of equal columns, per breakpoint. Defaults to `3`.
+</Field>
+
+<Field value="gap" type="Responsive<SpaceStep>">
+  Gap as a spacing step: `0`, `1`, `2`, `3`, `4`, `5`, `6`, `8`, `10`, `12`, `16`, `20` or `24`. Defaults to the gutter (20px, 40px from `lg`).
+</Field>
+
+Grid renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through.
+
+### Col
+
+<Field value="span" type='Responsive<number | "full">'>
+  Columns to span, per breakpoint. `"full"` spans the whole row.
+</Field>
+
+Col renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. Both parts are safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-grid` |
+| Parts | `cherry-col` |
+
+Columns are `repeat(n, minmax(0, 1fr))`. The default gap reads `--cherry-gutter-mobile` and `--cherry-gutter-desktop`; spacing steps map to `--cherry-space-<step>`.
+
+## Accessibility
+
+Grid is layout only and has no role. Keep the DOM order the reading order.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/grid" icon="code" iconPosition="left">
+  View Source
+</Button>

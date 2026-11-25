@@ -1,0 +1,106 @@
+---
+title: "Introduction"
+description: "cherry 2.0 is a themeable React design system in plain CSS: zero styling runtime, Server Components ready, WCAG 2.2 AA."
+date: "2026-11-25"
+category: "Getting Started"
+categoryOrder: 0
+order: 0
+navIcon: "book-open"
+categoryIcon: "rocket"
+sectionLabel: "Guide"
+---
+# cherry 2.0
+
+cherry is a themeable React design system in plain CSS. It ships as `@cherry-design-system/react`: more than 60 components, a set of `--cherry-*` design tokens, light and dark mode, and brands built from a single accent color.
+
+- **Plain CSS, zero styling runtime.** Every component ships static CSS in `@layer cherry`. There is no CSS-in-JS and no theme provider. Import one stylesheet, or only the files for the components you render.
+- **Server Components ready.** Components without interactivity (Button, Badge, Card, Table, Prose, the layout primitives) render on the server with no client JavaScript. Interactive ones carry `"use client"` themselves, so you can import any of them from a Server Component.
+- **Accessible by default.** Components meet WCAG 2.2 AA when used as documented. CI runs axe in light and dark, at desktop and 320px widths, with every popup open, and checks focus visibility, focus traps, Windows High Contrast and reflow.
+- **Light and dark.** The mode is a `dark` class on `<html>`, set before the first paint. Every color token switches with it, so a mode change re-renders nothing.
+- **Brands.** `createBrand("acme", { accent: "#5b5bd6" })` derives hover, subtle, text and ring shades for both modes as validated plain CSS.
+
+## Install
+
+`react`, `react-dom` (18.2 or later) and `lucide-react` are peer dependencies. cherry renders its own icons with `lucide-react`, and you pass lucide icons to `icon` props, so install it alongside.
+
+<CodeTabs tabs={[{ label: "npm", code: "npm install @cherry-design-system/react lucide-react" }, { label: "pnpm", code: "pnpm add @cherry-design-system/react lucide-react" }, { label: "yarn", code: "yarn add @cherry-design-system/react lucide-react" }]} />
+
+## Set up once
+
+Import the stylesheet, run the init script in `<head>`, and put `cherry-root` on `<body>`. In a Next.js App Router project:
+
+```tsx
+// app/layout.tsx
+import "@cherry-design-system/react/styles.css";
+import { themeInitScript } from "@cherry-design-system/react/theme-init";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="cherry-root">{children}</body>
+    </html>
+  );
+}
+```
+
+Then use components anywhere:
+
+```tsx
+import { Button, ThemeToggle } from "@cherry-design-system/react";
+import { Plus } from "lucide-react";
+
+export default function Page() {
+  return (
+    <main>
+      <Button leadingIcon={<Plus />}>New project</Button>
+      <Button variant="outline">Learn more</Button>
+      <ThemeToggle />
+    </main>
+  );
+}
+```
+
+See [Installation](/installation) for Vite and other React setups, router links and fonts.
+
+## Explore
+
+<Columns cols={2}>
+  <Card title="Installation" icon="download" href="/installation">
+    Next.js, Vite, router links, fonts and per-component CSS.
+  </Card>
+  <Card title="Components" icon="layout-grid" href="/components">
+    Every component with its props, examples and accessibility notes.
+  </Card>
+  <Card title="Dark mode" icon="moon" href="/dark-mode">
+    Light, dark and system, the init script and useColorMode.
+  </Card>
+  <Card title="Brands" icon="palette" href="/brands">
+    Build a brand from one accent color with createBrand.
+  </Card>
+  <Card title="Colors" icon="paint-bucket" href="/colors">
+    Semantic colors for light and dark, and the full palette.
+  </Card>
+  <Card title="Tokens" icon="swatch-book" href="/tokens">
+    Spacing, radius, elevation, motion, layout and typography.
+  </Card>
+  <Card title="Styling" icon="paintbrush" href="/styling">
+    Override styles with a plain class and build your own components.
+  </Card>
+  <Card title="Accessibility" icon="accessibility" href="/accessibility">
+    What cherry guarantees and what your app must provide.
+  </Card>
+  <Card title="Skill for AI agents" icon="bot" href="/ai-skill">
+    Teach coding agents to build with cherry correctly.
+  </Card>
+</Columns>
+
+## Coming from 1.x
+
+cherry 2.0 replaces `cherry-styled-components`. Read [Migrating from 1.x](/migration) for the changes to setup, props and components. The 1.x documentation is still available: pick **v1** in the version switcher.

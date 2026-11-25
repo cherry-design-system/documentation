@@ -1,0 +1,104 @@
+---
+title: "Separator"
+description: "A 1px horizontal or vertical rule with an optional centered label, announced as a separator or hidden when decorative."
+date: "2026-11-25"
+category: "Layout"
+categoryOrder: 4
+order: 4
+navIcon: "separator-horizontal"
+categoryIcon: "layout-grid"
+section: "Components"
+---
+# Separator
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=light" title="Separator preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=dark" title="Separator preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Separator draws a 1px rule between groups of content. It can carry a short centered label such as "or". Inside a [Menu](/components/menu) use `MenuSeparator` instead.
+
+```tsx
+import { Separator } from "@cherry-design-system/react";
+
+export function Section() {
+  return (
+    <>
+      <p>Account</p>
+      <Separator />
+      <p>Billing</p>
+    </>
+  );
+}
+```
+
+## Examples
+
+### With a label
+
+The label shows only on a horizontal rule.
+
+```tsx
+import { Button, Separator, Stack } from "@cherry-design-system/react";
+
+export function SignIn() {
+  return (
+    <Stack>
+      <Button>Continue with email</Button>
+      <Separator label="or" />
+      <Button variant="outline">Continue with SSO</Button>
+    </Stack>
+  );
+}
+```
+
+### Vertical
+
+A vertical separator needs a parent with height, such as a Flex row.
+
+```tsx
+import { Flex, Separator } from "@cherry-design-system/react";
+
+export function Meta() {
+  return (
+    <Flex align="center" gap={3} wrap="nowrap">
+      <span>12 files</span>
+      <Separator orientation="vertical" decorative />
+      <span>4.2 MB</span>
+    </Flex>
+  );
+}
+```
+
+## Properties
+
+<Field value="orientation" type='"horizontal" | "vertical"'>
+  Direction of the rule. Defaults to `"horizontal"`.
+</Field>
+
+<Field value="label" type="ReactNode">
+  Centered text on a horizontal rule, such as "OR". Ignored on a vertical rule.
+</Field>
+
+<Field value="decorative" type="boolean">
+  Purely visual: hidden from assistive tech (`role="none"`). Defaults to `false`.
+</Field>
+
+Separator renders a `<div>` with no children of its own, forwards its ref and passes every other `<div>` attribute through. It is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-separator` |
+| `data-orientation` | `horizontal`, `vertical` |
+| States | `data-labelled` |
+| Parts | `cherry-separator__label` |
+
+The rule reads `--cherry-border-default`; the label uses the eyebrow text tokens and `--cherry-fg-muted`.
+
+## Accessibility
+
+Separator has `role="separator"` (with `aria-orientation="vertical"` when vertical). Set `decorative` when the rule adds no meaning, so screen readers skip it.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/separator" icon="code" iconPosition="left">
+  View Source
+</Button>

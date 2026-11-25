@@ -1,0 +1,167 @@
+---
+title: "Styling"
+description: "Customize cherry with plain CSS: @layer cherry, className overrides without !important, stable classes and data attributes, and your own components."
+date: "2026-11-25"
+category: "Customization"
+categoryOrder: 1
+order: 4
+navIcon: "paintbrush"
+categoryIcon: "palette"
+---
+# Styling
+
+cherry is static CSS. Every rule lives in `@layer cherry`, every component exposes stable class names and `data-*` attributes, and every value comes from a `--cherry-*` token. You customize it with plain CSS: no theme objects, no styled wrappers, no `!important`.
+
+## Overrides with className
+
+Rules inside a cascade layer lose to rules outside any layer, whatever their specificity. Any unlayered rule you write beats cherry's:
+
+```css
+/* checkout.css */
+.checkout-button {
+  width: 100%;
+  border-radius: var(--cherry-radius-full);
+}
+```
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+
+export function PayButton() {
+  return <Button className="checkout-button">Pay</Button>;
+}
+```
+
+- Use `--cherry-*` [tokens](/tokens) in overrides, so they follow light and dark and brands.
+- Every component merges your `className` with its own and passes other native attributes, including `style`, to its main element. Some components with a wrapper document a separate class prop for it; `Input` takes `wrapperClassName` for its outer wrapper while `className` goes to the `<input>`.
+- Don't restyle focus away. If you change a control's `box-shadow`, keep `:focus-visible` showing `var(--cherry-ring)`.
+
+## Stable hooks
+
+Target cherry's elements through hooks that stay stable across releases:
+
+| Hook | Pattern | Example |
+| --- | --- | --- |
+| Root class | `cherry-<name>` | `.cherry-button` |
+| Part class | `cherry-<name>__<part>` | `.cherry-button__icon` |
+| Variant | `data-<prop>` attribute | `[data-variant="outline"]`, `[data-size="sm"]` |
+| State | `data-*` attribute, ARIA attribute or pseudo-class | `[data-invalid]`, `[data-loading]`, `[aria-expanded="true"]`, `:focus-visible` |
+
+```css
+/* Every outline button in the settings area */
+.settings .cherry-button[data-variant="outline"] {
+  border-color: var(--cherry-border-strong);
+}
+
+/* Icons inside small buttons */
+.cherry-button[data-size="sm"] .cherry-button__icon {
+  color: var(--cherry-fg-muted);
+}
+
+/* Inputs in an error state */
+.cherry-input[data-invalid] {
+  background: var(--cherry-danger-bg);
+}
+```
+
+Prefer a `className` on the one element you mean. Use the global hooks for app-wide adjustments.
+
+<Callout type="note">
+  Variables named `--_<name>` inside component CSS are private to that component. They can change in any release; don't set or read them.
+</Callout>
+
+## style-api.json
+
+`@cherry-design-system/react/style-api.json` lists every component's root class, `data-*` attributes with their allowed values, states and parts. It is generated from each component's manifest, and CI fails if the CSS and the manifest disagree, so it always matches the shipped CSS.
+
+```json
+{
+  "button": {
+    "class": "cherry-button",
+    "attributes": {
+      "data-variant": ["primary", "secondary", "outline", "ghost", "accent"],
+      "data-size": ["sm", "md", "lg"]
+    },
+    "states": ["disabled", "data-loading", "data-full-width", ":focus-visible", ":hover", ":active"],
+    "parts": ["cherry-button__label", "cherry-button__icon"]
+  }
+}
+```
+
+Use it to look up a selector, or to check your overrides in a test or a stylelint rule:
+
+```ts
+import styleApi from "@cherry-design-system/react/style-api.json";
+
+const buttonVariants = styleApi.button.attributes["data-variant"];
+// ["primary", "secondary", "outline", "ghost", "accent"]
+```
+
+## Tailwind and other layered CSS
+
+Tailwind's utilities live in cascade layers too, and of two layers the one declared later wins. Declare cherry's layer first so utilities override it, at the top of your main CSS:
+
+```css
+/* app/globals.css */
+@layer cherry, theme, base, components, utilities;
+
+@import "tailwindcss";
+```
+
+Or import cherry's `styles.css` before Tailwind. Then utilities work on cherry components as expected:
+
+```tsx
+<Button className="w-full rounded-full">Pay</Button>
+```
+
+## Your own components
+
+When cherry has no component for something, build it with semantic HTML, a class and the tokens:
+
+```css
+.plan-card {
+  padding: var(--cherry-space-5);
+  border: 1px solid var(--cherry-border-default);
+  border-radius: var(--cherry-radius-xl);
+  background: var(--cherry-bg-elevated);
+  color: var(--cherry-fg-default);
+  box-shadow: var(--cherry-elevation-sm);
+  transition: box-shadow var(--cherry-duration-fast) var(--cherry-easing-standard);
+}
+.plan-card:hover {
+  box-shadow: var(--cherry-elevation-md);
+}
+.plan-card:focus-visible {
+  outline: 2px solid transparent; /* repainted in Windows High Contrast */
+  box-shadow: var(--cherry-ring);
+}
+.plan-card__price {
+  font-size: var(--cherry-text-h3-size);
+  line-height: var(--cherry-text-h3-line-height);
+  font-weight: var(--cherry-text-h3-weight);
+}
+.plan-card__note {
+  color: var(--cherry-fg-muted); /* not fg-subtle: that one is below 4.5:1 */
+}
+```
+
+```tsx
+import { Badge, Button } from "@cherry-design-system/react";
+
+export function PlanCard() {
+  return (
+    <article className="plan-card">
+      <Badge>Popular</Badge>
+      <h3>Team</h3>
+      <p className="plan-card__price">$24 / month</p>
+      <p className="plan-card__note">Billed yearly. Cancel anytime.</p>
+      <Button fullWidth>Choose Team</Button>
+    </article>
+  );
+}
+```
+
+- Compose cherry components inside it (`Button`, `Badge`, `Card`) rather than recreating them.
+- Use the motion tokens for transitions: they shorten to 1ms under reduced motion.
+- Draw focus with `outline: 2px solid transparent` plus `box-shadow: var(--cherry-ring)`, never `outline: none` alone. Windows High Contrast drops box-shadows but repaints the transparent outline, so focus stays visible there.
+- Follow the [accessibility](/accessibility) checklist: readable text in `--cherry-fg-muted` or stronger, 24px targets, real headings.

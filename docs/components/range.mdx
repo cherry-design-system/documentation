@@ -1,0 +1,106 @@
+---
+title: "Range"
+description: "Slider on a native range input with a filled track, three sizes and full keyboard and touch support."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 10
+navIcon: "sliders-horizontal"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Range
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/range?theme=light" title="Range preview" loading="lazy" style={{ width: "100%", height: "552px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/range?theme=dark" title="Range preview" loading="lazy" style={{ width: "100%", height: "552px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A slider on a native `<input type="range">`: keyboard, touch, forms and assistive tech come from the platform. The filled part of the track follows the value. Use it when an approximate value is fine, such as volume or opacity. Use [NumberField](/components/number-field) when the exact number matters.
+
+```tsx
+"use client";
+import { Field, Range } from "@cherry-design-system/react";
+
+export function Volume() {
+  return (
+    <Field label="Volume">
+      <Range name="volume" min={0} max={100} defaultValue={60} />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Controlled with a readout
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Field, Range } from "@cherry-design-system/react";
+
+export function Opacity() {
+  const [value, setValue] = useState(80);
+  return (
+    <Field label="Opacity" hint={`${value}%`}>
+      <Range
+        min={0}
+        max={100}
+        step={5}
+        value={value}
+        onChange={(e) => setValue(Number(e.target.value))}
+      />
+    </Field>
+  );
+}
+```
+
+### Sizes and width
+
+Range stretches to its container by default. Pass `fullWidth={false}` to size it yourself.
+
+```tsx
+"use client";
+import { Field, Range } from "@cherry-design-system/react";
+
+export function Compact() {
+  return (
+    <Field label="Zoom">
+      <Range size="sm" fullWidth={false} min={50} max={200} defaultValue={100} />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Track and thumb size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Stretch to the container width. Defaults to `true`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the `<input>`).
+</Field>
+
+The ref and native `<input>` attributes (except `size` and `type`) go to the `<input>`.
+
+## Styling
+
+Root class `cherry-range` with `data-size` (`sm`, `md`, `lg`) and states `data-invalid`, `data-disabled`, `data-full-width`. Part: `cherry-range__input`. The fill reads the `--_ratio` custom property (0 to 1), which the component keeps in sync with the value.
+
+Reads `--cherry-primary-default` for the fill, `--cherry-bg-muted` for the track, `--cherry-elevation-sm` for the thumb, `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+Native range: arrows step, PageUp and PageDown jump, Home and End go to min and max. Give it a label with Field or `aria-label`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/range" icon="code" iconPosition="left">
+  View Source
+</Button>

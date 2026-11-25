@@ -1,0 +1,80 @@
+---
+title: "InlineCode"
+description: "An inline code chip in the mono typeface, for function names, props and short values inside running text."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 3
+navIcon: "code"
+categoryIcon: "table"
+section: "Components"
+---
+# InlineCode
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=light" title="InlineCode preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=dark" title="InlineCode preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+InlineCode marks a short piece of code inside a sentence, such as a function name or a prop value. For a multi-line listing, use [CodeBlock](/components/code-block); for a copyable command, use [Snippet](/components/snippet).
+
+```tsx
+import { InlineCode } from "@cherry-design-system/react";
+
+export function Hint() {
+  return (
+    <p>
+      Call <InlineCode>useColorMode()</InlineCode> to read the mode.
+    </p>
+  );
+}
+```
+
+## Examples
+
+### In a table cell
+
+```tsx
+import { InlineCode, Table } from "@cherry-design-system/react";
+
+export function PropsTable() {
+  return (
+    <Table>
+      <thead>
+        <tr>
+          <th>Prop</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><InlineCode>size</InlineCode></td>
+          <td><InlineCode>"md"</InlineCode></td>
+        </tr>
+      </tbody>
+    </Table>
+  );
+}
+```
+
+## Properties
+
+InlineCode has no props of its own. It renders a `<code>` element, forwards its ref to it and passes every native attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+<Callout type="info">
+  Inside [Prose](/components/prose), plain `<code>` elements are already styled, so InlineCode is only needed outside it.
+</Callout>
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-inline-code` | Root element |
+
+The chip reads `--cherry-bg-subtle`, `--cherry-border-default`, `--cherry-fg-default`, `--cherry-radius-xs` and `--cherry-font-mono`.
+
+## Accessibility
+
+A plain `<code>` element: screen readers read its text as part of the sentence.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/inline-code" icon="code" iconPosition="left">
+  View Source
+</Button>

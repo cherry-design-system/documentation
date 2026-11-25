@@ -1,0 +1,162 @@
+---
+title: "Modal"
+description: "Modal dialog on the native dialog element with a title, description, body, footer, three sizes and platform focus trapping."
+date: "2026-11-25"
+category: "Overlays"
+categoryOrder: 6
+order: 0
+navIcon: "app-window"
+categoryIcon: "layers"
+section: "Components"
+---
+# Modal
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/modal?theme=light" title="Modal preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/modal?theme=dark" title="Modal preview" loading="lazy" style={{ width: "100%", height: "560px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Modal is a dialog that blocks the page until the user responds, built on the native `<dialog>` element (`showModal`). The focus trap, top layer, inert page and Escape come from the platform. Compose the content with `ModalBody` and `ModalFooter`. For a panel that slides in from an edge use [Sheet](/components/sheet); for a non-blocking panel use [Popover](/components/popover).
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Button, Modal, ModalFooter } from "@cherry-design-system/react";
+
+export function DeleteProject({ onDelete }: { onDelete: () => void }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button variant="outline" onClick={() => setIsOpen(true)}>Delete project</Button>
+      <Modal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Delete project?"
+        description="This cannot be undone."
+      >
+        <ModalFooter>
+          <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+          <Button variant="accent" onClick={onDelete}>Delete</Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  );
+}
+```
+
+## Examples
+
+### Body content and size
+
+`ModalBody` is the scrolling content area. `size` sets the width: `sm` (400px), `md` (480px) or `lg` (640px).
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Button, Field, Input, Modal, ModalBody, ModalFooter, Stack } from "@cherry-design-system/react";
+
+export function InviteMember() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>Invite</Button>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} title="Invite a member" size="lg">
+        <ModalBody>
+          <Stack>
+            <Field label="Email">
+              <Input name="email" type="email" />
+            </Field>
+          </Stack>
+        </ModalBody>
+        <ModalFooter>
+          <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+          <Button onClick={() => setIsOpen(false)}>Send invite</Button>
+        </ModalFooter>
+      </Modal>
+    </>
+  );
+}
+```
+
+### Required decision
+
+`dismissible={false}` stops Escape and backdrop clicks from closing the dialog, and `hideClose` removes the header close button. Make sure the footer offers a way out.
+
+```tsx
+"use client";
+import { Button, Modal, ModalBody, ModalFooter } from "@cherry-design-system/react";
+
+export function Terms({ open, onAccept }: { open: boolean; onAccept: () => void }) {
+  return (
+    <Modal open={open} onClose={onAccept} title="Updated terms" dismissible={false} hideClose>
+      <ModalBody>Please review and accept the updated terms to continue.</ModalBody>
+      <ModalFooter>
+        <Button onClick={onAccept}>Accept</Button>
+      </ModalFooter>
+    </Modal>
+  );
+}
+```
+
+## Properties
+
+### Modal
+
+<Field value="open" type="boolean" required>
+  Controlled open state.
+</Field>
+
+<Field value="onClose" type="() => void" required>
+  Called on Escape, a backdrop click or the close button. Set `open` to `false` here.
+</Field>
+
+<Field value="title" type="ReactNode">
+  Heading; also the dialog's accessible name.
+</Field>
+
+<Field value="description" type="ReactNode">
+  Line under the title; wired as the accessible description.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  400, 480 or 640px wide. Defaults to `"md"`.
+</Field>
+
+<Field value="hideClose" type="boolean">
+  Hide the close button in the header.
+</Field>
+
+<Field value="closeLabel" type="string">
+  Accessible name of the close button. Defaults to `"Close"`.
+</Field>
+
+<Field value="dismissible" type="boolean">
+  Escape and backdrop clicks close it. Defaults to `true`.
+</Field>
+
+Modal renders a `<dialog>`, forwards its ref to it and passes other `<dialog>` attributes through. It is a Client Component.
+
+### ModalBody
+
+ModalBody has no props of its own. It renders a scrolling `<div>`, forwards its ref and passes `<div>` attributes through.
+
+### ModalFooter
+
+ModalFooter has no props of its own. It renders the action row as a `<div>` aligned to the end, forwards its ref and passes `<div>` attributes through.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-modal` |
+| `data-size` | `sm`, `md`, `lg` |
+| States | `[open]`, `::backdrop` |
+| Parts | `cherry-modal__header`, `cherry-modal__title`, `cherry-modal__description`, `cherry-modal__close`, `cherry-modal__body`, `cherry-modal__footer` |
+
+The dialog reads `--cherry-bg-elevated`, `--cherry-radius-2xl` and `--cherry-elevation-xl`; the backdrop uses `--cherry-bg-overlay`. The title uses the `h5` text tokens.
+
+## Accessibility
+
+Modal is a native modal `<dialog>`: the page behind is inert, focus moves in and stays in, Escape closes it and focus returns to the trigger. `title` names the dialog and `description` describes it; give it a `title`, or an `aria-label` when there is no visible heading.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/modal" icon="code" iconPosition="left">
+  View Source
+</Button>

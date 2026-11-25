@@ -1,0 +1,155 @@
+---
+title: "Button"
+description: "Button component for actions: five variants, three sizes, leading and trailing icons, full width and a loading state."
+date: "2026-11-25"
+category: "Actions"
+categoryOrder: 1
+order: 0
+navIcon: "mouse-pointer-click"
+categoryIcon: "mouse-pointer-click"
+section: "Components"
+---
+# Button
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/buttons?theme=light" title="Button preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/buttons?theme=dark" title="Button preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A native `<button>` for actions such as saving, submitting or opening a dialog. Use [IconButton](/components/icon-button) for icon-only actions and [Link](/components/link) for navigation.
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+
+export function Save() {
+  return <Button>Save changes</Button>;
+}
+```
+
+Button ships no client JavaScript, so it renders in React Server Components.
+
+## Examples
+
+### Variants
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+
+export function Variants() {
+  return (
+    <>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="accent">Accent</Button>
+    </>
+  );
+}
+```
+
+### Sizes
+
+`sm`, `md` and `lg` are 32, 36 and 44 px tall.
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+    </>
+  );
+}
+```
+
+### With icons
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+import { ArrowRight, Plus } from "lucide-react";
+
+export function WithIcons() {
+  return (
+    <>
+      <Button leadingIcon={<Plus />}>New project</Button>
+      <Button variant="outline" trailingIcon={<ArrowRight />}>
+        Continue
+      </Button>
+    </>
+  );
+}
+```
+
+### Loading
+
+`loading` shows a spinner in place of the leading icon, sets `aria-busy` and blocks clicks while keeping the label readable.
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+
+export function Saving({ pending }: { pending: boolean }) {
+  return (
+    <Button type="submit" loading={pending}>
+      {pending ? "Saving" : "Save"}
+    </Button>
+  );
+}
+```
+
+### Full width
+
+```tsx
+import { Button } from "@cherry-design-system/react";
+
+export function SignIn() {
+  return (
+    <Button type="submit" size="lg" fullWidth>
+      Sign in
+    </Button>
+  );
+}
+```
+
+## Properties
+
+<Field value="variant" type='"accent" | "primary" | "outline" | "secondary" | "ghost"'>
+  Visual style. Defaults to `"primary"`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  32 / 36 / 44 px. Defaults to `"md"`.
+</Field>
+
+<Field value="leadingIcon" type="ReactNode">
+  Icon before the label, for example a lucide icon element.
+</Field>
+
+<Field value="trailingIcon" type="ReactNode">
+  Icon after the label.
+</Field>
+
+<Field value="fullWidth" type="boolean">
+  Stretch to the container width.
+</Field>
+
+<Field value="loading" type="boolean">
+  Shows a spinner in place of the leading icon, sets `aria-busy` and blocks clicks.
+</Field>
+
+Renders a `<button>` and forwards its ref to it. All native `<button>` attributes pass through. `type` defaults to `"button"`, so pass `type="submit"` inside forms.
+
+## Styling
+
+Root class `cherry-button` with `data-variant` (`primary`, `secondary`, `outline`, `ghost`, `accent`) and `data-size` (`sm`, `md`, `lg`). State attributes: `data-loading`, `data-full-width`, plus `disabled`. Parts: `cherry-button__label`, `cherry-button__icon`.
+
+Colors come from the `--cherry-primary-*`, `--cherry-secondary-*`, `--cherry-accent-*` and `--cherry-ghost-hover` tokens; the focus ring uses `--cherry-ring`.
+
+## Accessibility
+
+Native `<button>` with a visible focus ring. `loading` sets `aria-busy` and keeps the label readable. Icons are hidden from assistive tech, so the text label is the accessible name. For icon-only actions use [IconButton](/components/icon-button).
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/button" icon="code" iconPosition="left">
+  View Source
+</Button>

@@ -1,0 +1,147 @@
+---
+title: "Popover"
+description: "Floating panel on the native popover attribute, anchored to its trigger with CSS anchor positioning and opened without client JavaScript."
+date: "2026-11-25"
+category: "Overlays"
+categoryOrder: 6
+order: 1
+navIcon: "message-square"
+categoryIcon: "layers"
+section: "Components"
+---
+# Popover
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/popover?theme=light" title="Popover preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/popover?theme=dark" title="Popover preview" loading="lazy" style={{ width: "100%", height: "420px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Popover is a non-modal floating panel anchored to the button that opens it. It runs on the native `popover` attribute and CSS anchor positioning, so it needs no client JavaScript: point a button at it with `popoverTarget` and the browser opens, closes and light-dismisses it. For a list of actions use [Menu](/components/menu); for a short hover hint use [Tooltip](/components/tooltip).
+
+```tsx
+import { Button, Popover } from "@cherry-design-system/react";
+
+export function SharePreview() {
+  return (
+    <>
+      <Button variant="outline" popoverTarget="share">Share</Button>
+      <Popover id="share" title="Share preview">
+        Anyone with the link can view it.
+      </Popover>
+    </>
+  );
+}
+```
+
+## Examples
+
+### Actions
+
+`actions` adds a row of buttons at the bottom, aligned to the end. A button with `popoverTarget` and the native `popoverTargetAction="hide"` closes the popover without JavaScript.
+
+```tsx
+import { Button, Popover } from "@cherry-design-system/react";
+
+export function Publish() {
+  return (
+    <>
+      <Button popoverTarget="publish">Publish</Button>
+      <Popover
+        id="publish"
+        title="Publish changes?"
+        actions={
+          <Button variant="outline" size="sm" popoverTarget="publish" popoverTargetAction="hide">
+            Not now
+          </Button>
+        }
+      >
+        Your changes go live for everyone.
+      </Popover>
+    </>
+  );
+}
+```
+
+### Placement
+
+`placement` picks the side of the trigger and `align` the alignment along it.
+
+```tsx
+import { Button, Popover } from "@cherry-design-system/react";
+
+export function Help() {
+  return (
+    <>
+      <Button variant="ghost" popoverTarget="help">Help</Button>
+      <Popover id="help" placement="right" align="start">
+        Press ⌘K to search.
+      </Popover>
+    </>
+  );
+}
+```
+
+### Manual mode
+
+`mode="manual"` keeps the popover open until it is told to close (by its trigger or a `popoverTargetAction="hide"` button), instead of closing on Escape, an outside click or another popover opening.
+
+```tsx
+import { Button, Popover } from "@cherry-design-system/react";
+
+export function Pinned() {
+  return (
+    <>
+      <Button popoverTarget="notes">Notes</Button>
+      <Popover id="notes" mode="manual" title="Notes">
+        Stays open while you work.
+      </Popover>
+    </>
+  );
+}
+```
+
+## Properties
+
+<Field value="id" type="string" required>
+  The trigger points at it with `popoverTarget={id}`.
+</Field>
+
+<Field value="placement" type='"left" | "right" | "top" | "bottom"'>
+  Side of the trigger it opens on. Defaults to `"bottom"`.
+</Field>
+
+<Field value="align" type='"start" | "end" | "center"'>
+  Alignment along that side. Defaults to `"center"`.
+</Field>
+
+<Field value="title" type="ReactNode">
+  Heading; also the popover's accessible name.
+</Field>
+
+<Field value="actions" type="ReactNode">
+  Buttons at the bottom, aligned to the end.
+</Field>
+
+<Field value="mode" type='"auto" | "manual"'>
+  `"auto"` closes on Escape, an outside click or another popover opening; `"manual"` only closes when told to. Defaults to `"auto"`.
+</Field>
+
+Popover renders a `<div>` with the `popover` attribute, forwards its ref and passes other `<div>` attributes through. It is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-popover` |
+| `data-placement` | `top`, `bottom`, `left`, `right` |
+| `data-align` | `start`, `center`, `end` |
+| States | `:popover-open` |
+| Parts | `cherry-popover__title`, `cherry-popover__body`, `cherry-popover__actions` |
+
+The panel reads `--cherry-bg-elevated`, `--cherry-border-default`, `--cherry-radius-xl` and `--cherry-elevation-lg`.
+
+## Accessibility
+
+Popover is non-modal: Escape and outside clicks close it and focus returns to the trigger. With `title` it is a labelled dialog. Open it from a real `<button>` with `popoverTarget` so the browser wires the relationship.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/popover" icon="code" iconPosition="left">
+  View Source
+</Button>

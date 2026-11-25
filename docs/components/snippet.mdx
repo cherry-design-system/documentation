@@ -1,0 +1,118 @@
+---
+title: "Snippet"
+description: "A one-line command with a prompt and a copy button that falls back to selecting the text when the clipboard is unavailable."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 6
+navIcon: "terminal"
+categoryIcon: "table"
+section: "Components"
+---
+# Snippet
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/snippet?theme=light" title="Snippet preview" loading="lazy" style={{ width: "100%", height: "244px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/snippet?theme=dark" title="Snippet preview" loading="lazy" style={{ width: "100%", height: "244px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Snippet shows a one-line command, such as an install command, with a copy button. After a copy the icon swaps to a check, then back. Without clipboard access (an insecure context or a denied permission) the command text is selected instead, ready for Ctrl/Cmd+C. For multi-line code, use [CodeBlock](/components/code-block).
+
+```tsx
+import { Snippet } from "@cherry-design-system/react";
+
+export function Install() {
+  return <Snippet>pnpm add @cherry-design-system/react lucide-react</Snippet>;
+}
+```
+
+## Examples
+
+### Custom prompt or none
+
+The prompt defaults to `$` and is never copied. Pass `null` to hide it.
+
+```tsx
+import { Snippet } from "@cherry-design-system/react";
+
+export function Prompts() {
+  return (
+    <>
+      <Snippet prompt=">">npm run dev</Snippet>
+      <Snippet prompt={null}>npx cherry init</Snippet>
+    </>
+  );
+}
+```
+
+### Copy different text
+
+`copyText` replaces what goes to the clipboard, while the shown command stays the same. `onCopy` runs after a successful copy.
+
+```tsx
+"use client";
+
+import { Snippet } from "@cherry-design-system/react";
+
+export function ApiKey({ apiKey }: { apiKey: string }) {
+  return (
+    <Snippet
+      prompt={null}
+      copyText={apiKey}
+      copyLabel="Copy API key"
+      onCopy={() => console.log("Key copied")}
+    >
+      {`${apiKey.slice(0, 6)}••••••••`}
+    </Snippet>
+  );
+}
+```
+
+## Properties
+
+<Field value="children" type="string" required>
+  The command, shown on one line.
+</Field>
+
+<Field value="copyText" type="string">
+  Text copied instead of the shown command.
+</Field>
+
+<Field value="prompt" type="ReactNode">
+  Prefix such as `"$"` or `">"`. Defaults to `"$"`; `null` hides it. Never copied.
+</Field>
+
+<Field value="onCopy" type="(text: string) => void">
+  Runs after a successful copy, with the copied text.
+</Field>
+
+<Field value="copyLabel" type="string">
+  Copy button name. Defaults to `"Copy"`.
+</Field>
+
+<Field value="copiedLabel" type="string">
+  Name and announcement once copied. Defaults to `"Copied"`.
+</Field>
+
+<Field value="resetAfter" type="number">
+  Milliseconds before the check turns back into the copy icon. Defaults to `2000`.
+</Field>
+
+Snippet renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. It is a client component.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-snippet` | Root element |
+| `data-copied` | Present after a copy, until `resetAfter` |
+| Parts | `.cherry-snippet__prompt`, `__code`, `__copy`, `__icons`, `__icon` |
+
+The pill reads `--cherry-bg-subtle`, `--cherry-border-default` and `--cherry-radius-full`; the command uses `--cherry-font-mono` with the `mono-sm` tokens; the copied state reads `--cherry-success-bg` and `--cherry-success-fg`.
+
+## Accessibility
+
+- The copy button is labelled (`copyLabel`) and "Copied" (`copiedLabel`) is announced through a status region.
+- A command wider than the pill becomes a keyboard-scrollable tab stop. The prompt is hidden from assistive tech.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/snippet" icon="code" iconPosition="left">
+  View Source
+</Button>

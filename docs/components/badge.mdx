@@ -1,0 +1,120 @@
+---
+title: "Badge"
+description: "A small status pill with eight tones, two sizes and an optional leading dot, for labels such as Live, Beta or Failed."
+date: "2026-11-25"
+category: "Feedback"
+categoryOrder: 7
+order: 0
+navIcon: "badge"
+categoryIcon: "message-square-warning"
+section: "Components"
+---
+# Badge
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/badges-and-spinners?theme=light" title="Badge preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/badges-and-spinners?theme=dark" title="Badge preview" loading="lazy" style={{ width: "100%", height: "240px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A Badge is a static status pill: a short label such as "Live", "Beta" or "Failed". For a value the user can remove, use [Tag](/components/tag) instead.
+
+```tsx
+import { Badge } from "@cherry-design-system/react";
+
+export function DeployStatus() {
+  return (
+    <Badge variant="success" dot>
+      Live
+    </Badge>
+  );
+}
+```
+
+## Examples
+
+### Variants
+
+```tsx
+import { Badge } from "@cherry-design-system/react";
+
+export function Variants() {
+  return (
+    <>
+      <Badge variant="neutral">Neutral</Badge>
+      <Badge variant="accent">Accent</Badge>
+      <Badge variant="primary">Primary</Badge>
+      <Badge variant="outline">Outline</Badge>
+      <Badge variant="success">Success</Badge>
+      <Badge variant="warning">Warning</Badge>
+      <Badge variant="danger">Danger</Badge>
+      <Badge variant="info">Info</Badge>
+    </>
+  );
+}
+```
+
+### Sizes
+
+```tsx
+import { Badge } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Badge size="sm">Small</Badge>
+      <Badge size="md">Medium</Badge>
+    </>
+  );
+}
+```
+
+### With a status dot
+
+The dot takes the text color of the variant.
+
+```tsx
+import { Badge } from "@cherry-design-system/react";
+
+export function Statuses() {
+  return (
+    <>
+      <Badge variant="success" dot>Operational</Badge>
+      <Badge variant="warning" dot>Degraded</Badge>
+      <Badge variant="danger" dot>Outage</Badge>
+    </>
+  );
+}
+```
+
+## Properties
+
+<Field value="variant" type='"neutral" | "accent" | "primary" | "outline" | "success" | "warning" | "danger" | "info"'>
+  Tone of the pill. Defaults to `"neutral"`.
+</Field>
+
+<Field value="size" type='"sm" | "md"'>
+  Pill size. Defaults to `"md"`.
+</Field>
+
+<Field value="dot" type="boolean">
+  Shows a leading status dot in the text color.
+</Field>
+
+Badge renders a `<span>`, forwards its ref to it and passes every other `<span>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-badge` | Root element |
+| `data-variant` | `neutral`, `primary`, `accent`, `outline`, `success`, `warning`, `danger`, `info` |
+| `data-size` | `sm`, `md` |
+| `.cherry-badge__dot` | The leading dot |
+
+Status tones read the `--cherry-success-*`, `--cherry-warning-*`, `--cherry-danger-*` and `--cherry-info-*` tokens (`bg`, `fg`, `border`); `primary` and `accent` read `--cherry-primary-*` and `--cherry-accent-*`.
+
+## Accessibility
+
+A Badge is plain text: the label carries the meaning and the tone color only reinforces it. Write "Failed", not just a red pill. The dot is hidden from assistive tech.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/badge" icon="code" iconPosition="left">
+  View Source
+</Button>

@@ -1,0 +1,207 @@
+---
+title: "Sidebar"
+description: "App sidebar with header and footer slots, titled or collapsible groups of items, badges and an icon-rail collapsed state. No client JavaScript."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 4
+navIcon: "panel-left"
+categoryIcon: "navigation"
+section: "Components"
+---
+# Sidebar
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/sidebar?theme=light" title="Sidebar preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/sidebar?theme=dark" title="Sidebar preview" loading="lazy" style={{ width: "100%", height: "664px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Sidebar is the side navigation of an app: an `<aside>` with a header, a `<nav>` of `SidebarGroup`s and a footer. It has no client JavaScript: collapsible groups are native `<details>`, the active item is plain `aria-current`, and `collapsed` is a prop you drive. For a top-of-page navigation use [NavPill](/components/nav-pill).
+
+```tsx
+import { Sidebar, SidebarGroup, SidebarItem } from "@cherry-design-system/react";
+import { House, Users } from "lucide-react";
+
+export function AppSidebar() {
+  return (
+    <Sidebar navLabel="Main">
+      <SidebarGroup label="Workspace">
+        <SidebarItem href="/" icon={<House />} active>Home</SidebarItem>
+        <SidebarItem href="/team" icon={<Users />}>Team</SidebarItem>
+      </SidebarGroup>
+    </Sidebar>
+  );
+}
+```
+
+## Examples
+
+### Header, footer and badges
+
+`header` and `footer` are slots for a logo, a workspace switcher, an account row or settings. `badge` puts a count or a [Badge](/components/badge) at the end of an item.
+
+```tsx
+import { Badge, Sidebar, SidebarGroup, SidebarItem } from "@cherry-design-system/react";
+import { Inbox, Settings } from "lucide-react";
+
+export function AppSidebar() {
+  return (
+    <Sidebar header={<strong>Acme</strong>} footer={<span>Jane Doe</span>}>
+      <SidebarGroup>
+        <SidebarItem href="/inbox" icon={<Inbox />} badge={<Badge>12</Badge>}>
+          Inbox
+        </SidebarItem>
+        <SidebarItem href="/settings" icon={<Settings />}>Settings</SidebarItem>
+      </SidebarGroup>
+    </Sidebar>
+  );
+}
+```
+
+### Collapsible groups
+
+`collapsible` turns the group title into a native disclosure. `defaultOpen` sets the initial state (open by default). A group needs a `label` to be collapsible.
+
+```tsx
+import { Sidebar, SidebarGroup, SidebarItem } from "@cherry-design-system/react";
+
+export function DocsSidebar() {
+  return (
+    <Sidebar navLabel="Docs">
+      <SidebarGroup label="Guides" collapsible>
+        <SidebarItem href="/installation">Installation</SidebarItem>
+        <SidebarItem href="/theming">Theming</SidebarItem>
+      </SidebarGroup>
+      <SidebarGroup label="Archive" collapsible defaultOpen={false}>
+        <SidebarItem href="/v1">Version 1</SidebarItem>
+      </SidebarGroup>
+    </Sidebar>
+  );
+}
+```
+
+### Collapsed icon rail
+
+`collapsed` hides labels, badges and group titles and eases the width to 64px. Icons stay visible. Hold the state in a Client Component and toggle it from a button in the header.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { IconButton, Sidebar, SidebarGroup, SidebarItem } from "@cherry-design-system/react";
+import { House, PanelLeft, Users } from "lucide-react";
+
+export function AppSidebar() {
+  const [collapsed, setCollapsed] = useState(false);
+  return (
+    <Sidebar
+      collapsed={collapsed}
+      header={
+        <IconButton
+          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          aria-pressed={collapsed}
+          icon={<PanelLeft />}
+          variant="ghost"
+          onClick={() => setCollapsed((value) => !value)}
+        />
+      }
+    >
+      <SidebarGroup label="Workspace">
+        <SidebarItem href="/" icon={<House />}>Home</SidebarItem>
+        <SidebarItem href="/team" icon={<Users />}>Team</SidebarItem>
+      </SidebarGroup>
+    </Sidebar>
+  );
+}
+```
+
+### Button items
+
+Without `href` a SidebarItem renders a `<button>`. Pass `onClick` from a Client Component; `disabled` works only in this form.
+
+```tsx
+"use client";
+import { SidebarItem } from "@cherry-design-system/react";
+import { Plus } from "lucide-react";
+
+export function NewProjectItem({ onCreate }: { onCreate: () => void }) {
+  return (
+    <SidebarItem icon={<Plus />} onClick={onCreate}>
+      New project
+    </SidebarItem>
+  );
+}
+```
+
+## Properties
+
+### Sidebar
+
+<Field value="header" type="ReactNode">
+  Top slot: logo, workspace switcher, collapse button.
+</Field>
+
+<Field value="footer" type="ReactNode">
+  Bottom slot: account, settings.
+</Field>
+
+<Field value="collapsed" type="boolean">
+  Icon rail: labels, badges and group titles hide, width eases to 64px.
+</Field>
+
+<Field value="navLabel" type="string">
+  Names the navigation landmark. Defaults to `"Sidebar"`.
+</Field>
+
+Sidebar renders an `<aside>` with a `<nav>` inside, forwards its ref to the `<aside>` and passes other attributes through.
+
+### SidebarGroup
+
+<Field value="label" type="ReactNode">
+  Group title, rendered as an eyebrow. Optional.
+</Field>
+
+<Field value="collapsible" type="boolean">
+  Makes the title a native disclosure that folds the group.
+</Field>
+
+<Field value="defaultOpen" type="boolean">
+  Initial state of a collapsible group. Defaults to open (`true`).
+</Field>
+
+SidebarGroup renders a `<div>` (a `<details>` when collapsible), forwards its ref and passes other attributes through.
+
+### SidebarItem
+
+<Field value="icon" type="ReactNode">
+  Leading icon, such as a lucide element. Stays visible when collapsed.
+</Field>
+
+<Field value="badge" type="ReactNode">
+  Trailing count or Badge.
+</Field>
+
+<Field value="active" type="boolean">
+  Marks the current item (`aria-current="page"` on links, `"true"` on buttons).
+</Field>
+
+<Field value="disabled" type="boolean">
+  Only for the button form (no `href`).
+</Field>
+
+SidebarItem renders an `<li>` holding an `<a>` (with `href`) or a `<button>` (without), forwards its ref to that element and passes other `<a>` attributes through. All parts are safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-sidebar` |
+| States | `data-collapsed`, `[aria-current="page"]`, `[open]`, `:disabled`, `:hover`, `:focus-visible` |
+| Parts | `cherry-sidebar__header`, `cherry-sidebar__nav`, `cherry-sidebar__footer`, `cherry-sidebar__group`, `cherry-sidebar__group-label`, `cherry-sidebar__group-chevron`, `cherry-sidebar__list`, `cherry-sidebar__item`, `cherry-sidebar__link`, `cherry-sidebar__icon`, `cherry-sidebar__label`, `cherry-sidebar__badge` |
+
+The panel reads `--cherry-bg-subtle`, `--cherry-border-default`, `--cherry-ghost-hover` and `--cherry-radius-md`.
+
+## Accessibility
+
+The `<nav>` is a landmark named by `navLabel`. The active item is `aria-current`. When collapsed, items keep their names for screen readers and group titles leave the tab order. Icons are hidden from assistive tech, so every item needs text children.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/sidebar" icon="code" iconPosition="left">
+  View Source
+</Button>

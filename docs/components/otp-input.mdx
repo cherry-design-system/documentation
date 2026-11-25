@@ -1,0 +1,165 @@
+---
+title: "OTPInput"
+description: "One-time code input with single-character slots, paste and SMS autofill support, and an optional separator."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 7
+navIcon: "rectangle-ellipsis"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# OTPInput
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/otpinput?theme=light" title="OTPInput preview" loading="lazy" style={{ width: "100%", height: "652px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/otpinput?theme=dark" title="OTPInput preview" loading="lazy" style={{ width: "100%", height: "652px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A one-time code input made of single-character slots. Typing advances, Backspace goes back, arrows move, and pasting (or SMS autofill) fills every slot. Use it for verification and two-factor codes.
+
+```tsx
+"use client";
+import { Field, OTPInput } from "@cherry-design-system/react";
+
+export function VerifyCode({ verify }: { verify: (code: string) => void }) {
+  return (
+    <Field label="Verification code">
+      <OTPInput name="code" length={6} separator onComplete={verify} />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Alphanumeric
+
+```tsx
+"use client";
+import { Field, OTPInput } from "@cherry-design-system/react";
+
+export function RecoveryCode() {
+  return (
+    <Field label="Recovery code" hint="Letters and numbers, from your backup sheet.">
+      <OTPInput length={8} mode="alphanumeric" separator />
+    </Field>
+  );
+}
+```
+
+### Controlled
+
+```tsx
+"use client";
+import { useState } from "react";
+import { Field, OTPInput } from "@cherry-design-system/react";
+
+export function Pin() {
+  const [pin, setPin] = useState("");
+  return (
+    <Field label="PIN" error={pin.length === 4 && pin === "0000" ? "Choose a less obvious PIN." : undefined}>
+      <OTPInput length={4} size="lg" value={pin} onValueChange={setPin} />
+    </Field>
+  );
+}
+```
+
+### Translated slot labels
+
+```tsx
+"use client";
+import { Field, OTPInput } from "@cherry-design-system/react";
+
+export function Codigo() {
+  return (
+    <Field label="Código">
+      <OTPInput slotLabel={(index, length) => `Carácter ${index + 1} de ${length}`} />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+### OTPInput
+
+<Field value="length" type="number">
+  Number of slots. Defaults to `6`.
+</Field>
+
+<Field value="value" type="string">
+  Controlled value.
+</Field>
+
+<Field value="defaultValue" type="string">
+  Initial value when uncontrolled.
+</Field>
+
+<Field value="onValueChange" type="(value: string) => void">
+  Called with the joined code on every change.
+</Field>
+
+<Field value="onComplete" type="(value: string) => void">
+  Called once every slot is filled.
+</Field>
+
+<Field value="mode" type='"numeric" | "alphanumeric"'>
+  Accepted characters. Defaults to `"numeric"`.
+</Field>
+
+<Field value="separator" type="boolean">
+  Show a divider between the two halves. Defaults to `false`.
+</Field>
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Slot size. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="disabled" type="boolean">
+  Disables every slot.
+</Field>
+
+<Field value="required" type="boolean">
+  Marks the code as required.
+</Field>
+
+<Field value="name" type="string">
+  Form field name; the joined code is submitted.
+</Field>
+
+<Field value="autoFocus" type="boolean">
+  Focus the first slot on mount.
+</Field>
+
+<Field value="slotLabel" type="(index: number, length: number) => string">
+  Accessible name per slot. Defaults to `"Character {n} of {length}"`.
+</Field>
+
+Renders a `<div>` group, forwards its ref to it and passes through native `<div>` attributes.
+
+### OTPSlot
+
+One character cell: a single-character input with a blinking caret while it is focused and empty. Exported for custom layouts; OTPInput renders these for you.
+
+<Field value="value" type="string" required>
+  The slot's character (`""` when empty).
+</Field>
+
+The ref and native `<input>` attributes (except `size` and `type`) go to the `<input>`.
+
+## Styling
+
+Root class `cherry-otp-input` with `data-size` (`sm`, `md`, `lg`) and states `data-invalid`, `data-disabled`, `data-separator`. Slots carry `data-filled`. Parts: `cherry-otp-input__slot`, `__char`, `__caret`, `__separator`.
+
+Reads `--cherry-bg-canvas`, `--cherry-border-default`, `--cherry-border-focus`, `--cherry-focus-ring` and `--cherry-danger-fg`.
+
+## Accessibility
+
+A named group; each slot is labelled "Character n of length" (`slotLabel`). Inside a Field, the Field label names the group. Typing advances, Backspace goes back, arrows, Home and End move, and paste fills every slot.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/otp-input" icon="code" iconPosition="left">
+  View Source
+</Button>

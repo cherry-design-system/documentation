@@ -1,0 +1,133 @@
+---
+title: "Textarea"
+description: "Multi-line text input that grows with its content, with an optional row cap and a character count."
+date: "2026-11-25"
+category: "Forms"
+categoryOrder: 2
+order: 12
+navIcon: "align-left"
+categoryIcon: "text-cursor-input"
+section: "Components"
+---
+# Textarea
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/textarea?theme=light" title="Textarea preview" loading="lazy" style={{ width: "100%", height: "788px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/textarea?theme=dark" title="Textarea preview" loading="lazy" style={{ width: "100%", height: "788px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+A multi-line text input that grows with its content. Use it for comments, descriptions and messages. Use [Input](/components/input) for single-line values.
+
+```tsx
+"use client";
+import { Field, Textarea } from "@cherry-design-system/react";
+
+export function Bio() {
+  return (
+    <Field label="Bio">
+      <Textarea name="bio" />
+    </Field>
+  );
+}
+```
+
+## Examples
+
+### Row cap and character count
+
+`maxRows` stops the growth and scrolls beyond it. `showCount` shows a count against `maxLength` when set.
+
+```tsx
+"use client";
+import { Field, Textarea } from "@cherry-design-system/react";
+
+export function ShortBio() {
+  return (
+    <Field label="Bio" hint="Shown on your public profile.">
+      <Textarea maxRows={8} maxLength={160} showCount />
+    </Field>
+  );
+}
+```
+
+### Fixed height
+
+Turn off `autoResize` and set `rows` for a fixed height.
+
+```tsx
+"use client";
+import { Field, Textarea } from "@cherry-design-system/react";
+
+export function Notes() {
+  return (
+    <Field label="Notes">
+      <Textarea autoResize={false} rows={6} />
+    </Field>
+  );
+}
+```
+
+### Translated count
+
+`countLabel` builds the text screen readers hear for the count.
+
+```tsx
+"use client";
+import { Field, Textarea } from "@cherry-design-system/react";
+
+export function Comentario() {
+  return (
+    <Field label="Comentario">
+      <Textarea
+        maxLength={280}
+        showCount
+        countLabel={(count, max) => `${count} de ${max} caracteres`}
+      />
+    </Field>
+  );
+}
+```
+
+## Properties
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Text size and padding. Defaults to `"md"`.
+</Field>
+
+<Field value="invalid" type="boolean">
+  Error state; set automatically inside a `<Field error>`.
+</Field>
+
+<Field value="autoResize" type="boolean">
+  Grow with the content (CSS `field-sizing`, with a JS fallback). Defaults to `true`.
+</Field>
+
+<Field value="maxRows" type="number">
+  Cap for auto-resize, in rows; scrolls beyond it.
+</Field>
+
+<Field value="showCount" type="boolean">
+  Show a character count (against `maxLength` when set).
+</Field>
+
+<Field value="countLabel" type="(count: number, max: number | undefined) => string">
+  Accessible text for the count. Defaults to `"{count} of {max} characters"`, or `"{count} characters"` without `maxLength`.
+</Field>
+
+<Field value="wrapperClassName" type="string">
+  Class for the outer wrapper (`className` goes to the `<textarea>`).
+</Field>
+
+The ref and all native `<textarea>` attributes go to the `<textarea>`.
+
+## Styling
+
+Root class `cherry-textarea` with `data-size` (`sm`, `md`, `lg`) and states `data-invalid`, `data-disabled`, `data-auto-resize`, `data-limit`, `:focus-within`. Parts: `cherry-textarea__control`, `cherry-textarea__count`.
+
+Reads the same field tokens as Input: `--cherry-bg-canvas`, `--cherry-border-default`, `--cherry-border-focus`, `--cherry-ring` and `--cherry-ring-danger`.
+
+## Accessibility
+
+Label it like Input, with Field or `aria-label`. `showCount` links the counter to the textarea with `aria-describedby`.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/textarea" icon="code" iconPosition="left">
+  View Source
+</Button>

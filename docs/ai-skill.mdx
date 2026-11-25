@@ -1,0 +1,76 @@
+---
+title: "Skill for AI agents"
+description: "Install the cherry-react agent skill so coding agents use cherry components, exact props, tokens and accessibility rules."
+date: "2026-11-25"
+category: "Getting Started"
+categoryOrder: 0
+order: 2
+navIcon: "bot"
+categoryIcon: "rocket"
+---
+# Skill for AI agents
+
+The cherry repository ships an agent skill in [`skills/cherry-react`](https://github.com/cherry-design-system/react/tree/main/skills/cherry-react). It teaches coding agents to build with cherry correctly: which component to use, exact props and values, `--cherry-*` tokens instead of hardcoded styles, and what accessibility needs from the app (labels, names, keyboard).
+
+It is documentation only: no runtime code, and it is not part of the npm package.
+
+## What it contains
+
+```
+cherry-react/
+  SKILL.md                 # Agent Skill: rules, quick start, which component to use
+  AGENTS.md                # self-contained guide for agents that read one file
+  README.md
+  references/
+    components.md          # every component: props, defaults, accessibility, checked example
+    tokens.md              # every --cherry-* token with light and dark values
+    setup.md               # install, Next.js, Vite, per-component CSS, server-side mode
+    theming.md             # light/dark, useColorMode, brands, overrides, custom components
+    accessibility.md       # what cherry guarantees, what you provide, keyboard, testing
+```
+
+`components.md` and `tokens.md` are generated from the component source, the manifests and the token files. CI fails if they fall out of date, and every example in them is type-checked against the real components, so the skill matches each release.
+
+## Install with the skills CLI
+
+The [`skills` CLI](https://github.com/vercel-labs/skills) installs the skill into the right place for most coding agents (Cursor, Codex and others):
+
+```bash
+# into the current project
+npx -y skills add cherry-design-system/react
+```
+
+Update or remove it later:
+
+```bash
+npx skills update cherry-react
+npx skills remove cherry-react
+```
+
+<Callout type="note">
+  `skills` is a third-party tool. If you would rather not use it, copy the folder by hand as described below.
+</Callout>
+
+## Install by hand
+
+Clone or download the repository, then copy the `skills/cherry-react` folder into the skills directory your agent reads, either in the project (committed and shared with your team) or in your home directory (personal, every project).
+
+## Agents that read one file
+
+For agents without skill support, put `AGENTS.md` at your repository root, or reference it from your agent's rules file (for example `.cursor/rules` or `.github/copilot-instructions.md`). Keep the `references/` folder next to it so the agent can open the full component reference.
+
+## What the skill enforces
+
+The skill's rules mirror these docs:
+
+1. Every control is a cherry component: `Button`, `IconButton`, `Input`, `Select`, `Combobox` and the rest. Never a raw `<button>`, `<input>`, `<select>` or `<textarea>`, and never a second component library.
+2. Every control has a name: wrap form controls in `<Field label>`, or pass `aria-label`. Every `IconButton` needs `aria-label`.
+3. Plain prop names and listed values only (`variant`, `size`, `invalid`, `fullWidth`). No `$` props.
+4. Tokens, never hardcoded values, and no branching on the mode in JavaScript.
+5. Customize with a plain class: cherry is in `@layer cherry`, so unlayered CSS wins without `!important`.
+6. Icons are `lucide-react` elements passed to `icon`, `leadingIcon` or `trailingIcon`.
+7. Router links go through `asChild` on `NavItem`.
+
+<Callout type="info">
+  For cherry 1.x (`cherry-styled-components`), use that repository's `cherry-design-system` skill instead. The two can be installed side by side.
+</Callout>

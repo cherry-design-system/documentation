@@ -1,0 +1,192 @@
+---
+title: "NavPill"
+description: "Top navigation pill with a sliding highlight, optional sticky or fixed placement, route tracking and in-page section tracking."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 2
+navIcon: "panel-top"
+categoryIcon: "navigation"
+section: "Components"
+---
+# NavPill
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/navpill?theme=light" title="NavPill preview" loading="lazy" style={{ width: "100%", height: "348px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/navpill?theme=dark" title="NavPill preview" loading="lazy" style={{ width: "100%", height: "348px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+NavPill is a compact top navigation: a `<nav>` holding `NavItem` links, with a highlight that slides to the current item on route changes, scroll and resize. Without JavaScript the current item paints its own static highlight. For app navigation with groups use [Sidebar](/components/sidebar).
+
+```tsx
+import { NavItem, NavPill } from "@cherry-design-system/react";
+
+export function SiteNav() {
+  return (
+    <NavPill aria-label="Main">
+      <NavItem href="/" active>Home</NavItem>
+      <NavItem href="/docs">Docs</NavItem>
+      <NavItem href="/blog">Blog</NavItem>
+    </NavPill>
+  );
+}
+```
+
+## Examples
+
+### Router links with asChild
+
+Set `asChild` on a NavItem and pass your router link as its only child. NavItem gives the link its class, `aria-current` and icon. The child must render an `<a href>`.
+
+```tsx
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { NavItem, NavPill } from "@cherry-design-system/react";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/docs", label: "Docs" },
+  { href: "/blog", label: "Blog" },
+];
+
+export function SiteNav() {
+  const pathname = usePathname();
+  return (
+    <NavPill aria-label="Main">
+      {links.map((link) => (
+        <NavItem key={link.href} asChild active={pathname === link.href}>
+          <Link href={link.href}>{link.label}</Link>
+        </NavItem>
+      ))}
+    </NavPill>
+  );
+}
+```
+
+### Tracking the route and sections
+
+`trackRoute` marks the link that matches the current URL path and follows client-side route changes. `trackSections` highlights in-page links (`#section`, or `/path#section` on that path) while their section is in view, with `aria-current="location"`. An active section takes the highlight from the current-page link.
+
+```tsx
+import { NavItem, NavPill } from "@cherry-design-system/react";
+
+export function LandingNav() {
+  return (
+    <NavPill aria-label="Main" trackRoute trackSections>
+      <NavItem href="/">Home</NavItem>
+      <NavItem href="/#features">Features</NavItem>
+      <NavItem href="/#pricing">Pricing</NavItem>
+      <NavItem href="/docs">Docs</NavItem>
+    </NavPill>
+  );
+}
+```
+
+<Callout type="note">
+  The server cannot know the URL, so `trackRoute` only takes effect after hydration. For a correct first paint, pass `active` from your router as well. A link's own `active` prop always wins.
+</Callout>
+
+### Sticky and fixed
+
+`position="sticky"` keeps the pill in the flow and sticks it to the top or bottom while scrolling. `position="fixed"` floats it over the page. `placement` picks the edge; `start` and `end` follow the writing direction. Sticky uses only `top` or `bottom`. A sticky or fixed pill offsets anchor jumps so headings never land under it.
+
+```tsx
+import { NavItem, NavPill } from "@cherry-design-system/react";
+import { BookOpen, House } from "lucide-react";
+
+export function FloatingNav() {
+  return (
+    <NavPill aria-label="Main" position="fixed" placement="bottom" trackRoute>
+      <NavItem href="/" icon={<House />}>Home</NavItem>
+      <NavItem href="/docs" icon={<BookOpen />}>Docs</NavItem>
+    </NavPill>
+  );
+}
+```
+
+### Table of contents with useActiveSection
+
+`useActiveSection` is the hook behind `trackSections`. Pass the ids of your sections to build your own table of contents; it returns the active id, or `null` before the first one. The optional `line` option sets the reading line as a fraction of the viewport height from the top (default `0.3`). `getActiveSection(ids, line)` is the same check as a plain function.
+
+```tsx
+"use client";
+import { useActiveSection } from "@cherry-design-system/react";
+
+const sections = ["install", "usage", "api"];
+
+export function Toc() {
+  const active = useActiveSection(sections);
+  return (
+    <ul>
+      {sections.map((id) => (
+        <li key={id}>
+          <a href={`#${id}`} aria-current={active === id ? "location" : undefined}>
+            {id}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+## Properties
+
+### NavPill
+
+<Field value="aria-label" type="string">
+  Names the navigation landmark. Defaults to `"Main"`.
+</Field>
+
+<Field value="position" type='"static" | "sticky" | "fixed"'>
+  How the pill attaches to the page. Defaults to `"static"`.
+</Field>
+
+<Field value="placement" type='"top" | "bottom" | "top-start" | "top-end" | "bottom-start" | "bottom-end"'>
+  Where a sticky or fixed pill sits. Defaults to `"top"`.
+</Field>
+
+<Field value="trackRoute" type="boolean">
+  Marks the link matching the current URL path as the current page and follows client-side route changes.
+</Field>
+
+<Field value="trackSections" type="boolean">
+  Highlights in-page links as their section scrolls into view, with `aria-current="location"`.
+</Field>
+
+NavPill renders a `<nav>` around a `<ul>`, forwards its ref to the `<nav>` and passes other attributes through. It is a Client Component.
+
+### NavItem
+
+<Field value="active" type="boolean">
+  Marks the current page (sets `aria-current="page"`).
+</Field>
+
+<Field value="icon" type="ReactNode">
+  Optional leading icon.
+</Field>
+
+<Field value="asChild" type="boolean">
+  Render your own link element (such as Next.js `Link`) as the item. Pass it as the only child; it must render an `<a href>`.
+</Field>
+
+NavItem renders an `<li>` with an `<a>` inside, forwards its ref to the link and passes every other `<a>` attribute through. It has no client JavaScript and renders in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-nav-pill` |
+| `data-position` | `static`, `sticky`, `fixed` |
+| `data-placement` | `top`, `bottom`, `top-start`, `top-end`, `bottom-start`, `bottom-end` |
+| States | `data-indicator`, `data-location`, `[aria-current="page"]`, `[aria-current="location"]`, `:hover`, `:focus-visible` |
+| Parts | `cherry-nav-pill__list`, `cherry-nav-pill__indicator`, `cherry-nav-item`, `cherry-nav-item__link`, `cherry-nav-item__icon` |
+
+The pill reads `--cherry-nav-pill-height`, `--cherry-nav-pill-offset`, `--cherry-bg-subtle`, `--cherry-radius-full` and `--cherry-ghost-hover`.
+
+## Accessibility
+
+NavPill is a navigation landmark; name it with `aria-label`, and give each landmark a distinct name when a page has more than one. The current route's link is `aria-current="page"`; with `trackSections` the in-page link whose section is in view is `aria-current="location"`. Dividers are decorative. Icons are hidden from assistive tech, so every item needs a text label.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/nav-pill" icon="code" iconPosition="left">
+  View Source
+</Button>

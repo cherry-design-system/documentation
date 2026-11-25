@@ -1,0 +1,272 @@
+---
+title: "Toast"
+description: "Transient notifications with ToastProvider, Toaster and the useToast hook: show, update, dismiss and promise toasts with status colors and actions."
+date: "2026-11-25"
+category: "Overlays"
+categoryOrder: 6
+order: 4
+navIcon: "bell"
+categoryIcon: "layers"
+section: "Components"
+---
+# Toast
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/toast?theme=light" title="Toast preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/toast?theme=dark" title="Toast preview" loading="lazy" style={{ width: "100%", height: "520px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Toasts are short, transient notifications announced without moving focus. Wrap the app in `ToastProvider`, place one `Toaster` inside it, and call `useToast()` anywhere below to show them. For a message that stays in the page use [Callout](/components/callout) or [Banner](/components/banner).
+
+```tsx
+"use client";
+import type { ReactNode } from "react";
+import { ToastProvider, Toaster } from "@cherry-design-system/react";
+
+export function Providers({ children }: { children: ReactNode }) {
+  return (
+    <ToastProvider>
+      {children}
+      <Toaster />
+    </ToastProvider>
+  );
+}
+```
+
+```tsx
+"use client";
+import { Button, useToast } from "@cherry-design-system/react";
+
+export function SaveButton() {
+  const toast = useToast();
+  return (
+    <Button onClick={() => toast.show("Changes saved", { color: "success", autoHide: 4000 })}>
+      Save
+    </Button>
+  );
+}
+```
+
+## Examples
+
+### Colors and descriptions
+
+`color` sets the status icon tile: `info` (the default), `success`, `warning`, `error`, `loading` or `default` (no tile). `description` adds a second line.
+
+```tsx
+"use client";
+import { Button, useToast } from "@cherry-design-system/react";
+
+export function UploadFailed() {
+  const toast = useToast();
+  return (
+    <Button
+      onClick={() =>
+        toast.show("Upload failed", {
+          color: "error",
+          description: "The file is larger than 10 MB.",
+        })
+      }
+    >
+      Upload
+    </Button>
+  );
+}
+```
+
+<Callout type="note">
+  Toasts are sticky by default (`autoHide: 0`). Pass `autoHide` in milliseconds to hide one on its own. A `loading` toast never hides itself; update or dismiss it.
+</Callout>
+
+### Action button
+
+`action` adds a button that runs `onClick` and then dismisses the toast.
+
+```tsx
+"use client";
+import { Button, useToast } from "@cherry-design-system/react";
+
+export function ArchiveButton({ onUndo }: { onUndo: () => void }) {
+  const toast = useToast();
+  return (
+    <Button
+      onClick={() =>
+        toast.show("Conversation archived", {
+          color: "default",
+          autoHide: 6000,
+          action: { label: "Undo", onClick: onUndo },
+        })
+      }
+    >
+      Archive
+    </Button>
+  );
+}
+```
+
+### Promise
+
+`toast.promise` shows a loading toast and swaps it in place for a success or error toast when the task settles. `success` and `error` can be functions of the result or the error. Settled toasts hide after 4 seconds unless you pass `autoHide`. It returns the task's promise.
+
+```tsx
+"use client";
+import { Button, useToast } from "@cherry-design-system/react";
+
+export function DeployButton({ deploy }: { deploy: () => Promise<{ url: string }> }) {
+  const toast = useToast();
+  return (
+    <Button
+      onClick={() =>
+        toast.promise(deploy, {
+          loading: "Deploying",
+          success: (result) => `Deployed to ${result.url}`,
+          error: "Deploy failed",
+        })
+      }
+    >
+      Deploy
+    </Button>
+  );
+}
+```
+
+### Update and dismiss
+
+`show` returns the toast's id. Pass it to `update` to change the toast in place, to `dismiss` for an animated removal, or to `remove` to drop it immediately. Passing an existing `id` to `show` replaces that toast.
+
+```tsx
+"use client";
+import { Button, useToast } from "@cherry-design-system/react";
+
+export function SyncButton({ sync }: { sync: () => Promise<void> }) {
+  const toast = useToast();
+  return (
+    <Button
+      onClick={async () => {
+        const id = toast.show("Syncing", { color: "loading" });
+        await sync();
+        toast.update(id, { title: "Synced", color: "success", autoHide: 3000 });
+      }}
+    >
+      Sync
+    </Button>
+  );
+}
+```
+
+### Toaster placement
+
+```tsx
+import { Toaster } from "@cherry-design-system/react";
+
+<Toaster position="bottom" align="right" visibleToasts={5} expand />;
+```
+
+## Properties
+
+### ToastProvider
+
+<Field value="children" type="ReactNode" required>
+  The part of the app that can show toasts. Place it once, near the root.
+</Field>
+
+### Toaster
+
+<Field value="align" type='"left" | "right" | "center"'>
+  Horizontal placement. Defaults to `"center"`.
+</Field>
+
+<Field value="position" type='"top" | "bottom"'>
+  Anchored edge. Defaults to `"top"`.
+</Field>
+
+<Field value="expand" type="boolean">
+  Keep every toast fanned out instead of collapsing them into a deck.
+</Field>
+
+<Field value="visibleToasts" type="number">
+  How many toasts show at once; older ones wait behind. Defaults to `3`.
+</Field>
+
+<Field value="label" type="string">
+  Accessible name of the region. Defaults to `"Notifications"`.
+</Field>
+
+<Field value="dismissLabel" type="string">
+  Accessible name of each close badge. Defaults to `"Dismiss notification"`.
+</Field>
+
+Toaster renders the toasts of the nearest `ToastProvider`. Place it once. It takes no other attributes.
+
+### useToast
+
+`useToast()` returns the toast API:
+
+<Field value="show" type="(title: ReactNode, options?: ToastOptions) => number">
+  Shows a toast and returns its id.
+</Field>
+
+<Field value="update" type="(id: number, update: ToastUpdate) => void">
+  Changes a toast in place. `ToastUpdate` takes `title` plus any `ToastOptions` except `id`.
+</Field>
+
+<Field value="dismiss" type="(id: number) => void">
+  Animated removal.
+</Field>
+
+<Field value="remove" type="(id: number) => void">
+  Immediate removal, no exit animation.
+</Field>
+
+<Field value="promise" type="<T>(task: Promise<T> | (() => Promise<T>), messages: ToastPromiseMessages<T>, options?: ToastOptions) => Promise<T>">
+  Loading toast that turns into success or error when the task settles. `messages` is `{ loading, success, error }`.
+</Field>
+
+<Field value="toasts" type="ToastItem[]">
+  The toasts currently in the stack.
+</Field>
+
+### ToastOptions
+
+<Field value="color" type='"default" | "info" | "success" | "error" | "warning" | "loading"'>
+  Status color and icon tile. `default` has no tile. Defaults to `"info"`.
+</Field>
+
+<Field value="autoHide" type="number">
+  Milliseconds before the toast hides itself. `0` (the default) is sticky.
+</Field>
+
+<Field value="description" type="ReactNode">
+  Optional second line under the title.
+</Field>
+
+<Field value="action" type="{ label: string; onClick: () => void }">
+  Optional button. Runs `onClick`, then dismisses the toast.
+</Field>
+
+<Field value="dismissible" type="boolean">
+  Close badge and swipe to dismiss. Defaults to `true`.
+</Field>
+
+<Field value="id" type="number">
+  Reuse an existing toast's id to replace that toast in place.
+</Field>
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-toaster` |
+| `data-color` | `default`, `info`, `success`, `error`, `warning`, `loading` |
+| `data-align` | `center`, `left`, `right` |
+| `data-position` | `top`, `bottom` |
+| States | `data-mounted`, `data-exiting`, `data-dragging`, `data-concealed`, `data-settled`, `data-expanded` |
+| Parts | `cherry-toast`, `cherry-toast__card`, `cherry-toast__content`, `cherry-toast__tile`, `cherry-toast__glyph`, `cherry-toast__stroke`, `cherry-toast__text`, `cherry-toast__title`, `cherry-toast__description`, `cherry-toast__action`, `cherry-toast__close` |
+
+Cards read `--cherry-bg-elevated`, `--cherry-border-default` and `--cherry-elevation-lg`. Status tiles use `--cherry-info-solid`, `--cherry-success-solid`, `--cherry-warning-solid` and `--cherry-danger-solid`.
+
+## Accessibility
+
+Toasts are announced through a polite live region without moving focus. The close button is labelled with `dismissLabel`, and Escape dismisses. Hovering or focusing the stack pauses auto-hide. Do not put the only copy of an important action in a toast.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/toast" icon="code" iconPosition="left">
+  View Source
+</Button>

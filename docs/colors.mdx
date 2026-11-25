@@ -1,0 +1,339 @@
+---
+title: "Colors"
+description: "Every cherry 2.0 color token as swatches: semantic colors for light and dark mode, and the raw palette they point to."
+date: "2026-11-25"
+category: "Customization"
+categoryOrder: 1
+order: 2
+navIcon: "paint-bucket"
+categoryIcon: "palette"
+---
+# Colors
+
+Every color is a CSS custom property named `--cherry-<token>`, so the swatch labeled `bg-canvas` is `var(--cherry-bg-canvas)`. Use the semantic colors in your CSS: they switch between light and dark mode on their own, and [brands](/brands) re-point them. The palette below is what they resolve to.
+
+```css
+.panel {
+  background: var(--cherry-bg-subtle);
+  color: var(--cherry-fg-default);
+  border: 1px solid var(--cherry-border-default);
+}
+```
+
+<Callout type="note">
+  Never branch on the mode to pick a color, and never write `.dark` overrides for a cherry color. Use the semantic token; it already switches. See [Dark mode](/dark-mode).
+</Callout>
+
+## Semantic colors
+
+These are the colors to use in your CSS. Each one resolves from a light slot and a dark slot (`--cherry-l-*` and `--cherry-d-*`, see [Brands](/brands#override-the-color-slots-in-css)). Each group shows the light value, then the dark value.
+
+<Callout type="warning">
+  Readable text uses `--cherry-fg-default` or `--cherry-fg-muted`. `--cherry-fg-subtle` is below 4.5:1 contrast and is only for disabled text, borders and decorative marks.
+</Callout>
+
+### Background
+
+**Light**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="bg-canvas" value="#ffffff" />
+  <ColorSwatch token="bg-subtle" value="#fafafa" />
+  <ColorSwatch token="bg-muted" value="#f4f4f5" />
+  <ColorSwatch token="bg-elevated" value="#ffffff" />
+  <ColorSwatch token="bg-segment" value="#f4f4f5" />
+  <ColorSwatch token="bg-segment-selected" value="#ffffff" />
+  <ColorSwatch token="bg-inverse" value="#18181b" />
+  <ColorSwatch token="bg-overlay" value="#00000080" />
+</ColorSwatchGroup>
+
+**Dark**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="bg-canvas" value="#09090b" />
+  <ColorSwatch token="bg-subtle" value="#111113" />
+  <ColorSwatch token="bg-muted" value="#27272a" />
+  <ColorSwatch token="bg-elevated" value="#18181b" />
+  <ColorSwatch token="bg-segment" value="#18181b" />
+  <ColorSwatch token="bg-segment-selected" value="#3f3f46" />
+  <ColorSwatch token="bg-inverse" value="#fafafa" />
+  <ColorSwatch token="bg-overlay" value="#000000b3" />
+</ColorSwatchGroup>
+
+- `--cherry-bg-segment`: Track of segmented controls (pill Tabs, ThemeToggle).
+- `--cherry-bg-segment-selected`: Selected item surface inside a segment track; raised (lighter) in both modes.
+
+### Foreground
+
+**Light**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="fg-default" value="#09090b" />
+  <ColorSwatch token="fg-muted" value="#63636b" />
+  <ColorSwatch token="fg-subtle" value="#a1a1aa" />
+  <ColorSwatch token="fg-inverse" value="#ffffff" />
+  <ColorSwatch token="fg-on-accent" value="#ffffff" />
+</ColorSwatchGroup>
+
+**Dark**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="fg-default" value="#fafafa" />
+  <ColorSwatch token="fg-muted" value="#a1a1aa" />
+  <ColorSwatch token="fg-subtle" value="#52525b" />
+  <ColorSwatch token="fg-inverse" value="#09090b" />
+  <ColorSwatch token="fg-on-accent" value="#ffffff" />
+</ColorSwatchGroup>
+
+- `--cherry-fg-default`: Body text and headings.
+- `--cherry-fg-muted`: Secondary text, placeholders, hints, captions. At least 4.5:1 on canvas, subtle and muted backgrounds.
+- `--cherry-fg-subtle`: Disabled text, borders and decorative marks only: below 4.5:1, never for readable text.
+
+### Border
+
+**Light**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="border-default" value="#e4e4e7" />
+  <ColorSwatch token="border-strong" value="#d4d4d8" />
+  <ColorSwatch token="border-subtle" value="#f4f4f5" />
+  <ColorSwatch token="border-focus" value="#a1a1aa" />
+</ColorSwatchGroup>
+
+**Dark**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="border-default" value="#27272a" />
+  <ColorSwatch token="border-strong" value="#3f3f46" />
+  <ColorSwatch token="border-subtle" value="#18181b" />
+  <ColorSwatch token="border-focus" value="#71717a" />
+</ColorSwatchGroup>
+
+- `--cherry-border-focus`: Focus border, paired with --cherry-ring.
+
+### Actions
+
+**Light**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="primary-default" value="#18181b" />
+  <ColorSwatch token="primary-hover" value="#3f3f46" />
+  <ColorSwatch token="primary-fg" value="#ffffff" />
+  <ColorSwatch token="secondary-default" value="#f4f4f5" />
+  <ColorSwatch token="secondary-hover" value="#e4e4e7" />
+  <ColorSwatch token="secondary-fg" value="#18181b" />
+  <ColorSwatch token="ghost-hover" value="#f4f4f5" />
+</ColorSwatchGroup>
+
+**Dark**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="primary-default" value="#fafafa" />
+  <ColorSwatch token="primary-hover" value="#e4e4e7" />
+  <ColorSwatch token="primary-fg" value="#09090b" />
+  <ColorSwatch token="secondary-default" value="#27272a" />
+  <ColorSwatch token="secondary-hover" value="#3f3f46" />
+  <ColorSwatch token="secondary-fg" value="#fafafa" />
+  <ColorSwatch token="ghost-hover" value="#27272a" />
+</ColorSwatchGroup>
+
+### Accent
+
+**Light**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="accent-default" value="#dc1a43" />
+  <ColorSwatch token="accent-hover" value="#b91137" />
+  <ColorSwatch token="accent-subtle" value="#fff1f3" />
+  <ColorSwatch token="accent-fg" value="#b91137" />
+  <ColorSwatch token="accent-ring" value="#ef2f5440" />
+  <ColorSwatch token="ai-from" value="#ef2f54" />
+  <ColorSwatch token="ai-to" value="#8b5cf6" />
+</ColorSwatchGroup>
+
+**Dark**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="accent-default" value="#dc1a43" />
+  <ColorSwatch token="accent-hover" value="#b91137" />
+  <ColorSwatch token="accent-subtle" value="#3a0612" />
+  <ColorSwatch token="accent-fg" value="#fd9aab" />
+  <ColorSwatch token="accent-ring" value="#ef2f5440" />
+  <ColorSwatch token="ai-from" value="#f95f7b" />
+  <ColorSwatch token="ai-to" value="#a78bfa" />
+</ColorSwatchGroup>
+
+- `--cherry-accent-default`: Brand accent fill (white text on it is at least 4.5:1).
+- `--cherry-accent-fg`: Accent-colored text on canvas.
+
+### Status
+
+**Light**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="success-fg" value="#047857" />
+  <ColorSwatch token="success-bg" value="#ecfdf5" />
+  <ColorSwatch token="success-border" value="#a7f3d0" />
+  <ColorSwatch token="success-solid" value="#059669" />
+  <ColorSwatch token="warning-fg" value="#b45309" />
+  <ColorSwatch token="warning-bg" value="#fffbeb" />
+  <ColorSwatch token="warning-border" value="#fde68a" />
+  <ColorSwatch token="warning-solid" value="#f59e0b" />
+  <ColorSwatch token="danger-fg" value="#b91137" />
+  <ColorSwatch token="danger-bg" value="#fff1f3" />
+  <ColorSwatch token="danger-border" value="#fec6cf" />
+  <ColorSwatch token="danger-solid" value="#dc1a43" />
+  <ColorSwatch token="info-fg" value="#2563eb" />
+  <ColorSwatch token="info-bg" value="#eff6ff" />
+  <ColorSwatch token="info-border" value="#bfdbfe" />
+  <ColorSwatch token="info-solid" value="#2563eb" />
+</ColorSwatchGroup>
+
+**Dark**
+
+<ColorSwatchGroup>
+  <ColorSwatch token="success-fg" value="#34d399" />
+  <ColorSwatch token="success-bg" value="#022c22" />
+  <ColorSwatch token="success-border" value="#064e3b" />
+  <ColorSwatch token="success-solid" value="#10b981" />
+  <ColorSwatch token="warning-fg" value="#fbbf24" />
+  <ColorSwatch token="warning-bg" value="#451a03" />
+  <ColorSwatch token="warning-border" value="#78350f" />
+  <ColorSwatch token="warning-solid" value="#fbbf24" />
+  <ColorSwatch token="danger-fg" value="#f95f7b" />
+  <ColorSwatch token="danger-bg" value="#3a0612" />
+  <ColorSwatch token="danger-border" value="#831432" />
+  <ColorSwatch token="danger-solid" value="#dc1a43" />
+  <ColorSwatch token="info-fg" value="#60a5fa" />
+  <ColorSwatch token="info-bg" value="#172554" />
+  <ColorSwatch token="info-border" value="#1e3a8a" />
+  <ColorSwatch token="info-solid" value="#3b82f6" />
+</ColorSwatchGroup>
+
+### Focus and shadow colors
+
+These are translucent colors used inside `--cherry-ring` and the `--cherry-shadow-*` elevation tokens (see [Tokens](/tokens#elevation-and-focus)), so they are listed as values rather than swatches.
+
+| Token | Light | Dark | Notes |
+| --- | --- | --- | --- |
+| `--cherry-focus-ring` | `#09090b26` | `#ffffff33` | The soft ring color inside --cherry-ring. |
+| `--cherry-shadow-ambient` | `#09090b0a` | `#09090b80` |  |
+| `--cherry-shadow-xs` | `#09090b0d` | `#09090b80` |  |
+| `--cherry-shadow-sm` | `#09090b0f` | `#09090b8c` |  |
+| `--cherry-shadow-md` | `#09090b14` | `#09090b99` |  |
+| `--cherry-shadow-lg` | `#09090b1f` | `#09090bb2` |  |
+| `--cherry-shadow-xl` | `#09090b2e` | `#09090bd9` |  |
+| `--cherry-shadow-highlight` | `#ffffff00` | `#ffffff14` |  |
+
+## Palette
+
+The raw color steps the semantic colors point to. Prefer the semantic tokens in your CSS: palette steps do not switch with the mode, and brands do not change them.
+
+### Zinc
+
+<ColorSwatchGroup>
+  <ColorSwatch token="zinc-0" value="#ffffff" />
+  <ColorSwatch token="zinc-50" value="#fafafa" />
+  <ColorSwatch token="zinc-100" value="#f4f4f5" />
+  <ColorSwatch token="zinc-200" value="#e4e4e7" />
+  <ColorSwatch token="zinc-300" value="#d4d4d8" />
+  <ColorSwatch token="zinc-400" value="#a1a1aa" />
+  <ColorSwatch token="zinc-500" value="#71717a" />
+  <ColorSwatch token="zinc-550" value="#63636b" />
+  <ColorSwatch token="zinc-600" value="#52525b" />
+  <ColorSwatch token="zinc-700" value="#3f3f46" />
+  <ColorSwatch token="zinc-800" value="#27272a" />
+  <ColorSwatch token="zinc-900" value="#18181b" />
+  <ColorSwatch token="zinc-925" value="#111113" />
+  <ColorSwatch token="zinc-950" value="#09090b" />
+</ColorSwatchGroup>
+
+### Cherry
+
+<ColorSwatchGroup>
+  <ColorSwatch token="cherry-50" value="#fff1f3" />
+  <ColorSwatch token="cherry-100" value="#ffe0e5" />
+  <ColorSwatch token="cherry-200" value="#fec6cf" />
+  <ColorSwatch token="cherry-300" value="#fd9aab" />
+  <ColorSwatch token="cherry-400" value="#f95f7b" />
+  <ColorSwatch token="cherry-500" value="#ef2f54" />
+  <ColorSwatch token="cherry-600" value="#dc1a43" />
+  <ColorSwatch token="cherry-700" value="#b91137" />
+  <ColorSwatch token="cherry-800" value="#9a1234" />
+  <ColorSwatch token="cherry-900" value="#831432" />
+  <ColorSwatch token="cherry-950" value="#3a0612" />
+</ColorSwatchGroup>
+
+### Green
+
+<ColorSwatchGroup>
+  <ColorSwatch token="green-50" value="#ecfdf5" />
+  <ColorSwatch token="green-200" value="#a7f3d0" />
+  <ColorSwatch token="green-400" value="#34d399" />
+  <ColorSwatch token="green-500" value="#10b981" />
+  <ColorSwatch token="green-600" value="#059669" />
+  <ColorSwatch token="green-700" value="#047857" />
+  <ColorSwatch token="green-900" value="#064e3b" />
+  <ColorSwatch token="green-950" value="#022c22" />
+</ColorSwatchGroup>
+
+### Amber
+
+<ColorSwatchGroup>
+  <ColorSwatch token="amber-50" value="#fffbeb" />
+  <ColorSwatch token="amber-200" value="#fde68a" />
+  <ColorSwatch token="amber-400" value="#fbbf24" />
+  <ColorSwatch token="amber-500" value="#f59e0b" />
+  <ColorSwatch token="amber-600" value="#d97706" />
+  <ColorSwatch token="amber-700" value="#b45309" />
+  <ColorSwatch token="amber-900" value="#78350f" />
+  <ColorSwatch token="amber-950" value="#451a03" />
+</ColorSwatchGroup>
+
+### Blue
+
+<ColorSwatchGroup>
+  <ColorSwatch token="blue-50" value="#eff6ff" />
+  <ColorSwatch token="blue-200" value="#bfdbfe" />
+  <ColorSwatch token="blue-400" value="#60a5fa" />
+  <ColorSwatch token="blue-500" value="#3b82f6" />
+  <ColorSwatch token="blue-600" value="#2563eb" />
+  <ColorSwatch token="blue-900" value="#1e3a8a" />
+  <ColorSwatch token="blue-950" value="#172554" />
+</ColorSwatchGroup>
+
+### Violet
+
+<ColorSwatchGroup>
+  <ColorSwatch token="violet-400" value="#a78bfa" />
+  <ColorSwatch token="violet-500" value="#8b5cf6" />
+  <ColorSwatch token="violet-600" value="#7c3aed" />
+</ColorSwatchGroup>
+
+### Alpha
+
+Translucent steps behind the overlay, focus ring and shadow colors.
+
+| Token | Value |
+| --- | --- |
+| `--cherry-alpha-cherry-ring` | `#ef2f5440` |
+| `--cherry-alpha-white-8` | `#ffffff14` |
+| `--cherry-alpha-black-6` | `#0000000f` |
+| `--cherry-alpha-black-15` | `#09090b26` |
+| `--cherry-alpha-black-50` | `#00000080` |
+| `--cherry-alpha-black-70` | `#000000b3` |
+| `--cherry-alpha-white-20` | `#ffffff33` |
+| `--cherry-alpha-shadow-ambient-light` | `#09090b0a` |
+| `--cherry-alpha-shadow-ambient-dark` | `#09090b80` |
+| `--cherry-alpha-shadow-xs-light` | `#09090b0d` |
+| `--cherry-alpha-shadow-xs-dark` | `#09090b80` |
+| `--cherry-alpha-shadow-sm-light` | `#09090b0f` |
+| `--cherry-alpha-shadow-sm-dark` | `#09090b8c` |
+| `--cherry-alpha-shadow-md-light` | `#09090b14` |
+| `--cherry-alpha-shadow-md-dark` | `#09090b99` |
+| `--cherry-alpha-shadow-lg-light` | `#09090b1f` |
+| `--cherry-alpha-shadow-lg-dark` | `#09090bb2` |
+| `--cherry-alpha-shadow-xl-light` | `#09090b2e` |
+| `--cherry-alpha-shadow-xl-dark` | `#09090bd9` |
+| `--cherry-alpha-shadow-highlight-light` | `#ffffff00` |
+| `--cherry-alpha-shadow-highlight-dark` | `#ffffff14` |

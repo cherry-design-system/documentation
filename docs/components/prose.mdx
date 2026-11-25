@@ -1,0 +1,130 @@
+---
+title: "Prose"
+description: "Typography for rendered markdown and CMS content: headings, paragraphs, links, lists, quotes, code, tables and media."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 5
+navIcon: "pilcrow"
+categoryIcon: "table"
+section: "Components"
+---
+# Prose
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=light" title="Prose preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/prose-link-inlinecode-separator-codeblock?theme=dark" title="Prose preview" loading="lazy" style={{ width: "100%", height: "922px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Prose styles rich text that you do not style element by element, such as rendered markdown or CMS content. Headings, paragraphs, links, lists, quotes, code, tables and media all take their look from the text tokens. Only bare elements are styled, so cherry components placed inside keep their own look.
+
+```tsx
+import { Prose } from "@cherry-design-system/react";
+
+export function Article() {
+  return (
+    <Prose>
+      <h2>Getting started</h2>
+      <p>
+        Install the package, then import <code>styles.css</code> once.
+      </p>
+      <ul>
+        <li>No runtime styling</li>
+        <li>Light and dark mode from tokens</li>
+      </ul>
+    </Prose>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+`size` sets the base text size: `body-sm`, `body-md` or `body-lg`.
+
+```tsx
+import { Prose } from "@cherry-design-system/react";
+
+export function Sizes() {
+  return (
+    <>
+      <Prose size="sm"><p>Small body text.</p></Prose>
+      <Prose size="md"><p>Medium body text.</p></Prose>
+      <Prose size="lg"><p>Large body text.</p></Prose>
+    </>
+  );
+}
+```
+
+### Compact, for chat replies and cards
+
+`compact` tightens the rhythm and shrinks the headings.
+
+```tsx
+import { ChatMessage, Prose } from "@cherry-design-system/react";
+
+export function Reply() {
+  return (
+    <ChatMessage role="assistant">
+      <Prose compact>
+        <p>Add a brand in three steps:</p>
+        <ol>
+          <li>Pick an accent color.</li>
+          <li>Override the accent tokens.</li>
+          <li>Check contrast in both modes.</li>
+        </ol>
+      </Prose>
+    </ChatMessage>
+  );
+}
+```
+
+### Rendered markdown
+
+Prose renders its children as given. Pass it React elements from your markdown renderer.
+
+```tsx
+import ReactMarkdown from "react-markdown";
+import { Prose } from "@cherry-design-system/react";
+
+export function Markdown({ source }: { source: string }) {
+  return (
+    <Prose>
+      <ReactMarkdown>{source}</ReactMarkdown>
+    </Prose>
+  );
+}
+```
+
+<Callout type="warning">
+  Never pass unsanitized HTML to Prose (for example through `dangerouslySetInnerHTML`). Content from users or a CMS can carry scripts. Render markdown to React elements, or sanitize the HTML first.
+</Callout>
+
+## Properties
+
+<Field value="size" type='"sm" | "md" | "lg"'>
+  Base text size: `body-sm`, `body-md` or `body-lg`. Defaults to `"md"`.
+</Field>
+
+<Field value="compact" type="boolean">
+  Tighter rhythm and smaller headings, for chat replies and cards.
+</Field>
+
+Prose renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-prose` | Root element |
+| `data-size` | `sm`, `md`, `lg` |
+| `data-compact` | Present with `compact` |
+
+Prose reads the `h1` to `h5` and `body-*` text tokens, `--cherry-fg-default`, `--cherry-fg-muted`, `--cherry-accent-fg` for links, and `--cherry-font-mono` with the `mono-sm` tokens for code.
+
+## Accessibility
+
+Prose styles semantic HTML (headings, lists, tables), so keep a correct heading order in your content. Raw code blocks wrap their long lines, so nothing needs sideways scrolling. For wide code that should scroll, use [CodeBlock](/components/code-block).
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/prose" icon="code" iconPosition="left">
+  View Source
+</Button>

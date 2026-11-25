@@ -1,0 +1,163 @@
+---
+title: "StatCard"
+description: "A metric tile with a label, value, trend-colored delta and an optional sparkline, for dashboards and reports."
+date: "2026-11-25"
+category: "Data display"
+categoryOrder: 8
+order: 7
+navIcon: "trending-up"
+categoryIcon: "table"
+section: "Components"
+---
+# StatCard
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/card-and-statcard?theme=light" title="StatCard preview" loading="lazy" style={{ width: "100%", height: "948px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/card-and-statcard?theme=dark" title="StatCard preview" loading="lazy" style={{ width: "100%", height: "948px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+StatCard is a metric tile for dashboards: a label, a value, a delta whose color follows the trend, and an optional sparkline that draws itself in over a token gradient.
+
+```tsx
+import { StatCard } from "@cherry-design-system/react";
+
+export function ActiveUsers() {
+  return (
+    <StatCard
+      label="Monthly active users"
+      value="12,480"
+      delta="+12.4%"
+      trend="up"
+      data={[4, 6, 5, 8, 9]}
+    />
+  );
+}
+```
+
+## Examples
+
+### Delta label
+
+```tsx
+import { StatCard } from "@cherry-design-system/react";
+
+export function Revenue() {
+  return (
+    <StatCard
+      label="Revenue"
+      value="$48,200"
+      delta="+8.1%"
+      trend="up"
+      deltaLabel="vs last month"
+    />
+  );
+}
+```
+
+### When up is bad
+
+For costs, errors or latency, set `inverse`: up then reads as danger and down as success.
+
+```tsx
+import { StatCard } from "@cherry-design-system/react";
+
+export function ErrorRate() {
+  return (
+    <StatCard
+      label="Error rate"
+      value="0.8%"
+      delta="-0.3%"
+      trend="down"
+      inverse
+      data={[1.4, 1.2, 1.1, 0.9, 0.8]}
+    />
+  );
+}
+```
+
+### A row of cards
+
+```tsx
+import { Grid, StatCard } from "@cherry-design-system/react";
+
+export function Overview() {
+  return (
+    <Grid cols={{ xs: 1, md: 3 }} gap={4}>
+      <StatCard label="Signups" value="1,204" delta="+4%" trend="up" />
+      <StatCard label="Churn" value="2.1%" delta="+0.2%" trend="up" inverse />
+      <StatCard label="Open tickets" value="38" delta="0" trend="neutral" />
+    </Grid>
+  );
+}
+```
+
+### Translated trend words
+
+```tsx
+import { StatCard } from "@cherry-design-system/react";
+
+export function Umsatz() {
+  return (
+    <StatCard
+      label="Umsatz"
+      value="48.200 €"
+      delta="+8,1 %"
+      trend="up"
+      trendLabels={{ up: "Gestiegen", down: "Gesunken", neutral: "Unverändert" }}
+    />
+  );
+}
+```
+
+## Properties
+
+<Field value="label" type="ReactNode" required>
+  What the metric is.
+</Field>
+
+<Field value="value" type="ReactNode" required>
+  The metric value.
+</Field>
+
+<Field value="delta" type="ReactNode">
+  The change, for example `"+12.4%"`.
+</Field>
+
+<Field value="trend" type='"neutral" | "up" | "down"'>
+  Direction of the change. Defaults to `"neutral"`.
+</Field>
+
+<Field value="inverse" type="boolean">
+  For metrics where up is bad (costs, errors): up reads as danger, down as success.
+</Field>
+
+<Field value="deltaLabel" type="ReactNode">
+  Text after the delta, for example `"vs last month"`.
+</Field>
+
+<Field value="data" type="number[]">
+  Values for the sparkline. It shows with two or more values.
+</Field>
+
+<Field value="trendLabels" type="Partial<Record<StatCardTrend, string>>">
+  Spoken direction words before the delta, translatable. Defaults to "Up", "Down" and "No change".
+</Field>
+
+StatCard renders a `<div>`, forwards its ref to it and passes every other `<div>` attribute through. It has no client JavaScript, so it is safe in Server Components.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| `.cherry-stat-card` | Root element |
+| `data-trend` | `up`, `down`, `neutral` |
+| `data-inverse` | Present with `inverse` |
+| Parts | `.cherry-stat-card__label`, `__row`, `__value`, `__spark`, `__stop`, `__area`, `__line`, `__dot`, `__footer`, `__delta`, `__delta-label` |
+
+The card reads `--cherry-bg-elevated`, `--cherry-border-default` and `--cherry-radius-lg`; the value uses the `h3` text tokens; the delta reads `--cherry-success-bg` / `--cherry-success-fg` or `--cherry-danger-bg` / `--cherry-danger-fg`.
+
+## Accessibility
+
+The delta is read as text with its direction ("Up", "Down", set with `trendLabels`), not only through color and the arrow. The sparkline is decorative, so state anything important in the value or delta.
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/stat-card" icon="code" iconPosition="left">
+  View Source
+</Button>

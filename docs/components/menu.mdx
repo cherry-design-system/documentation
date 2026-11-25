@@ -1,0 +1,187 @@
+---
+title: "Menu"
+description: "Menu button that opens a list of actions anchored to its trigger, with groups, separators, shortcuts, danger items and full keyboard support."
+date: "2026-11-25"
+category: "Navigation"
+categoryOrder: 5
+order: 1
+navIcon: "menu"
+categoryIcon: "navigation"
+section: "Components"
+---
+# Menu
+
+<iframe className="light-only" src="https://v2.cherry.al/preview/menu?theme=light" title="Menu preview" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+<iframe className="dark-only" src="https://v2.cherry.al/preview/menu?theme=dark" title="Menu preview" loading="lazy" style={{ width: "100%", height: "480px", border: "1px solid var(--color-grayLight)", borderRadius: "12px" }} />
+
+Menu is a menu button: the trigger opens a list of actions (`role="menu"`) anchored to it, on the native `popover` attribute. Compose it with `MenuItem`, `MenuGroup` and `MenuSeparator`. For non-action content such as a form or a note, use [Popover](/components/popover).
+
+```tsx
+"use client";
+import { Button, Menu, MenuItem } from "@cherry-design-system/react";
+
+export function ProjectActions() {
+  return (
+    <Menu trigger={<Button variant="outline">Actions</Button>}>
+      <MenuItem onClick={() => console.log("rename")}>Rename</MenuItem>
+      <MenuItem onClick={() => console.log("duplicate")}>Duplicate</MenuItem>
+    </Menu>
+  );
+}
+```
+
+## Examples
+
+### Groups, icons, shortcuts and a danger item
+
+```tsx
+"use client";
+import { Button, Menu, MenuGroup, MenuItem, MenuSeparator } from "@cherry-design-system/react";
+import { Copy, Pencil, Trash } from "lucide-react";
+
+export function ProjectMenu({ onCopy, onRename, onDelete }: {
+  onCopy: () => void;
+  onRename: () => void;
+  onDelete: () => void;
+}) {
+  return (
+    <Menu trigger={<Button variant="outline">Actions</Button>}>
+      <MenuGroup label="Project">
+        <MenuItem icon={<Copy />} shortcut="⌘C" aria-keyshortcuts="Meta+C" onClick={onCopy}>
+          Copy link
+        </MenuItem>
+        <MenuItem icon={<Pencil />} onClick={onRename}>Rename</MenuItem>
+      </MenuGroup>
+      <MenuSeparator />
+      <MenuItem icon={<Trash />} variant="danger" onClick={onDelete}>
+        Delete project
+      </MenuItem>
+    </Menu>
+  );
+}
+```
+
+### Icon button trigger and placement
+
+`placement` picks the side of the trigger and `align` the alignment along it.
+
+```tsx
+"use client";
+import { IconButton, Menu, MenuItem } from "@cherry-design-system/react";
+import { EllipsisVertical } from "lucide-react";
+
+export function RowMenu() {
+  return (
+    <Menu
+      placement="bottom"
+      align="end"
+      trigger={<IconButton aria-label="Row actions" icon={<EllipsisVertical />} variant="ghost" />}
+    >
+      <MenuItem>Edit</MenuItem>
+      <MenuItem disabled>Archive</MenuItem>
+    </Menu>
+  );
+}
+```
+
+### Keeping the menu open
+
+Choosing an item runs `onClick` and then closes the menu, unless `onClick` calls `event.preventDefault()`. Inside the menu, `useMenu()` returns `{ close }` (or `null` outside a Menu) so a custom child can close it.
+
+```tsx
+"use client";
+import { useState } from "react";
+import { MenuItem } from "@cherry-design-system/react";
+
+export function PinItem() {
+  const [pinned, setPinned] = useState(false);
+  return (
+    <MenuItem
+      onClick={(event) => {
+        event.preventDefault();
+        setPinned((value) => !value);
+      }}
+    >
+      {pinned ? "Unpin" : "Pin"}
+    </MenuItem>
+  );
+}
+```
+
+## Properties
+
+### Menu
+
+<Field value="trigger" type="ReactElement" required>
+  The button that opens the menu, a `Button` or `IconButton`. Menu adds the id, `popoverTarget` and ARIA attributes to it.
+</Field>
+
+<Field value="children" type="ReactNode" required>
+  `MenuItem`, `MenuGroup` and `MenuSeparator` elements.
+</Field>
+
+<Field value="placement" type='"left" | "right" | "top" | "bottom"'>
+  Side of the trigger. Defaults to `"bottom"`.
+</Field>
+
+<Field value="align" type='"start" | "end" | "center"'>
+  Alignment along that side. Defaults to `"start"`.
+</Field>
+
+<Field value="onOpenChange" type="(open: boolean) => void">
+  Called when the menu opens or closes.
+</Field>
+
+Menu renders a `<div>` with the `popover` attribute next to the trigger, forwards its ref to it and passes other `<div>` attributes through. It is a Client Component.
+
+### MenuItem
+
+<Field value="icon" type="ReactNode">
+  Icon before the label, such as `<Copy />`.
+</Field>
+
+<Field value="shortcut" type="ReactNode">
+  Visual shortcut hint at the end, such as "⌘C". Pass `aria-keyshortcuts` for assistive tech.
+</Field>
+
+<Field value="variant" type='"default" | "danger"'>
+  `"danger"` for destructive actions. Defaults to `"default"`.
+</Field>
+
+MenuItem renders a `<button role="menuitem">`, forwards its ref and passes other `<button>` attributes through. A `disabled` item stays visible but is skipped by the keyboard and does nothing.
+
+### MenuGroup
+
+<Field value="label" type="ReactNode">
+  Small all-caps heading over the group; names it for assistive tech.
+</Field>
+
+MenuGroup renders a `<div role="group">`, forwards its ref and passes other `<div>` attributes through.
+
+### MenuSeparator
+
+MenuSeparator has no props of its own. It renders a `<div>`, forwards its ref and passes `<div>` attributes through.
+
+## Styling
+
+| Hook | Values |
+| --- | --- |
+| Class | `cherry-menu` |
+| `data-placement` | `top`, `bottom`, `left`, `right` |
+| `data-align` | `start`, `center`, `end` |
+| States | `:popover-open` |
+| Parts | `cherry-menu__trigger`, `cherry-menu__group`, `cherry-menu__label`, `cherry-menu__separator` |
+| Item class | `cherry-menu-item` |
+| Item `data-variant` | `default`, `danger` |
+| Item states | `aria-disabled`, `:hover`, `:focus` |
+| Item parts | `cherry-menu-item__icon`, `cherry-menu-item__label`, `cherry-menu-item__shortcut` |
+
+The panel reads `--cherry-bg-elevated`, `--cherry-border-default`, `--cherry-radius-xl` and `--cherry-elevation-lg`. Danger items use `--cherry-danger-fg` and `--cherry-danger-bg`.
+
+## Accessibility
+
+Opening the menu focuses the first item. Up and Down, Home and End, and typeahead move between items; Escape or Tab close it and focus returns to the trigger. Shortcut hints are hidden from screen readers. The danger tint is not announced, so name destructive items clearly ("Delete project").
+
+<Button href="https://github.com/cherry-design-system/react/tree/main/src/components/menu" icon="code" iconPosition="left">
+  View Source
+</Button>
