@@ -1,7 +1,7 @@
 ---
 title: "Changelog"
 description: "Release notes for every version of cherry 2.0, the @cherry-design-system/react package."
-date: "2026-11-25"
+date: "2026-11-27"
 category: "Resources"
 categoryOrder: 2
 order: 2
@@ -11,7 +11,38 @@ rss: true
 ---
 # Changelog
 
-`@cherry-design-system/react` is currently at version `2.0.1`. The entries below follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Release notes for `cherry-styled-components` are in the 1.x documentation, under the version switcher.
+`@cherry-design-system/react` is currently at version `2.1.0`. The entries below follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Release notes for `cherry-styled-components` are in the 1.x documentation, under the version switcher.
+
+<Update label="2.1.0" description="2026-11-27">
+
+A keyboard shortcut for light and dark: `useColorModeShortcut()` flips the mode on ⌘⇧L (Ctrl+Shift+L off Apple) and gives your toggle its `aria-keyshortcuts` and a label for the tooltip. See [Dark mode](/dark-mode) and [ThemeToggle](/components/theme-toggle).
+
+<Badge color="green" size="sm">Added</Badge>
+
+- `useColorModeShortcut(keys?, { enabled? })`: an opt-in keyboard shortcut that toggles light and dark, `mod+shift+l` by default (⌘⇧L on Apple, Ctrl+Shift+L elsewhere). It ignores keys typed in inputs, textareas, selects and editors, key repeat, IME composition and events another handler already took, toggles once however many components call it with the same keys, and returns `ariaKeyShortcuts` and a display `label` for the toggle's `aria-keyshortcuts` and tooltip. A shortcut without `mod`, `ctrl`, `meta` or `alt` throws, so it can never fire while someone types (WCAG 2.1.4)
+
+</Update>
+
+<Update label="2.0.2" description="2026-11-26">
+
+More control over [Flex](/components/flex) and Stack alignment and spacing, a smoother [SearchDialog](/components/search-dialog) list, and no more iOS zoom when a field gets focus.
+
+<Badge color="green" size="sm">Added</Badge>
+
+- `Flex` and `Stack` `alignContent` (`align-content`): how wrapped lines share the cross axis, with `normal` (default), `stretch`, `flex-start`, `center`, `flex-end`, `start`, `end`, `space-between`, `space-around` and `space-evenly`. Responsive like every other layout prop
+- `Flex` and `Stack` `rowGap` and `columnGap`: a spacing step for one axis only, falling back to `gap`, so `gap={4} rowGap={1}` tightens just the space between lines
+- `start` and `end` for `Flex` `justify` and `align`, which follow the writing direction (unlike `flex-start` and `flex-end`, which follow the flex direction). The new `FlexAlignContent` type is exported
+
+<Badge color="blue" size="sm">Changed</Badge>
+
+- `SearchDialog` results scroll from right under the search header, so rows slide up to its edge instead of being cut on a line mid-dialog, and the bottom of the list fades out while there are more results below (no fade when the list fits or is scrolled to the end)
+- The ConfirmButton playground demo shows its files as a list card in FileItem's style (icon tile, name, size line) with the ConfirmButton as each row's action, matching the new example in the Figma kit
+
+<Badge color="orange" size="sm">Fixed</Badge>
+
+- iOS Safari no longer zooms the page when a field gets focus. On touch screens, text-entry controls (Input, Textarea, Select, Combobox, NumberField, OTPInput, ChatInput, SearchDialog) render their typed text at 16px or more, at the same box size, so they still line up with buttons. The floor is `--cherry-control-text-min`; set it to `0px` to opt out
+
+</Update>
 
 <Update label="2.0.1" description="2026-11-25">
 
