@@ -16,18 +16,28 @@ It is documentation only: no runtime code, and it is not part of the npm package
 
 ## What it contains
 
-```text
-cherry-react/
-  SKILL.md                 # Agent Skill: rules, quick start, which component to use
-  AGENTS.md                # self-contained guide for agents that read one file
-  README.md
-  references/
-    components.md          # every component: props, defaults, accessibility, checked example
-    tokens.md              # every --cherry-* token with light and dark values
-    setup.md               # install, Next.js, Vite, per-component CSS, server-side mode
-    theming.md             # light/dark, useColorMode, brands, overrides, custom components
-    accessibility.md       # what cherry guarantees, what you provide, keyboard, testing
-```
+<FileTree>
+
+- cherry-react/
+  - SKILL.md
+  - AGENTS.md
+  - README.md
+  - references/
+    - components.md
+    - tokens.md
+    - setup.md
+    - theming.md
+    - accessibility.md
+
+</FileTree>
+
+- `SKILL.md`: the Agent Skill, with the rules, a quick start and which component to use.
+- `AGENTS.md`: a self-contained guide for agents that read one file.
+- `references/components.md`: every component, with props, defaults, accessibility and a checked example.
+- `references/tokens.md`: every `--cherry-*` token with its light and dark values.
+- `references/setup.md`: install, Next.js, Vite, per-component CSS and server-side mode.
+- `references/theming.md`: light and dark, `useColorMode`, brands, overrides and custom components.
+- `references/accessibility.md`: what cherry guarantees, what you provide, keyboard and testing.
 
 `components.md` and `tokens.md` are generated from the component source, the manifests and the token files. CI fails if they fall out of date, and every example in them is type-checked against the real components, so the skill matches each release.
 
